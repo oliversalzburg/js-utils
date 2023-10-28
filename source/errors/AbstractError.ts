@@ -1,4 +1,4 @@
-import { Maybe, isNil } from "../nil.js";
+import { Maybe } from "../nil.js";
 
 /**
  * Base class for all errors.
@@ -33,25 +33,14 @@ export class AbstractError extends Error {
    * @param code The main identification code for the error.
    * @param message The main error message.
    * @param status The HTTP status code to return.
-   * @param userFriendlyErrorMessage An optional user-friendly message that will be attached to the Error and which is allowed to be propagated to the frontend.
    */
-  constructor(
-    code: string,
-    message: string,
-    status: number,
-    userFriendlyErrorMessage?: Maybe<string>,
-  ) {
+  constructor(code: string, message: string, status: number) {
     super(message);
 
     this.code = code;
     this.name = "AbstractError";
     this.status = status;
     this.inner = null;
-
-    if (!isNil(userFriendlyErrorMessage)) {
-      this.info = userFriendlyErrorMessage;
-      this.extensions = { userError: userFriendlyErrorMessage };
-    }
 
     // Capture a new stacktrace, otherwise it will include our base-class constructor instead of the code
     // location we're actually interested in.

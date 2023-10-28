@@ -17,6 +17,7 @@
     "build": "yarn run build:tsc",
     "build:esbuild": "node build.js",
     "build:tsc": "tsc",
+    "lint": "yarn run lint:eslint && yarn run lint:tsc",
     "lint:eslint": "eslint source ./*js",
     "lint:tsc": "tsc --noEmit",
     "npm:publish": "npm publish",

@@ -1,4 +1,3 @@
-import { Maybe } from "../nil.js";
 import { AbstractError } from "./AbstractError.js";
 
 /**
@@ -13,12 +12,9 @@ export class UnknownError extends AbstractError {
    * Constructs a new `UnknownError`.
    * @param message The main error message.
    * @param status The HTTP status code to return.
-   * @param userFriendlyErrorMessage An optional user-friendly message that will
-   * be attached to the Error and which is allowed to be propagated to the
-   * frontend.
    */
-  constructor(message: string, status = 500, userFriendlyErrorMessage: Maybe<string> = undefined) {
-    super("ERR_OS_UNKNOWN", message, status, userFriendlyErrorMessage);
+  constructor(message: string, status = 500) {
+    super("ERR_OS_UNKNOWN", message, status);
 
     this.name = "UnknownError";
 
