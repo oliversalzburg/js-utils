@@ -32,7 +32,7 @@ Constructs a new `InvalidArgumentError`.
 
 #### Defined in
 
-[source/errors/InvalidArgumentError.ts:13](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/InvalidArgumentError.ts#L13)
+[errors/InvalidArgumentError.ts:13](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/InvalidArgumentError.ts#L13)
 
 ## Properties
 
@@ -46,7 +46,7 @@ Constructs a new `InvalidArgumentError`.
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es2022.error.d.ts:24
+../node_modules/typescript/lib/lib.es2022.error.d.ts:24
 
 ---
 
@@ -62,7 +62,7 @@ An application-unique, readable error code.
 
 #### Defined in
 
-[source/errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L29)
+[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L29)
 
 ---
 
@@ -82,7 +82,7 @@ User-friendly errors should be read from `extensions`.
 
 #### Defined in
 
-[source/errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L24)
+[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L24)
 
 ---
 
@@ -102,7 +102,7 @@ We don't make use of this or interpret nested errors at all.
 
 #### Defined in
 
-[source/errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L18)
+[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L18)
 
 ---
 
@@ -116,7 +116,7 @@ We don't make use of this or interpret nested errors at all.
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1068
+../node_modules/typescript/lib/lib.es5.d.ts:1068
 
 ---
 
@@ -130,7 +130,7 @@ node_modules/typescript/lib/lib.es5.d.ts:1068
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1067
+../node_modules/typescript/lib/lib.es5.d.ts:1067
 
 ---
 
@@ -144,7 +144,7 @@ node_modules/typescript/lib/lib.es5.d.ts:1067
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1069
+../node_modules/typescript/lib/lib.es5.d.ts:1069
 
 ---
 
@@ -165,7 +165,7 @@ status codes.
 
 #### Defined in
 
-[source/errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L12)
+[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L12)
 
 ---
 
@@ -200,7 +200,7 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:11
+../node_modules/@types/node/globals.d.ts:11
 
 ---
 
@@ -214,7 +214,7 @@ node_modules/@types/node/globals.d.ts:11
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:13
+../node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
@@ -241,7 +241,7 @@ Create .stack property on a target object
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:4
+../node_modules/@types/node/globals.d.ts:4
 
 ---
 
@@ -266,4 +266,4 @@ error is AbstractError
 
 #### Defined in
 
-[source/errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L50)
+[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L50)

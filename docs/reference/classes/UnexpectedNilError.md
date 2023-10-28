@@ -28,7 +28,7 @@ Error.constructor
 
 #### Defined in
 
-[source/nil.ts:40](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/nil.ts#L40)
+[nil.ts:40](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/nil.ts#L40)
 
 ## Properties
 
@@ -42,7 +42,7 @@ Error.cause
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es2022.error.d.ts:24
+../node_modules/typescript/lib/lib.es2022.error.d.ts:24
 
 ---
 
@@ -56,7 +56,7 @@ Error.message
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1068
+../node_modules/typescript/lib/lib.es5.d.ts:1068
 
 ---
 
@@ -70,7 +70,7 @@ Error.name
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1067
+../node_modules/typescript/lib/lib.es5.d.ts:1067
 
 ---
 
@@ -84,7 +84,7 @@ Error.stack
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1069
+../node_modules/typescript/lib/lib.es5.d.ts:1069
 
 ---
 
@@ -119,7 +119,7 @@ Error.prepareStackTrace
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:11
+../node_modules/@types/node/globals.d.ts:11
 
 ---
 
@@ -133,7 +133,7 @@ Error.stackTraceLimit
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:13
+../node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
@@ -160,4 +160,4 @@ Error.captureStackTrace
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:4
+../node_modules/@types/node/globals.d.ts:4

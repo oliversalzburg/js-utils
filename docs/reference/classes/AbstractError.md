@@ -46,7 +46,7 @@ Error.constructor
 
 #### Defined in
 
-[source/errors/AbstractError.ts:37](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L37)
+[errors/AbstractError.ts:37](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L37)
 
 ## Properties
 
@@ -60,7 +60,7 @@ Error.cause
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es2022.error.d.ts:24
+../node_modules/typescript/lib/lib.es2022.error.d.ts:24
 
 ---
 
@@ -72,7 +72,7 @@ An application-unique, readable error code.
 
 #### Defined in
 
-[source/errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L29)
+[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L29)
 
 ---
 
@@ -88,7 +88,7 @@ User-friendly errors should be read from `extensions`.
 
 #### Defined in
 
-[source/errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L24)
+[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L24)
 
 ---
 
@@ -104,7 +104,7 @@ We don't make use of this or interpret nested errors at all.
 
 #### Defined in
 
-[source/errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L18)
+[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L18)
 
 ---
 
@@ -118,7 +118,7 @@ Error.message
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1068
+../node_modules/typescript/lib/lib.es5.d.ts:1068
 
 ---
 
@@ -132,7 +132,7 @@ Error.name
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1067
+../node_modules/typescript/lib/lib.es5.d.ts:1067
 
 ---
 
@@ -146,7 +146,7 @@ Error.stack
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1069
+../node_modules/typescript/lib/lib.es5.d.ts:1069
 
 ---
 
@@ -163,7 +163,7 @@ status codes.
 
 #### Defined in
 
-[source/errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L12)
+[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L12)
 
 ---
 
@@ -198,7 +198,7 @@ Error.prepareStackTrace
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:11
+../node_modules/@types/node/globals.d.ts:11
 
 ---
 
@@ -212,7 +212,7 @@ Error.stackTraceLimit
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:13
+../node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
@@ -239,7 +239,7 @@ Error.captureStackTrace
 
 #### Defined in
 
-node_modules/@types/node/globals.d.ts:4
+../node_modules/@types/node/globals.d.ts:4
 
 ---
 
@@ -260,4 +260,4 @@ error is AbstractError
 
 #### Defined in
 
-[source/errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/5a66c6c/source/errors/AbstractError.ts#L50)
+[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L50)
