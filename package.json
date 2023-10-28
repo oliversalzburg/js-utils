@@ -1,16 +1,28 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "@oliversalzburg/js-utils",
   "version": "0.0.1",
   "license": "MIT",
   "author": "Oliver Salzburg <oliver.salzburg@gmail.com>",
   "type": "module",
-  "exports": "./output/index.js",
+  "exports": {
+    ".": {
+      "default": "./output/index.js"
+    },
+    "./*.js": {
+      "default": "./output/*.js"
+    }
+  },
   "scripts": {
     "build": "yarn run build:tsc",
     "build:esbuild": "node build.js",
     "build:tsc": "tsc",
     "lint:eslint": "eslint source",
     "lint:tsc": "tsc --noEmit",
+    "npm:publish": "npm publish",
+    "npm:publish:major": "npm version major && npm publish",
+    "npm:publish:minor": "npm version minor && npm publish",
+    "npm:publish:patch": "npm version patch && npm publish",
     "prepack": "yarn run build"
   },
   "types": "./output/index.d.ts",
