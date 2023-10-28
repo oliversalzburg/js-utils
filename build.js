@@ -1,11 +1,12 @@
-const esbuild = require("esbuild");
+import esbuild from "esbuild";
 
 esbuild
   .build({
+    bundle: true,
     entryPoints: ["./source/main.ts"],
-    outfile: "./output/main.cjs",
+    format: "esm",
+    outfile: "./output/main.js",
     platform: "node",
     target: "node18",
-    bundle: true,
   })
   .catch(console.error);

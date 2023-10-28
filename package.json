@@ -1,13 +1,19 @@
 {
-  "name": "yarn3-typescript-nodejs-esbuild",
-  "packageManager": "yarn@4.0.0",
-  "author": "Oliver Salzburg <oliver.salzburg@gmail.com>",
+  "name": "@oliversalzburg/js-utils",
+  "version": "0.0.1",
   "license": "MIT",
+  "author": "Oliver Salzburg <oliver.salzburg@gmail.com>",
+  "type": "module",
+  "exports": "./output/index.js",
   "scripts": {
-    "build": "node build.cjs",
+    "build": "yarn run build:tsc",
+    "build:esbuild": "node build.js",
+    "build:tsc": "tsc",
     "lint:eslint": "eslint source",
-    "lint:tsc": "tsc --noEmit"
+    "lint:tsc": "tsc --noEmit",
+    "prepack": "yarn run build"
   },
+  "types": "./output/index.d.ts",
   "devDependencies": {
     "@types/eslint": "8.44.6",
     "@types/node": "20.8.9",
@@ -20,5 +26,6 @@
     "prettier-package-json": "2.8.0",
     "prettier-plugin-organize-imports": "3.2.3",
     "typescript": "5.2.2"
-  }
+  },
+  "packageManager": "yarn@4.0.0"
 }

@@ -288,6 +288,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@oliversalzburg/js-utils@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@oliversalzburg/js-utils@workspace:."
+  dependencies:
+    "@types/eslint": "npm:8.44.6"
+    "@types/node": "npm:20.8.9"
+    "@typescript-eslint/eslint-plugin": "npm:6.9.0"
+    "@typescript-eslint/parser": "npm:6.9.0"
+    esbuild: "npm:0.19.5"
+    eslint: "npm:8.52.0"
+    lint-staged: "npm:15.0.2"
+    prettier: "npm:3.0.3"
+    prettier-package-json: "npm:2.8.0"
+    prettier-plugin-organize-imports: "npm:3.2.3"
+    typescript: "npm:5.2.2"
+  languageName: unknown
+  linkType: soft
+
 "@types/eslint@npm:8.44.6":
   version: 8.44.6
   resolution: "@types/eslint@npm:8.44.6"
@@ -2091,24 +2109,6 @@ __metadata:
   checksum: 5c28b9eb7adc46544f28d9a8d20c5b3cb1215a886609a2fd41f51628d8aaa5878ccd628b755dbcd29f6bb4921bd04ffbc6dcc370689bb96e594e2f9813d2605f
   languageName: node
   linkType: hard
-
-"yarn3-typescript-nodejs-esbuild@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "yarn3-typescript-nodejs-esbuild@workspace:."
-  dependencies:
-    "@types/eslint": "npm:8.44.6"
-    "@types/node": "npm:20.8.9"
-    "@typescript-eslint/eslint-plugin": "npm:6.9.0"
-    "@typescript-eslint/parser": "npm:6.9.0"
-    esbuild: "npm:0.19.5"
-    eslint: "npm:8.52.0"
-    lint-staged: "npm:15.0.2"
-    prettier: "npm:3.0.3"
-    prettier-package-json: "npm:2.8.0"
-    prettier-plugin-organize-imports: "npm:3.2.3"
-    typescript: "npm:5.2.2"
-  languageName: unknown
-  linkType: soft
 
 "yocto-queue@npm:^0.1.0":
   version: 0.1.0

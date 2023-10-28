@@ -1,0 +1,10 @@
+node_modules/
+output/tsconfig.tsbuildinfo
+source/
+.*
+*.config.js
+build.js
+package.tgz
+renovate.json
+tsconfig.json
+yarn.lock
