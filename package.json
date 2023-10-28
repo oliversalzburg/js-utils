@@ -17,7 +17,7 @@
     "build": "yarn run build:tsc",
     "build:esbuild": "node build.js",
     "build:tsc": "tsc",
-    "docs": "typedoc --plugin typedoc-plugin-markdown",
+    "docs:typedoc": "typedoc --plugin typedoc-plugin-markdown",
     "lint": "yarn run lint:eslint && yarn run lint:tsc",
     "lint:eslint": "eslint source ./*js",
     "lint:tsc": "tsc --noEmit",

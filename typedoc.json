@@ -4,5 +4,5 @@
   "entryPoints": ["./source/index.ts"],
   "excludePrivate": true,
   "hideInPageTOC": true,
-  "out": "./docs/reference"
+  "out": "./docs"
 }

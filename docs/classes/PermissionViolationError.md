@@ -1,30 +1,30 @@
-[@oliversalzburg/js-utils](../README.md) / [Exports](../modules.md) / InvalidOperationError
+[@oliversalzburg/js-utils](../README.md) / [Exports](../modules.md) / PermissionViolationError
 
-# Class: InvalidOperationError
+# Class: PermissionViolationError
 
-Used when an operation was attempted that can not be completed in the current
-context.
+An error used when access to a resource was requested, but the required
+permissions were not available.
 
 ## Hierarchy
 
 -   [`AbstractError`](AbstractError.md)
 
-    ↳ **`InvalidOperationError`**
+    ↳ **`PermissionViolationError`**
 
 ## Constructors
 
 ### constructor
 
-• **new InvalidOperationError**(`message`, `status?`)
+• **new PermissionViolationError**(`message`, `status?`)
 
-Constructs a new `InvalidOperationError`.
+Constructs a new `PermissionViolationError`.
 
 #### Parameters
 
 | Name      | Type     | Default value | Description                     |
 | :-------- | :------- | :------------ | :------------------------------ |
 | `message` | `string` | `undefined`   | The main error message.         |
-| `status`  | `number` | `400`         | The HTTP status code to return. |
+| `status`  | `number` | `403`         | The HTTP status code to return. |
 
 #### Overrides
 
@@ -32,7 +32,7 @@ Constructs a new `InvalidOperationError`.
 
 #### Defined in
 
-[errors/InvalidOperationError.ts:13](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/InvalidOperationError.ts#L13)
+[errors/PermissionViolationError.ts:13](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/PermissionViolationError.ts#L13)
 
 ## Properties
 
@@ -62,7 +62,7 @@ An application-unique, readable error code.
 
 #### Defined in
 
-[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L29)
+[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L29)
 
 ---
 
@@ -82,7 +82,7 @@ User-friendly errors should be read from `extensions`.
 
 #### Defined in
 
-[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L24)
+[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L24)
 
 ---
 
@@ -102,7 +102,7 @@ We don't make use of this or interpret nested errors at all.
 
 #### Defined in
 
-[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L18)
+[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L18)
 
 ---
 
@@ -165,7 +165,7 @@ status codes.
 
 #### Defined in
 
-[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L12)
+[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L12)
 
 ---
 
@@ -266,4 +266,4 @@ error is AbstractError
 
 #### Defined in
 
-[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L50)
+[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L50)

@@ -30,7 +30,7 @@ A type that could be either what you want, or `Nil`.
 
 #### Defined in
 
-[nil.ts:12](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/nil.ts#L12)
+[nil.ts:12](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/nil.ts#L12)
 
 ---
 
@@ -43,7 +43,7 @@ with either type through a consistent interface.
 
 #### Defined in
 
-[nil.ts:7](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/nil.ts#L7)
+[nil.ts:7](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/nil.ts#L7)
 
 ---
 
@@ -55,7 +55,7 @@ The shape of an `Error` instance, after it has been serialized into a simple has
 
 #### Defined in
 
-[error-serializer.ts:9](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/error-serializer.ts#L9)
+[error-serializer.ts:9](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/error-serializer.ts#L9)
 
 ## Functions
 
@@ -87,7 +87,7 @@ in `a`.
 
 #### Defined in
 
-[array.ts:38](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/array.ts#L38)
+[array.ts:38](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/array.ts#L38)
 
 ---
 
@@ -111,7 +111,7 @@ A JSON string representing the error.
 
 #### Defined in
 
-[error-serializer.ts:44](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/error-serializer.ts#L44)
+[error-serializer.ts:44](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/error-serializer.ts#L44)
 
 ---
 
@@ -135,7 +135,7 @@ A new object that contains all the properties of the error.
 
 #### Defined in
 
-[error-serializer.ts:53](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/error-serializer.ts#L53)
+[error-serializer.ts:53](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/error-serializer.ts#L53)
 
 ---
 
@@ -165,7 +165,7 @@ A simple representation of the error.
 
 #### Defined in
 
-[error-serializer.ts:66](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/error-serializer.ts#L66)
+[error-serializer.ts:66](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/error-serializer.ts#L66)
 
 ---
 
@@ -197,7 +197,7 @@ A new array with the filtered items.
 
 #### Defined in
 
-[array.ts:49](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/array.ts#L49)
+[array.ts:49](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/array.ts#L49)
 
 ---
 
@@ -229,7 +229,7 @@ formatString("{0} {1}", ["Hello", "World"]);
 
 #### Defined in
 
-[string-formatter.ts:10](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/string-formatter.ts#L10)
+[string-formatter.ts:10](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/string-formatter.ts#L10)
 
 ---
 
@@ -261,7 +261,7 @@ formatString("{first} {second}", { first: "Hello", second: "World" });
 
 #### Defined in
 
-[string-formatter.ts:25](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/string-formatter.ts#L25)
+[string-formatter.ts:25](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/string-formatter.ts#L25)
 
 ---
 
@@ -294,7 +294,7 @@ both passed arrays.
 
 #### Defined in
 
-[array.ts:27](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/array.ts#L27)
+[array.ts:27](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/array.ts#L27)
 
 ---
 
@@ -327,7 +327,7 @@ nilable is T
 
 #### Defined in
 
-[nil.ts:22](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/nil.ts#L22)
+[nil.ts:22](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/nil.ts#L22)
 
 ---
 
@@ -347,11 +347,11 @@ Determine if the given unknown subject is an `Error` instance.
 
 subject is Error
 
-`true` if the subject is an `Error`, `false´ otherwise.
+`true` if the subject is an `Error`, `false` otherwise.
 
 #### Defined in
 
-[error-serializer.ts:16](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/error-serializer.ts#L16)
+[error-serializer.ts:16](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/error-serializer.ts#L16)
 
 ---
 
@@ -382,7 +382,7 @@ subject is Nil
 
 #### Defined in
 
-[nil.ts:32](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/nil.ts#L32)
+[nil.ts:32](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/nil.ts#L32)
 
 ---
 
@@ -416,7 +416,7 @@ When the subject is nil.
 
 #### Defined in
 
-[nil.ts:51](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/nil.ts#L51)
+[nil.ts:51](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/nil.ts#L51)
 
 ---
 
@@ -446,7 +446,7 @@ The passed array in random order.
 
 #### Defined in
 
-[array.ts:9](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/array.ts#L9)
+[array.ts:9](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/array.ts#L9)
 
 ---
 
@@ -470,7 +470,7 @@ Nothing
 
 #### Defined in
 
-[sleep.ts:6](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/sleep.ts#L6)
+[sleep.ts:6](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/sleep.ts#L6)
 
 ---
 
@@ -496,4 +496,4 @@ An `AbstractError` instance.
 
 #### Defined in
 
-[error-serializer.ts:27](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/error-serializer.ts#L27)
+[error-serializer.ts:27](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/error-serializer.ts#L27)

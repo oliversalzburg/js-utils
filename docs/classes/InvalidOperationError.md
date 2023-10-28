@@ -1,33 +1,30 @@
-[@oliversalzburg/js-utils](../README.md) / [Exports](../modules.md) / UnknownError
+[@oliversalzburg/js-utils](../README.md) / [Exports](../modules.md) / InvalidOperationError
 
-# Class: UnknownError
+# Class: InvalidOperationError
 
-Used when an unknown, non-`Error`-like object was caught and converted into a
-real `Error` instance.
-Like when you catch a `throw "boom"`, we will convert the caught `"boom"`
-into an `UnknownError`.
-To enrich an `Error`-like object that was caught, use the `InternalError`.
+Used when an operation was attempted that can not be completed in the current
+context.
 
 ## Hierarchy
 
 -   [`AbstractError`](AbstractError.md)
 
-    ↳ **`UnknownError`**
+    ↳ **`InvalidOperationError`**
 
 ## Constructors
 
 ### constructor
 
-• **new UnknownError**(`message`, `status?`)
+• **new InvalidOperationError**(`message`, `status?`)
 
-Constructs a new `UnknownError`.
+Constructs a new `InvalidOperationError`.
 
 #### Parameters
 
 | Name      | Type     | Default value | Description                     |
 | :-------- | :------- | :------------ | :------------------------------ |
 | `message` | `string` | `undefined`   | The main error message.         |
-| `status`  | `number` | `500`         | The HTTP status code to return. |
+| `status`  | `number` | `400`         | The HTTP status code to return. |
 
 #### Overrides
 
@@ -35,7 +32,7 @@ Constructs a new `UnknownError`.
 
 #### Defined in
 
-[errors/UnknownError.ts:16](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/UnknownError.ts#L16)
+[errors/InvalidOperationError.ts:13](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/InvalidOperationError.ts#L13)
 
 ## Properties
 
@@ -65,7 +62,7 @@ An application-unique, readable error code.
 
 #### Defined in
 
-[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L29)
+[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L29)
 
 ---
 
@@ -85,7 +82,7 @@ User-friendly errors should be read from `extensions`.
 
 #### Defined in
 
-[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L24)
+[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L24)
 
 ---
 
@@ -105,7 +102,7 @@ We don't make use of this or interpret nested errors at all.
 
 #### Defined in
 
-[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L18)
+[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L18)
 
 ---
 
@@ -168,7 +165,7 @@ status codes.
 
 #### Defined in
 
-[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L12)
+[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L12)
 
 ---
 
@@ -269,4 +266,4 @@ error is AbstractError
 
 #### Defined in
 
-[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L50)
+[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L50)

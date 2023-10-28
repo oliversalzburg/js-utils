@@ -1,30 +1,29 @@
-[@oliversalzburg/js-utils](../README.md) / [Exports](../modules.md) / PermissionViolationError
+[@oliversalzburg/js-utils](../README.md) / [Exports](../modules.md) / ResourceConflictError
 
-# Class: PermissionViolationError
+# Class: ResourceConflictError
 
-An error used when access to a resource was requested, but the required
-permissions were not available.
+Used when a resource conflict was detected.
 
 ## Hierarchy
 
 -   [`AbstractError`](AbstractError.md)
 
-    ↳ **`PermissionViolationError`**
+    ↳ **`ResourceConflictError`**
 
 ## Constructors
 
 ### constructor
 
-• **new PermissionViolationError**(`message`, `status?`)
+• **new ResourceConflictError**(`message`, `status?`)
 
-Constructs a new `PermissionViolationError`.
+Constructs a new `ResourceConflictError`.
 
 #### Parameters
 
 | Name      | Type     | Default value | Description                     |
 | :-------- | :------- | :------------ | :------------------------------ |
 | `message` | `string` | `undefined`   | The main error message.         |
-| `status`  | `number` | `403`         | The HTTP status code to return. |
+| `status`  | `number` | `409`         | The HTTP status code to return. |
 
 #### Overrides
 
@@ -32,7 +31,7 @@ Constructs a new `PermissionViolationError`.
 
 #### Defined in
 
-[errors/PermissionViolationError.ts:13](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/PermissionViolationError.ts#L13)
+[errors/ResourceConflictError.ts:12](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/ResourceConflictError.ts#L12)
 
 ## Properties
 
@@ -62,7 +61,7 @@ An application-unique, readable error code.
 
 #### Defined in
 
-[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L29)
+[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L29)
 
 ---
 
@@ -82,7 +81,7 @@ User-friendly errors should be read from `extensions`.
 
 #### Defined in
 
-[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L24)
+[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L24)
 
 ---
 
@@ -102,7 +101,7 @@ We don't make use of this or interpret nested errors at all.
 
 #### Defined in
 
-[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L18)
+[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L18)
 
 ---
 
@@ -165,7 +164,7 @@ status codes.
 
 #### Defined in
 
-[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L12)
+[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L12)
 
 ---
 
@@ -266,4 +265,4 @@ error is AbstractError
 
 #### Defined in
 
-[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L50)
+[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L50)

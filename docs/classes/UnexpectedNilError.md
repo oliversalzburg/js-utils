@@ -28,7 +28,7 @@ Error.constructor
 
 #### Defined in
 
-[nil.ts:40](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/nil.ts#L40)
+[nil.ts:40](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/nil.ts#L40)
 
 ## Properties
 

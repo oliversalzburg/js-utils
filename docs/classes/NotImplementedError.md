@@ -1,29 +1,29 @@
-[@oliversalzburg/js-utils](../README.md) / [Exports](../modules.md) / ResourceConflictError
+[@oliversalzburg/js-utils](../README.md) / [Exports](../modules.md) / NotImplementedError
 
-# Class: ResourceConflictError
+# Class: NotImplementedError
 
-Used when a resource conflict was detected.
+Used when a called method actually hasn't been implemented yet (whoops).
 
 ## Hierarchy
 
 -   [`AbstractError`](AbstractError.md)
 
-    ↳ **`ResourceConflictError`**
+    ↳ **`NotImplementedError`**
 
 ## Constructors
 
 ### constructor
 
-• **new ResourceConflictError**(`message`, `status?`)
+• **new NotImplementedError**(`message`, `status?`)
 
-Constructs a new `ResourceConflictError`.
+Constructs a new `NotImplementedError`.
 
 #### Parameters
 
 | Name      | Type     | Default value | Description                     |
 | :-------- | :------- | :------------ | :------------------------------ |
 | `message` | `string` | `undefined`   | The main error message.         |
-| `status`  | `number` | `409`         | The HTTP status code to return. |
+| `status`  | `number` | `501`         | The HTTP status code to return. |
 
 #### Overrides
 
@@ -31,7 +31,7 @@ Constructs a new `ResourceConflictError`.
 
 #### Defined in
 
-[errors/ResourceConflictError.ts:12](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/ResourceConflictError.ts#L12)
+[errors/NotImplementedError.ts:12](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/NotImplementedError.ts#L12)
 
 ## Properties
 
@@ -61,7 +61,7 @@ An application-unique, readable error code.
 
 #### Defined in
 
-[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L29)
+[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L29)
 
 ---
 
@@ -81,7 +81,7 @@ User-friendly errors should be read from `extensions`.
 
 #### Defined in
 
-[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L24)
+[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L24)
 
 ---
 
@@ -101,7 +101,7 @@ We don't make use of this or interpret nested errors at all.
 
 #### Defined in
 
-[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L18)
+[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L18)
 
 ---
 
@@ -164,7 +164,7 @@ status codes.
 
 #### Defined in
 
-[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L12)
+[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L12)
 
 ---
 
@@ -265,4 +265,4 @@ error is AbstractError
 
 #### Defined in
 
-[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L50)
+[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L50)

@@ -32,7 +32,7 @@ Constructs a new `InternalError`.
 
 #### Defined in
 
-[errors/InternalError.ts:13](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/InternalError.ts#L13)
+[errors/InternalError.ts:13](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/InternalError.ts#L13)
 
 ## Properties
 
@@ -62,7 +62,7 @@ An application-unique, readable error code.
 
 #### Defined in
 
-[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L29)
+[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L29)
 
 ---
 
@@ -82,7 +82,7 @@ User-friendly errors should be read from `extensions`.
 
 #### Defined in
 
-[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L24)
+[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L24)
 
 ---
 
@@ -102,7 +102,7 @@ We don't make use of this or interpret nested errors at all.
 
 #### Defined in
 
-[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L18)
+[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L18)
 
 ---
 
@@ -165,7 +165,7 @@ status codes.
 
 #### Defined in
 
-[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L12)
+[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L12)
 
 ---
 
@@ -261,7 +261,7 @@ Create .stack property on a target object
 
 #### Defined in
 
-[errors/InternalError.ts:23](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/InternalError.ts#L23)
+[errors/InternalError.ts:23](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/InternalError.ts#L23)
 
 ---
 
@@ -286,4 +286,4 @@ error is AbstractError
 
 #### Defined in
 
-[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/df89c53/source/errors/AbstractError.ts#L50)
+[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L50)
