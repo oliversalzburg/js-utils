@@ -11,7 +11,7 @@ export type SerializedError = Record<string, Record<string, string> | string | u
 /**
  * Determine if the given unknown subject is an `Error` instance.
  * @param subject The object to inspect.
- * @returns `true` if the subject is an `Error`, `false´ otherwise.
+ * @returns `true` if the subject is an `Error`, `false` otherwise.
  */
 export const isError = (subject: unknown): subject is Error => {
   return subject instanceof Error || types.isNativeError(subject);
