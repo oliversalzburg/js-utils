@@ -33,6 +33,7 @@
     "@typescript-eslint/parser": "6.9.0",
     "esbuild": "0.19.5",
     "eslint": "8.52.0",
+    "eslint-plugin-jsdoc": "46.8.2",
     "lint-staged": "15.0.2",
     "prettier": "3.0.3",
     "prettier-package-json": "2.8.0",
