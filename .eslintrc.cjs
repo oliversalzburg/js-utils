@@ -4,15 +4,18 @@ module.exports = {
     node: true,
     es2022: true,
   },
-  sourceType: "module",
+  parserOptions: {
+    sourceType: "module",
+  },
   extends: ["eslint:recommended"],
   plugins: ["@typescript-eslint", "jsdoc"],
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
       extends: [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/strict",
+        "plugin:@typescript-eslint/strict-type-checked",
         "plugin:jsdoc/recommended-typescript",
       ],
       parserOptions: {
