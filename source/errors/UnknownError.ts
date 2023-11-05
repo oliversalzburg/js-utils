@@ -5,11 +5,11 @@ import { AbstractError } from "./AbstractError.js";
  * real `Error` instance.
  * Like when you catch a `throw "boom"`, we will convert the caught `"boom"`
  * into an `UnknownError`.
- * To enrich an `Error`-like object that was caught, use the `InternalError`.
+ * To enrich an `Error`-like object that was caught, use the {@link InternalError}.
  */
 export class UnknownError extends AbstractError {
   /**
-   * Constructs a new `UnknownError`.
+   * Constructs a new {@link UnknownError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */

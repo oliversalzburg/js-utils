@@ -6,7 +6,7 @@ import { AbstractError } from "./AbstractError.js";
  */
 export class InternalError extends AbstractError {
   /**
-   * Constructs a new `InternalError`.
+   * Constructs a new {@link InternalError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */
@@ -20,6 +20,11 @@ export class InternalError extends AbstractError {
     Error.captureStackTrace(this, InternalError);
   }
 
+  /**
+   * Converts an error into an {@link InternalError}.
+   * @param error The error to convert.
+   * @returns An {@link InternalError} that represents the given error.
+   */
   static fromError(error: Error): InternalError {
     // Create a _real_ `InternalError` instance, which we will return later.
     const internalError = new InternalError(error.message);

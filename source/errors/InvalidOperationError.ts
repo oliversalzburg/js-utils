@@ -6,7 +6,7 @@ import { AbstractError } from "./AbstractError.js";
  */
 export class InvalidOperationError extends AbstractError {
   /**
-   * Constructs a new `InvalidOperationError`.
+   * Constructs a new {@link InvalidOperationError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */

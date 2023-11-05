@@ -18,7 +18,7 @@
     "build:esbuild": "node build.js",
     "build:tsc": "tsc",
     "docs:typedoc": "typedoc --plugin typedoc-plugin-markdown",
-    "lint": "yarn run lint:eslint && yarn run lint:tsc",
+    "lint": "yarn run lint:eslint && yarn run lint:prettier && yarn run lint:tsc",
     "lint:eslint": "eslint source ./*js",
     "lint:prettier": "prettier --check source ./*js",
     "lint:tsc": "tsc --noEmit",

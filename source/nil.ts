@@ -37,6 +37,10 @@ export function is<T>(nilable: Maybe<T>, InstanceType: ConstructorOf<T>): nilabl
  * Thrown when an unexpected nil value was encountered.
  */
 export class UnexpectedNilError extends Error {
+  /**
+   * Constructs a new {UnexpectedNilError}.
+   * @param message The error message.
+   */
   constructor(message = "unexpected nil value") {
     super(message);
   }

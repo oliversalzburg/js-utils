@@ -14,13 +14,19 @@ Thrown when an unexpected nil value was encountered.
 
 ### constructor
 
-• **new UnexpectedNilError**(`message?`)
+• **new UnexpectedNilError**(`message?`): [`UnexpectedNilError`](UnexpectedNilError.md)
+
+Constructs a new {UnexpectedNilError}.
 
 #### Parameters
 
-| Name      | Type     | Default value            |
-| :-------- | :------- | :----------------------- |
-| `message` | `string` | `"unexpected nil value"` |
+| Name      | Type     | Default value            | Description        |
+| :-------- | :------- | :----------------------- | :----------------- |
+| `message` | `string` | `"unexpected nil value"` | The error message. |
+
+#### Returns
+
+[`UnexpectedNilError`](UnexpectedNilError.md)
 
 #### Overrides
 
@@ -28,7 +34,7 @@ Error.constructor
 
 #### Defined in
 
-[nil.ts:40](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/nil.ts#L40)
+[nil.ts:44](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/nil.ts#L44)
 
 ## Properties
 
@@ -139,7 +145,7 @@ Error.stackTraceLimit
 
 ### captureStackTrace
 
-▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+▸ **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
 
 Create .stack property on a target object
 

@@ -5,7 +5,7 @@ import { AbstractError } from "./AbstractError.js";
  */
 export class NotImplementedError extends AbstractError {
   /**
-   * Constructs a new `NotImplementedError`.
+   * Constructs a new {@link NotImplementedError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */

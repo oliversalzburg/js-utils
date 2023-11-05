@@ -6,7 +6,7 @@ import { AbstractError } from "./AbstractError.js";
  */
 export class PermissionViolationError extends AbstractError {
   /**
-   * Constructs a new `PermissionViolationError`.
+   * Constructs a new {@link PermissionViolationError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */

@@ -5,7 +5,7 @@ import { AbstractError } from "./AbstractError.js";
  */
 export class ResourceConflictError extends AbstractError {
   /**
-   * Constructs a new `ResourceConflictError`.
+   * Constructs a new {@link ResourceConflictError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */

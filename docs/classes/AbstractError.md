@@ -28,9 +28,9 @@ Base class for all errors.
 
 ### constructor
 
-• **new AbstractError**(`code`, `message`, `status`)
+• **new AbstractError**(`code`, `message`, `status`): [`AbstractError`](AbstractError.md)
 
-Constructs a new AbstractError.
+Constructs a new [AbstractError](AbstractError.md).
 
 #### Parameters
 
@@ -40,13 +40,17 @@ Constructs a new AbstractError.
 | `message` | `string` | The main error message.                     |
 | `status`  | `number` | The HTTP status code to return.             |
 
+#### Returns
+
+[`AbstractError`](AbstractError.md)
+
 #### Overrides
 
 Error.constructor
 
 #### Defined in
 
-[errors/AbstractError.ts:37](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L37)
+[errors/AbstractError.ts:37](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/errors/AbstractError.ts#L37)
 
 ## Properties
 
@@ -72,13 +76,13 @@ An application-unique, readable error code.
 
 #### Defined in
 
-[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L29)
+[errors/AbstractError.ts:29](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/errors/AbstractError.ts#L29)
 
 ---
 
 ### info
 
-• **info**: [`Maybe`](../modules.md#maybe)<`string`\>
+• **info**: [`Maybe`](../modules.md#maybe)\<`string`\>
 
 A user-friendly error message that may be transported to the client.
 
@@ -88,13 +92,13 @@ User-friendly errors should be read from `extensions`.
 
 #### Defined in
 
-[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L24)
+[errors/AbstractError.ts:24](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/errors/AbstractError.ts#L24)
 
 ---
 
 ### inner
 
-• **inner**: [`Maybe`](../modules.md#maybe)<`Error`\>
+• **inner**: [`Maybe`](../modules.md#maybe)\<`Error`\>
 
 Another error that should be transported with this error.
 
@@ -104,7 +108,7 @@ We don't make use of this or interpret nested errors at all.
 
 #### Defined in
 
-[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L18)
+[errors/AbstractError.ts:18](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/errors/AbstractError.ts#L18)
 
 ---
 
@@ -163,7 +167,7 @@ status codes.
 
 #### Defined in
 
-[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L12)
+[errors/AbstractError.ts:12](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/errors/AbstractError.ts#L12)
 
 ---
 
@@ -218,7 +222,7 @@ Error.stackTraceLimit
 
 ### captureStackTrace
 
-▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+▸ **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
 
 Create .stack property on a target object
 
@@ -245,19 +249,23 @@ Error.captureStackTrace
 
 ### isAbstractError
 
-▸ `Static` **isAbstractError**(`error`, `allowForeignModule?`): error is AbstractError
+▸ **isAbstractError**(`error`, `allowForeignModule?`): error is AbstractError
+
+Checks if an object is an instance of [AbstractError](AbstractError.md), or one of its subclasses.
 
 #### Parameters
 
-| Name                 | Type      | Default value |
-| :------------------- | :-------- | :------------ |
-| `error`              | `unknown` | `undefined`   |
-| `allowForeignModule` | `boolean` | `true`        |
+| Name                 | Type      | Default value | Description                                                                                                                                                 |
+| :------------------- | :-------- | :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `error`              | `unknown` | `undefined`   | The object to check.                                                                                                                                        |
+| `allowForeignModule` | `boolean` | `true`        | Only check for similar looking error codes. You're going to want to use this if you're dealing with a setup where multiple versions of js-utils are loaded. |
 
 #### Returns
 
 error is AbstractError
 
+`true` if the object is an [AbstractError](AbstractError.md), `false` otherwise.
+
 #### Defined in
 
-[errors/AbstractError.ts:50](https://github.com/oliversalzburg/js-utils/blob/6a86099/source/errors/AbstractError.ts#L50)
+[errors/AbstractError.ts:58](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/errors/AbstractError.ts#L58)

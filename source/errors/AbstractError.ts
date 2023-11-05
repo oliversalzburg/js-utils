@@ -29,7 +29,7 @@ export class AbstractError extends Error {
   code: string;
 
   /**
-   * Constructs a new AbstractError.
+   * Constructs a new {@link AbstractError}.
    * @param code The main identification code for the error.
    * @param message The main error message.
    * @param status The HTTP status code to return.
@@ -47,12 +47,20 @@ export class AbstractError extends Error {
     Error.captureStackTrace(this, AbstractError);
   }
 
+  /**
+   * Checks if an object is an instance of {@link AbstractError}, or one of its subclasses.
+   * @param error The object to check.
+   * @param allowForeignModule Only check for similar looking error codes.
+   * You're going to want to use this if you're dealing with a setup where
+   * multiple versions of js-utils are loaded.
+   * @returns `true` if the object is an {@link AbstractError}, `false` otherwise.
+   */
   static isAbstractError(error: unknown, allowForeignModule = true): error is AbstractError {
     if (error instanceof AbstractError) {
       return true;
     }
 
-    // When multiple versions of core-models3 are loaded at runtime, the
+    // When multiple versions of js-utils are loaded at runtime, the
     // prototypes of errors don't align. In that case, we just analyze the
     // error code.
     if (allowForeignModule) {

@@ -6,7 +6,7 @@ import { AbstractError } from "./AbstractError.js";
  */
 export class InvalidArgumentError extends AbstractError {
   /**
-   * Constructs a new `InvalidArgumentError`.
+   * Constructs a new {@link InvalidArgumentError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */
