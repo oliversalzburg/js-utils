@@ -12,6 +12,16 @@ export type Nil = null | undefined;
 export type Maybe<T> = T | Nil;
 
 /**
+ * Check if something is nil.
+ * Can be used as a typeguard.
+ * @param subject The subject that could be nil.
+ * @returns `true` if the subject is nil, `false` otherwise.
+ */
+export function isNil<T>(subject: Maybe<T>): subject is Nil {
+  return subject === null || subject === undefined;
+}
+
+/**
  * Check if something is a concrete value of the given type.
  * Can be used as a typeguard.
  * @param nilable The subject that could be nil.
@@ -21,16 +31,6 @@ export type Maybe<T> = T | Nil;
  */
 export function is<T>(nilable: Maybe<T>, InstanceType: ConstructorOf<T>): nilable is T {
   return !isNil(nilable) && nilable instanceof InstanceType;
-}
-
-/**
- * Check if something is nil.
- * Can be used as a typeguard.
- * @param subject The subject that could be nil.
- * @returns `true` if the subject is nil, `false` otherwise.
- */
-export function isNil<T>(subject: Maybe<T>): subject is Nil {
-  return subject === null || subject === undefined;
 }
 
 /**

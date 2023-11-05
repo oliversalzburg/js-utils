@@ -3,22 +3,22 @@
 /**
  * Describes a function that is a constructor for T.
  */
-export type ConstructorOf<T = Record<string, unknown>> = new (...args: any[]) => T;
+export type ConstructorOf<T = Record<string, unknown>> = new (...args: Array<any>) => T;
 
 /**
  * Describes literally any function.
  */
-export type AnyFunction = (...args: any[]) => any;
+export type AnyFunction = (...args: Array<any>) => any;
 
 /**
  * Any constructor
  */
-export type AnyConstructor = new (...args: any[]) => any;
+export type AnyConstructor = new (...args: Array<any>) => any;
 
 /**
  * Describes a function returning an instance of T.
  */
-export type FunctionReturning<T = any> = (...args: any[]) => T;
+export type FunctionReturning<T = any> = (...args: Array<any>) => T;
 
 /**
  * Describes a class "mixin", which is a function that returns a dynamically
