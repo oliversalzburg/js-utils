@@ -27,7 +27,9 @@
     "npm:publish:minor": "npm version minor && npm publish",
     "npm:publish:patch": "npm version patch && npm publish",
     "prepack": "yarn run build",
-    "test": "mocha"
+    "test": "node --enable-source-maps $(yarn bin mocha) ./output/*.test.js",
+    "test:coverage": "c8 --reporter html-spa --reporter text node --enable-source-maps $(yarn bin mocha)",
+    "test:inspect": "node $(yarn bin mocha) --inspect ./output/*.test.js"
   },
   "types": "./output/index.d.ts",
   "devDependencies": {
@@ -38,6 +40,7 @@
     "@types/node": "20.8.10",
     "@typescript-eslint/eslint-plugin": "6.9.1",
     "@typescript-eslint/parser": "6.9.1",
+    "c8": "8.0.1",
     "chai": "4.3.10",
     "chai-as-promised": "7.1.1",
     "esbuild": "0.19.5",
@@ -45,7 +48,6 @@
     "eslint-plugin-jsdoc": "46.8.2",
     "lint-staged": "15.0.2",
     "mocha": "10.2.0",
-    "nyc": "15.1.0",
     "prettier": "3.0.3",
     "prettier-package-json": "2.8.0",
     "prettier-plugin-organize-imports": "3.2.3",
