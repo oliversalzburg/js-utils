@@ -11,8 +11,6 @@ module.exports = {
     es2022: true,
   },
 
-  plugins: ["@typescript-eslint", "jsdoc"],
-
   overrides: [
     {
       files: ["*.cjs"],
