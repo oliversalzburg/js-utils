@@ -20,6 +20,7 @@
     "docs:typedoc": "typedoc --plugin typedoc-plugin-markdown",
     "lint": "yarn run lint:eslint && yarn run lint:tsc",
     "lint:eslint": "eslint source ./*js",
+    "lint:prettier": "prettier --check source ./*js",
     "lint:tsc": "tsc --noEmit",
     "npm:publish": "npm publish",
     "npm:publish:major": "npm version major && npm publish",
