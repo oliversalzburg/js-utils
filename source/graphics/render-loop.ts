@@ -10,6 +10,7 @@ export class RenderLoop {
   readonly renderLoop: AnyFunction;
   private previousTimestamp: number;
   private readonly boundMain: (timestamp: number) => void;
+  private frameRequestId: number | null = null;
 
   /**
    * Constructs a new {@link RenderLoop}.
@@ -25,6 +26,25 @@ export class RenderLoop {
   }
 
   /**
+   * Stop the render loop.
+   */
+  block() {
+    if (this.frameRequestId === null) {
+      return;
+    }
+
+    window.cancelAnimationFrame(this.frameRequestId);
+    this.frameRequestId = null;
+  }
+
+  /**
+   * Start the render loop.
+   */
+  unblock() {
+    this.frameRequestId = window.requestAnimationFrame(this.boundMain);
+  }
+
+  /**
    * Our main loop.
    * @param timestamp The current timestamp.
    */
@@ -32,7 +52,7 @@ export class RenderLoop {
     const timeDelta = timestamp - this.previousTimestamp;
     this.#drawFrame(timestamp, timeDelta);
 
-    window.requestAnimationFrame(this.boundMain);
+    this.unblock();
 
     this.previousTimestamp = timestamp;
   }
