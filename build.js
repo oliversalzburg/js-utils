@@ -6,7 +6,7 @@ esbuild
     bundle: true,
     entryPoints: ["./source/main.ts"],
     format: "esm",
-    outfile: "./output/main.js",
+    outfile: "./lib/main.js",
     platform: "node",
     target: "node18",
   })

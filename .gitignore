@@ -9,5 +9,5 @@
 build
 coverage
 node_modules
-output
+lib
 package.tgz

@@ -4,6 +4,6 @@ module.exports = {
   package: "./package.json",
   parallel: true,
   recursive: true,
-  spec: ["output/**/*.test.js"],
+  spec: ["lib/**/*.test.js"],
   timeout: "2000",
 };

@@ -1,5 +1,5 @@
+lib/tsconfig.tsbuildinfo
 node_modules/
-output/tsconfig.tsbuildinfo
 source/
 .*
 *.config.js
