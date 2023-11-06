@@ -1,14 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@oliversalzburg/js-utils",
-  "version": "0.0.6",
+  "version": "0.0.5",
   "license": "MIT",
   "author": "Oliver Salzburg <oliver.salzburg@gmail.com>",
   "type": "module",
   "exports": {
-    ".": {
-      "default": "./lib/index.js"
-    }
+    ".": "./lib/index.js",
+    "./lib": "./lib/index.js",
+    "./lib/*": "./lib/*.js",
+    "./lib/*.js": "./lib/*.js"
   },
   "scripts": {
     "build": "yarn run build:tsc",
