@@ -7,10 +7,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "default": "./output/index.js"
-    },
-    "./*.js": {
-      "default": "./output/*.js"
+      "default": "./lib/index.js"
     }
   },
   "scripts": {
@@ -27,11 +24,11 @@
     "npm:publish:minor": "npm version minor && npm publish",
     "npm:publish:patch": "npm version patch && npm publish",
     "prepack": "yarn run build",
-    "test": "node --enable-source-maps $(yarn bin mocha) ./output/*.test.js",
+    "test": "node --enable-source-maps $(yarn bin mocha) ./lib/*.test.js",
     "test:coverage": "c8 --reporter html-spa --reporter text node --enable-source-maps $(yarn bin mocha)",
-    "test:inspect": "node $(yarn bin mocha) --inspect ./output/*.test.js"
+    "test:inspect": "node $(yarn bin mocha) --inspect ./lib/*.test.js"
   },
-  "types": "./output/index.d.ts",
+  "types": "./lib/index.d.ts",
   "devDependencies": {
     "@types/chai": "4.3.9",
     "@types/chai-as-promised": "7.1.8",

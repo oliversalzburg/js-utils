@@ -85,5 +85,5 @@ module.exports = {
     quotes: "warn",
     strict: ["error", "global"],
   },
-  ignorePatterns: [".yarn/", "@types/", "**/cdk.out", "**/output", "*.d.mts", "!.*.*"],
+  ignorePatterns: [".yarn/", "@types/", "**/cdk.out", "**/lib", "*.d.mts", "!.*.*"],
 };

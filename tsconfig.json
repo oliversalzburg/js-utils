@@ -13,7 +13,7 @@
     "lib": ["ESNext"],
     "module": "ESNext",
     "moduleResolution": "Node",
-    "outDir": "output",
+    "outDir": "lib",
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
@@ -23,5 +23,5 @@
     "useDefineForClassFields": true
   },
   "include": ["./@types", "./source"],
-  "exclude": ["./output"]
+  "exclude": ["./lib"]
 }
