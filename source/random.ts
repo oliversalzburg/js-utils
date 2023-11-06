@@ -3,7 +3,7 @@ import { Vector3 } from "./math/vector";
 /**
  * Helps with generating random numbers.
  */
-export class RandomHelper {
+export class Random {
   private _seed: number;
   private _perm: Array<number>;
   private _gradP: Array<Vector3>;
@@ -189,3 +189,5 @@ export const seedFromString = (input: string) => {
     .split("")
     .reduce((seed, char) => (seed = seed + ((char.charCodeAt(0) * 17989) % 2147483647)), 0);
 };
+
+export const random = new Random();

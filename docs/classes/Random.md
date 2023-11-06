@@ -1,6 +1,6 @@
-[@oliversalzburg/js-utils](../README.md) / [Exports](../modules.md) / RandomHelper
+[@oliversalzburg/js-utils](../README.md) / [Exports](../modules.md) / Random
 
-# Class: RandomHelper
+# Class: Random
 
 Helps with generating random numbers.
 
@@ -8,7 +8,7 @@ Helps with generating random numbers.
 
 ### constructor
 
-• **new RandomHelper**(`seed?`): [`RandomHelper`](RandomHelper.md)
+• **new Random**(`seed?`): [`Random`](Random.md)
 
 Creates a pseudo-random value generator. The seed must be an integer.
 
@@ -23,11 +23,11 @@ http://www.firstpr.com.au/dsp/rand31/
 
 #### Returns
 
-[`RandomHelper`](RandomHelper.md)
+[`Random`](Random.md)
 
 #### Defined in
 
-[random.ts:20](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/random.ts#L20)
+[random.ts:20](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/random.ts#L20)
 
 ## Methods
 
@@ -45,7 +45,7 @@ A pseudo-random value between 1 and 2^32 - 2.
 
 #### Defined in
 
-[random.ts:81](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/random.ts#L81)
+[random.ts:81](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/random.ts#L81)
 
 ---
 
@@ -63,7 +63,7 @@ Either `true` or `false`.
 
 #### Defined in
 
-[random.ts:89](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/random.ts#L89)
+[random.ts:89](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/random.ts#L89)
 
 ---
 
@@ -81,7 +81,7 @@ a pseudo-random floating point number in range [0, 1).
 
 #### Defined in
 
-[random.ts:97](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/random.ts#L97)
+[random.ts:97](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/random.ts#L97)
 
 ---
 
@@ -106,4 +106,4 @@ The noise value for the input coordinates.
 
 #### Defined in
 
-[random.ts:108](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/random.ts#L108)
+[random.ts:108](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/random.ts#L108)

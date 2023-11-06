@@ -36,7 +36,7 @@ Constructs a new [Vector3](Vector3.md).
 
 #### Defined in
 
-[math/vector.ts:41](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/math/vector.ts#L41)
+[math/vector.ts:41](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/math/vector.ts#L41)
 
 ## Properties
 
@@ -50,7 +50,7 @@ Constructs a new [Vector3](Vector3.md).
 
 #### Defined in
 
-[math/vector.ts:5](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/math/vector.ts#L5)
+[math/vector.ts:5](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/math/vector.ts#L5)
 
 ---
 
@@ -64,7 +64,7 @@ Constructs a new [Vector3](Vector3.md).
 
 #### Defined in
 
-[math/vector.ts:6](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/math/vector.ts#L6)
+[math/vector.ts:6](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/math/vector.ts#L6)
 
 ---
 
@@ -74,7 +74,7 @@ Constructs a new [Vector3](Vector3.md).
 
 #### Defined in
 
-[math/vector.ts:33](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/math/vector.ts#L33)
+[math/vector.ts:33](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/math/vector.ts#L33)
 
 ## Methods
 
@@ -103,4 +103,4 @@ The dot product between the two vectors.
 
 #### Defined in
 
-[math/vector.ts:24](https://github.com/oliversalzburg/js-utils/blob/ccc0f19/source/math/vector.ts#L24)
+[math/vector.ts:24](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/math/vector.ts#L24)

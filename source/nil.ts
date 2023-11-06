@@ -49,12 +49,13 @@ export class UnexpectedNilError extends Error {
 /**
  * Ensure that the passed subject is not nil; throw otherwise.
  * @param subject A subject that is possible nil.
+ * @param errorMessage An optional error message to throw when the subject is nil.
  * @returns The subject, if it isn't nil.
  * @throws {UnexpectedNilError} When the subject is nil.
  */
-export function mustExist<T>(subject: Maybe<T>): T {
+export function mustExist<T>(subject: Maybe<T>, errorMessage?: string): T {
   if (isNil(subject)) {
-    throw new UnexpectedNilError();
+    throw new UnexpectedNilError(errorMessage);
   }
   return subject;
 }

@@ -382,6 +382,7 @@ __metadata:
     "@types/eslint": "npm:8.44.6"
     "@types/mocha": "npm:10.0.3"
     "@types/node": "npm:20.8.10"
+    "@types/web": "npm:0.0.119"
     "@typescript-eslint/eslint-plugin": "npm:6.9.1"
     "@typescript-eslint/parser": "npm:6.9.1"
     c8: "npm:8.0.1"
@@ -489,6 +490,13 @@ __metadata:
   version: 7.5.4
   resolution: "@types/semver@npm:7.5.4"
   checksum: dee66a71d9f089c118be74b5937d4fef42864d68d9472a3f4f5399b9e3ad74d56a8e155020c846667b9ecf9de78fdb9ea55a53fff5067af28e06779b282b6c40
+  languageName: node
+  linkType: hard
+
+"@types/web@npm:0.0.119":
+  version: 0.0.119
+  resolution: "@types/web@npm:0.0.119"
+  checksum: 8ad004ff42e3fe0904c0aed052aa413ad2c03face6ff32f40c9fce39427bc184d3b2cc9aebf4bc5696158cd12e2ab14c652b175f77c124dd025ddb3e89e3cfd3
   languageName: node
   linkType: hard
 
