@@ -27,7 +27,7 @@ Constructs a new [Canvas](Canvas.md).
 
 #### Defined in
 
-[graphics/canvas.ts:57](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L57)
+[graphics/canvas.ts:57](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L57)
 
 ## Properties
 
@@ -39,7 +39,7 @@ Our backbuffer.
 
 #### Defined in
 
-[graphics/canvas.ts:49](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L49)
+[graphics/canvas.ts:49](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L49)
 
 ---
 
@@ -52,7 +52,7 @@ we're interacting with.
 
 #### Defined in
 
-[graphics/canvas.ts:22](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L22)
+[graphics/canvas.ts:22](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L22)
 
 ---
 
@@ -65,7 +65,7 @@ we're using to draw to the canvas.
 
 #### Defined in
 
-[graphics/canvas.ts:38](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L38)
+[graphics/canvas.ts:38](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L38)
 
 ---
 
@@ -77,7 +77,7 @@ The height of the canvas.
 
 #### Defined in
 
-[graphics/canvas.ts:32](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L32)
+[graphics/canvas.ts:32](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L32)
 
 ---
 
@@ -90,7 +90,7 @@ that represents our frontbuffer, which is the canvas itself.
 
 #### Defined in
 
-[graphics/canvas.ts:44](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L44)
+[graphics/canvas.ts:44](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L44)
 
 ---
 
@@ -102,7 +102,7 @@ The width of the canvas.
 
 #### Defined in
 
-[graphics/canvas.ts:27](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L27)
+[graphics/canvas.ts:27](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L27)
 
 ## Methods
 
@@ -124,7 +124,7 @@ Fills the entire backbuffer with the given color.
 
 #### Defined in
 
-[graphics/canvas.ts:110](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L110)
+[graphics/canvas.ts:110](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L110)
 
 ---
 
@@ -149,7 +149,7 @@ The color of the pixel at the given local.
 
 #### Defined in
 
-[graphics/canvas.ts:82](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L82)
+[graphics/canvas.ts:82](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L82)
 
 ---
 
@@ -173,7 +173,7 @@ Colors a pixel in the backbuffer.
 
 #### Defined in
 
-[graphics/canvas.ts:98](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L98)
+[graphics/canvas.ts:98](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L98)
 
 ---
 
@@ -189,4 +189,4 @@ Draws the backbuffer onto the canvas.
 
 #### Defined in
 
-[graphics/canvas.ts:72](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L72)
+[graphics/canvas.ts:72](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L72)

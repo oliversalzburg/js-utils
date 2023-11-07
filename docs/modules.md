@@ -43,7 +43,7 @@ Any constructor
 
 #### Defined in
 
-[core.ts:16](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/core.ts#L16)
+[core.ts:16](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/core.ts#L16)
 
 ---
 
@@ -69,7 +69,7 @@ Describes literally any function.
 
 #### Defined in
 
-[core.ts:11](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/core.ts#L11)
+[core.ts:11](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/core.ts#L11)
 
 ---
 
@@ -101,7 +101,7 @@ Describes a function that is a constructor for T.
 
 #### Defined in
 
-[core.ts:6](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/core.ts#L6)
+[core.ts:6](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/core.ts#L6)
 
 ---
 
@@ -133,7 +133,7 @@ Describes a function returning an instance of T.
 
 #### Defined in
 
-[core.ts:21](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/core.ts#L21)
+[core.ts:21](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/core.ts#L21)
 
 ---
 
@@ -151,7 +151,7 @@ A type that could be either what you want, or `Nil`.
 
 #### Defined in
 
-[nil.ts:12](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/nil.ts#L12)
+[nil.ts:12](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/nil.ts#L12)
 
 ---
 
@@ -170,7 +170,7 @@ constructed class, based on the passed parameters.
 
 #### Defined in
 
-[core.ts:27](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/core.ts#L27)
+[core.ts:27](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/core.ts#L27)
 
 ---
 
@@ -183,7 +183,34 @@ with either type through a consistent interface.
 
 #### Defined in
 
-[nil.ts:7](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/nil.ts#L7)
+[nil.ts:7](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/nil.ts#L7)
+
+---
+
+### RenderLoopCallback
+
+Ƭ **RenderLoopCallback**: (`delta`: `number`, `timestamp`: `number`) => `unknown`
+
+#### Type declaration
+
+▸ (`delta`, `timestamp`): `unknown`
+
+The signature of a function that is called to draw a frame.
+
+##### Parameters
+
+| Name        | Type     |
+| :---------- | :------- |
+| `delta`     | `number` |
+| `timestamp` | `number` |
+
+##### Returns
+
+`unknown`
+
+#### Defined in
+
+[graphics/render-loop.ts:6](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/render-loop.ts#L6)
 
 ---
 
@@ -195,7 +222,7 @@ The shape of an `Error` instance, after it has been serialized into a simple has
 
 #### Defined in
 
-[error-serializer.ts:8](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/error-serializer.ts#L8)
+[error-serializer.ts:8](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/error-serializer.ts#L8)
 
 ## Variables
 
@@ -205,7 +232,7 @@ The shape of an `Error` instance, after it has been serialized into a simple has
 
 #### Defined in
 
-[graphics/core.ts:5](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L5)
+[graphics/core.ts:5](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L5)
 
 ---
 
@@ -215,7 +242,7 @@ The shape of an `Error` instance, after it has been serialized into a simple has
 
 #### Defined in
 
-[math/core.ts:1](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/core.ts#L1)
+[math/core.ts:1](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/core.ts#L1)
 
 ---
 
@@ -225,7 +252,7 @@ The shape of an `Error` instance, after it has been serialized into a simple has
 
 #### Defined in
 
-[random.ts:196](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/random.ts#L196)
+[random.ts:196](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/random.ts#L196)
 
 ## Functions
 
@@ -249,7 +276,7 @@ The square root for the given value.
 
 #### Defined in
 
-[math/core.ts:58](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/core.ts#L58)
+[math/core.ts:58](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/core.ts#L58)
 
 ---
 
@@ -277,7 +304,7 @@ The blended color.
 
 #### Defined in
 
-[graphics/core.ts:413](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L413)
+[graphics/core.ts:413](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L413)
 
 ---
 
@@ -305,7 +332,7 @@ The blended color.
 
 #### Defined in
 
-[graphics/core.ts:439](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L439)
+[graphics/core.ts:439](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L439)
 
 ---
 
@@ -333,7 +360,7 @@ The blended color.
 
 #### Defined in
 
-[graphics/core.ts:463](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L463)
+[graphics/core.ts:463](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L463)
 
 ---
 
@@ -357,7 +384,7 @@ The cosine for the given value.
 
 #### Defined in
 
-[math/core.ts:35](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/core.ts#L35)
+[math/core.ts:35](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/core.ts#L35)
 
 ---
 
@@ -381,7 +408,7 @@ The degrees in radians.
 
 #### Defined in
 
-[math/core.ts:8](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/core.ts#L8)
+[math/core.ts:8](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/core.ts#L8)
 
 ---
 
@@ -413,7 +440,7 @@ in `a`.
 
 #### Defined in
 
-[array.ts:38](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/array.ts#L38)
+[array.ts:38](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/array.ts#L38)
 
 ---
 
@@ -440,7 +467,7 @@ The distance between the two vectors.
 
 #### Defined in
 
-[math/core.ts:47](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/core.ts#L47)
+[math/core.ts:47](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/core.ts#L47)
 
 ---
 
@@ -464,7 +491,7 @@ A JSON string representing the error.
 
 #### Defined in
 
-[error-serializer.ts:43](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/error-serializer.ts#L43)
+[error-serializer.ts:43](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/error-serializer.ts#L43)
 
 ---
 
@@ -488,7 +515,7 @@ A new object that contains all the properties of the error.
 
 #### Defined in
 
-[error-serializer.ts:52](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/error-serializer.ts#L52)
+[error-serializer.ts:52](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/error-serializer.ts#L52)
 
 ---
 
@@ -518,7 +545,7 @@ A simple representation of the error.
 
 #### Defined in
 
-[error-serializer.ts:65](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/error-serializer.ts#L65)
+[error-serializer.ts:65](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/error-serializer.ts#L65)
 
 ---
 
@@ -550,7 +577,7 @@ A new array with the filtered items.
 
 #### Defined in
 
-[array.ts:49](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/array.ts#L49)
+[array.ts:49](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/array.ts#L49)
 
 ---
 
@@ -582,7 +609,7 @@ formatString("{0} {1}", ["Hello", "World"]);
 
 #### Defined in
 
-[string-formatter.ts:10](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/string-formatter.ts#L10)
+[string-formatter.ts:10](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/string-formatter.ts#L10)
 
 ---
 
@@ -614,7 +641,7 @@ formatString("{first} {second}", { first: "Hello", second: "World" });
 
 #### Defined in
 
-[string-formatter.ts:25](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/string-formatter.ts#L25)
+[string-formatter.ts:25](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/string-formatter.ts#L25)
 
 ---
 
@@ -641,7 +668,7 @@ The constructed color value.
 
 #### Defined in
 
-[graphics/core.ts:364](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L364)
+[graphics/core.ts:364](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L364)
 
 ---
 
@@ -668,7 +695,7 @@ The constructed color value.
 
 #### Defined in
 
-[graphics/core.ts:347](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L347)
+[graphics/core.ts:347](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L347)
 
 ---
 
@@ -692,7 +719,7 @@ The A component of the color value.
 
 #### Defined in
 
-[graphics/core.ts:400](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L400)
+[graphics/core.ts:400](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L400)
 
 ---
 
@@ -716,7 +743,7 @@ The B component of the color value.
 
 #### Defined in
 
-[graphics/core.ts:391](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L391)
+[graphics/core.ts:391](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L391)
 
 ---
 
@@ -740,7 +767,7 @@ The G component of the color value.
 
 #### Defined in
 
-[graphics/core.ts:382](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L382)
+[graphics/core.ts:382](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L382)
 
 ---
 
@@ -764,7 +791,7 @@ The R component of the color value.
 
 #### Defined in
 
-[graphics/core.ts:373](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L373)
+[graphics/core.ts:373](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L373)
 
 ---
 
@@ -797,7 +824,7 @@ both passed arrays.
 
 #### Defined in
 
-[array.ts:27](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/array.ts#L27)
+[array.ts:27](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/array.ts#L27)
 
 ---
 
@@ -830,7 +857,7 @@ nilable is T
 
 #### Defined in
 
-[nil.ts:32](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/nil.ts#L32)
+[nil.ts:32](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/nil.ts#L32)
 
 ---
 
@@ -854,7 +881,7 @@ subject is Error
 
 #### Defined in
 
-[error-serializer.ts:15](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/error-serializer.ts#L15)
+[error-serializer.ts:15](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/error-serializer.ts#L15)
 
 ---
 
@@ -878,7 +905,7 @@ Checks whether a number is an integer.
 
 #### Defined in
 
-[math/core.ts:76](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/core.ts#L76)
+[math/core.ts:76](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/core.ts#L76)
 
 ---
 
@@ -909,7 +936,7 @@ subject is Nil
 
 #### Defined in
 
-[nil.ts:20](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/nil.ts#L20)
+[nil.ts:20](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/nil.ts#L20)
 
 ---
 
@@ -944,7 +971,7 @@ When the subject is nil.
 
 #### Defined in
 
-[nil.ts:56](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/nil.ts#L56)
+[nil.ts:56](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/nil.ts#L56)
 
 ---
 
@@ -960,7 +987,7 @@ Switches the global palette to the next available preset.
 
 #### Defined in
 
-[graphics/core.ts:491](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L491)
+[graphics/core.ts:491](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L491)
 
 ---
 
@@ -986,7 +1013,7 @@ Linearly blends a new pixel with an existing color value in a [Canvas](classes/C
 
 #### Defined in
 
-[graphics/canvas.ts:132](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L132)
+[graphics/canvas.ts:132](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L132)
 
 ---
 
@@ -1012,7 +1039,7 @@ Additively blends a new pixel with an existing color value in a [Canvas](classes
 
 #### Defined in
 
-[graphics/canvas.ts:156](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L156)
+[graphics/canvas.ts:156](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L156)
 
 ---
 
@@ -1038,7 +1065,7 @@ Subtractively blends a new pixel with an existing color value in a [Canvas](clas
 
 #### Defined in
 
-[graphics/canvas.ts:186](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L186)
+[graphics/canvas.ts:186](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L186)
 
 ---
 
@@ -1065,7 +1092,7 @@ Compared to [putPixel32](modules.md#putpixel32), this function supports sub-pixe
 
 #### Defined in
 
-[graphics/canvas.ts:217](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L217)
+[graphics/canvas.ts:217](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/canvas.ts#L217)
 
 ---
 
@@ -1089,7 +1116,7 @@ The radians as degrees.
 
 #### Defined in
 
-[math/core.ts:17](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/core.ts#L17)
+[math/core.ts:17](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/core.ts#L17)
 
 ---
 
@@ -1115,7 +1142,7 @@ A random value between the lower and upper bound.
 
 #### Defined in
 
-[random.ts:180](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/random.ts#L180)
+[random.ts:180](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/random.ts#L180)
 
 ---
 
@@ -1139,7 +1166,7 @@ The input value constrained into single-byte range.
 
 #### Defined in
 
-[graphics/core.ts:329](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L329)
+[graphics/core.ts:329](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L329)
 
 ---
 
@@ -1164,7 +1191,7 @@ A numeric seed value for a PRNG.
 
 #### Defined in
 
-[random.ts:190](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/random.ts#L190)
+[random.ts:190](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/random.ts#L190)
 
 ---
 
@@ -1194,7 +1221,7 @@ The passed array in random order.
 
 #### Defined in
 
-[array.ts:9](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/array.ts#L9)
+[array.ts:9](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/array.ts#L9)
 
 ---
 
@@ -1218,7 +1245,7 @@ The sine for the given value.
 
 #### Defined in
 
-[math/core.ts:26](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/core.ts#L26)
+[math/core.ts:26](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/core.ts#L26)
 
 ---
 
@@ -1242,7 +1269,7 @@ Nothing
 
 #### Defined in
 
-[sleep.ts:6](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/sleep.ts#L6)
+[sleep.ts:6](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/sleep.ts#L6)
 
 ---
 
@@ -1260,7 +1287,7 @@ A random color.
 
 #### Defined in
 
-[graphics/core.ts:481](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L481)
+[graphics/core.ts:481](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L481)
 
 ---
 
@@ -1284,7 +1311,7 @@ The grayscale value appropriate for the color.
 
 #### Defined in
 
-[graphics/core.ts:503](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/core.ts#L503)
+[graphics/core.ts:503](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/core.ts#L503)
 
 ---
 
@@ -1310,4 +1337,4 @@ An `AbstractError` instance.
 
 #### Defined in
 
-[error-serializer.ts:26](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/error-serializer.ts#L26)
+[error-serializer.ts:26](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/error-serializer.ts#L26)

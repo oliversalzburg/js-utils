@@ -15,10 +15,10 @@ Constructs a new [RenderLoop](RenderLoop.md).
 
 #### Parameters
 
-| Name         | Type                                       | Description                                                                    |
-| :----------- | :----------------------------------------- | :----------------------------------------------------------------------------- |
-| `renderLoop` | [`AnyFunction`](../modules.md#anyfunction) | The function to call when a new frame should be drawn.                         |
-| `canvas?`    | [`Canvas`](Canvas.md)                      | When provided, the canvas is automatically updated after a frame was rendered. |
+| Name         | Type                                                     | Description                                                                    |
+| :----------- | :------------------------------------------------------- | :----------------------------------------------------------------------------- |
+| `renderLoop` | [`RenderLoopCallback`](../modules.md#renderloopcallback) | The function to call when a new frame should be drawn.                         |
+| `canvas?`    | [`Canvas`](Canvas.md)                                    | When provided, the canvas is automatically updated after a frame was rendered. |
 
 #### Returns
 
@@ -26,7 +26,7 @@ Constructs a new [RenderLoop](RenderLoop.md).
 
 #### Defined in
 
-[graphics/render-loop.ts:29](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/render-loop.ts#L29)
+[graphics/render-loop.ts:33](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/render-loop.ts#L33)
 
 ## Properties
 
@@ -38,19 +38,19 @@ The [Canvas](Canvas.md) we're rendering to.
 
 #### Defined in
 
-[graphics/render-loop.ts:12](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/render-loop.ts#L12)
+[graphics/render-loop.ts:16](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/render-loop.ts#L16)
 
 ---
 
 ### renderLoop
 
-• `Readonly` **renderLoop**: [`AnyFunction`](../modules.md#anyfunction)
+• `Readonly` **renderLoop**: [`RenderLoopCallback`](../modules.md#renderloopcallback)
 
 A function that we call when a new frame should be drawn.
 
 #### Defined in
 
-[graphics/render-loop.ts:17](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/render-loop.ts#L17)
+[graphics/render-loop.ts:21](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/render-loop.ts#L21)
 
 ## Methods
 
@@ -66,7 +66,7 @@ Stop the render loop.
 
 #### Defined in
 
-[graphics/render-loop.ts:39](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/render-loop.ts#L39)
+[graphics/render-loop.ts:43](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/render-loop.ts#L43)
 
 ---
 
@@ -82,4 +82,4 @@ Start the render loop.
 
 #### Defined in
 
-[graphics/render-loop.ts:51](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/render-loop.ts#L51)
+[graphics/render-loop.ts:55](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/graphics/render-loop.ts#L55)

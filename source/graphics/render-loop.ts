@@ -1,5 +1,9 @@
-import { AnyFunction } from "../core.js";
 import { Canvas } from "./canvas.js";
+
+/**
+ * The signature of a function that is called to draw a frame.
+ */
+export type RenderLoopCallback = (delta: number, timestamp: number) => unknown;
 
 /**
  * Conveniently provides a way to have a render loop called at
@@ -14,7 +18,7 @@ export class RenderLoop {
   /**
    * A function that we call when a new frame should be drawn.
    */
-  readonly renderLoop: AnyFunction;
+  readonly renderLoop: RenderLoopCallback;
 
   private previousTimestamp: number;
   private readonly boundMain: (timestamp: number) => void;
@@ -26,7 +30,7 @@ export class RenderLoop {
    * @param canvas When provided, the canvas is automatically updated
    * after a frame was rendered.
    */
-  constructor(renderLoop: AnyFunction, canvas?: Canvas) {
+  constructor(renderLoop: RenderLoopCallback, canvas?: Canvas) {
     this.canvas = canvas;
     this.renderLoop = renderLoop;
     this.previousTimestamp = 0;
@@ -71,7 +75,7 @@ export class RenderLoop {
    * @param delta The delta to the timestamp of the previous frame.
    */
   #drawFrame(timestamp: number, delta: number) {
-    this.renderLoop(this.canvas, delta, timestamp);
+    this.renderLoop(delta, timestamp);
 
     if (!this.canvas) {
       return;

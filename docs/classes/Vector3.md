@@ -36,7 +36,7 @@ Constructs a new [Vector3](Vector3.md).
 
 #### Defined in
 
-[math/vector.ts:51](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L51)
+[math/vector.ts:51](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L51)
 
 ## Properties
 
@@ -52,7 +52,7 @@ The X component of the vector.
 
 #### Defined in
 
-[math/vector.ts:8](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L8)
+[math/vector.ts:8](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L8)
 
 ---
 
@@ -68,7 +68,7 @@ The Y component of the vector.
 
 #### Defined in
 
-[math/vector.ts:13](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L13)
+[math/vector.ts:13](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L13)
 
 ---
 
@@ -80,7 +80,7 @@ The Z component of the vector.
 
 #### Defined in
 
-[math/vector.ts:43](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L43)
+[math/vector.ts:43](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L43)
 
 ## Methods
 
@@ -109,4 +109,4 @@ The dot product between the two vectors.
 
 #### Defined in
 
-[math/vector.ts:31](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L31)
+[math/vector.ts:31](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L31)

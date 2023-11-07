@@ -31,7 +31,7 @@ Constructs a new [Vector2](Vector2.md).
 
 #### Defined in
 
-[math/vector.ts:20](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L20)
+[math/vector.ts:20](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L20)
 
 ## Properties
 
@@ -43,7 +43,7 @@ The X component of the vector.
 
 #### Defined in
 
-[math/vector.ts:8](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L8)
+[math/vector.ts:8](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L8)
 
 ---
 
@@ -55,7 +55,7 @@ The Y component of the vector.
 
 #### Defined in
 
-[math/vector.ts:13](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L13)
+[math/vector.ts:13](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L13)
 
 ## Methods
 
@@ -80,4 +80,4 @@ The dot product between the two vectors.
 
 #### Defined in
 
-[math/vector.ts:31](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L31)
+[math/vector.ts:31](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L31)
