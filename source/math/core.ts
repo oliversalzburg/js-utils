@@ -1,4 +1,4 @@
-export const TWO_PI = Math.PI * 2;
+export const TWO_PI = /* @__PURE__ */ Math.PI * 2;
 
 /**
  * Converts the degrees to radians.
