@@ -1,8 +1,0 @@
-{
-  "$schema": "https://typedoc.org/schema.json",
-  "basePath": "./source",
-  "entryPoints": ["./source/index.ts"],
-  "excludePrivate": true,
-  "hideInPageTOC": true,
-  "out": "./docs"
-}

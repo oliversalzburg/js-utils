@@ -1,4 +1,4 @@
-name: Documentation Deploy
+name: Deploy Documentation
 
 on:
   push:
@@ -6,18 +6,46 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - name: Select NodeJS version
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
         with:
-          python-version: 3.x
+          # renovate: datasource=docker depName=node versioning=node
+          node-version: "20.9.0"
 
-      - name: Install mkdocs-material
-        run: pip install mkdocs-material
+      - name: Install dependencies
+        run: yarn install
 
-      - name: Build/deploy documentation
-        run: mkdocs gh-deploy --force
+      - name: Build documentation
+        run: yarn docs:typedoc
+
+      - name: Fix permissions
+        run: |
+          chmod -c -R +rX "_site/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2

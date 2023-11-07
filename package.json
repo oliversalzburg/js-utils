@@ -15,7 +15,7 @@
     "build": "yarn run build:tsc",
     "build:esbuild": "node build.js",
     "build:tsc": "tsc",
-    "docs:typedoc": "typedoc --plugin typedoc-plugin-markdown",
+    "docs:typedoc": "typedoc",
     "lint": "yarn run lint:eslint && yarn run lint:prettier && yarn run lint:tsc",
     "lint:eslint": "eslint source ./*js",
     "lint:prettier": "prettier --check source ./*js",
@@ -51,7 +51,6 @@
     "prettier-package-json": "2.8.0",
     "prettier-plugin-organize-imports": "3.2.3",
     "typedoc": "0.25.3",
-    "typedoc-plugin-markdown": "3.17.1",
     "typescript": "5.2.2"
   },
   "packageManager": "yarn@4.0.1"
