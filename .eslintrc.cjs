@@ -57,6 +57,7 @@ module.exports = {
           "error",
           {
             contexts: [
+              "PropertyDefinition",
               "TSInterfaceDeclaration",
               "TSMethodSignature",
               "TSPropertySignature",

@@ -6,8 +6,16 @@ import { Canvas } from "./canvas.js";
  * a constant frame rate.
  */
 export class RenderLoop {
+  /**
+   * The {@link Canvas} we're rendering to.
+   */
   readonly canvas: Canvas | undefined;
+
+  /**
+   * A function that we call when a new frame should be drawn.
+   */
   readonly renderLoop: AnyFunction;
+
   private previousTimestamp: number;
   private readonly boundMain: (timestamp: number) => void;
   private frameRequestId: number | null = null;

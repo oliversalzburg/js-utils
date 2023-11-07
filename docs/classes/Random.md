@@ -27,7 +27,7 @@ http://www.firstpr.com.au/dsp/rand31/
 
 #### Defined in
 
-[random.ts:20](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/random.ts#L20)
+[random.ts:20](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/random.ts#L20)
 
 ## Methods
 
@@ -45,7 +45,7 @@ A pseudo-random value between 1 and 2^32 - 2.
 
 #### Defined in
 
-[random.ts:81](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/random.ts#L81)
+[random.ts:81](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/random.ts#L81)
 
 ---
 
@@ -63,7 +63,7 @@ Either `true` or `false`.
 
 #### Defined in
 
-[random.ts:89](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/random.ts#L89)
+[random.ts:89](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/random.ts#L89)
 
 ---
 
@@ -81,22 +81,22 @@ a pseudo-random floating point number in range [0, 1).
 
 #### Defined in
 
-[random.ts:97](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/random.ts#L97)
+[random.ts:97](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/random.ts#L97)
 
 ---
 
 ### simplex2
 
-▸ **simplex2**(`xin`, `yin`): `number`
+▸ **simplex2**(`x`, `y`): `number`
 
 Returns a 2D simplex noise value for a given input coordinate.
 
 #### Parameters
 
-| Name  | Type     | Description             |
-| :---- | :------- | :---------------------- |
-| `xin` | `number` | The X input coordinate. |
-| `yin` | `number` | The Y input coordinate. |
+| Name | Type     | Description             |
+| :--- | :------- | :---------------------- |
+| `x`  | `number` | The X input coordinate. |
+| `y`  | `number` | The Y input coordinate. |
 
 #### Returns
 
@@ -110,7 +110,7 @@ ISC
 
 **`Author`**
 
-Seph Gentle
+Joseph Gentle
 
 **`See`**
 
@@ -118,4 +118,4 @@ https://github.com/josephg/noisejs
 
 #### Defined in
 
-[random.ts:111](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/random.ts#L111)
+[random.ts:111](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/random.ts#L111)

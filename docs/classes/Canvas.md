@@ -27,7 +27,7 @@ Constructs a new [Canvas](Canvas.md).
 
 #### Defined in
 
-[graphics/canvas.ts:31](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L31)
+[graphics/canvas.ts:57](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L57)
 
 ## Properties
 
@@ -35,9 +35,11 @@ Constructs a new [Canvas](Canvas.md).
 
 • `Readonly` **buffer**: `Uint8ClampedArray`
 
+Our backbuffer.
+
 #### Defined in
 
-[graphics/canvas.ts:23](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L23)
+[graphics/canvas.ts:49](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L49)
 
 ---
 
@@ -45,9 +47,12 @@ Constructs a new [Canvas](Canvas.md).
 
 • `Readonly` **canvas**: `HTMLCanvasElement`
 
+The [`HTMLCanvasElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement)
+we're interacting with.
+
 #### Defined in
 
-[graphics/canvas.ts:18](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L18)
+[graphics/canvas.ts:22](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L22)
 
 ---
 
@@ -55,9 +60,12 @@ Constructs a new [Canvas](Canvas.md).
 
 • `Readonly` **context**: `CanvasRenderingContext2D`
 
+The [`CanvasRenderingContext2D`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2)
+we're using to draw to the canvas.
+
 #### Defined in
 
-[graphics/canvas.ts:21](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L21)
+[graphics/canvas.ts:38](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L38)
 
 ---
 
@@ -65,9 +73,11 @@ Constructs a new [Canvas](Canvas.md).
 
 • `Readonly` **height**: `number`
 
+The height of the canvas.
+
 #### Defined in
 
-[graphics/canvas.ts:20](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L20)
+[graphics/canvas.ts:32](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L32)
 
 ---
 
@@ -75,9 +85,12 @@ Constructs a new [Canvas](Canvas.md).
 
 • `Readonly` **pixMap**: `ImageData`
 
+The [`ImageData`](https://developer.mozilla.org/en-US/docs/Web/API/ImageData) object
+that represents our frontbuffer, which is the canvas itself.
+
 #### Defined in
 
-[graphics/canvas.ts:22](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L22)
+[graphics/canvas.ts:44](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L44)
 
 ---
 
@@ -85,9 +98,11 @@ Constructs a new [Canvas](Canvas.md).
 
 • `Readonly` **width**: `number`
 
+The width of the canvas.
+
 #### Defined in
 
-[graphics/canvas.ts:19](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L19)
+[graphics/canvas.ts:27](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L27)
 
 ## Methods
 
@@ -109,7 +124,7 @@ Fills the entire backbuffer with the given color.
 
 #### Defined in
 
-[graphics/canvas.ts:84](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L84)
+[graphics/canvas.ts:110](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L110)
 
 ---
 
@@ -134,7 +149,7 @@ The color of the pixel at the given local.
 
 #### Defined in
 
-[graphics/canvas.ts:56](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L56)
+[graphics/canvas.ts:82](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L82)
 
 ---
 
@@ -158,7 +173,7 @@ Colors a pixel in the backbuffer.
 
 #### Defined in
 
-[graphics/canvas.ts:72](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L72)
+[graphics/canvas.ts:98](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L98)
 
 ---
 
@@ -174,4 +189,4 @@ Draws the backbuffer onto the canvas.
 
 #### Defined in
 
-[graphics/canvas.ts:46](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/canvas.ts#L46)
+[graphics/canvas.ts:72](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/graphics/canvas.ts#L72)

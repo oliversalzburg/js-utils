@@ -36,7 +36,7 @@ Constructs a new [Vector3](Vector3.md).
 
 #### Defined in
 
-[math/vector.ts:41](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/math/vector.ts#L41)
+[math/vector.ts:51](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L51)
 
 ## Properties
 
@@ -44,13 +44,15 @@ Constructs a new [Vector3](Vector3.md).
 
 • **x**: `number`
 
+The X component of the vector.
+
 #### Inherited from
 
 [Vector2](Vector2.md).[x](Vector2.md#x)
 
 #### Defined in
 
-[math/vector.ts:5](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/math/vector.ts#L5)
+[math/vector.ts:8](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L8)
 
 ---
 
@@ -58,13 +60,15 @@ Constructs a new [Vector3](Vector3.md).
 
 • **y**: `number`
 
+The Y component of the vector.
+
 #### Inherited from
 
 [Vector2](Vector2.md).[y](Vector2.md#y)
 
 #### Defined in
 
-[math/vector.ts:6](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/math/vector.ts#L6)
+[math/vector.ts:13](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L13)
 
 ---
 
@@ -72,9 +76,11 @@ Constructs a new [Vector3](Vector3.md).
 
 • **z**: `number`
 
+The Z component of the vector.
+
 #### Defined in
 
-[math/vector.ts:33](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/math/vector.ts#L33)
+[math/vector.ts:43](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L43)
 
 ## Methods
 
@@ -103,4 +109,4 @@ The dot product between the two vectors.
 
 #### Defined in
 
-[math/vector.ts:24](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/math/vector.ts#L24)
+[math/vector.ts:31](https://github.com/oliversalzburg/js-utils/blob/c7813d3/source/math/vector.ts#L31)

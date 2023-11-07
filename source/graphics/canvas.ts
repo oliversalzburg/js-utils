@@ -15,11 +15,37 @@ import {
  * to provide some convience for double-buffered drawing.
  */
 export class Canvas {
+  /**
+   * The {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement HTMLCanvasElement}
+   * we're interacting with.
+   */
   readonly canvas: HTMLCanvasElement;
+
+  /**
+   * The width of the canvas.
+   */
   readonly width: number;
+
+  /**
+   * The height of the canvas.
+   */
   readonly height: number;
+
+  /**
+   * The {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2 CanvasRenderingContext2D}
+   * we're using to draw to the canvas.
+   */
   readonly context: CanvasRenderingContext2D;
+
+  /**
+   * The {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/ImageData ImageData} object
+   * that represents our frontbuffer, which is the canvas itself.
+   */
   readonly pixMap: ImageData;
+
+  /**
+   * Our backbuffer.
+   */
   readonly buffer: Uint8ClampedArray;
 
   /**

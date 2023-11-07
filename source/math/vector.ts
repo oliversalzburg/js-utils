@@ -2,7 +2,14 @@
  * A vector with 2 components.
  */
 export class Vector2 {
+  /**
+   * The X component of the vector.
+   */
   x: number;
+
+  /**
+   * The Y component of the vector.
+   */
   y: number;
 
   /**
@@ -30,6 +37,9 @@ export class Vector2 {
  * A vector with 3 components.
  */
 export class Vector3 extends Vector2 {
+  /**
+   * The Z component of the vector.
+   */
   z: number;
 
   /**
