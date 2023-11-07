@@ -1,0 +1,6193 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../classes/AbstractError/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Modules - JS Utils</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#oliversalzburgjs-utils" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="JS Utils" class="md-header__button md-logo" aria-label="JS Utils" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JS Utils
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/oliversalzburg/js-utils" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    oliversalzburg/js-utils
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Modules
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../classes/AbstractError/" class="md-tabs__link">
+          
+  
+  Classes
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="JS Utils" class="md-nav__button md-logo" aria-label="JS Utils" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    JS Utils
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/oliversalzburg/js-utils" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    oliversalzburg/js-utils
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Modules
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-aliases" class="md-nav__link">
+    Type Aliases
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anyconstructor" class="md-nav__link">
+    AnyConstructor
+  </a>
+  
+    <nav class="md-nav" aria-label="AnyConstructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration" class="md-nav__link">
+    Type declaration
+  </a>
+  
+    <nav class="md-nav" aria-label="Type declaration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anyfunction" class="md-nav__link">
+    AnyFunction
+  </a>
+  
+    <nav class="md-nav" aria-label="AnyFunction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_1" class="md-nav__link">
+    Type declaration
+  </a>
+  
+    <nav class="md-nav" aria-label="Type declaration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_1" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructorof" class="md-nav__link">
+    ConstructorOf
+  </a>
+  
+    <nav class="md-nav" aria-label="ConstructorOf">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_2" class="md-nav__link">
+    Type declaration
+  </a>
+  
+    <nav class="md-nav" aria-label="Type declaration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_2" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functionreturning" class="md-nav__link">
+    FunctionReturning
+  </a>
+  
+    <nav class="md-nav" aria-label="FunctionReturning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_1" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_3" class="md-nav__link">
+    Type declaration
+  </a>
+  
+    <nav class="md-nav" aria-label="Type declaration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_3" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maybe" class="md-nav__link">
+    Maybe
+  </a>
+  
+    <nav class="md-nav" aria-label="Maybe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_2" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_4" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixin" class="md-nav__link">
+    Mixin
+  </a>
+  
+    <nav class="md-nav" aria-label="Mixin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_3" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_5" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nil" class="md-nav__link">
+    Nil
+  </a>
+  
+    <nav class="md-nav" aria-label="Nil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_6" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renderloopcallback" class="md-nav__link">
+    RenderLoopCallback
+  </a>
+  
+    <nav class="md-nav" aria-label="RenderLoopCallback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_4" class="md-nav__link">
+    Type declaration
+  </a>
+  
+    <nav class="md-nav" aria-label="Type declaration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_7" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serializederror" class="md-nav__link">
+    SerializedError
+  </a>
+  
+    <nav class="md-nav" aria-label="SerializedError">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_8" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#palettes" class="md-nav__link">
+    PALETTES
+  </a>
+  
+    <nav class="md-nav" aria-label="PALETTES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_9" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two_pi" class="md-nav__link">
+    TWO_PI
+  </a>
+  
+    <nav class="md-nav" aria-label="TWO_PI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_10" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random" class="md-nav__link">
+    random
+  </a>
+  
+    <nav class="md-nav" aria-label="random">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_11" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isqrt" class="md-nav__link">
+    Isqrt
+  </a>
+  
+    <nav class="md-nav" aria-label="Isqrt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_12" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blend" class="md-nav__link">
+    blend
+  </a>
+  
+    <nav class="md-nav" aria-label="blend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_13" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blendadditive" class="md-nav__link">
+    blendAdditive
+  </a>
+  
+    <nav class="md-nav" aria-label="blendAdditive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_14" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blendsubtractive" class="md-nav__link">
+    blendSubtractive
+  </a>
+  
+    <nav class="md-nav" aria-label="blendSubtractive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_15" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosdeg" class="md-nav__link">
+    cosDeg
+  </a>
+  
+    <nav class="md-nav" aria-label="cosDeg">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_16" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deg2rad" class="md-nav__link">
+    deg2rad
+  </a>
+  
+    <nav class="md-nav" aria-label="deg2rad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_17" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difference" class="md-nav__link">
+    difference
+  </a>
+  
+    <nav class="md-nav" aria-label="difference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_4" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_18" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance" class="md-nav__link">
+    distance
+  </a>
+  
+    <nav class="md-nav" aria-label="distance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_12" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_19" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errortojson" class="md-nav__link">
+    errorToJSON
+  </a>
+  
+    <nav class="md-nav" aria-label="errorToJSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_20" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errortorecord" class="md-nav__link">
+    errorToRecord
+  </a>
+  
+    <nav class="md-nav" aria-label="errorToRecord">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_14" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_14" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_21" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errortosimpleserializable" class="md-nav__link">
+    errorToSimpleSerializable
+  </a>
+  
+    <nav class="md-nav" aria-label="errorToSimpleSerializable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_5" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_15" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_15" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_22" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtertype" class="md-nav__link">
+    filterType
+  </a>
+  
+    <nav class="md-nav" aria-label="filterType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_6" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_16" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_16" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_23" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatstring" class="md-nav__link">
+    formatString
+  </a>
+  
+    <nav class="md-nav" aria-label="formatString">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_17" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_17" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_24" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatstringtemplate" class="md-nav__link">
+    formatStringTemplate
+  </a>
+  
+    <nav class="md-nav" aria-label="formatStringTemplate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_18" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_18" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_25" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromrgb" class="md-nav__link">
+    fromRGB
+  </a>
+  
+    <nav class="md-nav" aria-label="fromRGB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_19" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_19" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_26" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromrgba" class="md-nav__link">
+    fromRGBA
+  </a>
+  
+    <nav class="md-nav" aria-label="fromRGBA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_20" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_20" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_27" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geta" class="md-nav__link">
+    getA
+  </a>
+  
+    <nav class="md-nav" aria-label="getA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_21" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_21" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_28" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getb" class="md-nav__link">
+    getB
+  </a>
+  
+    <nav class="md-nav" aria-label="getB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_22" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_22" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_29" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getg" class="md-nav__link">
+    getG
+  </a>
+  
+    <nav class="md-nav" aria-label="getG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_23" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_23" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_30" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getr" class="md-nav__link">
+    getR
+  </a>
+  
+    <nav class="md-nav" aria-label="getR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_24" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_24" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_31" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intersect" class="md-nav__link">
+    intersect
+  </a>
+  
+    <nav class="md-nav" aria-label="intersect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_7" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_25" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_25" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_32" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is" class="md-nav__link">
+    is
+  </a>
+  
+    <nav class="md-nav" aria-label="is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_8" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_26" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_26" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_33" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iserror" class="md-nav__link">
+    isError
+  </a>
+  
+    <nav class="md-nav" aria-label="isError">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_27" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_27" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_34" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isinteger" class="md-nav__link">
+    isInteger
+  </a>
+  
+    <nav class="md-nav" aria-label="isInteger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_28" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_28" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_35" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isnil" class="md-nav__link">
+    isNil
+  </a>
+  
+    <nav class="md-nav" aria-label="isNil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_9" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_29" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_29" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_36" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mustexist" class="md-nav__link">
+    mustExist
+  </a>
+  
+    <nav class="md-nav" aria-label="mustExist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_10" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_30" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_30" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_37" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nextpalette" class="md-nav__link">
+    nextPalette
+  </a>
+  
+    <nav class="md-nav" aria-label="nextPalette">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_31" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_38" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putpixel32" class="md-nav__link">
+    putPixel32
+  </a>
+  
+    <nav class="md-nav" aria-label="putPixel32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_31" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_32" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_39" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putpixel32add" class="md-nav__link">
+    putPixel32Add
+  </a>
+  
+    <nav class="md-nav" aria-label="putPixel32Add">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_32" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_33" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_40" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putpixel32sub" class="md-nav__link">
+    putPixel32Sub
+  </a>
+  
+    <nav class="md-nav" aria-label="putPixel32Sub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_33" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_34" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_41" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putsubpixel32" class="md-nav__link">
+    putSubPixel32
+  </a>
+  
+    <nav class="md-nav" aria-label="putSubPixel32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_34" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_35" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_42" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rad2deg" class="md-nav__link">
+    rad2deg
+  </a>
+  
+    <nav class="md-nav" aria-label="rad2deg">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_35" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_36" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_43" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#randomrange" class="md-nav__link">
+    randomRange
+  </a>
+  
+    <nav class="md-nav" aria-label="randomRange">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_36" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_37" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_44" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safergbcomponent" class="md-nav__link">
+    safeRGBComponent
+  </a>
+  
+    <nav class="md-nav" aria-label="safeRGBComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_37" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_38" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_45" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seedfromstring" class="md-nav__link">
+    seedFromString
+  </a>
+  
+    <nav class="md-nav" aria-label="seedFromString">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_38" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_39" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_46" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shufflearray" class="md-nav__link">
+    shuffleArray
+  </a>
+  
+    <nav class="md-nav" aria-label="shuffleArray">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_11" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_39" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_40" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_47" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sindeg" class="md-nav__link">
+    sinDeg
+  </a>
+  
+    <nav class="md-nav" aria-label="sinDeg">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_40" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_41" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_48" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    sleep
+  </a>
+  
+    <nav class="md-nav" aria-label="sleep">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_41" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_42" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_49" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#somecolor" class="md-nav__link">
+    somecolor
+  </a>
+  
+    <nav class="md-nav" aria-label="somecolor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_43" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_50" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tograyscale" class="md-nav__link">
+    toGrayScale
+  </a>
+  
+    <nav class="md-nav" aria-label="toGrayScale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_42" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_44" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_51" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unknowntoerror" class="md-nav__link">
+    unknownToError
+  </a>
+  
+    <nav class="md-nav" aria-label="unknownToError">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_43" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_45" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_52" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Classes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/AbstractError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AbstractError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/Canvas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Canvas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/InternalError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InternalError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/InvalidArgumentError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InvalidArgumentError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/InvalidOperationError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    InvalidOperationError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/NotImplementedError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NotImplementedError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/PermissionViolationError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PermissionViolationError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/Random/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/RenderLoop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RenderLoop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/ResourceConflictError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResourceConflictError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/UnexpectedNilError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UnexpectedNilError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/UnknownError/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UnknownError
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/Vector2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vector2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/Vector3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vector3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-aliases" class="md-nav__link">
+    Type Aliases
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anyconstructor" class="md-nav__link">
+    AnyConstructor
+  </a>
+  
+    <nav class="md-nav" aria-label="AnyConstructor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration" class="md-nav__link">
+    Type declaration
+  </a>
+  
+    <nav class="md-nav" aria-label="Type declaration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anyfunction" class="md-nav__link">
+    AnyFunction
+  </a>
+  
+    <nav class="md-nav" aria-label="AnyFunction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_1" class="md-nav__link">
+    Type declaration
+  </a>
+  
+    <nav class="md-nav" aria-label="Type declaration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_1" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructorof" class="md-nav__link">
+    ConstructorOf
+  </a>
+  
+    <nav class="md-nav" aria-label="ConstructorOf">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_2" class="md-nav__link">
+    Type declaration
+  </a>
+  
+    <nav class="md-nav" aria-label="Type declaration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_2" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functionreturning" class="md-nav__link">
+    FunctionReturning
+  </a>
+  
+    <nav class="md-nav" aria-label="FunctionReturning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_1" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_3" class="md-nav__link">
+    Type declaration
+  </a>
+  
+    <nav class="md-nav" aria-label="Type declaration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_3" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_3" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maybe" class="md-nav__link">
+    Maybe
+  </a>
+  
+    <nav class="md-nav" aria-label="Maybe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_2" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_4" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixin" class="md-nav__link">
+    Mixin
+  </a>
+  
+    <nav class="md-nav" aria-label="Mixin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_3" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_5" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nil" class="md-nav__link">
+    Nil
+  </a>
+  
+    <nav class="md-nav" aria-label="Nil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_6" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renderloopcallback" class="md-nav__link">
+    RenderLoopCallback
+  </a>
+  
+    <nav class="md-nav" aria-label="RenderLoopCallback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-declaration_4" class="md-nav__link">
+    Type declaration
+  </a>
+  
+    <nav class="md-nav" aria-label="Type declaration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_4" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_7" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serializederror" class="md-nav__link">
+    SerializedError
+  </a>
+  
+    <nav class="md-nav" aria-label="SerializedError">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_8" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#palettes" class="md-nav__link">
+    PALETTES
+  </a>
+  
+    <nav class="md-nav" aria-label="PALETTES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_9" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two_pi" class="md-nav__link">
+    TWO_PI
+  </a>
+  
+    <nav class="md-nav" aria-label="TWO_PI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_10" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random" class="md-nav__link">
+    random
+  </a>
+  
+    <nav class="md-nav" aria-label="random">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_11" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isqrt" class="md-nav__link">
+    Isqrt
+  </a>
+  
+    <nav class="md-nav" aria-label="Isqrt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_5" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_12" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blend" class="md-nav__link">
+    blend
+  </a>
+  
+    <nav class="md-nav" aria-label="blend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_6" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_13" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blendadditive" class="md-nav__link">
+    blendAdditive
+  </a>
+  
+    <nav class="md-nav" aria-label="blendAdditive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_7" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_14" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blendsubtractive" class="md-nav__link">
+    blendSubtractive
+  </a>
+  
+    <nav class="md-nav" aria-label="blendSubtractive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_8" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_8" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_15" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cosdeg" class="md-nav__link">
+    cosDeg
+  </a>
+  
+    <nav class="md-nav" aria-label="cosDeg">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_9" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_16" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deg2rad" class="md-nav__link">
+    deg2rad
+  </a>
+  
+    <nav class="md-nav" aria-label="deg2rad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_10" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_10" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_17" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difference" class="md-nav__link">
+    difference
+  </a>
+  
+    <nav class="md-nav" aria-label="difference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_4" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_11" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_11" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_18" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance" class="md-nav__link">
+    distance
+  </a>
+  
+    <nav class="md-nav" aria-label="distance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_12" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_12" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_19" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errortojson" class="md-nav__link">
+    errorToJSON
+  </a>
+  
+    <nav class="md-nav" aria-label="errorToJSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_13" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_20" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errortorecord" class="md-nav__link">
+    errorToRecord
+  </a>
+  
+    <nav class="md-nav" aria-label="errorToRecord">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_14" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_14" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_21" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errortosimpleserializable" class="md-nav__link">
+    errorToSimpleSerializable
+  </a>
+  
+    <nav class="md-nav" aria-label="errorToSimpleSerializable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_5" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_15" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_15" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_22" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtertype" class="md-nav__link">
+    filterType
+  </a>
+  
+    <nav class="md-nav" aria-label="filterType">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_6" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_16" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_16" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_23" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatstring" class="md-nav__link">
+    formatString
+  </a>
+  
+    <nav class="md-nav" aria-label="formatString">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_17" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_17" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_24" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatstringtemplate" class="md-nav__link">
+    formatStringTemplate
+  </a>
+  
+    <nav class="md-nav" aria-label="formatStringTemplate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_18" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_18" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_25" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromrgb" class="md-nav__link">
+    fromRGB
+  </a>
+  
+    <nav class="md-nav" aria-label="fromRGB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_19" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_19" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_26" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromrgba" class="md-nav__link">
+    fromRGBA
+  </a>
+  
+    <nav class="md-nav" aria-label="fromRGBA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_20" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_20" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_27" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geta" class="md-nav__link">
+    getA
+  </a>
+  
+    <nav class="md-nav" aria-label="getA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_21" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_21" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_28" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getb" class="md-nav__link">
+    getB
+  </a>
+  
+    <nav class="md-nav" aria-label="getB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_22" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_22" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_29" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getg" class="md-nav__link">
+    getG
+  </a>
+  
+    <nav class="md-nav" aria-label="getG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_23" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_23" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_30" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getr" class="md-nav__link">
+    getR
+  </a>
+  
+    <nav class="md-nav" aria-label="getR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_24" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_24" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_31" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intersect" class="md-nav__link">
+    intersect
+  </a>
+  
+    <nav class="md-nav" aria-label="intersect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_7" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_25" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_25" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_32" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is" class="md-nav__link">
+    is
+  </a>
+  
+    <nav class="md-nav" aria-label="is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_8" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_26" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_26" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_33" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iserror" class="md-nav__link">
+    isError
+  </a>
+  
+    <nav class="md-nav" aria-label="isError">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_27" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_27" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_34" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isinteger" class="md-nav__link">
+    isInteger
+  </a>
+  
+    <nav class="md-nav" aria-label="isInteger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_28" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_28" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_35" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isnil" class="md-nav__link">
+    isNil
+  </a>
+  
+    <nav class="md-nav" aria-label="isNil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_9" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_29" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_29" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_36" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mustexist" class="md-nav__link">
+    mustExist
+  </a>
+  
+    <nav class="md-nav" aria-label="mustExist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_10" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_30" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_30" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_37" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nextpalette" class="md-nav__link">
+    nextPalette
+  </a>
+  
+    <nav class="md-nav" aria-label="nextPalette">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_31" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_38" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putpixel32" class="md-nav__link">
+    putPixel32
+  </a>
+  
+    <nav class="md-nav" aria-label="putPixel32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_31" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_32" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_39" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putpixel32add" class="md-nav__link">
+    putPixel32Add
+  </a>
+  
+    <nav class="md-nav" aria-label="putPixel32Add">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_32" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_33" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_40" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putpixel32sub" class="md-nav__link">
+    putPixel32Sub
+  </a>
+  
+    <nav class="md-nav" aria-label="putPixel32Sub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_33" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_34" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_41" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putsubpixel32" class="md-nav__link">
+    putSubPixel32
+  </a>
+  
+    <nav class="md-nav" aria-label="putSubPixel32">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_34" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_35" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_42" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rad2deg" class="md-nav__link">
+    rad2deg
+  </a>
+  
+    <nav class="md-nav" aria-label="rad2deg">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_35" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_36" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_43" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#randomrange" class="md-nav__link">
+    randomRange
+  </a>
+  
+    <nav class="md-nav" aria-label="randomRange">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_36" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_37" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_44" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safergbcomponent" class="md-nav__link">
+    safeRGBComponent
+  </a>
+  
+    <nav class="md-nav" aria-label="safeRGBComponent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_37" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_38" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_45" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seedfromstring" class="md-nav__link">
+    seedFromString
+  </a>
+  
+    <nav class="md-nav" aria-label="seedFromString">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_38" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_39" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_46" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shufflearray" class="md-nav__link">
+    shuffleArray
+  </a>
+  
+    <nav class="md-nav" aria-label="shuffleArray">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-parameters_11" class="md-nav__link">
+    Type parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters_39" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_40" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_47" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sindeg" class="md-nav__link">
+    sinDeg
+  </a>
+  
+    <nav class="md-nav" aria-label="sinDeg">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_40" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_41" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_48" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    sleep
+  </a>
+  
+    <nav class="md-nav" aria-label="sleep">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_41" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_42" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_49" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#somecolor" class="md-nav__link">
+    somecolor
+  </a>
+  
+    <nav class="md-nav" aria-label="somecolor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns_43" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_50" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tograyscale" class="md-nav__link">
+    toGrayScale
+  </a>
+  
+    <nav class="md-nav" aria-label="toGrayScale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_42" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_44" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_51" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unknowntoerror" class="md-nav__link">
+    unknownToError
+  </a>
+  
+    <nav class="md-nav" aria-label="unknownToError">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_43" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_45" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defined-in_52" class="md-nav__link">
+    Defined in
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<p><a href="../">@oliversalzburg/js-utils</a> / Exports</p>
+<h1 id="oliversalzburgjs-utils">@oliversalzburg/js-utils<a class="headerlink" href="#oliversalzburgjs-utils" title="Permanent link">&para;</a></h1>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../classes/AbstractError/">AbstractError</a></li>
+<li><a href="../classes/Canvas/">Canvas</a></li>
+<li><a href="../classes/InternalError/">InternalError</a></li>
+<li><a href="../classes/InvalidArgumentError/">InvalidArgumentError</a></li>
+<li><a href="../classes/InvalidOperationError/">InvalidOperationError</a></li>
+<li><a href="../classes/NotImplementedError/">NotImplementedError</a></li>
+<li><a href="../classes/PermissionViolationError/">PermissionViolationError</a></li>
+<li><a href="../classes/Random/">Random</a></li>
+<li><a href="../classes/RenderLoop/">RenderLoop</a></li>
+<li><a href="../classes/ResourceConflictError/">ResourceConflictError</a></li>
+<li><a href="../classes/UnexpectedNilError/">UnexpectedNilError</a></li>
+<li><a href="../classes/UnknownError/">UnknownError</a></li>
+<li><a href="../classes/Vector2/">Vector2</a></li>
+<li><a href="../classes/Vector3/">Vector3</a></li>
+</ul>
+<h2 id="type-aliases">Type Aliases<a class="headerlink" href="#type-aliases" title="Permanent link">&para;</a></h2>
+<h3 id="anyconstructor">AnyConstructor<a class="headerlink" href="#anyconstructor" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>AnyConstructor</strong>: (...<code>args</code>: <code>any</code>[]) =&gt; <code>any</code></p>
+<h4 id="type-declaration">Type declaration<a class="headerlink" href="#type-declaration" title="Permanent link">&para;</a></h4>
+<p>• (<code>...args</code>): <code>any</code></p>
+<p>Any constructor</p>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>...args</code></td>
+<td style="text-align: left;"><code>any</code>[]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h5>
+<p><code>any</code></p>
+<h4 id="defined-in">Defined in<a class="headerlink" href="#defined-in" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/core.ts#L16">core.ts:16</a></p>
+<hr />
+<h3 id="anyfunction">AnyFunction<a class="headerlink" href="#anyfunction" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>AnyFunction</strong>: (...<code>args</code>: <code>any</code>[]) =&gt; <code>any</code></p>
+<h4 id="type-declaration_1">Type declaration<a class="headerlink" href="#type-declaration_1" title="Permanent link">&para;</a></h4>
+<p>▸ (<code>...args</code>): <code>any</code></p>
+<p>Describes literally any function.</p>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>...args</code></td>
+<td style="text-align: left;"><code>any</code>[]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h5>
+<p><code>any</code></p>
+<h4 id="defined-in_1">Defined in<a class="headerlink" href="#defined-in_1" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/core.ts#L11">core.ts:11</a></p>
+<hr />
+<h3 id="constructorof">ConstructorOf<a class="headerlink" href="#constructorof" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>ConstructorOf</strong>\&lt;<code>T</code>&gt;: (...<code>args</code>: <code>any</code>[]) =&gt; <code>T</code></p>
+<h4 id="type-parameters">Type parameters<a class="headerlink" href="#type-parameters" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+<td style="text-align: left;"><code>Record</code>\&lt;<code>string</code>, <code>unknown</code>&gt;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="type-declaration_2">Type declaration<a class="headerlink" href="#type-declaration_2" title="Permanent link">&para;</a></h4>
+<p>• (<code>...args</code>): <code>T</code></p>
+<p>Describes a function that is a constructor for T.</p>
+<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>...args</code></td>
+<td style="text-align: left;"><code>any</code>[]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h5>
+<p><code>T</code></p>
+<h4 id="defined-in_2">Defined in<a class="headerlink" href="#defined-in_2" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/core.ts#L6">core.ts:6</a></p>
+<hr />
+<h3 id="functionreturning">FunctionReturning<a class="headerlink" href="#functionreturning" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>FunctionReturning</strong>\&lt;<code>T</code>&gt;: (...<code>args</code>: <code>any</code>[]) =&gt; <code>T</code></p>
+<h4 id="type-parameters_1">Type parameters<a class="headerlink" href="#type-parameters_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+<td style="text-align: left;"><code>any</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="type-declaration_3">Type declaration<a class="headerlink" href="#type-declaration_3" title="Permanent link">&para;</a></h4>
+<p>▸ (<code>...args</code>): <code>T</code></p>
+<p>Describes a function returning an instance of T.</p>
+<h5 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>...args</code></td>
+<td style="text-align: left;"><code>any</code>[]</td>
+</tr>
+</tbody>
+</table>
+<h5 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h5>
+<p><code>T</code></p>
+<h4 id="defined-in_3">Defined in<a class="headerlink" href="#defined-in_3" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/core.ts#L21">core.ts:21</a></p>
+<hr />
+<h3 id="maybe">Maybe<a class="headerlink" href="#maybe" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>Maybe</strong>\&lt;<code>T</code>&gt;: <code>T</code> | <a href="./#nil"><code>Nil</code></a></p>
+<p>A type that could be either what you want, or <code>Nil</code>.</p>
+<h4 id="type-parameters_2">Type parameters<a class="headerlink" href="#type-parameters_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="defined-in_4">Defined in<a class="headerlink" href="#defined-in_4" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/nil.ts#L12">nil.ts:12</a></p>
+<hr />
+<h3 id="mixin">Mixin<a class="headerlink" href="#mixin" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>Mixin</strong>\&lt;<code>T</code>&gt;: <code>InstanceType</code>\&lt;<code>ReturnType</code>\&lt;<code>T</code>&gt;&gt;</p>
+<p>Describes a class "mixin", which is a function that returns a dynamically
+constructed class, based on the passed parameters.</p>
+<h4 id="type-parameters_3">Type parameters<a class="headerlink" href="#type-parameters_3" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+<td style="text-align: left;">extends <a href="./#functionreturning"><code>FunctionReturning</code></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="defined-in_5">Defined in<a class="headerlink" href="#defined-in_5" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/core.ts#L27">core.ts:27</a></p>
+<hr />
+<h3 id="nil">Nil<a class="headerlink" href="#nil" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>Nil</strong>: <code>null</code> | <code>undefined</code></p>
+<p>When you want to normalize away <code>null</code> | <code>undefined</code>, or deal
+with either type through a consistent interface.</p>
+<h4 id="defined-in_6">Defined in<a class="headerlink" href="#defined-in_6" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/nil.ts#L7">nil.ts:7</a></p>
+<hr />
+<h3 id="renderloopcallback">RenderLoopCallback<a class="headerlink" href="#renderloopcallback" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>RenderLoopCallback</strong>: (<code>delta</code>: <code>number</code>, <code>timestamp</code>: <code>number</code>) =&gt; <code>unknown</code></p>
+<h4 id="type-declaration_4">Type declaration<a class="headerlink" href="#type-declaration_4" title="Permanent link">&para;</a></h4>
+<p>▸ (<code>delta</code>, <code>timestamp</code>): <code>unknown</code></p>
+<p>The signature of a function that is called to draw a frame.</p>
+<h5 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>delta</code></td>
+<td style="text-align: left;"><code>number</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>timestamp</code></td>
+<td style="text-align: left;"><code>number</code></td>
+</tr>
+</tbody>
+</table>
+<h5 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h5>
+<p><code>unknown</code></p>
+<h4 id="defined-in_7">Defined in<a class="headerlink" href="#defined-in_7" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/render-loop.ts#L6">graphics/render-loop.ts:6</a></p>
+<hr />
+<h3 id="serializederror">SerializedError<a class="headerlink" href="#serializederror" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>SerializedError</strong>: <code>Record</code>\&lt;<code>string</code>, <code>Record</code>\&lt;<code>string</code>, <code>string</code>&gt; | <code>string</code> | <code>undefined</code>&gt;</p>
+<p>The shape of an <code>Error</code> instance, after it has been serialized into a simple hash.</p>
+<h4 id="defined-in_8">Defined in<a class="headerlink" href="#defined-in_8" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/error-serializer.ts#L8">error-serializer.ts:8</a></p>
+<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
+<h3 id="palettes">PALETTES<a class="headerlink" href="#palettes" title="Permanent link">&para;</a></h3>
+<p>• <code>Const</code> <strong>PALETTES</strong>: <code>number</code>[][]</p>
+<h4 id="defined-in_9">Defined in<a class="headerlink" href="#defined-in_9" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L5">graphics/core.ts:5</a></p>
+<hr />
+<h3 id="two_pi">TWO_PI<a class="headerlink" href="#two_pi" title="Permanent link">&para;</a></h3>
+<p>• <code>Const</code> <strong>TWO_PI</strong>: <code>number</code></p>
+<h4 id="defined-in_10">Defined in<a class="headerlink" href="#defined-in_10" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/core.ts#L1">math/core.ts:1</a></p>
+<hr />
+<h3 id="random">random<a class="headerlink" href="#random" title="Permanent link">&para;</a></h3>
+<p>• <code>Const</code> <strong>random</strong>: <a href="../classes/Random/"><code>Random</code></a></p>
+<h4 id="defined-in_11">Defined in<a class="headerlink" href="#defined-in_11" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/random.ts#L196">random.ts:196</a></p>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
+<h3 id="isqrt">Isqrt<a class="headerlink" href="#isqrt" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>Isqrt</strong>(<code>value</code>): <code>number</code></p>
+<p>Finds the integer square root of a positive number.</p>
+<h4 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The value to calcuate the square root for.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The square root for the given value.</p>
+<h4 id="defined-in_12">Defined in<a class="headerlink" href="#defined-in_12" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/core.ts#L58">math/core.ts:58</a></p>
+<hr />
+<h3 id="blend">blend<a class="headerlink" href="#blend" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>blend</strong>(<code>src</code>, <code>dst</code>, <code>alpha</code>): <code>number</code></p>
+<p>Returns a new color that is a blend between a source and a destination
+color linerally. The alpha component in these colors is ignored. Instead, the provided
+<code>alpha</code> value is used to blend between the two colors.</p>
+<h4 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>src</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The source color.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dst</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The destination color.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>alpha</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The alpha value to use for blending.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The blended color.</p>
+<h4 id="defined-in_13">Defined in<a class="headerlink" href="#defined-in_13" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L413">graphics/core.ts:413</a></p>
+<hr />
+<h3 id="blendadditive">blendAdditive<a class="headerlink" href="#blendadditive" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>blendAdditive</strong>(<code>src</code>, <code>dst</code>, <code>alpha</code>): <code>number</code></p>
+<p>Returns a new color that is a blend between a source and a destination
+color additively. The alpha component in these colors is ignored. Instead, the provided
+<code>alpha</code> value is used to blend between the two colors.</p>
+<h4 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>src</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The source color.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dst</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The destination color.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>alpha</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The alpha value to use for blending.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The blended color.</p>
+<h4 id="defined-in_14">Defined in<a class="headerlink" href="#defined-in_14" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L439">graphics/core.ts:439</a></p>
+<hr />
+<h3 id="blendsubtractive">blendSubtractive<a class="headerlink" href="#blendsubtractive" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>blendSubtractive</strong>(<code>src</code>, <code>dst</code>, <code>alpha</code>): <code>number</code></p>
+<p>Returns a new color that is a blend between a source and a destination
+color subtractively. The alpha component in these colors is ignored. Instead, the provided
+<code>alpha</code> value is used to blend between the two colors.</p>
+<h4 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>src</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The source color.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dst</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The destination color.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>alpha</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The alpha value to use for blending.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The blended color.</p>
+<h4 id="defined-in_15">Defined in<a class="headerlink" href="#defined-in_15" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L463">graphics/core.ts:463</a></p>
+<hr />
+<h3 id="cosdeg">cosDeg<a class="headerlink" href="#cosdeg" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>cosDeg</strong>(<code>value</code>): <code>number</code></p>
+<p>Calculates the cosine for a given degree value.</p>
+<h4 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The value in degrees to calculate the cosine for.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The cosine for the given value.</p>
+<h4 id="defined-in_16">Defined in<a class="headerlink" href="#defined-in_16" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/core.ts#L35">math/core.ts:35</a></p>
+<hr />
+<h3 id="deg2rad">deg2rad<a class="headerlink" href="#deg2rad" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>deg2rad</strong>(<code>degrees</code>): <code>number</code></p>
+<p>Converts the degrees to radians.</p>
+<h4 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>degrees</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The degrees to convert to radians.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The degrees in radians.</p>
+<h4 id="defined-in_17">Defined in<a class="headerlink" href="#defined-in_17" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/core.ts#L8">math/core.ts:8</a></p>
+<hr />
+<h3 id="difference">difference<a class="headerlink" href="#difference" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>difference</strong>\&lt;<code>T</code>&gt;(<code>a</code>, <code>b</code>): <code>T</code>[]</p>
+<p>Returns an array that holds all items that only appear in <code>a</code>.</p>
+<h4 id="type-parameters_4">Type parameters<a class="headerlink" href="#type-parameters_4" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>a</code></td>
+<td style="text-align: left;"><code>T</code>[]</td>
+<td style="text-align: left;">The first array.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>b</code></td>
+<td style="text-align: left;"><code>T</code>[]</td>
+<td style="text-align: left;">The second array.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h4>
+<p><code>T</code>[]</p>
+<p>A new array which holds the items that ony appear
+in <code>a</code>.</p>
+<h4 id="defined-in_18">Defined in<a class="headerlink" href="#defined-in_18" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/array.ts#L38">array.ts:38</a></p>
+<hr />
+<h3 id="distance">distance<a class="headerlink" href="#distance" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>distance</strong>(<code>x1</code>, <code>y1</code>, <code>x2</code>, <code>y2</code>): <code>number</code></p>
+<p>Calculates the distance between two vectors.</p>
+<h4 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>x1</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The X component of the first vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>y1</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The Y comoinent of the first vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x2</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The X component of the second vector.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>y2</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The Y component of the second vector.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The distance between the two vectors.</p>
+<h4 id="defined-in_19">Defined in<a class="headerlink" href="#defined-in_19" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/core.ts#L47">math/core.ts:47</a></p>
+<hr />
+<h3 id="errortojson">errorToJSON<a class="headerlink" href="#errortojson" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>errorToJSON</strong>(<code>error</code>): <code>string</code></p>
+<p>Serializes an error into a JSON string.</p>
+<h4 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>error</code></td>
+<td style="text-align: left;"><code>Error</code></td>
+<td style="text-align: left;">The error to stringify.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h4>
+<p><code>string</code></p>
+<p>A JSON string representing the error.</p>
+<h4 id="defined-in_20">Defined in<a class="headerlink" href="#defined-in_20" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/error-serializer.ts#L43">error-serializer.ts:43</a></p>
+<hr />
+<h3 id="errortorecord">errorToRecord<a class="headerlink" href="#errortorecord" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>errorToRecord</strong>(<code>error</code>): <code>Record</code>\&lt;<code>string</code>, <code>unknown</code>&gt;</p>
+<p>Converts an error into a regular hash.</p>
+<h4 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>error</code></td>
+<td style="text-align: left;"><code>Error</code></td>
+<td style="text-align: left;">The error to convert.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h4>
+<p><code>Record</code>\&lt;<code>string</code>, <code>unknown</code>&gt;</p>
+<p>A new object that contains all the properties of the error.</p>
+<h4 id="defined-in_21">Defined in<a class="headerlink" href="#defined-in_21" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/error-serializer.ts#L52">error-serializer.ts:52</a></p>
+<hr />
+<h3 id="errortosimpleserializable">errorToSimpleSerializable<a class="headerlink" href="#errortosimpleserializable" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>errorToSimpleSerializable</strong>\&lt;<code>TError</code>&gt;(<code>error</code>): <a href="./#serializederror"><code>SerializedError</code></a></p>
+<p>Serializes an error into a simpler shape.</p>
+<h4 id="type-parameters_5">Type parameters<a class="headerlink" href="#type-parameters_5" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>TError</code></td>
+<td style="text-align: left;">extends <a href="../classes/AbstractError/"><code>AbstractError</code></a> = <a href="../classes/AbstractError/"><code>AbstractError</code></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>error</code></td>
+<td style="text-align: left;"><code>TError</code></td>
+<td style="text-align: left;">The error to serialize.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h4>
+<p><a href="./#serializederror"><code>SerializedError</code></a></p>
+<p>A simple representation of the error.</p>
+<h4 id="defined-in_22">Defined in<a class="headerlink" href="#defined-in_22" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/error-serializer.ts#L65">error-serializer.ts:65</a></p>
+<hr />
+<h3 id="filtertype">filterType<a class="headerlink" href="#filtertype" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>filterType</strong>\&lt;<code>T</code>&gt;(<code>array</code>, <code>InstanceType</code>): <code>T</code>[]</p>
+<p>From an array with unknown contents, retrieve all the elements
+that are of a certain type and return them as a new array.</p>
+<h4 id="type-parameters_6">Type parameters<a class="headerlink" href="#type-parameters_6" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>array</code></td>
+<td style="text-align: left;"><code>unknown</code>[]</td>
+<td style="text-align: left;">The array to filter.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>InstanceType</code></td>
+<td style="text-align: left;"><a href="./#constructorof"><code>ConstructorOf</code></a>\&lt;<code>T</code>&gt;</td>
+<td style="text-align: left;">The type to search for.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h4>
+<p><code>T</code>[]</p>
+<p>A new array with the filtered items.</p>
+<h4 id="defined-in_23">Defined in<a class="headerlink" href="#defined-in_23" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/array.ts#L49">array.ts:49</a></p>
+<hr />
+<h3 id="formatstring">formatString<a class="headerlink" href="#formatstring" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>formatString</strong>(<code>string</code>, <code>...formatArguments</code>): <code>string</code></p>
+<p>Formats a given input string with numeric placeholders.</p>
+<h4 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">The input string with placeholders.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>...formatArguments</code></td>
+<td style="text-align: left;"><code>string</code>[]</td>
+<td style="text-align: left;">An array of strings to place into the placeholders.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h4>
+<p><code>string</code></p>
+<p>The formatted string.</p>
+<p><strong><code>Example</code></strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// returns &quot;Hello World&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">formatString</span><span class="p">(</span><span class="s2">&quot;{0} {1}&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;World&quot;</span><span class="p">]);</span>
+</code></pre></div>
+<h4 id="defined-in_24">Defined in<a class="headerlink" href="#defined-in_24" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/string-formatter.ts#L10">string-formatter.ts:10</a></p>
+<hr />
+<h3 id="formatstringtemplate">formatStringTemplate<a class="headerlink" href="#formatstringtemplate" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>formatStringTemplate</strong>(<code>string</code>, <code>parameters</code>): <code>string</code></p>
+<p>Formats a given input string with alphanumeric placeholders.</p>
+<h4 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">The input string with placeholders.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>parameters</code></td>
+<td style="text-align: left;"><code>Record</code>\&lt;<code>string</code>, <code>undefined</code> | <code>string</code>&gt;</td>
+<td style="text-align: left;">A hash of parameters to place in the placeholders.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h4>
+<p><code>string</code></p>
+<p>The formatted string.</p>
+<p><strong><code>Example</code></strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// returns &quot;Hello World&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nx">formatString</span><span class="p">(</span><span class="s2">&quot;{first} {second}&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">first</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">second</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;World&quot;</span><span class="w"> </span><span class="p">});</span>
+</code></pre></div>
+<h4 id="defined-in_25">Defined in<a class="headerlink" href="#defined-in_25" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/string-formatter.ts#L25">string-formatter.ts:25</a></p>
+<hr />
+<h3 id="fromrgb">fromRGB<a class="headerlink" href="#fromrgb" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>fromRGB</strong>(<code>r</code>, <code>g</code>, <code>b</code>): <code>number</code></p>
+<p>Constructs a 32bit integer value that represents an RGBA color value.
+The A component is fixed to <code>255</code></p>
+<h4 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>r</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The R component.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>g</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The G component.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>b</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The B component.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The constructed color value.</p>
+<h4 id="defined-in_26">Defined in<a class="headerlink" href="#defined-in_26" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L364">graphics/core.ts:364</a></p>
+<hr />
+<h3 id="fromrgba">fromRGBA<a class="headerlink" href="#fromrgba" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>fromRGBA</strong>(<code>r</code>, <code>g</code>, <code>b</code>, <code>a</code>): <code>number</code></p>
+<p>Constructs a 32bit integer value that represents an RGBA color value.</p>
+<h4 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>r</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The R component.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>g</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The G component.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>b</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The B component.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>a</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The A component.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_20">Returns<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The constructed color value.</p>
+<h4 id="defined-in_27">Defined in<a class="headerlink" href="#defined-in_27" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L347">graphics/core.ts:347</a></p>
+<hr />
+<h3 id="geta">getA<a class="headerlink" href="#geta" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>getA</strong>(<code>color</code>): <code>number</code></p>
+<p>Extracts the A component from a color value.</p>
+<h4 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The color value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_21">Returns<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The A component of the color value.</p>
+<h4 id="defined-in_28">Defined in<a class="headerlink" href="#defined-in_28" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L400">graphics/core.ts:400</a></p>
+<hr />
+<h3 id="getb">getB<a class="headerlink" href="#getb" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>getB</strong>(<code>color</code>): <code>number</code></p>
+<p>Extracts the B component from a color value.</p>
+<h4 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The color value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_22">Returns<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The B component of the color value.</p>
+<h4 id="defined-in_29">Defined in<a class="headerlink" href="#defined-in_29" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L391">graphics/core.ts:391</a></p>
+<hr />
+<h3 id="getg">getG<a class="headerlink" href="#getg" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>getG</strong>(<code>color</code>): <code>number</code></p>
+<p>Extracts the G component from a color value.</p>
+<h4 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The color value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_23">Returns<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The G component of the color value.</p>
+<h4 id="defined-in_30">Defined in<a class="headerlink" href="#defined-in_30" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L382">graphics/core.ts:382</a></p>
+<hr />
+<h3 id="getr">getR<a class="headerlink" href="#getr" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>getR</strong>(<code>color</code>): <code>number</code></p>
+<p>Extracts the R component from a color value.</p>
+<h4 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The color value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The R component of the color value.</p>
+<h4 id="defined-in_31">Defined in<a class="headerlink" href="#defined-in_31" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L373">graphics/core.ts:373</a></p>
+<hr />
+<h3 id="intersect">intersect<a class="headerlink" href="#intersect" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>intersect</strong>\&lt;<code>T</code>&gt;(<code>a</code>, <code>b</code>): <code>T</code>[]</p>
+<p>Returns an array that holds all items that appear in both
+passed arrays.</p>
+<h4 id="type-parameters_7">Type parameters<a class="headerlink" href="#type-parameters_7" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters_25">Parameters<a class="headerlink" href="#parameters_25" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>a</code></td>
+<td style="text-align: left;"><code>T</code>[]</td>
+<td style="text-align: left;">The first array.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>b</code></td>
+<td style="text-align: left;"><code>T</code>[]</td>
+<td style="text-align: left;">The second array.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h4>
+<p><code>T</code>[]</p>
+<p>A new array which holds the items that appear in
+both passed arrays.</p>
+<h4 id="defined-in_32">Defined in<a class="headerlink" href="#defined-in_32" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/array.ts#L27">array.ts:27</a></p>
+<hr />
+<h3 id="is">is<a class="headerlink" href="#is" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>is</strong>\&lt;<code>T</code>&gt;(<code>nilable</code>, <code>InstanceType</code>): nilable is T</p>
+<p>Check if something is a concrete value of the given type.
+Can be used as a typeguard.</p>
+<h4 id="type-parameters_8">Type parameters<a class="headerlink" href="#type-parameters_8" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters_26">Parameters<a class="headerlink" href="#parameters_26" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>nilable</code></td>
+<td style="text-align: left;"><a href="./#maybe"><code>Maybe</code></a>\&lt;<code>T</code>&gt;</td>
+<td style="text-align: left;">The subject that could be nil.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>InstanceType</code></td>
+<td style="text-align: left;"><a href="./#constructorof"><code>ConstructorOf</code></a>\&lt;<code>T</code>&gt;</td>
+<td style="text-align: left;">The type to check against.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_26">Returns<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h4>
+<p>nilable is T</p>
+<p><code>true</code> if the input element matches the given type,
+<code>false</code> otherwise.</p>
+<h4 id="defined-in_33">Defined in<a class="headerlink" href="#defined-in_33" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/nil.ts#L32">nil.ts:32</a></p>
+<hr />
+<h3 id="iserror">isError<a class="headerlink" href="#iserror" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>isError</strong>(<code>subject</code>): subject is Error</p>
+<p>Determine if the given unknown subject is an <code>Error</code> instance.</p>
+<h4 id="parameters_27">Parameters<a class="headerlink" href="#parameters_27" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>subject</code></td>
+<td style="text-align: left;"><code>unknown</code></td>
+<td style="text-align: left;">The object to inspect.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_27">Returns<a class="headerlink" href="#returns_27" title="Permanent link">&para;</a></h4>
+<p>subject is Error</p>
+<p><code>true</code> if the subject is an <code>Error</code>, <code>false</code> otherwise.</p>
+<h4 id="defined-in_34">Defined in<a class="headerlink" href="#defined-in_34" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/error-serializer.ts#L15">error-serializer.ts:15</a></p>
+<hr />
+<h3 id="isinteger">isInteger<a class="headerlink" href="#isinteger" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>isInteger</strong>(<code>value</code>): <code>boolean</code></p>
+<p>Checks whether a number is an integer.</p>
+<h4 id="parameters_28">Parameters<a class="headerlink" href="#parameters_28" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The value to check.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_28">Returns<a class="headerlink" href="#returns_28" title="Permanent link">&para;</a></h4>
+<p><code>boolean</code></p>
+<p><code>true</code> when the value is an integer, <code>false</code> otherwise.</p>
+<h4 id="defined-in_35">Defined in<a class="headerlink" href="#defined-in_35" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/core.ts#L76">math/core.ts:76</a></p>
+<hr />
+<h3 id="isnil">isNil<a class="headerlink" href="#isnil" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>isNil</strong>\&lt;<code>T</code>&gt;(<code>subject</code>): subject is Nil</p>
+<p>Check if something is nil.
+Can be used as a typeguard.</p>
+<h4 id="type-parameters_9">Type parameters<a class="headerlink" href="#type-parameters_9" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters_29">Parameters<a class="headerlink" href="#parameters_29" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>subject</code></td>
+<td style="text-align: left;"><a href="./#maybe"><code>Maybe</code></a>\&lt;<code>T</code>&gt;</td>
+<td style="text-align: left;">The subject that could be nil.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_29">Returns<a class="headerlink" href="#returns_29" title="Permanent link">&para;</a></h4>
+<p>subject is Nil</p>
+<p><code>true</code> if the subject is nil, <code>false</code> otherwise.</p>
+<h4 id="defined-in_36">Defined in<a class="headerlink" href="#defined-in_36" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/nil.ts#L20">nil.ts:20</a></p>
+<hr />
+<h3 id="mustexist">mustExist<a class="headerlink" href="#mustexist" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>mustExist</strong>\&lt;<code>T</code>&gt;(<code>subject</code>, <code>errorMessage?</code>): <code>T</code></p>
+<p>Ensure that the passed subject is not nil; throw otherwise.</p>
+<h4 id="type-parameters_10">Type parameters<a class="headerlink" href="#type-parameters_10" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters_30">Parameters<a class="headerlink" href="#parameters_30" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>subject</code></td>
+<td style="text-align: left;"><a href="./#maybe"><code>Maybe</code></a>\&lt;<code>T</code>&gt;</td>
+<td style="text-align: left;">A subject that is possible nil.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>errorMessage?</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">An optional error message to throw when the subject is nil.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_30">Returns<a class="headerlink" href="#returns_30" title="Permanent link">&para;</a></h4>
+<p><code>T</code></p>
+<p>The subject, if it isn't nil.</p>
+<p><strong><code>Throws</code></strong></p>
+<p>When the subject is nil.</p>
+<h4 id="defined-in_37">Defined in<a class="headerlink" href="#defined-in_37" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/nil.ts#L56">nil.ts:56</a></p>
+<hr />
+<h3 id="nextpalette">nextPalette<a class="headerlink" href="#nextpalette" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>nextPalette</strong>(): <code>void</code></p>
+<p>Switches the global palette to the next available preset.</p>
+<h4 id="returns_31">Returns<a class="headerlink" href="#returns_31" title="Permanent link">&para;</a></h4>
+<p><code>void</code></p>
+<h4 id="defined-in_38">Defined in<a class="headerlink" href="#defined-in_38" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L491">graphics/core.ts:491</a></p>
+<hr />
+<h3 id="putpixel32">putPixel32<a class="headerlink" href="#putpixel32" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>putPixel32</strong>(<code>canvas</code>, <code>x</code>, <code>y</code>, <code>color</code>, <code>alpha</code>): <code>void</code></p>
+<p>Linearly blends a new pixel with an existing color value in a <a href="../classes/Canvas/">Canvas</a>.</p>
+<h4 id="parameters_31">Parameters<a class="headerlink" href="#parameters_31" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>canvas</code></td>
+<td style="text-align: left;"><a href="../classes/Canvas/"><code>Canvas</code></a></td>
+<td style="text-align: left;">The <a href="../classes/Canvas/">Canvas</a> to interact with.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The X coordinate at which to place the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>y</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The Y coordinate at which to place the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The color of the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>alpha</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The alpha value to use to blend the pixel with existing color at the location.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_32">Returns<a class="headerlink" href="#returns_32" title="Permanent link">&para;</a></h4>
+<p><code>void</code></p>
+<h4 id="defined-in_39">Defined in<a class="headerlink" href="#defined-in_39" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/canvas.ts#L132">graphics/canvas.ts:132</a></p>
+<hr />
+<h3 id="putpixel32add">putPixel32Add<a class="headerlink" href="#putpixel32add" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>putPixel32Add</strong>(<code>canvas</code>, <code>x</code>, <code>y</code>, <code>color</code>, <code>alpha</code>): <code>void</code></p>
+<p>Additively blends a new pixel with an existing color value in a <a href="../classes/Canvas/">Canvas</a>.</p>
+<h4 id="parameters_32">Parameters<a class="headerlink" href="#parameters_32" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>canvas</code></td>
+<td style="text-align: left;"><a href="../classes/Canvas/"><code>Canvas</code></a></td>
+<td style="text-align: left;">The <a href="../classes/Canvas/">Canvas</a> to interact with.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The X coordinate at which to place the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>y</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The Y coordinate at which to place the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The color of the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>alpha</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The alpha value to use to blend the pixel with existing color at the location.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_33">Returns<a class="headerlink" href="#returns_33" title="Permanent link">&para;</a></h4>
+<p><code>void</code></p>
+<h4 id="defined-in_40">Defined in<a class="headerlink" href="#defined-in_40" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/canvas.ts#L156">graphics/canvas.ts:156</a></p>
+<hr />
+<h3 id="putpixel32sub">putPixel32Sub<a class="headerlink" href="#putpixel32sub" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>putPixel32Sub</strong>(<code>canvas</code>, <code>x</code>, <code>y</code>, <code>color</code>, <code>alpha</code>): <code>void</code></p>
+<p>Subtractively blends a new pixel with an existing color value in a <a href="../classes/Canvas/">Canvas</a>.</p>
+<h4 id="parameters_33">Parameters<a class="headerlink" href="#parameters_33" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>canvas</code></td>
+<td style="text-align: left;"><a href="../classes/Canvas/"><code>Canvas</code></a></td>
+<td style="text-align: left;">The <a href="../classes/Canvas/">Canvas</a> to interact with.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The X coordinate at which to place the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>y</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The Y coordinate at which to place the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The color of the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>alpha</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The alpha value to use to blend the pixel with existing color at the location.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_34">Returns<a class="headerlink" href="#returns_34" title="Permanent link">&para;</a></h4>
+<p><code>void</code></p>
+<h4 id="defined-in_41">Defined in<a class="headerlink" href="#defined-in_41" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/canvas.ts#L186">graphics/canvas.ts:186</a></p>
+<hr />
+<h3 id="putsubpixel32">putSubPixel32<a class="headerlink" href="#putsubpixel32" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>putSubPixel32</strong>(<code>canvas</code>, <code>x</code>, <code>y</code>, <code>color</code>, <code>alpha</code>): <code>void</code></p>
+<p>Linearly blends a new pixel with an existing color value in a <a href="../classes/Canvas/">Canvas</a>.
+Compared to <a href="./#putpixel32">putPixel32</a>, this function supports sub-pixel placement, but is dramatically slower.</p>
+<h4 id="parameters_34">Parameters<a class="headerlink" href="#parameters_34" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>canvas</code></td>
+<td style="text-align: left;"><a href="../classes/Canvas/"><code>Canvas</code></a></td>
+<td style="text-align: left;">The <a href="../classes/Canvas/">Canvas</a> to interact with.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The X coordinate at which to place the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>y</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The Y coordinate at which to place the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The color of the pixel.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>alpha</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The alpha value to use to blend the pixel with existing color at the location.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_35">Returns<a class="headerlink" href="#returns_35" title="Permanent link">&para;</a></h4>
+<p><code>void</code></p>
+<h4 id="defined-in_42">Defined in<a class="headerlink" href="#defined-in_42" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/canvas.ts#L217">graphics/canvas.ts:217</a></p>
+<hr />
+<h3 id="rad2deg">rad2deg<a class="headerlink" href="#rad2deg" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>rad2deg</strong>(<code>radians</code>): <code>number</code></p>
+<p>Convertrs the radians to degrees.</p>
+<h4 id="parameters_35">Parameters<a class="headerlink" href="#parameters_35" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>radians</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The radians to convert to degrees.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_36">Returns<a class="headerlink" href="#returns_36" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The radians as degrees.</p>
+<h4 id="defined-in_43">Defined in<a class="headerlink" href="#defined-in_43" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/core.ts#L17">math/core.ts:17</a></p>
+<hr />
+<h3 id="randomrange">randomRange<a class="headerlink" href="#randomrange" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>randomRange</strong>(<code>min</code>, <code>max</code>): <code>number</code></p>
+<p>Returns a random value in a given range.
+Uses the JS-internal <code>Math.random()</code>. Use {MathHelper} for a PRNG with more features.</p>
+<h4 id="parameters_36">Parameters<a class="headerlink" href="#parameters_36" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>min</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The lower bound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>max</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The upper bound.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_37">Returns<a class="headerlink" href="#returns_37" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>A random value between the lower and upper bound.</p>
+<h4 id="defined-in_44">Defined in<a class="headerlink" href="#defined-in_44" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/random.ts#L180">random.ts:180</a></p>
+<hr />
+<h3 id="safergbcomponent">safeRGBComponent<a class="headerlink" href="#safergbcomponent" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>safeRGBComponent</strong>(<code>c</code>): <code>number</code></p>
+<p>Constrains a color component value to single-byte range (<code>0</code>-<code>255</code>).</p>
+<h4 id="parameters_37">Parameters<a class="headerlink" href="#parameters_37" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>c</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">A color component value.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_38">Returns<a class="headerlink" href="#returns_38" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The input value constrained into single-byte range.</p>
+<h4 id="defined-in_45">Defined in<a class="headerlink" href="#defined-in_45" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L329">graphics/core.ts:329</a></p>
+<hr />
+<h3 id="seedfromstring">seedFromString<a class="headerlink" href="#seedfromstring" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>seedFromString</strong>(<code>input</code>): <code>number</code></p>
+<p>Generates a numberic seed, to be used as an input for a PRNG,
+from a string.</p>
+<h4 id="parameters_38">Parameters<a class="headerlink" href="#parameters_38" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>input</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">The string to use as a seed.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_39">Returns<a class="headerlink" href="#returns_39" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>A numeric seed value for a PRNG.</p>
+<h4 id="defined-in_46">Defined in<a class="headerlink" href="#defined-in_46" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/random.ts#L190">random.ts:190</a></p>
+<hr />
+<h3 id="shufflearray">shuffleArray<a class="headerlink" href="#shufflearray" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>shuffleArray</strong>\&lt;<code>T</code>&gt;(<code>array</code>): <code>T</code>[]</p>
+<p>Places the items in the array in random order.</p>
+<h4 id="type-parameters_11">Type parameters<a class="headerlink" href="#type-parameters_11" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>T</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters_39">Parameters<a class="headerlink" href="#parameters_39" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>array</code></td>
+<td style="text-align: left;"><code>T</code>[]</td>
+<td style="text-align: left;">The array to shuffle.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_40">Returns<a class="headerlink" href="#returns_40" title="Permanent link">&para;</a></h4>
+<p><code>T</code>[]</p>
+<p>The passed array in random order.</p>
+<h4 id="defined-in_47">Defined in<a class="headerlink" href="#defined-in_47" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/array.ts#L9">array.ts:9</a></p>
+<hr />
+<h3 id="sindeg">sinDeg<a class="headerlink" href="#sindeg" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>sinDeg</strong>(<code>value</code>): <code>number</code></p>
+<p>Calculates the sine for a given degree value.</p>
+<h4 id="parameters_40">Parameters<a class="headerlink" href="#parameters_40" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>value</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The value in degrees to calculate the sine for.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_41">Returns<a class="headerlink" href="#returns_41" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The sine for the given value.</p>
+<h4 id="defined-in_48">Defined in<a class="headerlink" href="#defined-in_48" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/core.ts#L26">math/core.ts:26</a></p>
+<hr />
+<h3 id="sleep">sleep<a class="headerlink" href="#sleep" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>sleep</strong>(<code>duration</code>): <code>Promise</code>\&lt;<code>void</code>&gt;</p>
+<p>Wait a given period before continuing execution.</p>
+<h4 id="parameters_41">Parameters<a class="headerlink" href="#parameters_41" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>duration</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">How many milliseconds to wait.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_42">Returns<a class="headerlink" href="#returns_42" title="Permanent link">&para;</a></h4>
+<p><code>Promise</code>\&lt;<code>void</code>&gt;</p>
+<p>Nothing</p>
+<h4 id="defined-in_49">Defined in<a class="headerlink" href="#defined-in_49" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/sleep.ts#L6">sleep.ts:6</a></p>
+<hr />
+<h3 id="somecolor">somecolor<a class="headerlink" href="#somecolor" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>somecolor</strong>(): <code>number</code></p>
+<p>Retrieves a random color from the current global palette.</p>
+<h4 id="returns_43">Returns<a class="headerlink" href="#returns_43" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>A random color.</p>
+<h4 id="defined-in_50">Defined in<a class="headerlink" href="#defined-in_50" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L481">graphics/core.ts:481</a></p>
+<hr />
+<h3 id="tograyscale">toGrayScale<a class="headerlink" href="#tograyscale" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>toGrayScale</strong>(<code>color</code>): <code>number</code></p>
+<p>Converts a color value to grayscale.</p>
+<h4 id="parameters_42">Parameters<a class="headerlink" href="#parameters_42" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>color</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">The color to convert.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_44">Returns<a class="headerlink" href="#returns_44" title="Permanent link">&para;</a></h4>
+<p><code>number</code></p>
+<p>The grayscale value appropriate for the color.</p>
+<h4 id="defined-in_51">Defined in<a class="headerlink" href="#defined-in_51" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/core.ts#L503">graphics/core.ts:503</a></p>
+<hr />
+<h3 id="unknowntoerror">unknownToError<a class="headerlink" href="#unknowntoerror" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>unknownToError</strong>(<code>subject</code>): <a href="../classes/AbstractError/"><code>AbstractError</code></a></p>
+<p>Returns an <code>AbstractError</code> that best represents the passed subject.
+If the passed subject is already an <code>AbstractError</code>, it is returned as-is.
+Otherwise, it will be converted into an appropriate error type.</p>
+<h4 id="parameters_43">Parameters<a class="headerlink" href="#parameters_43" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>subject</code></td>
+<td style="text-align: left;"><code>unknown</code></td>
+<td style="text-align: left;">The subject to inspect</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_45">Returns<a class="headerlink" href="#returns_45" title="Permanent link">&para;</a></h4>
+<p><a href="../classes/AbstractError/"><code>AbstractError</code></a></p>
+<p>An <code>AbstractError</code> instance.</p>
+<h4 id="defined-in_52">Defined in<a class="headerlink" href="#defined-in_52" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/error-serializer.ts#L26">error-serializer.ts:26</a></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Oliver Salzburg
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/oliversalzburg/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>
