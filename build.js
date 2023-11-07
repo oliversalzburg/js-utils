@@ -4,10 +4,10 @@ import esbuild from "esbuild";
 esbuild
   .build({
     bundle: true,
-    entryPoints: ["./source/main.ts"],
+    entryPoints: ["./source/index.ts"],
     format: "esm",
-    outfile: "./lib/main.js",
-    platform: "node",
-    target: "node18",
+    outfile: "./lib/index.js",
+    platform: "neutral",
+    target: "esnext",
   })
   .catch(console.error);

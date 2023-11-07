@@ -1,4 +1,3 @@
-import { types } from "node:util";
 import { AbstractError } from "./errors/AbstractError.js";
 import { InternalError } from "./errors/InternalError.js";
 import { UnknownError } from "./errors/UnknownError.js";
@@ -14,7 +13,7 @@ export type SerializedError = Record<string, Record<string, string> | string | u
  * @returns `true` if the subject is an `Error`, `false` otherwise.
  */
 export const isError = (subject: unknown): subject is Error => {
-  return subject instanceof Error || types.isNativeError(subject);
+  return subject instanceof Error || Object.prototype.toString.call(subject) === "[object Error]";
 };
 
 /**
