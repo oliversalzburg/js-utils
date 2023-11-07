@@ -1,4 +1,4 @@
-import { Vector3 } from "./math/vector";
+import { Vector3 } from "./math/vector3.js";
 
 /**
  * Helps with generating random numbers.
@@ -148,21 +148,21 @@ export class Random {
       n0 = 0;
     } else {
       t0 *= t0;
-      n0 = t0 * t0 * gi0.dot2(x0, y0); // (x,y) of grad3 used for 2D gradient
+      n0 = t0 * t0 * gi0.dotXYZ(x0, y0, 0); // (x,y) of grad3 used for 2D gradient
     }
     let t1 = 0.5 - x1 * x1 - y1 * y1;
     if (t1 < 0) {
       n1 = 0;
     } else {
       t1 *= t1;
-      n1 = t1 * t1 * gi1.dot2(x1, y1);
+      n1 = t1 * t1 * gi1.dotXYZ(x1, y1, 0);
     }
     let t2 = 0.5 - x2 * x2 - y2 * y2;
     if (t2 < 0) {
       n2 = 0;
     } else {
       t2 *= t2;
-      n2 = t2 * t2 * gi2.dot2(x2, y2);
+      n2 = t2 * t2 * gi2.dotXYZ(x2, y2, 0);
     }
     // Add contributions from each corner to get the final noise value.
     // The result is scaled to return values in the interval [-1,1].

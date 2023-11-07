@@ -4,12 +4,6 @@
 
 A vector with 2 components.
 
-## Hierarchy
-
--   **`Vector2`**
-
-    ↳ [`Vector3`](Vector3.md)
-
 ## Constructors
 
 ### constructor
@@ -31,7 +25,7 @@ Constructs a new [Vector2](Vector2.md).
 
 #### Defined in
 
-[math/vector.ts:20](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L20)
+math/vector2.ts:20
 
 ## Properties
 
@@ -43,7 +37,7 @@ The X component of the vector.
 
 #### Defined in
 
-[math/vector.ts:8](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L8)
+math/vector2.ts:8
 
 ---
 
@@ -55,15 +49,39 @@ The Y component of the vector.
 
 #### Defined in
 
-[math/vector.ts:13](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L13)
+math/vector2.ts:13
 
 ## Methods
 
-### dot2
+### dot
 
-▸ **dot2**(`x`, `y`): `number`
+▸ **dot**(`vector`): `number`
 
-Returns the dot product between the two vectors.
+Returns the dot product between two vectors.
+
+#### Parameters
+
+| Name     | Type                    | Description       |
+| :------- | :---------------------- | :---------------- |
+| `vector` | [`Vector2`](Vector2.md) | The other vector. |
+
+#### Returns
+
+`number`
+
+The dot product between the two vectors.
+
+#### Defined in
+
+math/vector2.ts:30
+
+---
+
+### dotXY
+
+▸ **dotXY**(`x`, `y`): `number`
+
+Returns the dot product between two vectors.
 
 #### Parameters
 
@@ -80,4 +98,4 @@ The dot product between the two vectors.
 
 #### Defined in
 
-[math/vector.ts:31](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L31)
+math/vector2.ts:40

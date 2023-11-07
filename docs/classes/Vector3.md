@@ -4,12 +4,6 @@
 
 A vector with 3 components.
 
-## Hierarchy
-
--   [`Vector2`](Vector2.md)
-
-    ↳ **`Vector3`**
-
 ## Constructors
 
 ### constructor
@@ -30,13 +24,9 @@ Constructs a new [Vector3](Vector3.md).
 
 [`Vector3`](Vector3.md)
 
-#### Overrides
-
-[Vector2](Vector2.md).[constructor](Vector2.md#constructor)
-
 #### Defined in
 
-[math/vector.ts:51](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L51)
+math/vector3.ts:26
 
 ## Properties
 
@@ -46,13 +36,9 @@ Constructs a new [Vector3](Vector3.md).
 
 The X component of the vector.
 
-#### Inherited from
-
-[Vector2](Vector2.md).[x](Vector2.md#x)
-
 #### Defined in
 
-[math/vector.ts:8](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L8)
+math/vector3.ts:8
 
 ---
 
@@ -62,13 +48,9 @@ The X component of the vector.
 
 The Y component of the vector.
 
-#### Inherited from
-
-[Vector2](Vector2.md).[y](Vector2.md#y)
-
 #### Defined in
 
-[math/vector.ts:13](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L13)
+math/vector3.ts:13
 
 ---
 
@@ -80,22 +62,21 @@ The Z component of the vector.
 
 #### Defined in
 
-[math/vector.ts:43](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L43)
+math/vector3.ts:18
 
 ## Methods
 
-### dot2
+### dot
 
-▸ **dot2**(`x`, `y`): `number`
+▸ **dot**(`vector`): `number`
 
-Returns the dot product between the two vectors.
+Returns the dot product between two vectors.
 
 #### Parameters
 
-| Name | Type     | Description                          |
-| :--- | :------- | :----------------------------------- |
-| `x`  | `number` | The X component of the other vector. |
-| `y`  | `number` | The Y component of the other vector. |
+| Name     | Type                    | Description       |
+| :------- | :---------------------- | :---------------- |
+| `vector` | [`Vector3`](Vector3.md) | The other vector. |
 
 #### Returns
 
@@ -103,10 +84,32 @@ Returns the dot product between the two vectors.
 
 The dot product between the two vectors.
 
-#### Inherited from
+#### Defined in
 
-[Vector2](Vector2.md).[dot2](Vector2.md#dot2)
+math/vector3.ts:37
+
+---
+
+### dotXYZ
+
+▸ **dotXYZ**(`x`, `y`, `z`): `number`
+
+Returns the dot product between two vectors.
+
+#### Parameters
+
+| Name | Type     | Description                          |
+| :--- | :------- | :----------------------------------- |
+| `x`  | `number` | The X component of the other vector. |
+| `y`  | `number` | The Y component of the other vector. |
+| `z`  | `number` | The Z component of the other vector. |
+
+#### Returns
+
+`number`
+
+The dot product between the two vectors.
 
 #### Defined in
 
-[math/vector.ts:31](https://github.com/oliversalzburg/js-utils/blob/d914d90/source/math/vector.ts#L31)
+math/vector3.ts:48
