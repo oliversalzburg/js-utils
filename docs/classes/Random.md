@@ -27,7 +27,7 @@ http://www.firstpr.com.au/dsp/rand31/
 
 #### Defined in
 
-[random.ts:20](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/random.ts#L20)
+[random.ts:20](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/random.ts#L20)
 
 ## Methods
 
@@ -45,7 +45,7 @@ A pseudo-random value between 1 and 2^32 - 2.
 
 #### Defined in
 
-[random.ts:81](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/random.ts#L81)
+[random.ts:81](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/random.ts#L81)
 
 ---
 
@@ -63,7 +63,7 @@ Either `true` or `false`.
 
 #### Defined in
 
-[random.ts:89](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/random.ts#L89)
+[random.ts:89](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/random.ts#L89)
 
 ---
 
@@ -81,7 +81,7 @@ a pseudo-random floating point number in range [0, 1).
 
 #### Defined in
 
-[random.ts:97](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/random.ts#L97)
+[random.ts:97](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/random.ts#L97)
 
 ---
 
@@ -104,6 +104,18 @@ Returns a 2D simplex noise value for a given input coordinate.
 
 The noise value for the input coordinates.
 
+**`License`**
+
+ISC
+
+**`Author`**
+
+Seph Gentle
+
+**`See`**
+
+https://github.com/josephg/noisejs
+
 #### Defined in
 
-[random.ts:108](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/random.ts#L108)
+[random.ts:111](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/random.ts#L111)

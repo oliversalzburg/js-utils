@@ -101,6 +101,9 @@ export class Random {
 
   /**
    * Returns a 2D simplex noise value for a given input coordinate.
+   * @license ISC
+   * @author Joseph Gentle
+   * @see https://github.com/josephg/noisejs
    * @param xin The X input coordinate.
    * @param yin The Y input coordinate.
    * @returns The noise value for the input coordinates.

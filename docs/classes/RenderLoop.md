@@ -26,7 +26,7 @@ Constructs a new [RenderLoop](RenderLoop.md).
 
 #### Defined in
 
-[graphics/render-loop.ts:20](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/graphics/render-loop.ts#L20)
+[graphics/render-loop.ts:21](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/render-loop.ts#L21)
 
 ## Properties
 
@@ -36,7 +36,7 @@ Constructs a new [RenderLoop](RenderLoop.md).
 
 #### Defined in
 
-[graphics/render-loop.ts:9](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/graphics/render-loop.ts#L9)
+[graphics/render-loop.ts:9](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/render-loop.ts#L9)
 
 ---
 
@@ -46,4 +46,36 @@ Constructs a new [RenderLoop](RenderLoop.md).
 
 #### Defined in
 
-[graphics/render-loop.ts:10](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/graphics/render-loop.ts#L10)
+[graphics/render-loop.ts:10](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/render-loop.ts#L10)
+
+## Methods
+
+### block
+
+▸ **block**(): `void`
+
+Stop the render loop.
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[graphics/render-loop.ts:31](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/render-loop.ts#L31)
+
+---
+
+### unblock
+
+▸ **unblock**(): `void`
+
+Start the render loop.
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[graphics/render-loop.ts:43](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/graphics/render-loop.ts#L43)

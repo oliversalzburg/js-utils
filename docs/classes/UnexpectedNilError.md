@@ -34,7 +34,7 @@ Error.constructor
 
 #### Defined in
 
-[nil.ts:44](https://github.com/oliversalzburg/js-utils/blob/293b24f/source/nil.ts#L44)
+[nil.ts:44](https://github.com/oliversalzburg/js-utils/blob/bb6a423/source/nil.ts#L44)
 
 ## Properties
 
