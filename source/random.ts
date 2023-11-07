@@ -104,19 +104,19 @@ export class Random {
    * @license ISC
    * @author Joseph Gentle
    * @see https://github.com/josephg/noisejs
-   * @param xin The X input coordinate.
-   * @param yin The Y input coordinate.
+   * @param x The X input coordinate.
+   * @param y The Y input coordinate.
    * @returns The noise value for the input coordinates.
    */
-  simplex2(xin: number, yin: number) {
+  simplex2(x: number, y: number) {
     let n0, n1, n2; // Noise contributions from the three corners
     // Skew the input space to determine which simplex cell we're in
-    const s = (xin + yin) * this._F2; // Hairy factor for 2D
-    let i = Math.floor(xin + s);
-    let j = Math.floor(yin + s);
+    const s = (x + y) * this._F2; // Hairy factor for 2D
+    let i = Math.floor(x + s);
+    let j = Math.floor(y + s);
     const t = (i + j) * this._G2;
-    const x0 = xin - i + t; // The x,y distances from the cell origin, unskewed.
-    const y0 = yin - j + t;
+    const x0 = x - i + t; // The x,y distances from the cell origin, unskewed.
+    const y0 = y - j + t;
     // For the 2D case, the simplex shape is an equilateral triangle.
     // Determine which simplex we are in.
     let i1, j1; // Offsets for second (middle) corner of simplex in (i,j) coords
