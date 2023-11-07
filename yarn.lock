@@ -378,7 +378,7 @@ __metadata:
   resolution: "@oliversalzburg/js-utils@workspace:."
   dependencies:
     "@types/chai": "npm:4.3.9"
-    "@types/chai-as-promised": "npm:7.1.7"
+    "@types/chai-as-promised": "npm:7.1.8"
     "@types/eslint": "npm:8.44.6"
     "@types/mocha": "npm:10.0.3"
     "@types/node": "npm:20.8.10"
@@ -409,12 +409,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai-as-promised@npm:7.1.7":
-  version: 7.1.7
-  resolution: "@types/chai-as-promised@npm:7.1.7"
+"@types/chai-as-promised@npm:7.1.8":
+  version: 7.1.8
+  resolution: "@types/chai-as-promised@npm:7.1.8"
   dependencies:
     "@types/chai": "npm:*"
-  checksum: 5e80c6fffc2303b3cee23388e5989bd98b9359e29f95eb919d743b9a42139b884d033aa79d417d5c1bd9786499b566b403d4ef850fa09b91336eb2984ec1292b
+  checksum: c0a19cffe8d3f406b2cb9ba17f5f0efe318b14f27896d807b3199cc2231c16a4b5b6c464fdf2a939214de481de58cffd46c240539d3d4ece18659277d71ccc23
   languageName: node
   linkType: hard
 
