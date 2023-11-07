@@ -1,5 +1,5 @@
 /**
- * A vector with 3 components.
+ * A vector with 3 components, labeled: `X`, `Y`, `Z`.
  */
 export class Vector3 {
   /**
@@ -24,6 +24,18 @@ export class Vector3 {
    * @param z The Z component.
    */
   constructor(x: number, y: number, z: number) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
+  }
+
+  /**
+   * Sets the vector to new coordinates.
+   * @param x The new X component for the vector.
+   * @param y The new Y component for the vector.
+   * @param z The new Z component for the vector.
+   */
+  setXYZ(x: number, y: number, z: number): void {
     this.x = x;
     this.y = y;
     this.z = z;

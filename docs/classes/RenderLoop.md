@@ -26,7 +26,7 @@ Constructs a new [RenderLoop](RenderLoop.md).
 
 #### Defined in
 
-[graphics/render-loop.ts:33](https://github.com/oliversalzburg/js-utils/blob/ba70690/source/graphics/render-loop.ts#L33)
+[graphics/render-loop.ts:33](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/render-loop.ts#L33)
 
 ## Properties
 
@@ -38,7 +38,7 @@ The [Canvas](Canvas.md) we're rendering to.
 
 #### Defined in
 
-[graphics/render-loop.ts:16](https://github.com/oliversalzburg/js-utils/blob/ba70690/source/graphics/render-loop.ts#L16)
+[graphics/render-loop.ts:16](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/render-loop.ts#L16)
 
 ---
 
@@ -50,7 +50,7 @@ A function that we call when a new frame should be drawn.
 
 #### Defined in
 
-[graphics/render-loop.ts:21](https://github.com/oliversalzburg/js-utils/blob/ba70690/source/graphics/render-loop.ts#L21)
+[graphics/render-loop.ts:21](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/render-loop.ts#L21)
 
 ## Methods
 
@@ -66,7 +66,7 @@ Stop the render loop.
 
 #### Defined in
 
-[graphics/render-loop.ts:43](https://github.com/oliversalzburg/js-utils/blob/ba70690/source/graphics/render-loop.ts#L43)
+[graphics/render-loop.ts:43](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/render-loop.ts#L43)
 
 ---
 
@@ -82,4 +82,4 @@ Start the render loop.
 
 #### Defined in
 
-[graphics/render-loop.ts:55](https://github.com/oliversalzburg/js-utils/blob/ba70690/source/graphics/render-loop.ts#L55)
+[graphics/render-loop.ts:55](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/graphics/render-loop.ts#L55)

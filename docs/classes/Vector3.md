@@ -2,7 +2,7 @@
 
 # Class: Vector3
 
-A vector with 3 components.
+A vector with 3 components, labeled: `X`, `Y`, `Z`.
 
 ## Constructors
 
@@ -26,7 +26,7 @@ Constructs a new [Vector3](Vector3.md).
 
 #### Defined in
 
-math/vector3.ts:26
+[math/vector3.ts:26](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/vector3.ts#L26)
 
 ## Properties
 
@@ -38,7 +38,7 @@ The X component of the vector.
 
 #### Defined in
 
-math/vector3.ts:8
+[math/vector3.ts:8](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/vector3.ts#L8)
 
 ---
 
@@ -50,7 +50,7 @@ The Y component of the vector.
 
 #### Defined in
 
-math/vector3.ts:13
+[math/vector3.ts:13](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/vector3.ts#L13)
 
 ---
 
@@ -62,7 +62,7 @@ The Z component of the vector.
 
 #### Defined in
 
-math/vector3.ts:18
+[math/vector3.ts:18](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/vector3.ts#L18)
 
 ## Methods
 
@@ -86,7 +86,7 @@ The dot product between the two vectors.
 
 #### Defined in
 
-math/vector3.ts:37
+[math/vector3.ts:49](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/vector3.ts#L49)
 
 ---
 
@@ -112,4 +112,28 @@ The dot product between the two vectors.
 
 #### Defined in
 
-math/vector3.ts:48
+[math/vector3.ts:60](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/vector3.ts#L60)
+
+---
+
+### setXYZ
+
+▸ **setXYZ**(`x`, `y`, `z`): `void`
+
+Sets the vector to new coordinates.
+
+#### Parameters
+
+| Name | Type     | Description                         |
+| :--- | :------- | :---------------------------------- |
+| `x`  | `number` | The new X component for the vector. |
+| `y`  | `number` | The new Y component for the vector. |
+| `z`  | `number` | The new Z component for the vector. |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[math/vector3.ts:38](https://github.com/oliversalzburg/js-utils/blob/d0ad1f9/source/math/vector3.ts#L38)
