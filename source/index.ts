@@ -1,5 +1,6 @@
 export * from "./array.js";
 export * from "./core.js";
+export * from "./dom/index.js";
 export * from "./error-serializer.js";
 export * from "./errors/index.js";
 export * from "./graphics/index.js";
