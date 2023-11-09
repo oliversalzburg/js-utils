@@ -20,8 +20,20 @@ export class RenderLoop {
    */
   readonly renderLoop: RenderLoopCallback;
 
+  /**
+   * The timestamp we got for the previous frame.
+   */
   private previousTimestamp: number;
+
+  /**
+   * Our `#main` function bound to this classes
+   * for easier invokation through external callers.
+   */
   private readonly boundMain: (timestamp: number) => void;
+
+  /**
+   * The ID of our {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame requestAnimationFrame} request.
+   */
   private frameRequestId: number | null = null;
 
   /**

@@ -262,6 +262,20 @@ export class Vector2 {
   }
 
   /**
+   * Rotates the vector by the given angle.
+   * @param angle The angle in degrees.
+   * @returns This instance.
+   */
+  rotate(angle: number): this {
+    angle = -angle * (Math.PI / 180);
+    const cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    this.x = this.x * cos - this.y * sin;
+    this.y = this.x * sin + this.y * cos;
+    return this;
+  }
+
+  /**
    * Returns the dot product between two vectors.
    * @param vector The other vector.
    * @returns The dot product between the two vectors.
@@ -280,3 +294,33 @@ export class Vector2 {
     return this.x * x + this.y * y;
   }
 }
+
+/**
+ * Adds two vectors and returns a new vector with the result.
+ * @param a The first input vector.
+ * @param b The second input vector.
+ * @returns A new {@linkcode Vector2}.
+ */
+export const addVector2 = (a: Vector2, b: Vector2): Vector2 => {
+  return new Vector2(a.x * b.x, a.y * b.y);
+};
+
+/**
+ * Multiplies two vectors and returns a new vector with the result.
+ * @param a The first input vector.
+ * @param b The second input vector.
+ * @returns A new {@linkcode Vector2}.
+ */
+export const multiplyVector2 = (a: Vector2, b: Vector2): Vector2 => {
+  return new Vector2(a.x * b.x, a.y * b.y);
+};
+
+/**
+ * Subtracts two vectors and returns a new vector with the result.
+ * @param a The first input vector.
+ * @param b The second input vector.
+ * @returns A new {@linkcode Vector2}.
+ */
+export const subtractVector2 = (a: Vector2, b: Vector2): Vector2 => {
+  return new Vector2(a.x - b.x, a.y - b.y);
+};

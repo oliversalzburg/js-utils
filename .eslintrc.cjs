@@ -11,6 +11,7 @@ module.exports = {
     es2022: true,
   },
 
+  ignorePatterns: [".yarn/", "@types/", "lib", "!.*.*"],
   overrides: [
     {
       files: ["*.cjs"],
@@ -66,6 +67,9 @@ module.exports = {
             require: {
               ArrowFunctionExpression: true,
               ClassDeclaration: true,
+              ClassExpression: true,
+              FunctionDeclaration: true,
+              FunctionExpression: true,
               MethodDefinition: true,
             },
             publicOnly: true,
@@ -86,5 +90,11 @@ module.exports = {
     quotes: "warn",
     strict: ["error", "global"],
   },
-  ignorePatterns: [".yarn/", "@types/", "**/cdk.out", "**/lib", "*.d.mts", "!.*.*"],
+  settings: {
+    jsdoc: {
+      tagNamePreference: {
+        group: "group",
+      },
+    },
+  },
 };

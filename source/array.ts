@@ -4,6 +4,7 @@ import { is } from "./nil.js";
 /**
  * Places the items in the array in random order.
  * @param array The array to shuffle.
+ * @template {any} T The type of the elements in the array.
  * @returns The passed array in random order.
  */
 export const shuffleArray = <T>(array: Array<T>) => {

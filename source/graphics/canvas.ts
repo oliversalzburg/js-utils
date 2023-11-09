@@ -1,3 +1,4 @@
+import { InvalidOperationError } from "../errors/InvalidOperationError.js";
 import { mustExist } from "../nil.js";
 import {
   blend,
@@ -11,13 +12,12 @@ import {
 } from "./core.js";
 
 /**
- * A wrapper around {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement HTMLCanvasElement}
+ * A wrapper around {@linkcode !HTMLCanvasElement}
  * to provide some convience for double-buffered drawing.
  */
 export class Canvas {
   /**
-   * The {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement HTMLCanvasElement}
-   * we're interacting with.
+   * The {@linkcode !HTMLCanvasElement} we're interacting with.
    */
   readonly canvas: HTMLCanvasElement;
 
@@ -32,34 +32,50 @@ export class Canvas {
   readonly height: number;
 
   /**
-   * The {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2 CanvasRenderingContext2D}
-   * we're using to draw to the canvas.
+   * The {@linkcode !CanvasRenderingContext2D} we're using to draw to the canvas.
    */
   readonly context: CanvasRenderingContext2D;
 
   /**
-   * The {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/ImageData ImageData} object
+   * The {@linkcode !ImageData} object
    * that represents our frontbuffer, which is the canvas itself.
    */
-  readonly pixMap: ImageData;
+  pixMap: ImageData;
 
   /**
-   * Our backbuffer.
+   * Our back buffer.
    */
-  readonly buffer: Uint8ClampedArray;
+  buffer: Uint8ClampedArray;
+
+  /**
+   * Was this {@link Canvas} created with the ability to copy the front buffer back into
+   * the back buffer?
+   */
+  readonly supportReadBack: boolean;
 
   /**
    * Constructs a new {@link Canvas}.
    * @param canvas The canvas to wrap.
    * @param width The width of the canvas.
    * @param height The height of the canvas.
+   * @param supportReadBack Should this canvas support reading back from the front buffer?
+   * You will need this, if you plan to use regular canvas drawing on the front buffer, and
+   * read the results back into the back buffer.
    */
-  constructor(canvas: HTMLCanvasElement, width: number, height: number) {
+  constructor(canvas: HTMLCanvasElement, width: number, height: number, supportReadBack = false) {
     this.canvas = canvas;
     this.width = width;
     this.height = height;
 
-    this.context = mustExist(this.canvas.getContext("2d"), "Unable to create rendering context.");
+    this.context = mustExist(
+      this.canvas.getContext("2d", {
+        alpha: false,
+        desynchronized: true,
+        willReadFrequently: supportReadBack,
+      }),
+      "Unable to create rendering context.",
+    );
+    this.supportReadBack = supportReadBack;
     this.pixMap = this.context.createImageData(width, height);
     this.buffer = this.pixMap.data;
 
@@ -67,14 +83,27 @@ export class Canvas {
   }
 
   /**
-   * Draws the backbuffer onto the canvas.
+   * Draws the back buffer onto the canvas.
    */
   update() {
     this.context.putImageData(this.pixMap, 0, 0);
   }
 
   /**
-   * Returns the color of a pixel in the backbuffer.
+   * Reads the front buffer back into the back buffer.
+   */
+  bufferReadBack(): void {
+    if (!this.supportReadBack) {
+      throw new InvalidOperationError(
+        "To use `bufferReadBack()`, you must construct the `Canvas` with `supportReadBack` set to `true`.",
+      );
+    }
+    this.pixMap = this.context.getImageData(0, 0, this.width, this.height);
+    this.buffer = this.pixMap.data;
+  }
+
+  /**
+   * Returns the color of a pixel in the back buffer.
    * @param x The X coordinate to retrieve.
    * @param y The X coordinate to retrieve.
    * @returns The color of the pixel at the given local.
@@ -90,7 +119,7 @@ export class Canvas {
   }
 
   /**
-   * Colors a pixel in the backbuffer.
+   * Colors a pixel in the back buffer.
    * @param x The X coordinate to color.
    * @param y The Y coordinate to color.
    * @param color The color to place at the coordinate.
@@ -104,8 +133,8 @@ export class Canvas {
   }
 
   /**
-   * Fills the entire backbuffer with the given color.
-   * @param color The color to fill the backbuffer with.
+   * Fills the entire back buffer with the given color.
+   * @param color The color to fill the back buffer with.
    */
   clearWith(color: number) {
     const r = getR(color);

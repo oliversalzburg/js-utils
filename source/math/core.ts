@@ -1,9 +1,14 @@
+/**
+ * `PI` times 2.
+ * @group Math
+ */
 export const TWO_PI = /* @__PURE__ */ Math.PI * 2;
 
 /**
  * Converts the degrees to radians.
  * @param degrees The degrees to convert to radians.
  * @returns The degrees in radians.
+ * @group Math
  */
 export const deg2rad = (degrees: number) => {
   return degrees * (Math.PI / 180);
@@ -13,6 +18,7 @@ export const deg2rad = (degrees: number) => {
  * Convertrs the radians to degrees.
  * @param radians The radians to convert to degrees.
  * @returns The radians as degrees.
+ * @group Math
  */
 export const rad2deg = (radians: number) => {
   return radians * (180 / Math.PI);
@@ -22,6 +28,7 @@ export const rad2deg = (radians: number) => {
  * Calculates the sine for a given degree value.
  * @param value The value in degrees to calculate the sine for.
  * @returns The sine for the given value.
+ * @group Math
  */
 export const sinDeg = (value: number) => {
   return Math.sin(deg2rad(value));
@@ -31,6 +38,7 @@ export const sinDeg = (value: number) => {
  * Calculates the cosine for a given degree value.
  * @param value The value in degrees to calculate the cosine for.
  * @returns The cosine for the given value.
+ * @group Math
  */
 export const cosDeg = (value: number) => {
   return Math.cos(deg2rad(value));
@@ -43,6 +51,7 @@ export const cosDeg = (value: number) => {
  * @param x2 The X component of the second vector.
  * @param y2 The Y component of the second vector.
  * @returns The distance between the two vectors.
+ * @group Math
  */
 export const distance = (x1: number, y1: number, x2: number, y2: number) => {
   const distx = x2 - x1;
@@ -54,8 +63,9 @@ export const distance = (x1: number, y1: number, x2: number, y2: number) => {
  * Finds the integer square root of a positive number.
  * @param value The value to calcuate the square root for.
  * @returns The square root for the given value.
+ * @group Math
  */
-export const Isqrt = (value: number) => {
+export const isqrt = (value: number) => {
   if (0 === value) {
     return 0;
   } // Avoid zero divide

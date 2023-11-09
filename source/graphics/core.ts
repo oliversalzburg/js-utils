@@ -2,6 +2,9 @@ import { random } from "../random.js";
 
 let PALETTE_INDEX = 0;
 
+/**
+ * Color palettes that can be used to quickly colorize a drawing.
+ */
 export const PALETTES = [
   [
     0xc2b799, 0xa6a183, 0xc5bfa7, 0x6d624e, 0xa8987e, 0xc1bca6, 0xe3decb, 0x896b51, 0x744d26,
