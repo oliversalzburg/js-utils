@@ -174,7 +174,7 @@ export class Vector2 {
   }
 
   /**
-   * Inverts the vector.
+   * Inverts the sign of the vector.
    * @returns This instance.
    */
   invertAdd(): this {
@@ -293,6 +293,14 @@ export class Vector2 {
    */
   dotXY(x: number, y: number): number {
     return this.x * x + this.y * y;
+  }
+
+  /**
+   * Return the components of this vector as an array.
+   * @returns The components of this vector as an array.
+   */
+  asArray(): [number, number] {
+    return [this.x, this.y];
   }
 }
 

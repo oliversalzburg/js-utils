@@ -7,6 +7,18 @@ import { Canvas } from "./canvas.js";
 export type RenderLoopCallback = (delta: number, timestamp: number) => unknown;
 
 /**
+ * Configuration for a {@linkcode RenderLoop},
+ * @group Graphics
+ */
+export interface RenderLoopOptions {
+  /**
+   * Should the current frames per second be rendered onto the canvas
+   * each frame?
+   */
+  drawFps: boolean;
+}
+
+/**
  * Conveniently provides a way to have a render loop called at
  * a constant frame rate.
  * @group Graphics
@@ -21,6 +33,11 @@ export class RenderLoop {
    * A function that we call when a new frame should be drawn.
    */
   readonly renderLoop: RenderLoopCallback;
+
+  /**
+   * The configuration that was used for this render loop.
+   */
+  readonly options: Readonly<Partial<RenderLoopOptions>>;
 
   /**
    * The timestamp we got for the previous frame.
@@ -41,11 +58,16 @@ export class RenderLoop {
   /**
    * Constructs a new {@linkcode RenderLoop}.
    * @param renderLoop The function to call when a new frame should be drawn.
-   * @param canvas When provided, the canvas is automatically updated
-   * after a frame was rendered.
+   * @param canvas The {@linkcode Canvas} we're rendering to.
+   * @param options The configuration for thie {@linkcode RenderLoop}.
    */
-  constructor(renderLoop: RenderLoopCallback, canvas?: Canvas) {
+  constructor(
+    renderLoop: RenderLoopCallback,
+    canvas: Canvas,
+    options: Partial<RenderLoopOptions> = {},
+  ) {
     this.canvas = canvas;
+    this.options = options;
     this.renderLoop = renderLoop;
     this.previousTimestamp = 0;
     this.boundMain = this.#main.bind(this);
@@ -97,11 +119,13 @@ export class RenderLoop {
 
     this.canvas.update();
 
-    const fps = `${Math.round(1000 / delta)}fps`;
-    this.canvas.context.strokeStyle = "rgba( 255, 255, 255, 0.85 )";
-    this.canvas.context.lineWidth = 5;
-    this.canvas.context.strokeText(fps, 4, 14);
-    this.canvas.context.fillStyle = "#000000";
-    this.canvas.context.fillText(fps, 4, 14);
+    if (this.options.drawFps) {
+      const fps = `${Math.round(1000 / delta)}fps`;
+      this.canvas.context.strokeStyle = "rgba( 255, 255, 255, 0.85 )";
+      this.canvas.context.lineWidth = 5;
+      this.canvas.context.strokeText(fps, 4, 14);
+      this.canvas.context.fillStyle = "#000000";
+      this.canvas.context.fillText(fps, 4, 14);
+    }
   }
 }

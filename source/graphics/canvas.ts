@@ -12,6 +12,18 @@ import {
 } from "./core.js";
 
 /**
+ * Construction options for a {@linkcode Canvas}.
+ * @group Graphics
+ */
+export interface CanvasOptions {
+  /**
+   * Was this {@linkcode Canvas} created with the ability to copy the front buffer back into
+   * the back buffer?
+   */
+  readonly supportReadBack: boolean;
+}
+
+/**
  * A wrapper around {@linkcode !HTMLCanvasElement}
  * to provide some convience for double-buffered drawing.
  * @group Graphics
@@ -49,34 +61,36 @@ export class Canvas {
   buffer: Uint8ClampedArray;
 
   /**
-   * Was this {@linkcode Canvas} created with the ability to copy the front buffer back into
-   * the back buffer?
+   * The configuration that was used for this canvas.
    */
-  readonly supportReadBack: boolean;
+  readonly options: Readonly<Partial<CanvasOptions>>;
 
   /**
    * Constructs a new {@linkcode Canvas}.
    * @param canvas The canvas to wrap.
    * @param width The width of the canvas.
    * @param height The height of the canvas.
-   * @param supportReadBack Should this canvas support reading back from the front buffer?
-   * You will need this, if you plan to use regular canvas drawing on the front buffer, and
-   * read the results back into the back buffer.
+   * @param options The configuration for this canvas.
    */
-  constructor(canvas: HTMLCanvasElement, width: number, height: number, supportReadBack = false) {
+  constructor(
+    canvas: HTMLCanvasElement,
+    width: number,
+    height: number,
+    options: Partial<CanvasOptions> = {},
+  ) {
     this.canvas = canvas;
     this.width = width;
     this.height = height;
+    this.options = options;
 
     this.context = mustExist(
       this.canvas.getContext("2d", {
         alpha: false,
         desynchronized: true,
-        willReadFrequently: supportReadBack,
+        willReadFrequently: this.options.supportReadBack,
       }),
       "Unable to create rendering context.",
     );
-    this.supportReadBack = supportReadBack;
     this.pixMap = this.context.createImageData(width, height);
     this.buffer = this.pixMap.data;
 
@@ -94,9 +108,9 @@ export class Canvas {
    * Reads the front buffer back into the back buffer.
    */
   bufferReadBack(): void {
-    if (!this.supportReadBack) {
+    if (!this.options.supportReadBack) {
       throw new InvalidOperationError(
-        "To use `bufferReadBack()`, you must construct the `Canvas` with `supportReadBack` set to `true`.",
+        "To use `bufferReadBack()`, you must construct the `Canvas` with `options.supportReadBack` set to `true`.",
       );
     }
     this.pixMap = this.context.getImageData(0, 0, this.width, this.height);
