@@ -219,7 +219,8 @@ export class Canvas {
 
 /**
  * Linearly blends a new pixel with an existing color value in a {@linkcode Canvas}.
- * @description As this method is often called many times in render loops, only bounds
+ *
+ * As this method is often called many times in render loops, only bounds
  * checking is applied to the given coordinates.
  *
  * The coordinates are **expected to already be integers**. Supplying numbers with fractions
@@ -247,7 +248,8 @@ export const putPixel32 = (canvas: Canvas, x: number, y: number, color: number, 
 
 /**
  * Additively blends a new pixel with an existing color value in a {@linkcode Canvas}.
- * @description As this method is often called many times in render loops, only bounds
+ *
+ * As this method is often called many times in render loops, only bounds
  * checking is applied to the given coordinates.
  *
  * The coordinates are **expected to already be integers**. Supplying numbers with fractions
@@ -281,7 +283,8 @@ export const putPixel32Add = (
 
 /**
  * Subtractively blends a new pixel with an existing color value in a {@linkcode Canvas}.
- * @description As this method is often called many times in render loops, only bounds
+ *
+ * As this method is often called many times in render loops, only bounds
  * checking is applied to the given coordinates.
  *
  * The coordinates are **expected to already be integers**. Supplying numbers with fractions
