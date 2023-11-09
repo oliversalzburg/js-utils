@@ -16,8 +16,10 @@ export class InvalidOperationError extends AbstractError {
 
     this.name = "InvalidOperationError";
 
-    // Capture a new stacktrace, otherwise it will include our base-class
-    // constructor instead of the code location we're actually interested in.
-    Error.captureStackTrace(this, InvalidOperationError);
+    if (typeof Error.captureStackTrace !== "undefined") {
+      // Capture a new stacktrace, otherwise it will include our base-class
+      // constructor instead of the code location we're actually interested in.
+      Error.captureStackTrace(this, InvalidOperationError);
+    }
   }
 }

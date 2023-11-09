@@ -15,8 +15,10 @@ export class ResourceConflictError extends AbstractError {
 
     this.name = "ResourceConflictError";
 
-    // Capture a new stacktrace, otherwise it will include our base-class
-    // constructor instead of the code location we're actually interested in.
-    Error.captureStackTrace(this, ResourceConflictError);
+    if (typeof Error.captureStackTrace !== "undefined") {
+      // Capture a new stacktrace, otherwise it will include our base-class
+      // constructor instead of the code location we're actually interested in.
+      Error.captureStackTrace(this, ResourceConflictError);
+    }
   }
 }

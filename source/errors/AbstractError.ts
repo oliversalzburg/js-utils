@@ -26,9 +26,11 @@ export class AbstractError extends Error {
     this.name = "AbstractError";
     this.status = status;
 
-    // Capture a new stacktrace, otherwise it will include our base-class constructor instead of the code
-    // location we're actually interested in.
-    Error.captureStackTrace(this, AbstractError);
+    if (typeof Error.captureStackTrace !== "undefined") {
+      // Capture a new stacktrace, otherwise it will include our base-class constructor instead of the code
+      // location we're actually interested in.
+      Error.captureStackTrace(this, AbstractError);
+    }
   }
 
   /**
