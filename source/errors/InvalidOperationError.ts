@@ -3,10 +3,11 @@ import { AbstractError } from "./AbstractError.js";
 /**
  * Used when an operation was attempted that can not be completed in the current
  * context.
+ * @group Errors
  */
 export class InvalidOperationError extends AbstractError {
   /**
-   * Constructs a new {@link InvalidOperationError}.
+   * Constructs a new {@linkcode InvalidOperationError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */

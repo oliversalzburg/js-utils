@@ -1,15 +1,16 @@
 import { AbstractError } from "./AbstractError.js";
 
 /**
- * Used when an unknown, non-`Error`-like object was caught and converted into a
- * real `Error` instance.
+ * Used when an unknown, non-{@linkcode !Error}-like object was caught and converted into a
+ * real {@linkcode !Error} instance.
  * Like when you catch a `throw "boom"`, we will convert the caught `"boom"`
- * into an `UnknownError`.
- * To enrich an `Error`-like object that was caught, use the {@link InternalError}.
+ * into an {@linkcode UnknownError}.
+ * To enrich an {@linkcode !Error}-like object that was caught, use the {@linkcode InternalError}.
+ * @group Errors
  */
 export class UnknownError extends AbstractError {
   /**
-   * Constructs a new {@link UnknownError}.
+   * Constructs a new {@linkcode UnknownError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */

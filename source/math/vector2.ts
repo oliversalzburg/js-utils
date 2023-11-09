@@ -1,5 +1,6 @@
 /**
  * A vector with 2 components, labeled: `X`, `Y`.
+ * @group Math
  */
 export class Vector2 {
   /**
@@ -13,7 +14,7 @@ export class Vector2 {
   y: number;
 
   /**
-   * Constructs a new {@link Vector2}.
+   * Constructs a new {@linkcode Vector2}.
    * @param x The X component.
    * @param y The Y component.
    */
@@ -300,6 +301,7 @@ export class Vector2 {
  * @param a The first input vector.
  * @param b The second input vector.
  * @returns A new {@linkcode Vector2}.
+ * @group Math
  */
 export const addVector2 = (a: Vector2, b: Vector2): Vector2 => {
   return new Vector2(a.x * b.x, a.y * b.y);
@@ -310,6 +312,7 @@ export const addVector2 = (a: Vector2, b: Vector2): Vector2 => {
  * @param a The first input vector.
  * @param b The second input vector.
  * @returns A new {@linkcode Vector2}.
+ * @group Math
  */
 export const multiplyVector2 = (a: Vector2, b: Vector2): Vector2 => {
   return new Vector2(a.x * b.x, a.y * b.y);
@@ -320,6 +323,7 @@ export const multiplyVector2 = (a: Vector2, b: Vector2): Vector2 => {
  * @param a The first input vector.
  * @param b The second input vector.
  * @returns A new {@linkcode Vector2}.
+ * @group Math
  */
 export const subtractVector2 = (a: Vector2, b: Vector2): Vector2 => {
   return new Vector2(a.x - b.x, a.y - b.y);

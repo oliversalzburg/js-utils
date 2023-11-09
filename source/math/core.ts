@@ -82,6 +82,7 @@ export const isqrt = (value: number) => {
  * Checks whether a number is an integer.
  * @param value The value to check.
  * @returns `true` when the value is an integer, `false` otherwise.
+ * @group Math
  */
 export const isInteger = (value: number) => {
   return Math.trunc(value) === value;

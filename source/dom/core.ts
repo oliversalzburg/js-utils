@@ -11,6 +11,7 @@ import { UnexpectedNilError } from "../nil.js";
  * @returns The requested element, if it has the expected type.
  * @throws {InvalidOperationError} When the document element has an unexpected type.
  * @throws {UnexpectedNilError} When the the document element is `null`.
+ * @group DOM
  */
 export const getDocumentElementTypeById = <T extends HTMLElement>(
   document: Document,

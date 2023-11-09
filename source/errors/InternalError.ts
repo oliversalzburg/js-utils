@@ -1,12 +1,13 @@
 import { AbstractError } from "./AbstractError.js";
 
 /**
- * Used when an `Error`-like object was caught and converted into an
- * implementation of `AbstractError` for further processing.
+ * Used when an {@linkcode !Error}-like object was caught and converted into an
+ * implementation of {@linkcode AbstractError} for further processing.
+ * @group Errors
  */
 export class InternalError extends AbstractError {
   /**
-   * Constructs a new {@link InternalError}.
+   * Constructs a new {@linkcode InternalError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */
@@ -21,9 +22,9 @@ export class InternalError extends AbstractError {
   }
 
   /**
-   * Converts an error into an {@link InternalError}.
+   * Converts an error into an {@linkcode InternalError}.
    * @param error The error to convert.
-   * @returns An {@link InternalError} that represents the given error.
+   * @returns An {@linkcode InternalError} that represents the given error.
    */
   static fromError(error: Error): InternalError {
     // Create a _real_ `InternalError` instance, which we will return later.
@@ -32,8 +33,6 @@ export class InternalError extends AbstractError {
     // Then assign another `InternalError` to replace key fields, like:
     // name, code, status, ...
     Object.assign(internalError, error, new InternalError(error.message));
-    // Set the inner error.
-    internalError.inner = error;
     // Inherit the original error stack again.
     internalError.stack = error.stack;
 

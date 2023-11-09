@@ -3,10 +3,11 @@ import { AbstractError } from "./AbstractError.js";
 /**
  * Used when the user supplied an argument that is not valid in the current
  * context.
+ * @group Errors
  */
 export class InvalidArgumentError extends AbstractError {
   /**
-   * Constructs a new {@link InvalidArgumentError}.
+   * Constructs a new {@linkcode InvalidArgumentError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */

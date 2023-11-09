@@ -2,10 +2,11 @@ import { AbstractError } from "./AbstractError.js";
 
 /**
  * Used when a resource conflict was detected.
+ * @group Errors
  */
 export class ResourceConflictError extends AbstractError {
   /**
-   * Constructs a new {@link ResourceConflictError}.
+   * Constructs a new {@linkcode ResourceConflictError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */

@@ -2,16 +2,18 @@ import { Canvas } from "./canvas.js";
 
 /**
  * The signature of a function that is called to draw a frame.
+ * @group Graphics
  */
 export type RenderLoopCallback = (delta: number, timestamp: number) => unknown;
 
 /**
  * Conveniently provides a way to have a render loop called at
  * a constant frame rate.
+ * @group Graphics
  */
 export class RenderLoop {
   /**
-   * The {@link Canvas} we're rendering to.
+   * The {@linkcode Canvas} we're rendering to.
    */
   readonly canvas: Canvas | undefined;
 
@@ -37,7 +39,7 @@ export class RenderLoop {
   private frameRequestId: number | null = null;
 
   /**
-   * Constructs a new {@link RenderLoop}.
+   * Constructs a new {@linkcode RenderLoop}.
    * @param renderLoop The function to call when a new frame should be drawn.
    * @param canvas When provided, the canvas is automatically updated
    * after a frame was rendered.

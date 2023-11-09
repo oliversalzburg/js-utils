@@ -2,10 +2,11 @@ import { AbstractError } from "./AbstractError.js";
 
 /**
  * Used when a called method actually hasn't been implemented yet (whoops).
+ * @group Errors
  */
 export class NotImplementedError extends AbstractError {
   /**
-   * Constructs a new {@link NotImplementedError}.
+   * Constructs a new {@linkcode NotImplementedError}.
    * @param message The main error message.
    * @param status The HTTP status code to return.
    */

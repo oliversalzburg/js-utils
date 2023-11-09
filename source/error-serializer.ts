@@ -3,25 +3,28 @@ import { InternalError } from "./errors/InternalError.js";
 import { UnknownError } from "./errors/UnknownError.js";
 
 /**
- * The shape of an `Error` instance, after it has been serialized into a simple hash.
+ * The shape of an {@linkcode !Error} instance, after it has been serialized into a simple hash.
+ * @group Errors
  */
 export type SerializedError = Record<string, Record<string, string> | string | undefined>;
 
 /**
- * Determine if the given unknown subject is an `Error` instance.
+ * Determine if the given unknown subject is an {@linkcode !Error} instance.
  * @param subject The object to inspect.
- * @returns `true` if the subject is an `Error`, `false` otherwise.
+ * @returns `true` if the subject is an {@linkcode !Error}, `false` otherwise.
+ * @group Errors
  */
 export const isError = (subject: unknown): subject is Error => {
   return subject instanceof Error || Object.prototype.toString.call(subject) === "[object Error]";
 };
 
 /**
- * Returns an `AbstractError` that best represents the passed subject.
- * If the passed subject is already an `AbstractError`, it is returned as-is.
+ * Returns an {@linkcode AbstractError} that best represents the passed subject.
+ * If the passed subject is already an {@linkcode AbstractError}, it is returned as-is.
  * Otherwise, it will be converted into an appropriate error type.
  * @param subject The subject to inspect
- * @returns An `AbstractError` instance.
+ * @returns An {@linkcode AbstractError} instance.
+ * @group Errors
  */
 export const unknownToError = (subject: unknown): AbstractError => {
   if (AbstractError.isAbstractError(subject)) {
@@ -39,6 +42,7 @@ export const unknownToError = (subject: unknown): AbstractError => {
  * Serializes an error into a JSON string.
  * @param error The error to stringify.
  * @returns A JSON string representing the error.
+ * @group Errors
  */
 export const errorToJSON = (error: Error): string => {
   return JSON.stringify(error, Object.getOwnPropertyNames(error));
@@ -48,6 +52,7 @@ export const errorToJSON = (error: Error): string => {
  * Converts an error into a regular hash.
  * @param error The error to convert.
  * @returns A new object that contains all the properties of the error.
+ * @group Errors
  */
 export const errorToRecord = (error: Error): Record<string, unknown> => {
   const record: Record<string, unknown> = {};
@@ -61,6 +66,7 @@ export const errorToRecord = (error: Error): Record<string, unknown> => {
  * Serializes an error into a simpler shape.
  * @param error The error to serialize.
  * @returns A simple representation of the error.
+ * @group Errors
  */
 export const errorToSimpleSerializable = <TError extends AbstractError = AbstractError>(
   error: TError,

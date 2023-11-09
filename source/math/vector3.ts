@@ -1,5 +1,6 @@
 /**
  * A vector with 3 components, labeled: `X`, `Y`, `Z`.
+ * @group Math
  */
 export class Vector3 {
   /**
@@ -18,7 +19,7 @@ export class Vector3 {
   z: number;
 
   /**
-   * Constructs a new {@link Vector3}.
+   * Constructs a new {@linkcode Vector3}.
    * @param x The X component.
    * @param y The Y component.
    * @param z The Z component.

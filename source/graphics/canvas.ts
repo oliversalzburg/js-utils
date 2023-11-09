@@ -14,6 +14,7 @@ import {
 /**
  * A wrapper around {@linkcode !HTMLCanvasElement}
  * to provide some convience for double-buffered drawing.
+ * @group Graphics
  */
 export class Canvas {
   /**
@@ -48,13 +49,13 @@ export class Canvas {
   buffer: Uint8ClampedArray;
 
   /**
-   * Was this {@link Canvas} created with the ability to copy the front buffer back into
+   * Was this {@linkcode Canvas} created with the ability to copy the front buffer back into
    * the back buffer?
    */
   readonly supportReadBack: boolean;
 
   /**
-   * Constructs a new {@link Canvas}.
+   * Constructs a new {@linkcode Canvas}.
    * @param canvas The canvas to wrap.
    * @param width The width of the canvas.
    * @param height The height of the canvas.
@@ -151,12 +152,13 @@ export class Canvas {
 }
 
 /**
- * Linearly blends a new pixel with an existing color value in a {@link Canvas}.
- * @param canvas The {@link Canvas} to interact with.
+ * Linearly blends a new pixel with an existing color value in a {@linkcode Canvas}.
+ * @param canvas The {@linkcode Canvas} to interact with.
  * @param x The X coordinate at which to place the pixel.
  * @param y The Y coordinate at which to place the pixel.
  * @param color The color of the pixel.
  * @param alpha The alpha value to use to blend the pixel with existing color at the location.
+ * @group Graphics
  */
 export const putPixel32 = (canvas: Canvas, x: number, y: number, color: number, alpha: number) => {
   if (canvas.width < x || x < 0 || canvas.height < y || y < 0) {
@@ -175,12 +177,13 @@ export const putPixel32 = (canvas: Canvas, x: number, y: number, color: number, 
 };
 
 /**
- * Additively blends a new pixel with an existing color value in a {@link Canvas}.
- * @param canvas The {@link Canvas} to interact with.
+ * Additively blends a new pixel with an existing color value in a {@linkcode Canvas}.
+ * @param canvas The {@linkcode Canvas} to interact with.
  * @param x The X coordinate at which to place the pixel.
  * @param y The Y coordinate at which to place the pixel.
  * @param color The color of the pixel.
  * @param alpha The alpha value to use to blend the pixel with existing color at the location.
+ * @group Graphics
  */
 export const putPixel32Add = (
   canvas: Canvas,
@@ -205,12 +208,13 @@ export const putPixel32Add = (
 };
 
 /**
- * Subtractively blends a new pixel with an existing color value in a {@link Canvas}.
- * @param canvas The {@link Canvas} to interact with.
+ * Subtractively blends a new pixel with an existing color value in a {@linkcode Canvas}.
+ * @param canvas The {@linkcode Canvas} to interact with.
  * @param x The X coordinate at which to place the pixel.
  * @param y The Y coordinate at which to place the pixel.
  * @param color The color of the pixel.
  * @param alpha The alpha value to use to blend the pixel with existing color at the location.
+ * @group Graphics
  */
 export const putPixel32Sub = (
   canvas: Canvas,
@@ -235,13 +239,14 @@ export const putPixel32Sub = (
 };
 
 /**
- * Linearly blends a new pixel with an existing color value in a {@link Canvas}.
- * Compared to {@link putPixel32}, this function supports sub-pixel placement, but is dramatically slower.
- * @param canvas The {@link Canvas} to interact with.
+ * Linearly blends a new pixel with an existing color value in a {@linkcode Canvas}.
+ * Compared to {@linkcode putPixel32}, this function supports sub-pixel placement, but is dramatically slower.
+ * @param canvas The {@linkcode Canvas} to interact with.
  * @param x The X coordinate at which to place the pixel.
  * @param y The Y coordinate at which to place the pixel.
  * @param color The color of the pixel.
  * @param alpha The alpha value to use to blend the pixel with existing color at the location.
+ * @group Graphics
  */
 export const putSubPixel32 = (
   canvas: Canvas,
