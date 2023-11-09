@@ -20,7 +20,7 @@ export interface RenderLoopOptions {
   /**
    * Should the buffer be cleared or faded to black before each frame?
    */
-  onRefresh: "clear" | "fade";
+  onRefresh: "clear";
 }
 
 /**
@@ -45,9 +45,14 @@ export class RenderLoop {
   readonly options: Readonly<Partial<RenderLoopOptions>>;
 
   /**
-   * The timestamp we got for the previous frame.
+   * The time at which we drew the last frame to the offscreen buffer.
    */
-  private previousTimestamp: number;
+  private previousTimestampDraw: number;
+
+  /**
+   * The time at which we rendered the last frame to the DOM.
+   */
+  private previousTimestampRender: number;
 
   /**
    * Our `#main` function bound to this classes
@@ -59,6 +64,25 @@ export class RenderLoop {
    * The ID of our {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame requestAnimationFrame} request.
    */
   private frameRequestId: number | null = null;
+
+  /**
+   * The ID of our {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/setTimeout setTimeout}-based
+   * offscreen rendering loop.
+   */
+  private drawTimeout: ReturnType<typeof setTimeout> | null = null;
+
+  /**
+   * How many frames we've drawn to the DOM throughout the loops lifetime.
+   */
+  #frameCounter = 0;
+
+  /**
+   * Retrieves the amount of frames drawn to the DOM throughout the loops lifetime.
+   * @returns The frame count.
+   */
+  get frameCounter() {
+    return this.#frameCounter;
+  }
 
   /**
    * Constructs a new {@linkcode RenderLoop}.
@@ -74,7 +98,8 @@ export class RenderLoop {
     this.canvas = canvas;
     this.options = options;
     this.renderLoop = renderLoop;
-    this.previousTimestamp = 0;
+    this.previousTimestampDraw = 0;
+    this.previousTimestampRender = 0;
     this.boundMain = this.#main.bind(this);
   }
 
@@ -82,12 +107,15 @@ export class RenderLoop {
    * Stop the render loop.
    */
   block() {
-    if (this.frameRequestId === null) {
-      return;
+    if (this.frameRequestId !== null) {
+      window.cancelAnimationFrame(this.frameRequestId);
+      this.frameRequestId = null;
     }
 
-    window.cancelAnimationFrame(this.frameRequestId);
-    this.frameRequestId = null;
+    if (this.drawTimeout !== null) {
+      window.clearTimeout(this.drawTimeout);
+      this.drawTimeout = null;
+    }
   }
 
   /**
@@ -95,34 +123,54 @@ export class RenderLoop {
    */
   unblock() {
     this.frameRequestId = window.requestAnimationFrame(this.boundMain);
+    if (!this.drawTimeout) {
+      this.drawTimeout = setTimeout(() => {
+        this.#drawFrame();
+      });
+    }
   }
 
   /**
-   * Our main loop.
+   * Our main loop, as invoked through the frame request.
    * @param timestamp The current timestamp.
    */
   #main(timestamp: number) {
-    const timeDelta = timestamp - this.previousTimestamp;
-    this.#drawFrame(timestamp, timeDelta);
+    const timeDelta = timestamp - this.previousTimestampRender;
 
+    this.#renderFrame(timeDelta);
     this.unblock();
 
-    this.previousTimestamp = timestamp;
+    this.previousTimestampRender = timestamp;
+    ++this.#frameCounter;
+  }
+
+  /**
+   * Draws a new frame to the offscreen buffer.
+   */
+  #drawFrame(): void {
+    if (this.frameRequestId === null) {
+      return;
+    }
+
+    const timestamp = new Date().getTime();
+    const timeDelta = timestamp - this.previousTimestampDraw;
+
+    this.renderLoop(timeDelta, timestamp);
+
+    this.previousTimestampDraw = timestamp;
+
+    this.drawTimeout = setTimeout(() => {
+      this.#drawFrame();
+    });
   }
 
   /**
    * Draw a new frame.
-   * @param timestamp The current timestamp.
    * @param delta The delta to the timestamp of the previous frame.
    */
-  #drawFrame(timestamp: number, delta: number) {
-    this.renderLoop(delta, timestamp);
-
+  #renderFrame(delta: number) {
     this.canvas.update();
 
-    if (this.options.onRefresh === "fade") {
-      this.canvas.fade();
-    }
     if (this.options.onRefresh === "clear") {
       this.canvas.clearWith(0);
     }
