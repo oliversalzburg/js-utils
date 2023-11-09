@@ -30,9 +30,19 @@ export interface CanvasOptions {
  */
 export class Canvas {
   /**
-   * The {@linkcode !HTMLCanvasElement} we're interacting with.
+   * The {@linkcode !HTMLCanvasElement} we're interacting with in the DOM.
    */
-  readonly canvas: HTMLCanvasElement;
+  readonly canvasDom: HTMLCanvasElement;
+
+  /**
+   * The rendering context for the canvas located in the DOM.
+   */
+  #canvasDomContext: ImageBitmapRenderingContext;
+
+  /**
+   * The offscreen canvas we use for rendering.
+   */
+  #canvasOffscreen: OffscreenCanvas;
 
   /**
    * The width of the canvas.
@@ -45,9 +55,9 @@ export class Canvas {
   readonly height: number;
 
   /**
-   * The {@linkcode !CanvasRenderingContext2D} we're using to draw to the canvas.
+   * The {@linkcode !OffscreenCanvasRenderingContext2D} we're using to draw to the canvas.
    */
-  readonly context: CanvasRenderingContext2D;
+  readonly context: OffscreenCanvasRenderingContext2D;
 
   /**
    * The {@linkcode !ImageData} object
@@ -78,18 +88,24 @@ export class Canvas {
     height: number,
     options: Partial<CanvasOptions> = {},
   ) {
-    this.canvas = canvas;
     this.width = width;
     this.height = height;
     this.options = options;
 
+    this.canvasDom = canvas;
+    this.#canvasDomContext = mustExist(
+      this.canvasDom.getContext("bitmaprenderer"),
+      "Unable to create rendering context for DOM canvas.",
+    );
+
+    this.#canvasOffscreen = new OffscreenCanvas(this.width, this.height);
     this.context = mustExist(
-      this.canvas.getContext("2d", {
+      this.#canvasOffscreen.getContext("2d", {
         alpha: false,
         desynchronized: true,
         willReadFrequently: this.options.supportReadBack,
       }),
-      "Unable to create rendering context.",
+      "Unable to create rendering context for offscreen canvas.",
     );
     this.pixMap = this.context.createImageData(width, height);
     this.buffer = this.pixMap.data;
@@ -102,6 +118,25 @@ export class Canvas {
    */
   update() {
     this.context.putImageData(this.pixMap, 0, 0);
+  }
+
+  /**
+   * Draws the offscreen canvas into the DOM canvas.
+   */
+  render() {
+    const newFrame = this.#canvasOffscreen.transferToImageBitmap();
+    this.#canvasDomContext.transferFromImageBitmap(newFrame);
+  }
+
+  /**
+   * Draws a slightly transparent, black rectangle over the canvas,
+   * and then reads the result back into the buffer.
+   */
+  fade() {
+    this.context.fillStyle = "rgba(0,0,0,0.1)";
+    this.context.rect(0, 0, this.width, this.height);
+    this.context.fill();
+    this.bufferReadBack();
   }
 
   /**

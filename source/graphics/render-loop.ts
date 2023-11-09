@@ -16,6 +16,11 @@ export interface RenderLoopOptions {
    * each frame?
    */
   drawFps: boolean;
+
+  /**
+   * Should the buffer be cleared or faded to black before each frame?
+   */
+  onRefresh: "clear" | "fade";
 }
 
 /**
@@ -27,7 +32,7 @@ export class RenderLoop {
   /**
    * The {@linkcode Canvas} we're rendering to.
    */
-  readonly canvas: Canvas | undefined;
+  readonly canvas: Canvas;
 
   /**
    * A function that we call when a new frame should be drawn.
@@ -113,11 +118,14 @@ export class RenderLoop {
   #drawFrame(timestamp: number, delta: number) {
     this.renderLoop(delta, timestamp);
 
-    if (!this.canvas) {
-      return;
-    }
-
     this.canvas.update();
+
+    if (this.options.onRefresh === "fade") {
+      this.canvas.fade();
+    }
+    if (this.options.onRefresh === "clear") {
+      this.canvas.clearWith(0);
+    }
 
     if (this.options.drawFps) {
       const fps = `${Math.round(1000 / delta)}fps`;
@@ -127,5 +135,7 @@ export class RenderLoop {
       this.canvas.context.fillStyle = "#000000";
       this.canvas.context.fillText(fps, 4, 14);
     }
+
+    this.canvas.render();
   }
 }
