@@ -24,8 +24,10 @@ export interface CanvasOptions {
 }
 
 /**
- * A wrapper around {@linkcode !HTMLCanvasElement}
- * to provide some convience for double-buffered drawing.
+ * The {@linkcode Canvas} is a double-buffered construct to help with drawing to a
+ * {@linkcode !HTMLCanvasElement} with best possible performance.
+ * We utilize an {@linkcode !OffscreenCanvas} with a {@linkcode !OffscreenCanvasRenderingContext2D}
+ * to draw frames and expect to render them back to the DOM in regular intervals.
  * @group Graphics
  */
 export class Canvas {
