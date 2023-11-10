@@ -98,8 +98,8 @@ export class RenderLoop {
     this.canvas = canvas;
     this.options = options;
     this.renderLoop = renderLoop;
-    this.previousTimestampDraw = 0;
-    this.previousTimestampRender = 0;
+    this.previousTimestampDraw = new Date().getTime();
+    this.previousTimestampRender = this.previousTimestampDraw;
     this.boundMain = this.#main.bind(this);
   }
 
