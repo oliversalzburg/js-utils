@@ -133,11 +133,12 @@ export class Canvas {
   /**
    * Draws a slightly transparent, black rectangle over the canvas,
    * and then reads the result back into the buffer.
-   * @param amount How much the screen should be faded to black. `0` is
-   * not at all, `255` makes it instantly black.
+   * @param color The color to fade the buffer with. The alpha component of
+   * the color defines how strong the fade is. `0` is not at all, `255` makes
+   * it instantly black.
    */
-  fade(amount = 1) {
-    this.blendWith(fromRGBA(0, 0, 0, amount));
+  fade(color = fromRGBA(0, 0, 0, 1)) {
+    this.blendWith(color);
   }
 
   /**
