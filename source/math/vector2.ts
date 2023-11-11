@@ -302,6 +302,15 @@ export class Vector2 {
   asArray(): [number, number] {
     return [this.x, this.y];
   }
+
+  /**
+   * Creates a copy of another {@linkcode Vector2}.
+   * @param vector The vector to copy.
+   * @returns A new vector.
+   */
+  static fromVector2(vector: Readonly<Vector2>): Vector2 {
+    return new Vector2(vector.x, vector.y);
+  }
 }
 
 /**
