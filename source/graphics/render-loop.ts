@@ -3,6 +3,7 @@ import { Canvas } from "./canvas.js";
 /**
  * The amount of milliseconds your can spend in a frame, if you want to
  * reach a frame rate of 60 FPS.
+ * @group Graphics
  */
 export const MS_PER_FRAME_60FPS = /* __PURE __ */ 1000 / 60;
 
