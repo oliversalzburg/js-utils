@@ -1,6 +1,12 @@
 import { Canvas } from "./canvas.js";
 
 /**
+ * The amount of milliseconds your can spend in a frame, if you want to
+ * reach a frame rate of 60 FPS.
+ */
+export const MS_PER_FRAME_60FPS = /* __PURE __ */ 1000 / 60;
+
+/**
  * The signature of a function that is called to draw a frame.
  * @group Graphics
  */
@@ -58,7 +64,13 @@ export class RenderLoop {
    * Our `#main` function bound to this classes
    * for easier invokation through external callers.
    */
-  private readonly boundMain: (timestamp: number) => void;
+  readonly #boundMain: (timestamp: number) => void;
+
+  /**
+   * Our `#drawFrame` function bound to this classes
+   * for easier invokation through external callers.
+   */
+  readonly #boundDrawFrame: () => void;
 
   /**
    * The ID of our {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame requestAnimationFrame} request.
@@ -100,7 +112,8 @@ export class RenderLoop {
     this.renderLoop = renderLoop;
     this.previousTimestampDraw = new Date().getTime();
     this.previousTimestampRender = this.previousTimestampDraw;
-    this.boundMain = this.#main.bind(this);
+    this.#boundMain = this.#main.bind(this);
+    this.#boundDrawFrame = this.#drawFrame.bind(this);
   }
 
   /**
@@ -122,11 +135,9 @@ export class RenderLoop {
    * Start the render loop.
    */
   unblock() {
-    this.frameRequestId = window.requestAnimationFrame(this.boundMain);
+    this.frameRequestId = window.requestAnimationFrame(this.#boundMain);
     if (!this.drawTimeout) {
-      this.drawTimeout = setTimeout(() => {
-        this.#drawFrame();
-      });
+      this.drawTimeout = setTimeout(this.#boundDrawFrame);
     }
   }
 
@@ -157,11 +168,13 @@ export class RenderLoop {
 
     this.renderLoop(timeDelta, timestamp);
 
-    this.previousTimestampDraw = timestamp;
+    const frameTime = new Date().getTime() - timestamp;
+    this.drawTimeout = setTimeout(
+      this.#boundDrawFrame,
+      Math.max(0, MS_PER_FRAME_60FPS - frameTime),
+    );
 
-    this.drawTimeout = setTimeout(() => {
-      this.#drawFrame();
-    });
+    this.previousTimestampDraw = timestamp;
   }
 
   /**
