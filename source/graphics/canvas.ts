@@ -80,18 +80,11 @@ export class Canvas {
   /**
    * Constructs a new {@linkcode Canvas}.
    * @param canvas The canvas to wrap.
-   * @param width The width of the canvas.
-   * @param height The height of the canvas.
    * @param options The configuration for this canvas.
    */
-  constructor(
-    canvas: HTMLCanvasElement,
-    width: number,
-    height: number,
-    options: Partial<CanvasOptions> = {},
-  ) {
-    this.width = width;
-    this.height = height;
+  constructor(canvas: HTMLCanvasElement, options: Partial<CanvasOptions> = {}) {
+    this.width = canvas.width;
+    this.height = canvas.height;
     this.options = options;
 
     this.canvasDom = canvas;
@@ -111,7 +104,7 @@ export class Canvas {
       }),
       "Unable to create rendering context for offscreen canvas.",
     );
-    this.#imageData = this.context.createImageData(width, height);
+    this.#imageData = this.context.createImageData(this.width, this.height);
     this.buffer = this.#imageData.data;
 
     this.context.font = "12px sans-serif";
