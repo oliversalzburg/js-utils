@@ -103,7 +103,6 @@ export class Random {
 
   /**
    * Returns a random value in a given range.
-   * Uses the JS-internal `Math.random()`. Use {@linkcode Random} for a PRNG with more features.
    * @param min The lower bound.
    * @param max The upper bound.
    * @returns A random value between the lower and upper bound.
