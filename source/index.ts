@@ -1,4 +1,5 @@
 export * from "./array.js";
+export * from "./async.js";
 export * from "./core.js";
 export * from "./dom/index.js";
 export * from "./error-serializer.js";
