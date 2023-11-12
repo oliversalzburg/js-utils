@@ -28,7 +28,7 @@ export class Vector2 {
    * @param vector The coordinates to set the vector to.
    * @returns This instance.
    */
-  set(vector: Vector2): this {
+  set(vector: Readonly<Vector2>): this {
     return this.setXY(vector.x, vector.y);
   }
 
@@ -49,7 +49,7 @@ export class Vector2 {
    * @param vector The vector to add to this vector.
    * @returns This instance.
    */
-  add(vector: Vector2): this {
+  add(vector: Readonly<Vector2>): this {
     return this.addXY(vector.x, vector.y);
   }
 
@@ -71,7 +71,7 @@ export class Vector2 {
    * @param scale The scaling to apply to the input vector.
    * @returns This instance.
    */
-  addMultiply(vector: Vector2, scale: number): this {
+  addMultiply(vector: Readonly<Vector2>, scale: number): this {
     return this.addMultiplyXY(vector.x, vector.y, scale);
   }
 
@@ -93,7 +93,7 @@ export class Vector2 {
    * @param vector The vector to subtract from this vector.
    * @returns This instance.
    */
-  subtract(vector: Vector2): this {
+  subtract(vector: Readonly<Vector2>): this {
     return this.subtractXY(vector.x, vector.y);
   }
 
@@ -114,7 +114,7 @@ export class Vector2 {
    * @param vector The vector to multiply with this vector.
    * @returns This instance.
    */
-  multiply(vector: Vector2): this {
+  multiply(vector: Readonly<Vector2>): this {
     return this.multiplyXY(vector.x, vector.y);
   }
 
@@ -146,7 +146,7 @@ export class Vector2 {
    * @param vector The vector to divide this vector with.
    * @returns This instance.
    */
-  divide(vector: Vector2): this {
+  divide(vector: Readonly<Vector2>): this {
     return this.divideXY(vector.x, vector.y);
   }
 
@@ -281,7 +281,7 @@ export class Vector2 {
    * @param vector The other vector.
    * @returns The dot product between the two vectors.
    */
-  dot(vector: Vector2): number {
+  dot(vector: Readonly<Vector2>): number {
     return this.dotXY(vector.x, vector.y);
   }
 
@@ -320,7 +320,7 @@ export class Vector2 {
  * @returns A new {@linkcode Vector2}.
  * @group Math
  */
-export const addVector2 = (a: Vector2, b: Vector2): Vector2 => {
+export const addVector2 = (a: Readonly<Vector2>, b: Readonly<Vector2>): Vector2 => {
   return new Vector2(a.x * b.x, a.y * b.y);
 };
 
@@ -331,7 +331,7 @@ export const addVector2 = (a: Vector2, b: Vector2): Vector2 => {
  * @returns A new {@linkcode Vector2}.
  * @group Math
  */
-export const multiplyVector2 = (a: Vector2, b: Vector2): Vector2 => {
+export const multiplyVector2 = (a: Readonly<Vector2>, b: Readonly<Vector2>): Vector2 => {
   return new Vector2(a.x * b.x, a.y * b.y);
 };
 
@@ -342,6 +342,6 @@ export const multiplyVector2 = (a: Vector2, b: Vector2): Vector2 => {
  * @returns A new {@linkcode Vector2}.
  * @group Math
  */
-export const subtractVector2 = (a: Vector2, b: Vector2): Vector2 => {
+export const subtractVector2 = (a: Readonly<Vector2>, b: Readonly<Vector2>): Vector2 => {
   return new Vector2(a.x - b.x, a.y - b.y);
 };
