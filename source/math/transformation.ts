@@ -3,6 +3,7 @@ import { Vector3 } from "./vector3.js";
 
 /**
  * Encapsulates an entire transformation, including rotation, position, and scale.
+ * @group Math
  */
 export class Transformation {
   /**

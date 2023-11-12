@@ -2,6 +2,7 @@ import { Vector3 } from "./vector3.js";
 
 /**
  * A rotation in Euler angles.
+ * @group Math
  */
 export class Euler extends Vector3 {
   /**
