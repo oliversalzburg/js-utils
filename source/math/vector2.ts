@@ -24,6 +24,15 @@ export class Vector2 {
   }
 
   /**
+   * Creates a copy of another {@linkcode Vector2}.
+   * @param vector The vector to copy.
+   * @returns A new vector.
+   */
+  static fromVector2(vector: Readonly<Vector2>): Vector2 {
+    return new Vector2(vector.x, vector.y);
+  }
+
+  /**
    * Sets the vector to new coordinates.
    * @param vector The coordinates to set the vector to.
    * @returns This instance.
@@ -89,7 +98,7 @@ export class Vector2 {
   }
 
   /**
-   * Subtracts another vector to this vector.
+   * Subtracts another vector from this vector.
    * @param vector The vector to subtract from this vector.
    * @returns This instance.
    */
@@ -98,7 +107,7 @@ export class Vector2 {
   }
 
   /**
-   * Subtracts another vector to this vector.
+   * Subtracts another vector from this vector.
    * @param x The value to subtract from the X component.
    * @param y The value to subtract from the Y component.
    * @returns This instance.
@@ -174,7 +183,7 @@ export class Vector2 {
   }
 
   /**
-   * Inverts the sign of the vector.
+   * Inverts the direction of the vector.
    * @returns This instance.
    */
   invertAdd(): this {
@@ -301,15 +310,6 @@ export class Vector2 {
    */
   asArray(): [number, number] {
     return [this.x, this.y];
-  }
-
-  /**
-   * Creates a copy of another {@linkcode Vector2}.
-   * @param vector The vector to copy.
-   * @returns A new vector.
-   */
-  static fromVector2(vector: Readonly<Vector2>): Vector2 {
-    return new Vector2(vector.x, vector.y);
   }
 }
 

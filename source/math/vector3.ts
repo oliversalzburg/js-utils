@@ -1,4 +1,5 @@
-import { NotImplementedError } from "source/errors";
+import { Matrix3 } from "./matrix3";
+import { Transformation } from "./transformation";
 
 /**
  * A vector with 3 components, labeled: `X`, `Y`, `Z`.
@@ -26,10 +27,19 @@ export class Vector3 {
    * @param y The Y component.
    * @param z The Z component.
    */
-  constructor(x: number, y: number, z: number) {
+  constructor(x = 0, y = 0, z = 0) {
     this.x = x;
     this.y = y;
     this.z = z;
+  }
+
+  /**
+   * Creates a copy of another {@linkcode Vector3}.
+   * @param vector The vector to copy.
+   * @returns A new vector.
+   */
+  static fromVector3(vector: Readonly<Vector3>): Vector3 {
+    return new Vector3(vector.x, vector.y, vector.z);
   }
 
   /**
@@ -104,7 +114,7 @@ export class Vector3 {
   }
 
   /**
-   * Subtracts another vector to this vector.
+   * Subtracts another vector from this vector.
    * @param vector The vector to subtract from this vector.
    * @returns This instance.
    */
@@ -113,7 +123,7 @@ export class Vector3 {
   }
 
   /**
-   * Subtracts another vector to this vector.
+   * Subtracts another vector from this vector.
    * @param x The value to subtract from the X component.
    * @param y The value to subtract from the Y component.
    * @param z The value to subtract from the Z component.
@@ -145,7 +155,7 @@ export class Vector3 {
   multiplyXYZ(x: number, y: number, z: number): this {
     this.x *= x;
     this.y *= y;
-    this.z *= y;
+    this.z *= z;
     return this;
   }
 
@@ -197,7 +207,7 @@ export class Vector3 {
   }
 
   /**
-   * Inverts the sign of the vector.
+   * Inverts the direction of the vector.
    * @returns This instance.
    */
   invertAdd(): this {
@@ -296,11 +306,87 @@ export class Vector3 {
   }
 
   /**
-   * Rotates the vector by the given angle.
-   * @param angle The angle in degrees.
+   * Rotates the vector by the given rotation matrix.
+   * @param matrix The rotation matrix to apply to the vector.
+   * @returns This instance.
    */
-  rotate(angle: number): this {
-    throw new NotImplementedError("Missing `Matrix3` implementation.");
+  rotate(matrix: Readonly<Matrix3>): this {
+    const xn = this.x;
+    const yn = this.y;
+    const zn = this.z;
+    this.x = xn * matrix.m00 + yn * matrix.m10 + zn * matrix.m20;
+    this.y = xn * matrix.m01 + yn * matrix.m11 + zn * matrix.m21;
+    this.z = xn * matrix.m02 + yn * matrix.m12 + zn * matrix.m22;
+    return this;
+  }
+
+  /**
+   * Inversely rotates the vector by the given rotation matrix.
+   * @param matrix The rotation matrix to apply to the vector.
+   * @returns This instance.
+   */
+  rotateInverse(matrix: Readonly<Matrix3>): this {
+    const xn = this.x;
+    const yn = this.y;
+    const zn = this.z;
+    this.x = xn * matrix.m00 + yn * matrix.m01 + zn * matrix.m02;
+    this.y = xn * matrix.m10 + yn * matrix.m11 + zn * matrix.m12;
+    this.z = xn * matrix.m20 + yn * matrix.m21 + zn * matrix.m22;
+    return this;
+  }
+
+  /**
+   * Rotates the vector by the given rotation matrix around the given center.
+   * @param center The center around which to rotate the vector.
+   * @param matrix The rotation matrix to apply to the vector.
+   * @returns This instance.
+   */
+  rotateAround(center: Readonly<Vector3>, matrix: Readonly<Matrix3>): this {
+    const xn = this.x - center.x;
+    const yn = this.y - center.y;
+    const zn = this.z - center.z;
+    this.x = xn * matrix.m00 + yn * matrix.m10 + zn * matrix.m20 + center.x;
+    this.y = xn * matrix.m01 + yn * matrix.m11 + zn * matrix.m21 + center.y;
+    this.z = xn * matrix.m02 + yn * matrix.m12 + zn * matrix.m22 + center.z;
+    return this;
+  }
+
+  /**
+   * Inversely rotates the vector by the given rotation matrix around the given center.
+   * @param center The center around which to rotate the vector.
+   * @param matrix The rotation matrix to apply to the vector.
+   * @returns This instance.
+   */
+  rotateAroundInverse(center: Readonly<Vector3>, matrix: Readonly<Matrix3>): this {
+    const xn = this.x - center.x;
+    const yn = this.y - center.y;
+    const zn = this.z - center.z;
+    this.x = xn * matrix.m00 + yn * matrix.m01 + zn * matrix.m02 + center.x;
+    this.y = xn * matrix.m10 + yn * matrix.m11 + zn * matrix.m12 + center.y;
+    this.z = xn * matrix.m20 + yn * matrix.m21 + zn * matrix.m22 + center.z;
+    return this;
+  }
+
+  /**
+   * Transform the vector with a {@linkcode Tranformation}.
+   * @param transformation The transformation to apply.
+   * @returns This instance.
+   */
+  transform(transformation: Readonly<Transformation>): this {
+    return this.multiply(transformation.scale)
+      .rotate(transformation.rotation)
+      .add(transformation.position);
+  }
+
+  /**
+   * Inversely transform the vector with a {@linkcode Tranformation}.
+   * @param transformation The transformation to apply.
+   * @returns This instance.
+   */
+  transformInverse(transformation: Readonly<Transformation>): this {
+    return this.subtract(transformation.position)
+      .rotateInverse(transformation.rotation)
+      .divide(transformation.scale);
   }
 
   /**
@@ -322,4 +408,140 @@ export class Vector3 {
   dotXYZ(x: number, y: number, z: number): number {
     return this.x * x + this.y * y + this.z * z;
   }
+
+  /**
+   * Calculates the dot product of this vector and another vector, and then
+   * sets this vector to the result.
+   * @param vector The other vector.
+   * @returns This instance.
+   */
+  cross(vector: Readonly<Vector3>): this {
+    const xn = this.z * vector.y - this.y * vector.z;
+    const yn = this.x * vector.z - this.z * vector.x;
+    const zn = this.y * vector.x - this.x * vector.y;
+    this.x = xn;
+    this.y = yn;
+    this.z = zn;
+    return this;
+  }
+
+  /**
+   * Makes this vector perpendicular to the other 3 vectors.
+   * @param vector0 The first vector.
+   * @param vector1 The second vector.
+   * @param vector2 The third vector.
+   * @returns This instance.
+   */
+  perpendicular(
+    vector0: Readonly<Vector3>,
+    vector1: Readonly<Vector3>,
+    vector2: Readonly<Vector3>,
+  ): this {
+    const px = vector2.x - vector1.x;
+    const py = vector2.y - vector1.y;
+    const pz = vector2.z - vector1.z;
+    const qx = vector0.x - vector1.x;
+    const qy = vector0.y - vector1.y;
+    const qz = vector0.z - vector1.z;
+    this.x = pz * qy - py * qz;
+    this.y = px * qz - pz * qx;
+    this.z = py * qx - px * qy;
+    return this;
+  }
+
+  /**
+   * Reflects this vector against the given normal and sets this vector to
+   * the result.
+   * @param normal The normal against which to reflect.
+   * @returns This instance.
+   */
+  reflect(normal: Readonly<Vector3>): this {
+    const c = this.dot(normal) * 2.0;
+    this.x = this.x - c * normal.x;
+    this.y = this.y - c * normal.y;
+    this.z = this.z - c * normal.z;
+    return this;
+  }
+
+  /**
+   * Calculates the reflection of this vector, based on the angle of incident
+   * into a material with the given refractive index, according to Snell's law.
+   * This vector is then set to the result.
+   * @param normal The normal against which to reflect.
+   * @param index The refractive index of the material.
+   * @returns This instance.
+   */
+  fraction(normal: Readonly<Vector3>, index: number): this {
+    let c = -this.dot(normal);
+    const r = 1.0 + index * index * (c * c - 1.0);
+    if (r < 0.0) return this.reflect(normal);
+    c = index * c - Math.sqrt(r);
+    this.x = index * this.x + c * normal.x;
+    this.y = index * this.y + c * normal.y;
+    this.z = index * this.z + c * normal.z;
+    return this;
+  }
+
+  /**
+   * Return the components of this vector as an array.
+   * @returns The components of this vector as an array.
+   */
+  asArray(): [number, number, number] {
+    return [this.x, this.y, this.z];
+  }
 }
+
+/**
+ * Adds two vectors and returns a new vector with the result.
+ * @param a The first input vector.
+ * @param b The second input vector.
+ * @returns A new {@linkcode Vector3}.
+ * @group Math
+ */
+export const addVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 => {
+  return new Vector3(a.x * b.x, a.y * b.y, a.z + b.z);
+};
+
+/**
+ * Multiplies two vectors and returns a new vector with the result.
+ * @param a The first input vector.
+ * @param b The second input vector.
+ * @returns A new {@linkcode Vector3}.
+ * @group Math
+ */
+export const multiplyVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 => {
+  return new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
+};
+
+/**
+ * Subtracts two vectors and returns a new vector with the result.
+ * @param a The first input vector.
+ * @param b The second input vector.
+ * @returns A new {@linkcode Vector3}.
+ * @group Math
+ */
+export const subtractVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 => {
+  return new Vector3(a.x - b.x, a.y - b.y, a.z - b.z);
+};
+
+/**
+ * Calculates the cross product between two vectors and returns a new vector with the result.
+ * @param a The first input vector.
+ * @param b The second input vector.
+ * @returns A new vector, which is the cross product of the two input vectors.
+ */
+export const crossVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 => {
+  const c = Vector3.fromVector3(a);
+  return c.cross(b);
+};
+
+/**
+ * Calculates the dot product between two vectors.
+ * @param a The first input vector.
+ * @param b The second input vector.
+ * @returns The dot product between the two vectors.
+ */
+export const dotVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): number => {
+  const c = Vector3.fromVector3(a);
+  return c.dot(b);
+};
