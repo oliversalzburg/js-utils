@@ -1,3 +1,5 @@
+import { AnyAsyncFunction, FunctionReturning } from "./core.js";
+
 /**
  * Wraps the given asynchronous function in a new function that will ignore any outcome of
  * the context as it resolves.
@@ -5,10 +7,10 @@
  * This can be useful when providing asynchonous event handler to `.addEventlistener()`,
  * which only expects synchronous functions.
  * @param context The asynchronous function to exectute.
- * @returns Nothing
+ * @returns A function returning nothing.
  * @group Async
  */
-export const prepareAsyncContext = (context: (...args: Array<any>) => Promise<unknown>) => {
+export const prepareAsyncContext = (context: AnyAsyncFunction): (() => void) => {
   return () => {
     void context()
       .then(() => undefined)
@@ -28,7 +30,7 @@ export const prepareAsyncContext = (context: (...args: Array<any>) => Promise<un
  * @group Async
  */
 export const coalesceOnRejection = async <TExecutableReturn, TCoalesce>(
-  executable: (...args: Array<unknown>) => Promise<TExecutableReturn>,
+  executable: FunctionReturning<Promise<TExecutableReturn>>,
   to: TCoalesce,
 ) => {
   try {

@@ -1,7 +1,7 @@
 /** @type {import('typedoc').TypeDocOptions} */
 export default {
-  basePath: "./source",
-  entryPoints: ["./source/index.ts"],
+  basePath: ".",
+  entryPoints: ["./source"],
   githubPages: true,
   out: "./_site",
   plugin: ["typedoc-plugin-mdn-links"],

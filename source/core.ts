@@ -11,6 +11,11 @@ export type ConstructorOf<T = Record<string, unknown>> = new (...args: Array<any
 export type AnyFunction = (...args: Array<any>) => any;
 
 /**
+ * Describes literally any asynchronous function.
+ */
+export type AnyAsyncFunction = (...args: Array<any>) => Promise<any>;
+
+/**
  * Any constructor
  */
 export type AnyConstructor = new (...args: Array<any>) => any;
