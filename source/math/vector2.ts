@@ -265,7 +265,7 @@ export class Vector2 {
    * @returns This instance.
    */
   lerp(vector: Readonly<Vector2>, t: number): this {
-    const tn = 1.0 - t;
+    const tn = 1 - t;
     this.x = this.x * tn + vector.x * t;
     this.y = this.y * tn + vector.y * t;
     return this;

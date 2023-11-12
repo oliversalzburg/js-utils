@@ -298,7 +298,7 @@ export class Vector3 {
    * @returns This instance.
    */
   lerp(vector: Readonly<Vector3>, t: number): this {
-    const tn = 1.0 - t;
+    const tn = 1 - t;
     this.x = this.x * tn + vector.x * t;
     this.y = this.y * tn + vector.y * t;
     this.z = this.z * tn + vector.z * t;
@@ -456,7 +456,7 @@ export class Vector3 {
    * @returns This instance.
    */
   reflect(normal: Readonly<Vector3>): this {
-    const c = this.dot(normal) * 2.0;
+    const c = this.dot(normal) * 2;
     this.x = this.x - c * normal.x;
     this.y = this.y - c * normal.y;
     this.z = this.z - c * normal.z;
@@ -473,8 +473,8 @@ export class Vector3 {
    */
   fraction(normal: Readonly<Vector3>, index: number): this {
     let c = -this.dot(normal);
-    const r = 1.0 + index * index * (c * c - 1.0);
-    if (r < 0.0) return this.reflect(normal);
+    const r = 1 + index * index * (c * c - 1);
+    if (r < 0) return this.reflect(normal);
     c = index * c - Math.sqrt(r);
     this.x = index * this.x + c * normal.x;
     this.y = index * this.y + c * normal.y;

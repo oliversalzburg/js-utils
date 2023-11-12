@@ -154,17 +154,7 @@ export class Matrix3 {
    * @param m12 Position `1,2` of this matrix.
    * @param m22 Position `2,2` of this matrix.
    */
-  constructor(
-    m00 = 1.0,
-    m10 = 0.0,
-    m20 = 0.0,
-    m01 = 0.0,
-    m11 = 1.0,
-    m21 = 0.0,
-    m02 = 0.0,
-    m12 = 0.0,
-    m22 = 1.0,
-  ) {
+  constructor(m00 = 1, m10 = 0, m20 = 0, m01 = 0, m11 = 1, m21 = 0, m02 = 0, m12 = 0, m22 = 1) {
     this.m00 = m00;
     this.m10 = m10;
     this.m20 = m20;
@@ -315,7 +305,7 @@ export class Matrix3 {
   setVector3(axis: Readonly<Vector3>, degrees: number): this {
     const s = Math.sin(degrees);
     const c = Math.cos(degrees);
-    const t = 1.0 - c;
+    const t = 1 - c;
     const txy = t * axis.x * axis.y;
     const txz = t * axis.x * axis.z;
     const tyz = t * axis.y * axis.z;
@@ -353,17 +343,17 @@ export class Matrix3 {
     const wy = quaternion.w * y2;
     const wz = quaternion.w * z2;
 
-    this.m00 = 1.0 - (yy + zz);
+    this.m00 = 1 - (yy + zz);
     this.m01 = xy - wz;
     this.m02 = xz + wy;
 
     this.m10 = xy + wz;
-    this.m11 = 1.0 - (xx + zz);
+    this.m11 = 1 - (xx + zz);
     this.m12 = yz - wx;
 
     this.m20 = xz - wy;
     this.m21 = yz + wx;
-    this.m22 = 1.0 - (xx + yy);
+    this.m22 = 1 - (xx + yy);
     return this;
   }
 
@@ -385,15 +375,15 @@ export class Matrix3 {
     x.m22 = this.m22;
     x.multiplyL(this);
 
-    x.m00 = (3.0 - x.m00) / 2.0;
-    x.m10 = -x.m10 / 2.0;
-    x.m20 = -x.m20 / 2.0;
-    x.m01 = -x.m01 / 2.0;
-    x.m11 = (3.0 - x.m11) / 2.0;
-    x.m21 = -x.m21 / 2.0;
-    x.m02 = -x.m02 / 2.0;
-    x.m12 = -x.m12 / 2.0;
-    x.m22 = (3.0 - x.m22) / 2.0;
+    x.m00 = (3 - x.m00) / 2;
+    x.m10 = -x.m10 / 2;
+    x.m20 = -x.m20 / 2;
+    x.m01 = -x.m01 / 2;
+    x.m11 = (3 - x.m11) / 2;
+    x.m21 = -x.m21 / 2;
+    x.m02 = -x.m02 / 2;
+    x.m12 = -x.m12 / 2;
+    x.m22 = (3 - x.m22) / 2;
     this.multiplyL(x);
     return this;
   }
@@ -544,9 +534,9 @@ export class Matrix3 {
     if (!lookUp) {
       lookUp = new Vector3();
       if (Math.abs(forward.y) > 0.8) {
-        lookUp.setXYZ(0.0, 0.0, 1.0);
+        lookUp.setXYZ(0, 0, 1);
       } else {
-        lookUp.setXYZ(0.0, 1.0, 0.0);
+        lookUp.setXYZ(0, 1, 0);
       }
     }
 
