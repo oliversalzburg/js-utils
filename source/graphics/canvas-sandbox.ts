@@ -79,33 +79,93 @@ export interface CanvasSandboxApplication<
  * import { getDocumentElementTypeById } from "@oliversalzburg/js-utils/lib/dom/core.js";
  * import { CanvasSandbox } from "@oliversalzburg/js-utils/lib/graphics/canvas-sandbox.js";
  *
+ * interface ApplicationOptions {
+ *   seed: string;
+ *   somethingElse: number;
+ * }
+ *
  * class Application {
  *   canvas: Canvas;
- *   options: {
- *     seed: number;
- *   }
+ *   options: ApplicationOptions;
  *   random: Random;
  *
- *   constructor(canvas:Canvas, options: {seed: number}) {
+ *   constructor(canvas:Canvas, options: ApplicationOptions) {
  *     this.canvas = canvas;
  *     this.options = options;
  *     this.random = new Random(seedFromString(options.seed));
  *   }
- *   reconfigure(canvas:Canvas, options: {seed: number}) {
+ *
+ *   reconfigure(canvas:Canvas, options: Partial<ApplicationOptions>) {
  *     this.canvas = canvas;
- *     this.options = options;
+ *     this.options = { ...this.options, ...options };
  *     this.random = new Random(seedFromString(options.seed));
  *   }
+ *
  *   onDraw(delta:number, timestamp:number) {
  *     // draw something on `this.canvas`
  *   }
+ *
  *   start() {}
  * }
  *
  * const canvasNode = getDocumentElementTypeById(document, "main", HTMLCanvasElement);
- * const canvasSandbox = new CanvasSandbox(window, canvasNode, Application, applicationOptions);
+ * const canvasSandbox = new CanvasSandbox(
+ *   window,
+ *   canvasNode,
+ *   Application,
+ *   {seed: "foo", somethingElse: 12345}
+ * );
  * canvasSandbox.run();
  * ```
+ * ```html
+ * <!doctype html>
+ * <html>
+ *   <head>
+ *     <meta charset="UTF-8" />
+ *     <link rel="stylesheet" href="main.css" />
+ *   </head>
+ *
+ *   <body>
+ *     <canvas id="main" class="darkMode" width="512" height="512"></canvas>
+ *   </body>
+ *   <script src="main.ts" type="module"></script>
+ * </html>
+ * ```
+ * ```css
+ * html,
+ * body {
+ *   height: 100%;
+ *   width: 100%;
+ *   padding: 0;
+ *   margin: 0;
+ *   background-color: #808080;
+ * }
+ *
+ * body {
+ *   transition: background-color 1s ease-in-out;
+ * }
+ * body.darkMode {
+ *   background-color: #211f1f;
+ * }
+ * body.lightMode {
+ *   background-color: #ebdcdc;
+ * }
+ *
+ * #main {
+ *   display: block;
+ *   position: absolute;
+ *   margin: auto;
+ *   top: 0;
+ *   left: 0;
+ *   right: 0;
+ *   bottom: 0;
+ *
+ *   filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
+ *   transition: all 1s;
+ * }
+ * ```
+ * @template {CanvasSandboxExpectedOptions} TApplicationOptions The type of the options
+ * the application in the sandbox will be constructed with.
  * @group Graphics
  */
 export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOptions> {
