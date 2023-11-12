@@ -368,7 +368,7 @@ export class Vector3 {
   }
 
   /**
-   * Transform the vector with a {@linkcode Tranformation}.
+   * Transform the vector with a {@linkcode Transformation}.
    * @param transformation The transformation to apply.
    * @returns This instance.
    */
@@ -379,7 +379,7 @@ export class Vector3 {
   }
 
   /**
-   * Inversely transform the vector with a {@linkcode Tranformation}.
+   * Inversely transform the vector with a {@linkcode Transformation}.
    * @param transformation The transformation to apply.
    * @returns This instance.
    */
