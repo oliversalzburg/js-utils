@@ -11,6 +11,14 @@ export class Random {
   private _seed: number;
 
   /**
+   * Retrieve the seed of the PRNG.
+   * @returns The seed of the PRNG.
+   */
+  get seed(): number {
+    return this._seed;
+  }
+
+  /**
    * The permutation table for simplex noise.
    */
   private _perm: Array<number>;
