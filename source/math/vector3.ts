@@ -529,6 +529,7 @@ export const subtractVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vec
  * @param a The first input vector.
  * @param b The second input vector.
  * @returns A new vector, which is the cross product of the two input vectors.
+ * @group Math
  */
 export const crossVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 => {
   const c = Vector3.fromVector3(a);
@@ -540,6 +541,7 @@ export const crossVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector
  * @param a The first input vector.
  * @param b The second input vector.
  * @returns The dot product between the two vectors.
+ * @group Math
  */
 export const dotVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): number => {
   const c = Vector3.fromVector3(a);
