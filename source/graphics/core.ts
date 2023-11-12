@@ -503,6 +503,7 @@ export const somecolor = () => {
 
 /**
  * Switches the global palette to the next available preset.
+ * @returns The new new global palette.
  * @group Graphics
  */
 export const nextPalette = () => {
@@ -510,6 +511,7 @@ export const nextPalette = () => {
   if (PALETTES.length <= PALETTE_INDEX) {
     PALETTE_INDEX = 0;
   }
+  return PALETTES[PALETTE_INDEX];
 };
 
 /**
