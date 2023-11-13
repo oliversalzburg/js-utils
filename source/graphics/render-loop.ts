@@ -60,13 +60,7 @@ export class RenderLoop {
   /**
    * The time at which we rendered the last frame to the DOM.
    */
-  private previousTimestampRender: number;
-
-  /**
-   * Our `#main` function bound to this classes
-   * for easier invokation through external callers.
-   */
-  readonly #boundMain: (timestamp: number) => void;
+  private previousTimestampPresent: number;
 
   /**
    * Our `#drawFrame` function bound to this classes
@@ -113,8 +107,7 @@ export class RenderLoop {
     this.options = options;
     this.renderLoop = renderLoop;
     this.previousTimestampDraw = new Date().getTime();
-    this.previousTimestampRender = this.previousTimestampDraw;
-    this.#boundMain = this.#presentFrame.bind(this);
+    this.previousTimestampPresent = this.previousTimestampDraw;
     this.#boundDrawFrame = this.#drawFrame.bind(this);
   }
 
@@ -137,10 +130,7 @@ export class RenderLoop {
    * Start the render loop.
    */
   unblock() {
-    this.frameRequestId = window.requestAnimationFrame(this.#boundMain);
-    if (!this.drawTimeout) {
-      this.drawTimeout = setTimeout(this.#boundDrawFrame);
-    }
+    this.frameRequestId = window.requestAnimationFrame(this.#boundDrawFrame);
   }
 
   /**
@@ -163,24 +153,12 @@ export class RenderLoop {
     this.renderLoop(timeDelta, timestamp);
 
     const frameTime = new Date().getTime() - timestamp;
-    this.drawTimeout = setTimeout(
-      this.#boundDrawFrame,
-      Math.max(0, MS_PER_FRAME_60FPS - frameTime),
-    );
 
     if (this.options.drawFps) {
       this.#frameTimes.push(frameTime);
     }
 
     this.previousTimestampDraw = timestamp;
-  }
-
-  /**
-   * Our main loop, as invoked through the frame request.
-   * @param timestamp The current timestamp.
-   */
-  #presentFrame(timestamp: number) {
-    const delta = timestamp - this.previousTimestampRender;
 
     this.canvas.update();
 
@@ -195,46 +173,52 @@ export class RenderLoop {
         }
         return max;
       }, 0);
+      const sumFrameTimes = this.#frameTimes.reduce((sum, frameTime) => sum + frameTime, 0);
+      const fps = Math.round(this.#frameTimes.length / (sumFrameTimes / 1000)).toString();
 
       this.#frameTimes.splice(0, this.#frameTimes.length - this.canvas.width);
       const frameTimes = this.#frameTimes.toReversed();
-      for (let frameTimeIndex = 0; frameTimeIndex < frameTimes.length; ++frameTimeIndex) {
-        const frameTime = frameTimes[frameTimeIndex];
+
+      let currentX = this.canvas.width;
+      for (const frameTime of frameTimes) {
         let fillColor = 0x00ff00ff;
+        let width = 1;
         if (MS_PER_FRAME_60FPS < frameTime) {
           const quality = frameTime / maxFrameTime;
           fillColor = blend(0x00ff00ff, 0xff0000ff, Math.trunc(quality * 255)) >>> 0;
+          width = Math.round(frameTime / MS_PER_FRAME_60FPS);
         }
         this.canvas.context.fillStyle = `#${fillColor.toString(16).padStart(8, "0")}`;
         this.canvas.context.globalAlpha = 255;
         this.canvas.context.fillRect(
-          this.canvas.width - frameTimeIndex - 1,
+          currentX - width,
           this.canvas.height,
-          1,
+          width,
           (frameTime / Math.max(100, maxFrameTime)) * -100,
         );
+        currentX -= width;
       }
+
       this.canvas.context.beginPath();
       this.canvas.context.strokeStyle = "#fff";
       this.canvas.context.moveTo(0, this.canvas.height - MS_PER_FRAME_60FPS);
       this.canvas.context.lineTo(this.canvas.width, this.canvas.height - MS_PER_FRAME_60FPS);
       this.canvas.context.stroke();
 
-      const fps = Math.round(1000 / delta).toString();
-      this.canvas.context.strokeStyle = "rgba( 255, 255, 255, 1)";
-      //this.canvas.context.lineWidth = 5;
       this.canvas.context.font = "13px monospace";
+      this.canvas.context.strokeStyle = "rgba( 255, 255, 255, 1)";
+      this.canvas.context.textAlign = "right";
       this.canvas.context.textRendering = "geometricPrecision";
-      this.canvas.context.strokeText(fps, this.canvas.width - 18, this.canvas.height - 3);
+      this.canvas.context.strokeText(fps, this.canvas.width - 3, this.canvas.height - 3);
       this.canvas.context.fillStyle = "#000000";
-      this.canvas.context.fillText(fps, this.canvas.width - 18, this.canvas.height - 3);
+      this.canvas.context.fillText(fps, this.canvas.width - 3, this.canvas.height - 3);
     }
 
     this.canvas.render();
 
     this.unblock();
 
-    this.previousTimestampRender = timestamp;
+    this.previousTimestampPresent = timestamp;
     ++this.#frameCounter;
   }
 }
