@@ -174,7 +174,9 @@ export class RenderLoop {
         return max;
       }, 0);
       const sumFrameTimes = this.#frameTimes.reduce((sum, frameTime) => sum + frameTime, 0);
-      const fps = Math.round(this.#frameTimes.length / (sumFrameTimes / 1000)).toString();
+      const fpsAll = Math.round(this.#frameTimes.length / (sumFrameTimes / 1000)).toString();
+      const fpsFrame = 1000 / frameTime;
+      const fpsDelta = 1000 / timeDelta;
 
       this.#frameTimes.splice(0, this.#frameTimes.length - this.canvas.width);
       const frameTimes = this.#frameTimes.toReversed();
@@ -205,13 +207,14 @@ export class RenderLoop {
       this.canvas.context.lineTo(this.canvas.width, this.canvas.height - MS_PER_FRAME_60FPS);
       this.canvas.context.stroke();
 
+      const fpsString = `${Math.round(fpsFrame)}f ${fpsAll}∑ ${Math.round(fpsDelta)}δ`;
       this.canvas.context.font = "13px monospace";
       this.canvas.context.strokeStyle = "rgba( 255, 255, 255, 1)";
       this.canvas.context.textAlign = "right";
       this.canvas.context.textRendering = "geometricPrecision";
-      this.canvas.context.strokeText(fps, this.canvas.width - 3, this.canvas.height - 3);
+      this.canvas.context.strokeText(fpsString, this.canvas.width - 3, this.canvas.height - 3);
       this.canvas.context.fillStyle = "#000000";
-      this.canvas.context.fillText(fps, this.canvas.width - 3, this.canvas.height - 3);
+      this.canvas.context.fillText(fpsString, this.canvas.width - 3, this.canvas.height - 3);
     }
 
     this.canvas.render();
