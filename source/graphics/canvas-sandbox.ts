@@ -201,6 +201,11 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
   readonly renderLoop: RenderLoop;
 
   /**
+   * The handle that keeps track of debouncing of `resize` events.
+   */
+  #resizeDebounce: number | null = null;
+
+  /**
    * Construct a new {@linkcode CanvasSandbox}.
    * @param window The window we're running inside.
    * @param canvasNode The canvas node we're drawing to.
@@ -271,6 +276,9 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
         case 13:
           // Enter
           nextPalette();
+          this.#reconfigureApplication({
+            seed: this.application.random.next().toString(),
+          } as Partial<TApplicationOptions>);
           this.application.reconfigure(this.canvas, {
             seed: this.application.random.next().toString(),
           } as Partial<TApplicationOptions>);
@@ -286,6 +294,15 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
   }
 
   /**
+   * Reconfigures, and then restarts, the application.
+   * @param options The new options for the application.
+   */
+  #reconfigureApplication(options: Partial<TApplicationOptions> = {}) {
+    this.application.reconfigure(this.canvas, options);
+    this.application.start();
+  }
+
+  /**
    * Create event listeners on the canvas node in the document.
    */
   #hookCanvas() {
@@ -298,10 +315,9 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
         }
 
         nextPalette();
-        this.application.reconfigure(this.canvas, {
+        this.#reconfigureApplication({
           seed: this.application.random.next().toString(),
         } as Partial<TApplicationOptions>);
-        this.application.start();
         event.preventDefault();
       }),
     );
@@ -320,13 +336,24 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
           this.toLightMode();
         }
       });
+
+    this.window.addEventListener("resize", event => {
+      if (this.#resizeDebounce !== null) {
+        this.window.clearTimeout(this.#resizeDebounce);
+      }
+
+      this.#resizeDebounce = this.window.setTimeout(() => {
+        this.#reconfigureApplication();
+        this.canvas.refreshCanvasNode();
+      }, 1000);
+    });
   }
 
   /**
    * Switch the sandbox to dark mode.
    */
   toDarkMode() {
-    this.application.reconfigure(this.canvas, {
+    this.#reconfigureApplication({
       darkMode: true,
     } as Partial<TApplicationOptions>);
     document.body.classList.add("darkMode");
@@ -337,7 +364,7 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
    * Switch the sandbox to light mode.
    */
   toLightMode() {
-    this.application.reconfigure(this.canvas, {
+    this.#reconfigureApplication({
       darkMode: false,
     } as Partial<TApplicationOptions>);
     document.body.classList.add("lightMode");

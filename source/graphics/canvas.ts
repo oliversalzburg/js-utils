@@ -49,17 +49,38 @@ export class Canvas {
   /**
    * The width of the canvas.
    */
-  readonly width: number;
+  #width: number;
+  /**
+   * Retrieves the width of the canvas.
+   * @returns The width of the canvas.
+   */
+  get width(): number {
+    return this.#width;
+  }
 
   /**
    * The height of the canvas.
    */
-  readonly height: number;
+  #height: number;
+  /**
+   * Retrieves the height of the canvas.
+   * @returns The height of the canvas.
+   */
+  get height(): number {
+    return this.#height;
+  }
 
   /**
-   * The {@linkcode !OffscreenCanvasRenderingContext2D} we're using to draw to the canvas.
+   * The 2D rendering context we're using to draw to the canvas.
    */
-  readonly context: OffscreenCanvasRenderingContext2D;
+  #context: OffscreenCanvasRenderingContext2D;
+  /**
+   * Retrieves the rendering context of the canvas.
+   * @returns The rendering context of the canvas.
+   */
+  get context(): OffscreenCanvasRenderingContext2D {
+    return this.#context;
+  }
 
   /**
    * The {@linkcode !ImageData} object in our offscreen canvas. We usually interact with its
@@ -83,8 +104,8 @@ export class Canvas {
    * @param options The configuration for this canvas.
    */
   constructor(canvas: HTMLCanvasElement, options: Partial<CanvasOptions> = {}) {
-    this.width = canvas.width;
-    this.height = canvas.height;
+    this.#width = canvas.width;
+    this.#height = canvas.height;
     this.options = options;
 
     this.canvasDom = canvas;
@@ -95,8 +116,8 @@ export class Canvas {
       "Unable to create rendering context for DOM canvas.",
     );
 
-    this.#canvasOffscreen = new OffscreenCanvas(this.width, this.height);
-    this.context = mustExist(
+    this.#canvasOffscreen = new OffscreenCanvas(this.#width, this.#height);
+    this.#context = mustExist(
       this.#canvasOffscreen.getContext("2d", {
         alpha: false,
         desynchronized: true,
@@ -104,17 +125,36 @@ export class Canvas {
       }),
       "Unable to create rendering context for offscreen canvas.",
     );
-    this.#imageData = this.context.createImageData(this.width, this.height);
+    this.#imageData = this.#context.createImageData(this.#width, this.#height);
     this.buffer = this.#imageData.data;
 
-    this.context.font = "12px sans-serif";
+    this.#context.font = "12px sans-serif";
+  }
+
+  /**
+   * Recreate internal buffers in reaction to a change in our target {@linkcode !HTMLCanvasElement}.
+   */
+  refreshCanvasNode() {
+    this.#width = this.canvasDom.width;
+    this.#height = this.canvasDom.height;
+    this.#canvasOffscreen = new OffscreenCanvas(this.#width, this.#height);
+    this.#context = mustExist(
+      this.#canvasOffscreen.getContext("2d", {
+        alpha: false,
+        desynchronized: true,
+        willReadFrequently: this.options.supportReadBack,
+      }),
+      "Unable to create rendering context for offscreen canvas.",
+    );
+    this.#imageData = this.#context.createImageData(this.#width, this.#height);
+    this.buffer = this.#imageData.data;
   }
 
   /**
    * Draws the back buffer onto the canvas.
    */
   update() {
-    this.context.putImageData(this.#imageData, 0, 0);
+    this.#context.putImageData(this.#imageData, 0, 0);
   }
 
   /**
@@ -145,7 +185,7 @@ export class Canvas {
         "To use `bufferReadBack()`, you must construct the `Canvas` with `options.supportReadBack` set to `true`.",
       );
     }
-    this.#imageData = this.context.getImageData(0, 0, this.width, this.height);
+    this.#imageData = this.#context.getImageData(0, 0, this.#width, this.#height);
     this.buffer = this.#imageData.data;
   }
 
@@ -156,7 +196,7 @@ export class Canvas {
    * @returns The color of the pixel at the given local.
    */
   getPixel32(x: number, y: number) {
-    const bufferOffset = (x + y * this.width) * 4;
+    const bufferOffset = (x + y * this.#width) * 4;
     return fromRGBA(
       this.buffer[bufferOffset + 0],
       this.buffer[bufferOffset + 1],
@@ -172,7 +212,7 @@ export class Canvas {
    * @param color The color to place at the coordinate.
    */
   setPixel32(x: number, y: number, color: number) {
-    const bufferOffset = (x + y * this.width) * 4;
+    const bufferOffset = (x + y * this.#width) * 4;
     this.buffer[bufferOffset + 0] = getR(color);
     this.buffer[bufferOffset + 1] = getG(color);
     this.buffer[bufferOffset + 2] = getB(color);
@@ -188,7 +228,7 @@ export class Canvas {
     const g = getG(color);
     const b = getB(color);
     const a = getA(color);
-    for (let bufferOffset = 0; bufferOffset < this.width * this.height * 4; bufferOffset += 4) {
+    for (let bufferOffset = 0; bufferOffset < this.#width * this.#height * 4; bufferOffset += 4) {
       this.buffer[bufferOffset + 0] = r;
       this.buffer[bufferOffset + 1] = g;
       this.buffer[bufferOffset + 2] = b;
@@ -205,7 +245,7 @@ export class Canvas {
     const g = getG(color);
     const b = getB(color);
     const a = getA(color);
-    for (let bufferOffset = 0; bufferOffset < this.width * this.height * 4; bufferOffset += 4) {
+    for (let bufferOffset = 0; bufferOffset < this.#width * this.#height * 4; bufferOffset += 4) {
       this.buffer[bufferOffset + 0] = (a * r + (255 - a) * this.buffer[bufferOffset + 0]) >> 8;
       this.buffer[bufferOffset + 1] = (a * g + (255 - a) * this.buffer[bufferOffset + 1]) >> 8;
       this.buffer[bufferOffset + 2] = (a * b + (255 - a) * this.buffer[bufferOffset + 2]) >> 8;
