@@ -122,6 +122,12 @@ export interface CanvasSandboxApplication<
  */
 export interface CanvasSandboxOptions {
   /**
+   * Should the sandbox render developer information?
+   * @default false
+   */
+  devMode: boolean;
+
+  /**
    * Should the sandbox default CSS be injected into the body?
    * @default true
    */
@@ -271,7 +277,9 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
 
     this.application = new Application(this.canvas, options);
     const applicationOnDraw = this.application.onDraw.bind(this.application);
-    this.renderLoop = new RenderLoop(applicationOnDraw, this.canvas, { drawFps: true });
+    this.renderLoop = new RenderLoop(applicationOnDraw, this.canvas, {
+      drawFps: sandboxOptions?.devMode,
+    });
 
     this.#hookWindow();
     this.#hookBody();
