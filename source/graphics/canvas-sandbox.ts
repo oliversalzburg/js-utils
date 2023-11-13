@@ -1,8 +1,57 @@
 import { prepareAsyncContext } from "../async.js";
+import { getDocumentElementTypeById } from "../dom/core.js";
 import { Random } from "../random.js";
 import { Canvas } from "./canvas.js";
 import { nextPalette } from "./core.js";
 import { RenderLoop } from "./render-loop.js";
+
+/**
+ * Provides the input as-is.
+ * This method exists only to make use of the `css` template string tag,
+ * which allows us to use in-IDE support for CSS through the support for
+ * {@link https://lit.dev/docs/components/styles/ Lit styles}.
+ * @param input The CSS code.
+ * @returns The CSS code as-is.
+ */
+const css = (input: TemplateStringsArray) => input.join("");
+
+/**
+ * The CSS we inject into the document, if requested.
+ * @group Graphics
+ */
+export const CANVAS_SANDBOX_DEFAULT_CSS = /* PURE */ css`
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #808080;
+  }
+
+  body {
+    transition: background-color 1s ease-in-out;
+  }
+  body.darkMode {
+    background-color: #211f1f;
+  }
+  body.lightMode {
+    background-color: #ebdcdc;
+  }
+
+  #main {
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
+    transition: all 1s;
+  }
+`;
 
 /**
  * The options your application has to accept so it can interact with the {@linkcode CanvasSandbox}.
@@ -69,14 +118,27 @@ export interface CanvasSandboxApplication<
 }
 
 /**
+ * Options for a {@linkcode CanvasSandbox}.
+ * @group Graphics
+ */
+export interface CanvasSandboxOptions {
+  /**
+   * Should the sandbox default CSS be injected into the body?
+   * @default true
+   */
+  injectDefaultCss: boolean;
+}
+
+/**
  * The {@linkcode CanvasSandbox} provides a scaffold to quickly perform experiments
  * with a {@linkcode !HTMLCanvasElement} in a document. Common functionality for such
  * experiments is implemented in the sandbox already.
  * @example
+ * ### `main.ts`
  * ```ts
  * import { Random, seedFromString } from "@oliversalzburg/js-utils/lib/random.js";
  * import { Canvas } from "@oliversalzburg/js-utils/lib/graphics/canvas.js";
- * import { getDocumentElementTypeById } from "@oliversalzburg/js-utils/lib/dom/core.js";
+ * import { getDocumentElementTypeByIdStrict } from "@oliversalzburg/js-utils/lib/dom/core.js";
  * import { CanvasSandbox } from "@oliversalzburg/js-utils/lib/graphics/canvas-sandbox.js";
  *
  * interface ApplicationOptions {
@@ -108,21 +170,24 @@ export interface CanvasSandboxApplication<
  *   start() {}
  * }
  *
- * const canvasNode = getDocumentElementTypeById(document, "main", HTMLCanvasElement);
+ * const canvasNode = getDocumentElementTypeByIdStrict(document, "main", HTMLCanvasElement);
  * const canvasSandbox = new CanvasSandbox(
  *   window,
  *   canvasNode,
  *   Application,
  *   {seed: "foo", somethingElse: 12345}
  * );
+ *
+ * // By running the sandbox, your `start()` and `onDraw()` methods will automatically be invoked
+ * // by the sandbox. You shouldn't invoke those methods directly from your own code.
  * canvasSandbox.run();
  * ```
+ * ### `index.html`
  * ```html
  * <!doctype html>
  * <html>
  *   <head>
  *     <meta charset="UTF-8" />
- *     <link rel="stylesheet" href="main.css" />
  *   </head>
  *
  *   <body>
@@ -130,39 +195,6 @@ export interface CanvasSandboxApplication<
  *   </body>
  *   <script src="main.ts" type="module"></script>
  * </html>
- * ```
- * ```css
- * html,
- * body {
- *   height: 100%;
- *   width: 100%;
- *   padding: 0;
- *   margin: 0;
- *   background-color: #808080;
- * }
- *
- * body {
- *   transition: background-color 1s ease-in-out;
- * }
- * body.darkMode {
- *   background-color: #211f1f;
- * }
- * body.lightMode {
- *   background-color: #ebdcdc;
- * }
- *
- * #main {
- *   display: block;
- *   position: absolute;
- *   margin: auto;
- *   top: 0;
- *   left: 0;
- *   right: 0;
- *   bottom: 0;
- *
- *   filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
- *   transition: all 1s;
- * }
  * ```
  * @template {CanvasSandboxExpectedOptions} TApplicationOptions The type of the options
  * the application in the sandbox will be constructed with.
@@ -211,6 +243,7 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
    * @param canvasNode The canvas node we're drawing to.
    * @param Application The application that is going to run in the sandbox.
    * @param options The options that the application should be constructed with.
+   * @param sandboxOptions The options for the sandbox itself.
    */
   constructor(
     window: Window,
@@ -226,11 +259,16 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
       options: TApplicationOptions,
     ) => CanvasSandboxApplication<TApplicationOptions>,
     options: TApplicationOptions,
+    sandboxOptions?: CanvasSandboxOptions,
   ) {
     this.window = window;
     this.document = window.document;
     this.canvasNode = canvasNode;
     this.canvas = new Canvas(canvasNode);
+
+    if (sandboxOptions?.injectDefaultCss ?? true) {
+      this.injectDefaultCss();
+    }
 
     this.application = new Application(this.canvas, options);
     const applicationOnDraw = this.application.onDraw.bind(this.application);
@@ -249,10 +287,30 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
   }
 
   /**
+   * Injects our default CSS into the document, if it hasn't already been injected.
+   * @see {@linkcode CANVAS_SANDBOX_DEFAULT_CSS}
+   */
+  injectDefaultCss(): void {
+    const existingStyle = getDocumentElementTypeById(
+      this.document,
+      "canvas-sandbox-styles",
+      HTMLStyleElement,
+    );
+    if (existingStyle) {
+      return;
+    }
+    const styleNode = this.document.createElement("style");
+    styleNode.textContent = CANVAS_SANDBOX_DEFAULT_CSS;
+    this.document.head.appendChild(styleNode);
+  }
+
+  /**
    * Run the sandbox.
    */
   run() {
     this.application.start();
+    // In case the application doesn't maintain this state itself.
+    this.application.paused = false;
     this.renderLoop.unblock();
   }
 
@@ -306,6 +364,8 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
   #reconfigureApplication(options: Partial<TApplicationOptions> = {}) {
     this.application.reconfigure(this.canvas, options);
     this.application.start();
+    // In case the application doesn't maintain this state itself.
+    this.application.paused = false;
   }
 
   /**

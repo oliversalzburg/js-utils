@@ -1,4 +1,4 @@
-import { AnyAsyncFunction, FunctionReturning } from "./core.js";
+import { AnyAsyncFunction, ConstructorOf, FunctionReturning } from "./core.js";
 
 /**
  * Wraps the given asynchronous function in a new function that will ignore any outcome of
@@ -10,7 +10,7 @@ import { AnyAsyncFunction, FunctionReturning } from "./core.js";
  * @returns A function returning nothing.
  * @group Async
  */
-export const prepareAsyncContext = (context: AnyAsyncFunction): (() => void) => {
+export const prepareAsyncContext = (context: AnyAsyncFunction) => {
   return () => {
     void context()
       .then(() => undefined)
@@ -23,19 +23,30 @@ export const prepareAsyncContext = (context: AnyAsyncFunction): (() => void) => 
  * in case the function failed.
  * @param executable The asynchronous function to execute.
  * @param to The result we want to return when the function errors.
+ * @param filter An {@linkcode !Error} subclass. If defined, only errors of
+ * this type will be coalesced.
  * @template {unknown} TExecutableReturn The return type of the function.
  * @template {unknown} TCoalesce The type of the object to coalesce to.
+ * @template {ConstructorOf<Error>} TFilter The type of the error filter.
  * @returns Whatever the function resolved to, or the provided replacement,
  * in case the function failed.
  * @group Async
  */
-export const coalesceOnRejection = async <TExecutableReturn, TCoalesce>(
-  executable: FunctionReturning<Promise<TExecutableReturn>>,
+export const coalesceOnRejection = async <
+  TExecutableReturn,
+  TCoalesce,
+  TFilter extends ConstructorOf<Error>,
+>(
+  executable: FunctionReturning<TExecutableReturn | Promise<TExecutableReturn>>,
   to: TCoalesce,
+  filter?: TFilter,
 ) => {
   try {
     return await executable();
   } catch (error) {
-    return to;
+    if ((filter !== undefined && error instanceof filter) || !filter) {
+      return to;
+    }
+    throw error;
   }
 };
