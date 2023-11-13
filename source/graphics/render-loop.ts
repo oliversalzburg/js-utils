@@ -1,4 +1,5 @@
 import { Canvas } from "./canvas.js";
+import { blend } from "./core.js";
 
 /**
  * The amount of milliseconds your can spend in a frame, if you want to
@@ -113,7 +114,7 @@ export class RenderLoop {
     this.renderLoop = renderLoop;
     this.previousTimestampDraw = new Date().getTime();
     this.previousTimestampRender = this.previousTimestampDraw;
-    this.#boundMain = this.#main.bind(this);
+    this.#boundMain = this.#presentFrame.bind(this);
     this.#boundDrawFrame = this.#drawFrame.bind(this);
   }
 
@@ -143,18 +144,10 @@ export class RenderLoop {
   }
 
   /**
-   * Our main loop, as invoked through the frame request.
-   * @param timestamp The current timestamp.
+   * The duration it took to produce previous frames.
+   * This is used for the frame graph.
    */
-  #main(timestamp: number) {
-    const timeDelta = timestamp - this.previousTimestampRender;
-
-    this.#renderFrame(timeDelta);
-    this.unblock();
-
-    this.previousTimestampRender = timestamp;
-    ++this.#frameCounter;
-  }
+  #frameTimes: Array<number> = [];
 
   /**
    * Draws a new frame to the offscreen buffer.
@@ -175,14 +168,20 @@ export class RenderLoop {
       Math.max(0, MS_PER_FRAME_60FPS - frameTime),
     );
 
+    if (this.options.drawFps) {
+      this.#frameTimes.push(frameTime);
+    }
+
     this.previousTimestampDraw = timestamp;
   }
 
   /**
-   * Draw a new frame.
-   * @param delta The delta to the timestamp of the previous frame.
+   * Our main loop, as invoked through the frame request.
+   * @param timestamp The current timestamp.
    */
-  #renderFrame(delta: number) {
+  #presentFrame(timestamp: number) {
+    const delta = timestamp - this.previousTimestampRender;
+
     this.canvas.update();
 
     if (this.options.onRefresh === "clear") {
@@ -190,14 +189,52 @@ export class RenderLoop {
     }
 
     if (this.options.drawFps) {
-      const fps = `${Math.round(1000 / delta)}fps`;
-      this.canvas.context.strokeStyle = "rgba( 255, 255, 255, 0.85 )";
-      this.canvas.context.lineWidth = 5;
-      this.canvas.context.strokeText(fps, 4, 14);
+      const maxFrameTime = this.#frameTimes.reduce((max, frameTime) => {
+        if (max < frameTime) {
+          max = frameTime;
+        }
+        return max;
+      }, 0);
+
+      this.#frameTimes.splice(0, this.#frameTimes.length - this.canvas.width);
+      const frameTimes = this.#frameTimes.toReversed();
+      for (let frameTimeIndex = 0; frameTimeIndex < frameTimes.length; ++frameTimeIndex) {
+        const frameTime = frameTimes[frameTimeIndex];
+        let fillColor = 0x00ff00ff;
+        if (MS_PER_FRAME_60FPS < frameTime) {
+          const quality = frameTime / maxFrameTime;
+          fillColor = blend(0x00ff00ff, 0xff0000ff, Math.trunc(quality * 255)) >>> 0;
+        }
+        this.canvas.context.fillStyle = `#${fillColor.toString(16).padStart(8, "0")}`;
+        this.canvas.context.globalAlpha = 255;
+        this.canvas.context.fillRect(
+          this.canvas.width - frameTimeIndex - 1,
+          this.canvas.height,
+          1,
+          (frameTime / Math.max(100, maxFrameTime)) * -100,
+        );
+      }
+      this.canvas.context.beginPath();
+      this.canvas.context.strokeStyle = "#fff";
+      this.canvas.context.moveTo(0, this.canvas.height - MS_PER_FRAME_60FPS);
+      this.canvas.context.lineTo(this.canvas.width, this.canvas.height - MS_PER_FRAME_60FPS);
+      this.canvas.context.stroke();
+
+      const fps = Math.round(1000 / delta).toString();
+      this.canvas.context.strokeStyle = "rgba( 255, 255, 255, 1)";
+      //this.canvas.context.lineWidth = 5;
+      this.canvas.context.font = "13px monospace";
+      this.canvas.context.textRendering = "geometricPrecision";
+      this.canvas.context.strokeText(fps, this.canvas.width - 18, this.canvas.height - 3);
       this.canvas.context.fillStyle = "#000000";
-      this.canvas.context.fillText(fps, 4, 14);
+      this.canvas.context.fillText(fps, this.canvas.width - 18, this.canvas.height - 3);
     }
 
     this.canvas.render();
+
+    this.unblock();
+
+    this.previousTimestampRender = timestamp;
+    ++this.#frameCounter;
   }
 }

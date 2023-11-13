@@ -127,8 +127,6 @@ export class Canvas {
     );
     this.#imageData = this.#context.createImageData(this.#width, this.#height);
     this.buffer = this.#imageData.data;
-
-    this.#context.font = "12px sans-serif";
   }
 
   /**
