@@ -3,6 +3,13 @@ import { random } from "../random.js";
 let PALETTE_INDEX = 0;
 
 /**
+ * The golden ratio.
+ * @see {@link https://en.wikipedia.org/wiki/Golden_ratio}
+ * @group Graphics
+ */
+export const GOLDEN_RATIO = 1.618033988749;
+
+/**
  * Color palettes that can be used to quickly colorize a drawing.
  * @group Graphics
  */
