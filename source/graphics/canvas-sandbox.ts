@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { getDocumentElementTypeById } from "../dom/core.js";
 import { Random } from "../random.js";
 import { Canvas } from "./canvas.js";
@@ -315,6 +316,8 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
    * Run the sandbox.
    */
   run() {
+    console.info("Sandbox: Starting application with these options.", this.application.options);
+
     this.application.start();
     // In case the application doesn't maintain this state itself.
     this.application.paused = false;
