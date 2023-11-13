@@ -1,4 +1,3 @@
-import { prepareAsyncContext } from "../async.js";
 import { getDocumentElementTypeById } from "../dom/core.js";
 import { Random } from "../random.js";
 import { Canvas } from "./canvas.js";
@@ -318,22 +317,20 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
    * Create event listeners on the document `body`.
    */
   #hookBody() {
-    this.document.body.addEventListener(
-      "click",
-      prepareAsyncContext(async (event: MouseEvent) => {
-        if (event.defaultPrevented) {
-          return;
-        }
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    this.document.body.addEventListener("click", async (event: MouseEvent) => {
+      if (event.defaultPrevented) {
+        return;
+      }
 
-        if (!this.document.fullscreenEnabled) {
-          return;
-        }
+      if (!this.document.fullscreenEnabled) {
+        return;
+      }
 
-        if (!this.document.fullscreenElement) {
-          await this.canvasNode.requestFullscreen();
-        }
-      }),
-    );
+      if (!this.document.fullscreenElement) {
+        await this.canvasNode.requestFullscreen();
+      }
+    });
 
     this.document.body.addEventListener("keyup", event => {
       switch (event.keyCode) {
@@ -372,21 +369,19 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
    * Create event listeners on the canvas node in the document.
    */
   #hookCanvas() {
-    this.canvasNode.addEventListener(
-      "click",
-      prepareAsyncContext(async (event: MouseEvent) => {
-        if (this.document.fullscreenElement) {
-          await document.exitFullscreen();
-          return;
-        }
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    this.canvasNode.addEventListener("click", async (event: MouseEvent) => {
+      if (this.document.fullscreenElement) {
+        await document.exitFullscreen();
+        return;
+      }
 
-        nextPalette();
-        this.#reconfigureApplication({
-          seed: this.application.random.next().toString(),
-        } as Partial<TApplicationOptions>);
-        event.preventDefault();
-      }),
-    );
+      nextPalette();
+      this.#reconfigureApplication({
+        seed: this.application.random.next().toString(),
+      } as Partial<TApplicationOptions>);
+      event.preventDefault();
+    });
   }
 
   /**
