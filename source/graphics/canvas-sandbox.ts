@@ -109,7 +109,7 @@ export interface CanvasSandboxApplication<
    * @param canvas The canvas to use.
    * @param options The new options to use.
    */
-  reconfigure(canvas: Canvas, options: Partial<TApplicationOptions>): void;
+  reconfigure(canvas: Canvas, options?: Partial<TApplicationOptions>): void;
 
   /**
    * Start the application.
@@ -157,7 +157,7 @@ export interface CanvasSandboxOptions {
  *     this.random = new Random(seedFromString(options.seed));
  *   }
  *
- *   reconfigure(canvas:Canvas, options: Partial<ApplicationOptions>) {
+ *   reconfigure(canvas:Canvas, options: Partial<ApplicationOptions> = {}) {
  *     this.canvas = canvas;
  *     this.options = { ...this.options, ...options };
  *     this.random = new Random(seedFromString(options.seed));
@@ -409,8 +409,11 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
       }
 
       this.#resizeDebounce = this.window.setTimeout(() => {
-        this.#reconfigureApplication();
+        this.application.reconfigure(this.canvas);
         this.canvas.refreshCanvasNode();
+        this.application.start();
+        // In case the application doesn't maintain this state itself.
+        this.application.paused = false;
       }, 1000);
     });
   }
