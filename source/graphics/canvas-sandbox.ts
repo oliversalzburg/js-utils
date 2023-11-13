@@ -216,7 +216,13 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
     window: Window,
     canvasNode: HTMLCanvasElement,
     Application: new (
+      /**
+       * The canvas that the application will receive.
+       */
       canvas: Canvas,
+      /**
+       * The options that will be passed to the application.
+       */
       options: TApplicationOptions,
     ) => CanvasSandboxApplication<TApplicationOptions>,
     options: TApplicationOptions,
