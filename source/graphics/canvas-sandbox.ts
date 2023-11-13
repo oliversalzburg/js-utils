@@ -265,7 +265,7 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
       options: TApplicationOptions,
     ) => CanvasSandboxApplication<TApplicationOptions>,
     options: TApplicationOptions,
-    sandboxOptions?: CanvasSandboxOptions,
+    sandboxOptions?: Partial<CanvasSandboxOptions>,
   ) {
     this.window = window;
     this.document = window.document;
