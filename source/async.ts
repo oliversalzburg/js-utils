@@ -7,14 +7,23 @@ import { AnyAsyncFunction, ConstructorOf, FunctionReturning } from "./core.js";
  * This can be useful when providing asynchonous event handler to `.addEventlistener()`,
  * which only expects synchronous functions.
  * @param context The asynchronous function to exectute.
+ * @template {Array<unknown>} TArguments The type of the arguments that your function expects.
  * @returns A function returning nothing.
  * @group Async
  */
-export const prepareAsyncContext = (context: AnyAsyncFunction) => {
-  return () => {
-    void context()
+export const prepareAsyncContext = <TArguments extends Array<unknown>>(
+  context: AnyAsyncFunction,
+) => {
+  return (
+    /**
+     * The arguments that our new function was called with.
+     */
+    ...args: TArguments
+  ) => {
+    void context(...args)
       .then(() => undefined)
-      .catch(() => undefined);
+      // eslint-disable-next-line no-console
+      .catch(console.error);
   };
 };
 

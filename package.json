@@ -16,6 +16,7 @@
     "build:esbuild": "node build.js",
     "build:tsc": "tsc",
     "build:tsc:watch": "tsc --watch",
+    "clean": "rm -rf ./coverage ./lib",
     "docs:typedoc": "typedoc",
     "lint": "yarn run lint:all",
     "lint:all": "yarn run lint:eslint && yarn run lint:prettier && yarn run lint:tsc",
@@ -27,9 +28,9 @@
     "npm:publish:minor": "npm version minor && npm publish",
     "npm:publish:patch": "npm version patch && npm publish",
     "prepack": "yarn run build",
-    "test": "node --enable-source-maps $(yarn bin mocha) ./lib/*.test.js",
-    "test:coverage": "c8 --reporter html-spa --reporter text node --enable-source-maps $(yarn bin mocha)",
-    "test:inspect": "node $(yarn bin mocha) --inspect ./lib/*.test.js"
+    "test": "node $(yarn bin mocha) --enable-source-maps",
+    "test:coverage": "c8 --reporter html-spa --reporter text node $(yarn bin mocha) --enable-source-maps",
+    "test:inspect": "node $(yarn bin mocha) --inspect"
   },
   "types": "./lib/index.d.ts",
   "devDependencies": {
