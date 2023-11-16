@@ -501,8 +501,7 @@ export const blendSubtractive = (src: number, dst: number, alpha: number) => {
  * @returns A random color.
  * @group Graphics
  */
-export const somecolor = () => {
-  // pick some random good color
+export const someColor = () => {
   const color =
     PALETTES[PALETTE_INDEX][Math.trunc(random.nextFloat() * PALETTES[PALETTE_INDEX].length)];
   return (color << 8) | 0xff;

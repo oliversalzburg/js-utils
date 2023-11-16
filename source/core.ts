@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 /**
- * Describes a function that is a constructor for T.
+ * Describes a function that is a constructor for something.
+ * @template TConstructed The type this is a constructor for.
  */
-export type ConstructorOf<T = Record<string, unknown>> = new (...args: Array<any>) => T;
+export type ConstructorOf<TConstructed> = new (...args: Array<any>) => TConstructed;
 
 /**
- * Describes literally any function.
+ * Describes any function.
  */
 export type AnyFunction = (...args: Array<any>) => any;
 
 /**
- * Describes literally any asynchronous function.
+ * Describes any asynchronous function.
  */
 export type AnyAsyncFunction = (...args: Array<any>) => Promise<any>;
 
@@ -21,23 +22,23 @@ export type AnyAsyncFunction = (...args: Array<any>) => Promise<any>;
 export type AnyConstructor = new (...args: Array<any>) => any;
 
 /**
- * Describes a function returning an instance of T.
+ * Describes a function returning an instance of a given type.
+ * @template {any} TReturned The type of the item returned by the function.
  */
-export type FunctionReturning<T = any> = (...args: Array<any>) => T;
+export type AnyFunctionReturning<TReturned = any> = (...args: Array<any>) => TReturned;
+
+/**
+ * Describes an async function returning an instance of a given type.
+ * @template {any} TReturned The type of the item returned by the function.
+ */
+export type AnyAsyncFunctionReturning<TReturned = any> = (...args: Array<any>) => TReturned;
 
 /**
  * Describes a class "mixin", which is a function that returns a dynamically
  * constructed class, based on the passed parameters.
+ *
+ * **Hint**: Don't use mixins.
+ * @template {AnyFunctionReturning} TTarget The type of the classed this mixin is being
+ * mixed in with.
  */
-export type Mixin<T extends FunctionReturning> = InstanceType<ReturnType<T>>;
-
-/**
- * Ensures a given value is within a given boundary.
- * @param input The number to clamp.
- * @param floor The lower bound.
- * @param ceil The upper bound.
- * @returns The number clamped to the desired range.
- */
-export const clamp = (input: number, floor: number, ceil: number): number => {
-  return Math.max(floor, Math.min(input, ceil));
-};
+export type Mixin<TTarget extends AnyFunctionReturning> = InstanceType<ReturnType<TTarget>>;

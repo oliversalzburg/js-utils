@@ -1,4 +1,4 @@
-import { AnyAsyncFunction, ConstructorOf, FunctionReturning } from "./core.js";
+import { AnyAsyncFunction, AnyFunctionReturning, ConstructorOf } from "./core.js";
 
 /**
  * Wraps the given asynchronous function in a new function that will ignore any outcome of
@@ -46,7 +46,7 @@ export const coalesceOnRejection = async <
   TCoalesce,
   TFilter extends ConstructorOf<Error>,
 >(
-  executable: FunctionReturning<TExecutableReturn | Promise<TExecutableReturn>>,
+  executable: AnyFunctionReturning<TExecutableReturn | Promise<TExecutableReturn>>,
   to: TCoalesce,
   filter?: TFilter,
 ) => {

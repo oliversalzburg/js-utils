@@ -87,3 +87,15 @@ export const isqrt = (value: number) => {
 export const isInteger = (value: number) => {
   return Math.trunc(value) === value;
 };
+
+/**
+ * Ensures a given value is within a given boundary.
+ * @param input The number to clamp.
+ * @param floor The lower bound.
+ * @param ceil The upper bound.
+ * @returns The number clamped to the desired range.
+ * @group Math
+ */
+export const clamp = (input: number, floor: number, ceil: number): number => {
+  return Math.max(floor, Math.min(input, ceil));
+};
