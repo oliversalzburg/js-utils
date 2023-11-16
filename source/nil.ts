@@ -60,3 +60,13 @@ export function mustExist<T>(subject: Maybe<T>, errorMessage?: string): T {
   }
   return subject;
 }
+
+/**
+ * Ensure that the passed subject is not nil; throw otherwise.
+ * @param subject A subject that is possibly nil.
+ */
+export function assertExists<T>(subject: Maybe<T>): asserts subject is T {
+  if (isNil(subject)) {
+    throw new UnexpectedNilError();
+  }
+}
