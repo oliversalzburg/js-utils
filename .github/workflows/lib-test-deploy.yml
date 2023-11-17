@@ -1,4 +1,4 @@
-name: QA
+name: Library Test/Deploy
 
 on:
   pull_request:
@@ -13,7 +13,9 @@ jobs:
           - 18
           - 20
           - 21
-        os-release: [ubuntu-latest, windows-latest]
+        os-release:
+          - ubuntu-latest
+          - windows-latest
     runs-on: ${{ matrix.os-release }}
     steps:
       - name: Checkout
@@ -40,3 +42,28 @@ jobs:
         run: yarn build
       - name: Test
         run: yarn test
+
+  deploy-lib:
+    needs: qa
+    name: Deploy library
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - name: Select NodeJS version
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          # renovate: datasource=docker depName=node versioning=node
+          node-version: "20.9.0"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+      - name: Publish
+        run: yarn npm:publish

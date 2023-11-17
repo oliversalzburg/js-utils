@@ -28,6 +28,8 @@
     "npm:publish:minor": "npm version minor && npm publish",
     "npm:publish:patch": "npm version patch && npm publish",
     "prepack": "yarn run build",
+    "prerelease": "npm version prerelease --preid=next",
+    "prepublish": "npm version from-git",
     "test": "node $(yarn bin mocha) --enable-source-maps",
     "test:coverage": "c8 --reporter html-spa --reporter text node $(yarn bin mocha) --enable-source-maps",
     "test:inspect": "node $(yarn bin mocha) --inspect"
