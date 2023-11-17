@@ -1,3 +1,4 @@
+docs/
 lib/tsconfig.tsbuildinfo
 node_modules/
 source/
@@ -7,4 +8,5 @@ build.js
 package.tgz
 renovate.json
 tsconfig.json
+tsdoc.json
 yarn.lock
