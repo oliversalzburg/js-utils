@@ -11,8 +11,8 @@ import { AbstractError } from "./AbstractError.js";
 export class UnknownError extends AbstractError {
   /**
    * Constructs a new {@linkcode UnknownError}.
-   * @param message The main error message.
-   * @param status The HTTP status code to return.
+   * @param message - The main error message.
+   * @param status - The HTTP status code to return.
    */
   constructor(message: string, status = 500) {
     super("ERR_OS_UNKNOWN", message, status);

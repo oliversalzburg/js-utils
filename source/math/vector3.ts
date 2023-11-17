@@ -23,9 +23,9 @@ export class Vector3 {
 
   /**
    * Constructs a new {@linkcode Vector3}.
-   * @param x The X component.
-   * @param y The Y component.
-   * @param z The Z component.
+   * @param x - The X component.
+   * @param y - The Y component.
+   * @param z - The Z component.
    */
   constructor(x = 0, y = 0, z = 0) {
     this.x = x;
@@ -35,7 +35,7 @@ export class Vector3 {
 
   /**
    * Creates a copy of another {@linkcode Vector3}.
-   * @param vector The vector to copy.
+   * @param vector - The vector to copy.
    * @returns A new vector.
    */
   static fromVector3(vector: Readonly<Vector3>): Vector3 {
@@ -44,7 +44,7 @@ export class Vector3 {
 
   /**
    * Sets the vector to new coordinates.
-   * @param vector The coordinates to set the vector to.
+   * @param vector - The coordinates to set the vector to.
    * @returns This instance.
    */
   set(vector: Readonly<Vector3>): this {
@@ -53,9 +53,9 @@ export class Vector3 {
 
   /**
    * Sets the vector to new coordinates.
-   * @param x The new X component for the vector.
-   * @param y The new Y component for the vector.
-   * @param z The new Z component for the vector.
+   * @param x - The new X component for the vector.
+   * @param y - The new Y component for the vector.
+   * @param z - The new Z component for the vector.
    * @returns This instance.
    */
   setXYZ(x: number, y: number, z: number): this {
@@ -67,7 +67,7 @@ export class Vector3 {
 
   /**
    * Adds another vector to this vector.
-   * @param vector The vector to add to this vector.
+   * @param vector - The vector to add to this vector.
    * @returns This instance.
    */
   add(vector: Readonly<Vector3>): this {
@@ -76,9 +76,9 @@ export class Vector3 {
 
   /**
    * Adds another vector to this vector.
-   * @param x The value to add to the X component.
-   * @param y The value to add to the Y component.
-   * @param z The value to add to the Z component.
+   * @param x - The value to add to the X component.
+   * @param y - The value to add to the Y component.
+   * @param z - The value to add to the Z component.
    * @returns This instance.
    */
   addXYZ(x: number, y: number, z: number): this {
@@ -90,8 +90,8 @@ export class Vector3 {
 
   /**
    * Scales another vector and adds it to this vector.
-   * @param vector The vector to add to this vector.
-   * @param scale The scaling to apply to the input vector.
+   * @param vector - The vector to add to this vector.
+   * @param scale - The scaling to apply to the input vector.
    * @returns This instance.
    */
   addMultiply(vector: Readonly<Vector3>, scale: number): this {
@@ -100,10 +100,10 @@ export class Vector3 {
 
   /**
    * Scales another vector and adds it to this vector.
-   * @param x The value to add to the X component.
-   * @param y The value to add to the Y component.
-   * @param z The value to add to the Z component.
-   * @param scale The scaling to apply to the input vector.
+   * @param x - The value to add to the X component.
+   * @param y - The value to add to the Y component.
+   * @param z - The value to add to the Z component.
+   * @param scale - The scaling to apply to the input vector.
    * @returns This instance.
    */
   addMultiplyXYZ(x: number, y: number, z: number, scale: number): this {
@@ -115,7 +115,7 @@ export class Vector3 {
 
   /**
    * Subtracts another vector from this vector.
-   * @param vector The vector to subtract from this vector.
+   * @param vector - The vector to subtract from this vector.
    * @returns This instance.
    */
   subtract(vector: Vector3): this {
@@ -124,9 +124,9 @@ export class Vector3 {
 
   /**
    * Subtracts another vector from this vector.
-   * @param x The value to subtract from the X component.
-   * @param y The value to subtract from the Y component.
-   * @param z The value to subtract from the Z component.
+   * @param x - The value to subtract from the X component.
+   * @param y - The value to subtract from the Y component.
+   * @param z - The value to subtract from the Z component.
    * @returns This instance.
    */
   subtractXYZ(x: number, y: number, z: number): this {
@@ -138,7 +138,7 @@ export class Vector3 {
 
   /**
    * Multiplies this vector by another vector.
-   * @param vector The vector to multiply with this vector.
+   * @param vector - The vector to multiply with this vector.
    * @returns This instance.
    */
   multiply(vector: Readonly<Vector3>): this {
@@ -147,9 +147,9 @@ export class Vector3 {
 
   /**
    * Multiplies this vector by another vector.
-   * @param x The value to multiply with the X component.
-   * @param y The value to multiply with the Y component.
-   * @param z The value to multiply with the Z component.
+   * @param x - The value to multiply with the X component.
+   * @param y - The value to multiply with the Y component.
+   * @param z - The value to multiply with the Z component.
    * @returns This instance.
    */
   multiplyXYZ(x: number, y: number, z: number): this {
@@ -161,7 +161,7 @@ export class Vector3 {
 
   /**
    * Multiplies the vector by the given scale.
-   * @param scale The scaling to apply to the vector.
+   * @param scale - The scaling to apply to the vector.
    * @returns This instance.
    */
   multiplyScale(scale: number): this {
@@ -173,7 +173,7 @@ export class Vector3 {
 
   /**
    * Divides this vector by another vector.
-   * @param vector The vector to divide this vector with.
+   * @param vector - The vector to divide this vector with.
    * @returns This instance.
    */
   divide(vector: Readonly<Vector3>): this {
@@ -182,9 +182,9 @@ export class Vector3 {
 
   /**
    * Divides this vector by another vector.
-   * @param x The value to divide the X component with.
-   * @param y The value to divide the Y component with.
-   * @param z The value to divide the Z component with.
+   * @param x - The value to divide the X component with.
+   * @param y - The value to divide the Y component with.
+   * @param z - The value to divide the Z component with.
    * @returns This instance.
    */
   divideXYZ(x: number, y: number, z: number): this {
@@ -196,7 +196,7 @@ export class Vector3 {
 
   /**
    * Divides the vector by the given scale.
-   * @param scale The scaling to apply to the vector.
+   * @param scale - The scaling to apply to the vector.
    * @returns This instance.
    */
   divideScale(scale: number): this {
@@ -230,8 +230,8 @@ export class Vector3 {
 
   /**
    * Clamps the components of the vector at the given boundary.
-   * @param floor The lowest value to allow.
-   * @param ceil The largest value to allow.
+   * @param floor - The lowest value to allow.
+   * @param ceil - The largest value to allow.
    * @returns This instance.
    */
   clamp(floor: number, ceil: number): this {
@@ -284,7 +284,7 @@ export class Vector3 {
 
   /**
    * Compares two vectors.
-   * @param vector The vector to compare this vector to.
+   * @param vector - The vector to compare this vector to.
    * @returns `true` if the vectors are idently, `false` otherwise.
    */
   compare(vector: Readonly<Vector3>): boolean {
@@ -293,8 +293,8 @@ export class Vector3 {
 
   /**
    * Linearly moves this vector towards a target vector.
-   * @param vector The target vector.
-   * @param t The location on the scale, from `0` to `1`.
+   * @param vector - The target vector.
+   * @param t - The location on the scale, from `0` to `1`.
    * @returns This instance.
    */
   lerp(vector: Readonly<Vector3>, t: number): this {
@@ -307,7 +307,7 @@ export class Vector3 {
 
   /**
    * Rotates the vector by the given rotation matrix.
-   * @param matrix The rotation matrix to apply to the vector.
+   * @param matrix - The rotation matrix to apply to the vector.
    * @returns This instance.
    */
   rotate(matrix: Readonly<Matrix3>): this {
@@ -322,7 +322,7 @@ export class Vector3 {
 
   /**
    * Inversely rotates the vector by the given rotation matrix.
-   * @param matrix The rotation matrix to apply to the vector.
+   * @param matrix - The rotation matrix to apply to the vector.
    * @returns This instance.
    */
   rotateInverse(matrix: Readonly<Matrix3>): this {
@@ -337,8 +337,8 @@ export class Vector3 {
 
   /**
    * Rotates the vector by the given rotation matrix around the given center.
-   * @param center The center around which to rotate the vector.
-   * @param matrix The rotation matrix to apply to the vector.
+   * @param center - The center around which to rotate the vector.
+   * @param matrix - The rotation matrix to apply to the vector.
    * @returns This instance.
    */
   rotateAround(center: Readonly<Vector3>, matrix: Readonly<Matrix3>): this {
@@ -353,8 +353,8 @@ export class Vector3 {
 
   /**
    * Inversely rotates the vector by the given rotation matrix around the given center.
-   * @param center The center around which to rotate the vector.
-   * @param matrix The rotation matrix to apply to the vector.
+   * @param center - The center around which to rotate the vector.
+   * @param matrix - The rotation matrix to apply to the vector.
    * @returns This instance.
    */
   rotateAroundInverse(center: Readonly<Vector3>, matrix: Readonly<Matrix3>): this {
@@ -369,7 +369,7 @@ export class Vector3 {
 
   /**
    * Transform the vector with a {@linkcode Transformation}.
-   * @param transformation The transformation to apply.
+   * @param transformation - The transformation to apply.
    * @returns This instance.
    */
   transform(transformation: Readonly<Transformation>): this {
@@ -380,7 +380,7 @@ export class Vector3 {
 
   /**
    * Inversely transform the vector with a {@linkcode Transformation}.
-   * @param transformation The transformation to apply.
+   * @param transformation - The transformation to apply.
    * @returns This instance.
    */
   transformInverse(transformation: Readonly<Transformation>): this {
@@ -391,7 +391,7 @@ export class Vector3 {
 
   /**
    * Returns the dot product between two vectors.
-   * @param vector The other vector.
+   * @param vector - The other vector.
    * @returns The dot product between the two vectors.
    */
   dot(vector: Readonly<Vector3>): number {
@@ -400,9 +400,9 @@ export class Vector3 {
 
   /**
    * Returns the dot product between two vectors.
-   * @param x The X component of the other vector.
-   * @param y The Y component of the other vector.
-   * @param z The Z component of the other vector.
+   * @param x - The X component of the other vector.
+   * @param y - The Y component of the other vector.
+   * @param z - The Z component of the other vector.
    * @returns The dot product between the two vectors.
    */
   dotXYZ(x: number, y: number, z: number): number {
@@ -412,7 +412,7 @@ export class Vector3 {
   /**
    * Calculates the dot product of this vector and another vector, and then
    * sets this vector to the result.
-   * @param vector The other vector.
+   * @param vector - The other vector.
    * @returns This instance.
    */
   cross(vector: Readonly<Vector3>): this {
@@ -427,9 +427,9 @@ export class Vector3 {
 
   /**
    * Makes this vector perpendicular to the other 3 vectors.
-   * @param vector0 The first vector.
-   * @param vector1 The second vector.
-   * @param vector2 The third vector.
+   * @param vector0 - The first vector.
+   * @param vector1 - The second vector.
+   * @param vector2 - The third vector.
    * @returns This instance.
    */
   perpendicular(
@@ -452,7 +452,7 @@ export class Vector3 {
   /**
    * Reflects this vector against the given normal and sets this vector to
    * the result.
-   * @param normal The normal against which to reflect.
+   * @param normal - The normal against which to reflect.
    * @returns This instance.
    */
   reflect(normal: Readonly<Vector3>): this {
@@ -467,8 +467,8 @@ export class Vector3 {
    * Calculates the reflection of this vector, based on the angle of incident
    * into a material with the given refractive index, according to Snell's law.
    * This vector is then set to the result.
-   * @param normal The normal against which to reflect.
-   * @param index The refractive index of the material.
+   * @param normal - The normal against which to reflect.
+   * @param index - The refractive index of the material.
    * @returns This instance.
    */
   fraction(normal: Readonly<Vector3>, index: number): this {
@@ -493,8 +493,8 @@ export class Vector3 {
 
 /**
  * Adds two vectors and returns a new vector with the result.
- * @param a The first input vector.
- * @param b The second input vector.
+ * @param a - The first input vector.
+ * @param b - The second input vector.
  * @returns A new {@linkcode Vector3}.
  * @group Math
  */
@@ -504,8 +504,8 @@ export const addVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 
 
 /**
  * Multiplies two vectors and returns a new vector with the result.
- * @param a The first input vector.
- * @param b The second input vector.
+ * @param a - The first input vector.
+ * @param b - The second input vector.
  * @returns A new {@linkcode Vector3}.
  * @group Math
  */
@@ -515,8 +515,8 @@ export const multiplyVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vec
 
 /**
  * Subtracts two vectors and returns a new vector with the result.
- * @param a The first input vector.
- * @param b The second input vector.
+ * @param a - The first input vector.
+ * @param b - The second input vector.
  * @returns A new {@linkcode Vector3}.
  * @group Math
  */
@@ -526,8 +526,8 @@ export const subtractVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vec
 
 /**
  * Calculates the cross product between two vectors and returns a new vector with the result.
- * @param a The first input vector.
- * @param b The second input vector.
+ * @param a - The first input vector.
+ * @param b - The second input vector.
  * @returns A new vector, which is the cross product of the two input vectors.
  * @group Math
  */
@@ -538,8 +538,8 @@ export const crossVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector
 
 /**
  * Calculates the dot product between two vectors.
- * @param a The first input vector.
- * @param b The second input vector.
+ * @param a - The first input vector.
+ * @param b - The second input vector.
  * @returns The dot product between the two vectors.
  * @group Math
  */

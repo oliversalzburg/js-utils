@@ -6,8 +6,8 @@ import { AnyAsyncFunction, AnyFunctionReturning, ConstructorOf } from "./core.js
  *
  * This can be useful when providing asynchonous event handler to `.addEventlistener()`,
  * which only expects synchronous functions.
- * @param context The asynchronous function to exectute.
- * @template {Array<unknown>} TArguments The type of the arguments that your function expects.
+ * @param context - The asynchronous function to exectute.
+ * @typeParam TArguments - The type of the arguments that your function expects.
  * @returns A function returning nothing.
  * @group Async
  */
@@ -30,13 +30,13 @@ export const prepareAsyncContext = <TArguments extends Array<unknown>>(
 /**
  * Executes an asynchronous function and resolves with an alternative result
  * in case the function failed.
- * @param executable The asynchronous function to execute.
- * @param to The result we want to return when the function errors.
- * @param filter An {@linkcode !Error} subclass. If defined, only errors of
+ * @param executable - The asynchronous function to execute.
+ * @param to - The result we want to return when the function errors.
+ * @param filter - An {@linkcode !Error} subclass. If defined, only errors of
  * this type will be coalesced.
- * @template {unknown} TExecutableReturn The return type of the function.
- * @template {unknown} TCoalesce The type of the object to coalesce to.
- * @template {ConstructorOf<Error>} TFilter The type of the error filter.
+ * @typeParam TExecutableReturn - The return type of the function.
+ * @typeParam TCoalesce - The type of the object to coalesce to.
+ * @typeParam TFilter - The type of the error filter.
  * @returns Whatever the function resolved to, or the provided replacement,
  * in case the function failed.
  * @group Async

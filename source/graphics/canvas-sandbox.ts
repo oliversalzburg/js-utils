@@ -9,8 +9,8 @@ import { RenderLoop } from "./render-loop.js";
  * Provides the input as-is.
  * This method exists only to make use of the `css` template string tag,
  * which allows us to use in-IDE support for CSS through the support for
- * {@link https://lit.dev/docs/components/styles/ Lit styles}.
- * @param input The CSS code.
+ * {@link https://lit.dev/docs/components/styles/ | Lit styles}.
+ * @param input - The CSS code.
  * @returns The CSS code as-is.
  */
 const css = (input: TemplateStringsArray) => input.join("");
@@ -74,7 +74,7 @@ export interface CanvasSandboxExpectedOptions {
 
 /**
  * Describes an application running inside the {@linkcode CanvasSandbox}.
- * @template {CanvasSandboxExpectedOptions} TApplicationOptions The type of the options object
+ * @typeParam TApplicationOptions - The type of the options object
  * with which the application is constructed.
  * @group Graphics
  */
@@ -99,15 +99,15 @@ export interface CanvasSandboxApplication<
 
   /**
    * Request the application to draw a new frame.
-   * @param delta How many milliseconds passed since the last frame draw.
-   * @param timestamp The current timestamp.
+   * @param delta - How many milliseconds passed since the last frame draw.
+   * @param timestamp - The current timestamp.
    */
   onDraw(delta: number, timestamp: number): void;
 
   /**
    * Reconfigure the application with the given options and restart it.
-   * @param canvas The canvas to use.
-   * @param options The new options to use.
+   * @param canvas - The canvas to use.
+   * @param options - The new options to use.
    */
   reconfigure(canvas: Canvas, options?: Partial<TApplicationOptions>): void;
 
@@ -124,13 +124,13 @@ export interface CanvasSandboxApplication<
 export interface CanvasSandboxOptions {
   /**
    * Should the sandbox render developer information?
-   * @default false
+   * @defaultValue false
    */
   devMode: boolean;
 
   /**
    * Should the sandbox default CSS be injected into the body?
-   * @default true
+   * @defaultValue true
    */
   injectDefaultCss: boolean;
 }
@@ -202,7 +202,7 @@ export interface CanvasSandboxOptions {
  *   <script src="main.ts" type="module"></script>
  * </html>
  * ```
- * @template {CanvasSandboxExpectedOptions} TApplicationOptions The type of the options
+ * @typeParam TApplicationOptions - The type of the options
  * the application in the sandbox will be constructed with.
  * @group Graphics
  */
@@ -245,11 +245,11 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
 
   /**
    * Construct a new {@linkcode CanvasSandbox}.
-   * @param window The window we're running inside.
-   * @param canvasNode The canvas node we're drawing to.
-   * @param Application The application that is going to run in the sandbox.
-   * @param options The options that the application should be constructed with.
-   * @param sandboxOptions The options for the sandbox itself.
+   * @param window - The window we're running inside.
+   * @param canvasNode - The canvas node we're drawing to.
+   * @param Application - The application that is going to run in the sandbox.
+   * @param options - The options that the application should be constructed with.
+   * @param sandboxOptions - The options for the sandbox itself.
    */
   constructor(
     window: Window,
@@ -367,7 +367,7 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
 
   /**
    * Reconfigures, and then restarts, the application.
-   * @param options The new options for the application.
+   * @param options - The new options for the application.
    */
   #reconfigureApplication(options: Partial<TApplicationOptions> = {}) {
     this.application.reconfigure(this.canvas, options);

@@ -8,8 +8,8 @@ import { AbstractError } from "./AbstractError.js";
 export class PermissionViolationError extends AbstractError {
   /**
    * Constructs a new {@linkcode PermissionViolationError}.
-   * @param message The main error message.
-   * @param status The HTTP status code to return.
+   * @param message - The main error message.
+   * @param status - The HTTP status code to return.
    */
   constructor(message: string, status = 403) {
     super("ERR_OS_PERMISSION_VIOLATION", message, status);

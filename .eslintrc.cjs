@@ -15,44 +15,12 @@ module.exports = {
   overrides: [
     {
       files: ["*.cjs"],
-      extends: ["eslint:recommended"],
+      extends: ["eslint:recommended", "plugin:jsdoc/recommended"],
       parserOptions: {
         sourceType: "commonjs",
       },
       plugins: ["jsdoc"],
-    },
-    {
-      files: ["*.js", "*.mjs"],
-      extends: ["eslint:recommended"],
-      parserOptions: {
-        sourceType: "module",
-      },
-      plugins: ["jsdoc"],
-    },
-    {
-      files: ["*.cts", "*.mts", "*.ts"],
-      extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/strict-type-checked",
-        "plugin:@typescript-eslint/stylistic-type-checked",
-        "plugin:jsdoc/recommended-typescript",
-      ],
-      parserOptions: {
-        project: ["./tsconfig.json"],
-        tsconfigRootDir: __dirname,
-      },
-      plugins: ["@typescript-eslint", "jsdoc"],
       rules: {
-        "@typescript-eslint/array-type": ["error", { default: "generic" }],
-        "@typescript-eslint/no-explicit-any": [
-          "error",
-          {
-            ignoreRestArgs: true,
-          },
-        ],
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": ["error", { args: "none" }],
-        "@typescript-eslint/no-var-requires": "off",
         "jsdoc/require-description": "warn",
         "jsdoc/require-jsdoc": [
           "error",
@@ -75,6 +43,64 @@ module.exports = {
             publicOnly: true,
           },
         ],
+      },
+    },
+    {
+      files: ["*.js", "*.mjs"],
+      extends: ["eslint:recommended", "plugin:jsdoc/recommended"],
+      parserOptions: {
+        sourceType: "module",
+      },
+      plugins: ["jsdoc"],
+      rules: {
+        "jsdoc/require-description": "warn",
+        "jsdoc/require-jsdoc": [
+          "error",
+          {
+            contexts: [
+              "PropertyDefinition",
+              "TSInterfaceDeclaration",
+              "TSMethodSignature",
+              "TSPropertySignature",
+              "TSTypeAliasDeclaration",
+            ],
+            require: {
+              ArrowFunctionExpression: true,
+              ClassDeclaration: true,
+              ClassExpression: true,
+              FunctionDeclaration: true,
+              FunctionExpression: true,
+              MethodDefinition: true,
+            },
+            publicOnly: true,
+          },
+        ],
+      },
+    },
+    {
+      files: ["*.cts", "*.mts", "*.ts"],
+      extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/strict-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked",
+      ],
+      parserOptions: {
+        project: ["./tsconfig.json"],
+        tsconfigRootDir: __dirname,
+      },
+      plugins: ["@typescript-eslint", "eslint-plugin-tsdoc"],
+      rules: {
+        "@typescript-eslint/array-type": ["error", { default: "generic" }],
+        "@typescript-eslint/no-explicit-any": [
+          "error",
+          {
+            ignoreRestArgs: true,
+          },
+        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error", { args: "none" }],
+        "@typescript-eslint/no-var-requires": "off",
+        "tsdoc/syntax": "error",
       },
     },
   ],

@@ -1,6 +1,6 @@
 /**
  * Wait a given period before continuing execution.
- * @param duration How many milliseconds to wait.
+ * @param duration - How many milliseconds to wait.
  * @returns Nothing
  */
 export const sleep = (duration: number): Promise<void> => {

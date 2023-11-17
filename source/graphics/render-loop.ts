@@ -94,9 +94,9 @@ export class RenderLoop {
 
   /**
    * Constructs a new {@linkcode RenderLoop}.
-   * @param renderLoop The function to call when a new frame should be drawn.
-   * @param canvas The {@linkcode Canvas} we're rendering to.
-   * @param options The configuration for thie {@linkcode RenderLoop}.
+   * @param renderLoop - The function to call when a new frame should be drawn.
+   * @param canvas - The {@linkcode Canvas} we're rendering to.
+   * @param options - The configuration for thie {@linkcode RenderLoop}.
    */
   constructor(
     renderLoop: RenderLoopCallback,

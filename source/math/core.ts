@@ -6,7 +6,7 @@ export const TWO_PI = /* @__PURE__ */ Math.PI * 2;
 
 /**
  * Converts the degrees to radians.
- * @param degrees The degrees to convert to radians.
+ * @param degrees - The degrees to convert to radians.
  * @returns The degrees in radians.
  * @group Math
  */
@@ -16,7 +16,7 @@ export const deg2rad = (degrees: number) => {
 
 /**
  * Convertrs the radians to degrees.
- * @param radians The radians to convert to degrees.
+ * @param radians - The radians to convert to degrees.
  * @returns The radians as degrees.
  * @group Math
  */
@@ -26,7 +26,7 @@ export const rad2deg = (radians: number) => {
 
 /**
  * Calculates the sine for a given degree value.
- * @param value The value in degrees to calculate the sine for.
+ * @param value - The value in degrees to calculate the sine for.
  * @returns The sine for the given value.
  * @group Math
  */
@@ -36,7 +36,7 @@ export const sinDeg = (value: number) => {
 
 /**
  * Calculates the cosine for a given degree value.
- * @param value The value in degrees to calculate the cosine for.
+ * @param value - The value in degrees to calculate the cosine for.
  * @returns The cosine for the given value.
  * @group Math
  */
@@ -46,10 +46,10 @@ export const cosDeg = (value: number) => {
 
 /**
  * Calculates the distance between two vectors.
- * @param x1 The X component of the first vector.
- * @param y1 The Y comoinent of the first vector.
- * @param x2 The X component of the second vector.
- * @param y2 The Y component of the second vector.
+ * @param x1 - The X component of the first vector.
+ * @param y1 - The Y comoinent of the first vector.
+ * @param x2 - The X component of the second vector.
+ * @param y2 - The Y component of the second vector.
  * @returns The distance between the two vectors.
  * @group Math
  */
@@ -61,7 +61,7 @@ export const distance = (x1: number, y1: number, x2: number, y2: number) => {
 
 /**
  * Finds the integer square root of a positive number.
- * @param value The value to calcuate the square root for.
+ * @param value - The value to calcuate the square root for.
  * @returns The square root for the given value.
  * @group Math
  */
@@ -80,7 +80,7 @@ export const isqrt = (value: number) => {
 
 /**
  * Checks whether a number is an integer.
- * @param value The value to check.
+ * @param value - The value to check.
  * @returns `true` when the value is an integer, `false` otherwise.
  * @group Math
  */
@@ -90,9 +90,9 @@ export const isInteger = (value: number) => {
 
 /**
  * Ensures a given value is within a given boundary.
- * @param input The number to clamp.
- * @param floor The lower bound.
- * @param ceil The upper bound.
+ * @param input - The number to clamp.
+ * @param floor - The lower bound.
+ * @param ceil - The upper bound.
  * @returns The number clamped to the desired range.
  * @group Math
  */

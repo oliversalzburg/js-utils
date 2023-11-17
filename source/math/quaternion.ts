@@ -10,10 +10,10 @@ import { Vector4 } from "./vector4.js";
 export class Quaternion extends Vector4 {
   /**
    * Constructs a new {@linkcode Quaternion}.
-   * @param x The X component.
-   * @param y The Y component.
-   * @param z The Z component.
-   * @param w The W component.
+   * @param x - The X component.
+   * @param y - The Y component.
+   * @param z - The Z component.
+   * @param w - The W component.
    */
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(x = 0, y = 0, z = 0, w = 0) {
@@ -22,7 +22,7 @@ export class Quaternion extends Vector4 {
 
   /**
    * Creates a new {@linkcode Quaternion} from a rotation matrix.
-   * @param matrix The matrix to construct the quaternion from.
+   * @param matrix - The matrix to construct the quaternion from.
    * @returns A new quaternion.
    */
   static fromMatrix3(matrix: Readonly<Matrix3>): Quaternion {
@@ -31,7 +31,7 @@ export class Quaternion extends Vector4 {
 
   /**
    * Creates a new {@linkcode Quaternion} from a rotation in Euler angles.
-   * @param degrees The rotation in Euler angles.
+   * @param degrees - The rotation in Euler angles.
    * @returns A new quaternion.
    */
   static fromEuler(degrees: Readonly<Euler>): Quaternion {
@@ -40,8 +40,8 @@ export class Quaternion extends Vector4 {
 
   /**
    * Creates a new {@linkcode Quaternion} from a rotation around an axis.
-   * @param axis The axis around which to rotate.
-   * @param degrees The rotation in degrees.
+   * @param axis - The axis around which to rotate.
+   * @param degrees - The rotation in degrees.
    * @returns A new quaternion.
    */
   static fromVector3(axis: Readonly<Vector3>, degrees: number): Quaternion {
@@ -50,7 +50,7 @@ export class Quaternion extends Vector4 {
 
   /**
    * Creates a new {@linkcode Quaternion} from a {@linkcode Vector4}.
-   * @param vector The vector to copy the components from.
+   * @param vector - The vector to copy the components from.
    * @returns A new quaternion.
    */
   static fromVector4(vector: Readonly<Vector4>): Quaternion {
@@ -59,7 +59,7 @@ export class Quaternion extends Vector4 {
 
   /**
    * Creates a new {@linkcode Quaternion} from another {@linkcode Quaternion}.
-   * @param quaternion The quaternion to copy.
+   * @param quaternion - The quaternion to copy.
    * @returns A new quaternion.
    */
   static fromQuaternion(quaternion: Readonly<Quaternion>): Quaternion {
@@ -68,7 +68,7 @@ export class Quaternion extends Vector4 {
 
   /**
    * Sets the quaternion to the values of another quaternion.
-   * @param quaternion The quaternion to copy.
+   * @param quaternion - The quaternion to copy.
    * @returns This instance.
    */
   set(quaternion: Readonly<Quaternion>): this {
@@ -81,7 +81,7 @@ export class Quaternion extends Vector4 {
 
   /**
    * Sets all components of the quaternion to the given value.
-   * @param value The value to assign to the components of the quaternion.
+   * @param value - The value to assign to the components of the quaternion.
    * @returns This instance.
    */
   setValue(value: number): this {
@@ -94,10 +94,10 @@ export class Quaternion extends Vector4 {
 
   /**
    * Sets the components of the quaternion to the given values.
-   * @param x The X component for the quaternion.
-   * @param y The Y component for the quaternion.
-   * @param z The Z component for the quaternion.
-   * @param w The W component for the quaternion.
+   * @param x - The X component for the quaternion.
+   * @param y - The Y component for the quaternion.
+   * @param z - The Z component for the quaternion.
+   * @param w - The W component for the quaternion.
    * @returns This instance.
    */
   setXYZW(x: number, y: number, z = 0, w = 1): this {
@@ -110,7 +110,7 @@ export class Quaternion extends Vector4 {
 
   /**
    * Sets the quaternion to the rotation of the given matrix.
-   * @param matrix The matrix describing the rotation of the quaternion.
+   * @param matrix - The matrix describing the rotation of the quaternion.
    * @returns This instance.
    */
   setMatrix3(matrix: Readonly<Matrix3>): this {
@@ -143,7 +143,7 @@ export class Quaternion extends Vector4 {
 
   /**
    * Sets the quaternion to a rotation in Euler angles.
-   * @param degrees The rotation in Euler angles.
+   * @param degrees - The rotation in Euler angles.
    * @returns This instance.
    */
   setEuler(degrees: Readonly<Euler>): this {
@@ -167,8 +167,8 @@ export class Quaternion extends Vector4 {
 
   /**
    * Sets the quaternion to a rotation around an axis.
-   * @param axis The axis around which to rotate.
-   * @param degrees The rotation in degrees.
+   * @param axis - The axis around which to rotate.
+   * @param degrees - The rotation in degrees.
    * @returns This instance.
    */
   setVector3(axis: Readonly<Vector3>, degrees: number): this {
@@ -182,7 +182,7 @@ export class Quaternion extends Vector4 {
 
   /**
    * Sets the quaternion to the components of a {@linkcode Vector4}.
-   * @param vector The vector to copy.
+   * @param vector - The vector to copy.
    * @returns This instance.
    */
   setVector4(vector: Readonly<Vector4>): this {
@@ -220,7 +220,7 @@ export class Quaternion extends Vector4 {
 
   /**
    * Multiply with another quaternion from the right.
-   * @param quaternion The quaternion to multiply with.
+   * @param quaternion - The quaternion to multiply with.
    * @returns This instance.
    */
   multiplyR(quaternion: Readonly<Quaternion>): this {
@@ -243,9 +243,9 @@ export class Quaternion extends Vector4 {
   /**
    * Performs spherical linear interpolation between two rotations, and sets this
    * quaternion to the resulting rotation.
-   * @param q1 The initial rotation.
-   * @param q2 The target rotation.
-   * @param t The location on the scale from `0` to `1`.
+   * @param q1 - The initial rotation.
+   * @param q2 - The target rotation.
+   * @param t - The location on the scale from `0` to `1`.
    * @returns This instance.
    */
   slerp(q1: Readonly<Quaternion>, q2: Readonly<Quaternion>, t: number): this {

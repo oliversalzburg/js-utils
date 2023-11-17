@@ -12,10 +12,10 @@ export class Euler extends Vector3 {
 
   /**
    * Constructs a new {@linkcode Euler} rotation.
-   * @param x The X component of the rotation vector.
-   * @param y The Y component of the rotation vector.
-   * @param z The Z component of the rotation vector.
-   * @param reverse Should this rotation be reversed?
+   * @param x - The X component of the rotation vector.
+   * @param y - The Y component of the rotation vector.
+   * @param z - The Z component of the rotation vector.
+   * @param reverse - Should this rotation be reversed?
    */
   constructor(x: number, y: number, z: number, reverse: boolean) {
     super(x, y, z);

@@ -66,10 +66,10 @@ export class Vector4 {
 
   /**
    * Constructs a new {@linkcode Vector4}.
-   * @param x The X component.
-   * @param y The Y component.
-   * @param z The Z component.
-   * @param w The W component.
+   * @param x - The X component.
+   * @param y - The Y component.
+   * @param z - The Z component.
+   * @param w - The W component.
    */
   constructor(x: number, y: number, z: number, w: number) {
     this.x = x;
@@ -80,7 +80,7 @@ export class Vector4 {
 
   /**
    * Creates a copy of another {@linkcode Vector4}.
-   * @param vector The vector to copy.
+   * @param vector - The vector to copy.
    * @returns A new vector.
    */
   static fromVector4(vector: Readonly<Vector4>): Vector4 {
@@ -89,7 +89,7 @@ export class Vector4 {
 
   /**
    * Sets the vector to new coordinates.
-   * @param vector The coordinates to set the vector to.
+   * @param vector - The coordinates to set the vector to.
    * @returns This instance.
    */
   set(vector: Readonly<Vector4>): this {
@@ -98,10 +98,10 @@ export class Vector4 {
 
   /**
    * Sets the vector to new coordinates.
-   * @param x The new X component for the vector.
-   * @param y The new Y component for the vector.
-   * @param z The new Z component for the vector.
-   * @param w The new W component for the vector.
+   * @param x - The new X component for the vector.
+   * @param y - The new Y component for the vector.
+   * @param z - The new Z component for the vector.
+   * @param w - The new W component for the vector.
    * @returns This instance.
    */
   setXYZW(x: number, y: number, z: number, w: number): this {
@@ -114,7 +114,7 @@ export class Vector4 {
 
   /**
    * Adds the XYZ components of another vector to this vector.
-   * @param vector The vector to add to this vector.
+   * @param vector - The vector to add to this vector.
    * @returns This instance.
    */
   add3(vector: Readonly<Vector4>): this {
@@ -123,9 +123,9 @@ export class Vector4 {
 
   /**
    * Adds the XYZ components of another vector to this vector.
-   * @param x The value to add to the X component.
-   * @param y The value to add to the Y component.
-   * @param z The value to add to the Z component.
+   * @param x - The value to add to the X component.
+   * @param y - The value to add to the Y component.
+   * @param z - The value to add to the Z component.
    * @returns This instance.
    */
   add3XYZ(x: number, y: number, z: number): this {
@@ -137,8 +137,8 @@ export class Vector4 {
 
   /**
    * Scales another vector and adds its XYZ components to this vector.
-   * @param vector The vector to add to this vector.
-   * @param scale The scaling to apply to the input vector.
+   * @param vector - The vector to add to this vector.
+   * @param scale - The scaling to apply to the input vector.
    * @returns This instance.
    */
   addMultiply3(vector: Readonly<Vector4>, scale: number): this {
@@ -147,10 +147,10 @@ export class Vector4 {
 
   /**
    * Scales another vector and adds its XYZ components to this vector.
-   * @param x The value to add to the X component.
-   * @param y The value to add to the Y component.
-   * @param z The value to add to the Z component.
-   * @param scale The scaling to apply to the input vector.
+   * @param x - The value to add to the X component.
+   * @param y - The value to add to the Y component.
+   * @param z - The value to add to the Z component.
+   * @param scale - The scaling to apply to the input vector.
    * @returns This instance.
    */
   addMultiply3XYZ(x: number, y: number, z: number, scale: number): this {
@@ -162,7 +162,7 @@ export class Vector4 {
 
   /**
    * Subtracts the XYZ components of another vector from this vector.
-   * @param vector The vector to subtract from this vector.
+   * @param vector - The vector to subtract from this vector.
    * @returns This instance.
    */
   subtract3(vector: Readonly<Vector4>): this {
@@ -171,9 +171,9 @@ export class Vector4 {
 
   /**
    * Subtracts the XYZ components of another vector from this vector.
-   * @param x The value to subtract from the X component.
-   * @param y The value to subtract from the Y component.
-   * @param z The value to subtract from the Z component.
+   * @param x - The value to subtract from the X component.
+   * @param y - The value to subtract from the Y component.
+   * @param z - The value to subtract from the Z component.
    * @returns This instance.
    */
   subtract3XYZ(x: number, y: number, z: number): this {
@@ -185,7 +185,7 @@ export class Vector4 {
 
   /**
    * Multiplies the XYZ components of this vector by another vector.
-   * @param vector The vector to multiply with this vector.
+   * @param vector - The vector to multiply with this vector.
    * @returns This instance.
    */
   multiply3(vector: Readonly<Vector4>): this {
@@ -194,9 +194,9 @@ export class Vector4 {
 
   /**
    * Multiplies the XYZ components of this vector by another vector.
-   * @param x The value to multiply with the X component.
-   * @param y The value to multiply with the Y component.
-   * @param z The value to multiply with the Z component.
+   * @param x - The value to multiply with the X component.
+   * @param y - The value to multiply with the Y component.
+   * @param z - The value to multiply with the Z component.
    * @returns This instance.
    */
   multiply3XYZ(x: number, y: number, z: number): this {
@@ -208,7 +208,7 @@ export class Vector4 {
 
   /**
    * Multiplies the XYZ components of the vector by the given scale.
-   * @param scale The scaling to apply to the vector.
+   * @param scale - The scaling to apply to the vector.
    * @returns This instance.
    */
   multiply3Scale(scale: number): this {
@@ -220,7 +220,7 @@ export class Vector4 {
 
   /**
    * Divides the XYZ components of this vector by another vector.
-   * @param vector The vector to divide this vector with.
+   * @param vector - The vector to divide this vector with.
    * @returns This instance.
    */
   divide3(vector: Readonly<Vector4>): this {
@@ -229,9 +229,9 @@ export class Vector4 {
 
   /**
    * Divides the XYZ components of this vector by another vector.
-   * @param x The value to divide the X component with.
-   * @param y The value to divide the Y component with.
-   * @param z The value to divide the Z component with.
+   * @param x - The value to divide the X component with.
+   * @param y - The value to divide the Y component with.
+   * @param z - The value to divide the Z component with.
    * @returns This instance.
    */
   divide3XYZ(x: number, y: number, z: number): this {
@@ -243,7 +243,7 @@ export class Vector4 {
 
   /**
    * Divides the XYZ components of the vector by the given scale.
-   * @param scale The scaling to apply to the vector.
+   * @param scale - The scaling to apply to the vector.
    * @returns This instance.
    */
   divide3Scale(scale: number): this {
@@ -277,8 +277,8 @@ export class Vector4 {
 
   /**
    * Clamps the components of the vector at the given boundary.
-   * @param floor The lowest value to allow.
-   * @param ceil The largest value to allow.
+   * @param floor - The lowest value to allow.
+   * @param ceil - The largest value to allow.
    * @returns This instance.
    */
   clamp(floor: number, ceil: number): this {
@@ -311,8 +311,8 @@ export class Vector4 {
 
   /**
    * Linearly moves this vector towards a target vector.
-   * @param vector The target vector.
-   * @param t The location on the scale, from `0` to `1`.
+   * @param vector - The target vector.
+   * @param t - The location on the scale, from `0` to `1`.
    * @returns This instance.
    */
   lerp(vector: Readonly<Vector4>, t: number): this {

@@ -8,8 +8,8 @@ import { AbstractError } from "./AbstractError.js";
 export class InternalError extends AbstractError {
   /**
    * Constructs a new {@linkcode InternalError}.
-   * @param message The main error message.
-   * @param status The HTTP status code to return.
+   * @param message - The main error message.
+   * @param status - The HTTP status code to return.
    */
   constructor(message: string, status = 500) {
     super("ERR_OS_INTERNAL", message, status);
@@ -25,7 +25,7 @@ export class InternalError extends AbstractError {
 
   /**
    * Converts an error into an {@linkcode InternalError}.
-   * @param error The error to convert.
+   * @param error - The error to convert.
    * @returns An {@linkcode InternalError} that represents the given error.
    */
   static fromError(error: Error): InternalError {

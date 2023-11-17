@@ -10,7 +10,7 @@ export type SerializedError = Record<string, Record<string, string> | string | u
 
 /**
  * Determine if the given unknown subject is an {@linkcode !Error} instance.
- * @param subject The object to inspect.
+ * @param subject - The object to inspect.
  * @returns `true` if the subject is an {@linkcode !Error}, `false` otherwise.
  * @group Errors
  */
@@ -22,7 +22,7 @@ export const isError = (subject: unknown): subject is Error => {
  * Returns an {@linkcode AbstractError} that best represents the passed subject.
  * If the passed subject is already an {@linkcode AbstractError}, it is returned as-is.
  * Otherwise, it will be converted into an appropriate error type.
- * @param subject The subject to inspect
+ * @param subject - The subject to inspect
  * @returns An {@linkcode AbstractError} instance.
  * @group Errors
  */
@@ -40,7 +40,7 @@ export const unknownToError = (subject: unknown): AbstractError => {
 
 /**
  * Serializes an error into a JSON string.
- * @param error The error to stringify.
+ * @param error - The error to stringify.
  * @returns A JSON string representing the error.
  * @group Errors
  */
@@ -50,7 +50,7 @@ export const errorToJSON = (error: Error): string => {
 
 /**
  * Converts an error into a regular hash.
- * @param error The error to convert.
+ * @param error - The error to convert.
  * @returns A new object that contains all the properties of the error.
  * @group Errors
  */
@@ -64,7 +64,7 @@ export const errorToRecord = (error: Error): Record<string, unknown> => {
 
 /**
  * Serializes an error into a simpler shape.
- * @param error The error to serialize.
+ * @param error - The error to serialize.
  * @returns A simple representation of the error.
  * @group Errors
  */

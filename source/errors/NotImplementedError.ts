@@ -7,8 +7,8 @@ import { AbstractError } from "./AbstractError.js";
 export class NotImplementedError extends AbstractError {
   /**
    * Constructs a new {@linkcode NotImplementedError}.
-   * @param message The main error message.
-   * @param status The HTTP status code to return.
+   * @param message - The main error message.
+   * @param status - The HTTP status code to return.
    */
   constructor(message: string, status = 501) {
     super("ERR_OS_NOT_IMPLEMENTED", message, status);

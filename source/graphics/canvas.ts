@@ -100,8 +100,8 @@ export class Canvas {
 
   /**
    * Constructs a new {@linkcode Canvas}.
-   * @param canvas The canvas to wrap.
-   * @param options The configuration for this canvas.
+   * @param canvas - The canvas to wrap.
+   * @param options - The configuration for this canvas.
    */
   constructor(canvas: HTMLCanvasElement, options: Partial<CanvasOptions> = {}) {
     this.#width = canvas.width;
@@ -166,7 +166,7 @@ export class Canvas {
   /**
    * Draws a slightly transparent, black rectangle over the canvas,
    * and then reads the result back into the buffer.
-   * @param color The color to fade the buffer with. The alpha component of
+   * @param color - The color to fade the buffer with. The alpha component of
    * the color defines how strong the fade is. `0` is not at all, `255` makes
    * it instantly black.
    */
@@ -189,8 +189,8 @@ export class Canvas {
 
   /**
    * Returns the color of a pixel in the back buffer.
-   * @param x The X coordinate to retrieve.
-   * @param y The X coordinate to retrieve.
+   * @param x - The X coordinate to retrieve.
+   * @param y - The X coordinate to retrieve.
    * @returns The color of the pixel at the given local.
    */
   getPixel32(x: number, y: number) {
@@ -205,9 +205,9 @@ export class Canvas {
 
   /**
    * Colors a pixel in the back buffer.
-   * @param x The X coordinate to color.
-   * @param y The Y coordinate to color.
-   * @param color The color to place at the coordinate.
+   * @param x - The X coordinate to color.
+   * @param y - The Y coordinate to color.
+   * @param color - The color to place at the coordinate.
    */
   setPixel32(x: number, y: number, color: number) {
     const bufferOffset = (x + y * this.#width) * 4;
@@ -219,7 +219,7 @@ export class Canvas {
 
   /**
    * Fills the entire back buffer with the given color.
-   * @param color The color to fill the back buffer with.
+   * @param color - The color to fill the back buffer with.
    */
   clearWith(color: number) {
     const r = getR(color);
@@ -236,7 +236,7 @@ export class Canvas {
 
   /**
    * Fills the entire back buffer with the given color.
-   * @param color The color to fill the back buffer with.
+   * @param color - The color to fill the back buffer with.
    */
   blendWith(color: number) {
     const r = getR(color);
@@ -263,11 +263,11 @@ export class Canvas {
  *
  * The `alpha` value is expected to be an integer in the range from `0` to `255`.
  * `0` meaning fully transparent, `255` meaning fully opaque.
- * @param canvas The {@linkcode Canvas} to interact with.
- * @param x The X coordinate at which to place the pixel.
- * @param y The Y coordinate at which to place the pixel.
- * @param color The color of the pixel.
- * @param alpha The alpha value to use to blend the pixel with existing color at the location.
+ * @param canvas - The {@linkcode Canvas} to interact with.
+ * @param x - The X coordinate at which to place the pixel.
+ * @param y - The Y coordinate at which to place the pixel.
+ * @param color - The color of the pixel.
+ * @param alpha - The alpha value to use to blend the pixel with existing color at the location.
  * @group Graphics
  */
 export const putPixel32 = (canvas: Canvas, x: number, y: number, color: number, alpha: number) => {
@@ -292,11 +292,11 @@ export const putPixel32 = (canvas: Canvas, x: number, y: number, color: number, 
  *
  * The `alpha` value is expected to be an integer in the range from `0` to `255`.
  * `0` meaning fully transparent, `255` meaning fully opaque.
- * @param canvas The {@linkcode Canvas} to interact with.
- * @param x The X coordinate at which to place the pixel.
- * @param y The Y coordinate at which to place the pixel.
- * @param color The color of the pixel.
- * @param alpha The alpha value to use to blend the pixel with existing color at the location.
+ * @param canvas - The {@linkcode Canvas} to interact with.
+ * @param x - The X coordinate at which to place the pixel.
+ * @param y - The Y coordinate at which to place the pixel.
+ * @param color - The color of the pixel.
+ * @param alpha - The alpha value to use to blend the pixel with existing color at the location.
  * @group Graphics
  */
 export const putPixel32Add = (
@@ -327,11 +327,11 @@ export const putPixel32Add = (
  *
  * The `alpha` value is expected to be an integer in the range from `0` to `255`.
  * `0` meaning fully transparent, `255` meaning fully opaque.
- * @param canvas The {@linkcode Canvas} to interact with.
- * @param x The X coordinate at which to place the pixel.
- * @param y The Y coordinate at which to place the pixel.
- * @param color The color of the pixel.
- * @param alpha The alpha value to use to blend the pixel with existing color at the location.
+ * @param canvas - The {@linkcode Canvas} to interact with.
+ * @param x - The X coordinate at which to place the pixel.
+ * @param y - The Y coordinate at which to place the pixel.
+ * @param color - The color of the pixel.
+ * @param alpha - The alpha value to use to blend the pixel with existing color at the location.
  * @group Graphics
  */
 export const putPixel32Sub = (
@@ -353,11 +353,11 @@ export const putPixel32Sub = (
 /**
  * Linearly blends a new pixel with an existing color value in a {@linkcode Canvas}.
  * Compared to {@linkcode putPixel32}, this function supports sub-pixel placement, but is dramatically slower.
- * @param canvas The {@linkcode Canvas} to interact with.
- * @param x The X coordinate at which to place the pixel.
- * @param y The Y coordinate at which to place the pixel.
- * @param color The color of the pixel.
- * @param alpha The alpha value to use to blend the pixel with existing color at the location.
+ * @param canvas - The {@linkcode Canvas} to interact with.
+ * @param x - The X coordinate at which to place the pixel.
+ * @param y - The Y coordinate at which to place the pixel.
+ * @param color - The color of the pixel.
+ * @param alpha - The alpha value to use to blend the pixel with existing color at the location.
  * @group Graphics
  */
 export const putSubPixel32 = (

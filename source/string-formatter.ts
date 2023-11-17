@@ -1,10 +1,12 @@
 /**
  * Formats a given input string with numeric placeholders.
  * @example
+ * ```ts
  * // returns "Hello World"
  * formatString("{0} {1}", ["Hello", "World"]);
- * @param string The input string with placeholders.
- * @param formatArguments An array of strings to place into the placeholders.
+ * ```
+ * @param string - The input string with placeholders.
+ * @param formatArguments - An array of strings to place into the placeholders.
  * @returns The formatted string.
  * @group Strings
  */
@@ -17,10 +19,12 @@ export const formatString = (string: string, ...formatArguments: Array<string>):
 /**
  * Formats a given input string with alphanumeric placeholders.
  * @example
+ * ```ts
  * // returns "Hello World"
  * formatString("{first} {second}", {first:"Hello", second:"World"});
- * @param string The input string with placeholders.
- * @param parameters A hash of parameters to place in the placeholders.
+ * ```
+ * @param string - The input string with placeholders.
+ * @param parameters - A hash of parameters to place in the placeholders.
  * @returns The formatted string.
  * @group Strings
  */

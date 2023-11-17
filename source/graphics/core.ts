@@ -334,7 +334,7 @@ export const PALETTES = [
 
 /**
  * Constrains a color component value to single-byte range (`0`-`255`).
- * @param c A color component value.
+ * @param c - A color component value.
  * @returns The input value constrained into single-byte range.
  * @group Graphics
  */
@@ -350,10 +350,10 @@ export const safeRGBComponent = (c: number) => {
 
 /**
  * Constructs a 32bit integer value that represents an RGBA color value.
- * @param r The R component.
- * @param g The G component.
- * @param b The B component.
- * @param a The A component.
+ * @param r - The R component.
+ * @param g - The G component.
+ * @param b - The B component.
+ * @param a - The A component.
  * @returns The constructed color value.
  * @group Graphics
  */
@@ -369,9 +369,9 @@ export const fromRGBA = (r: number, g: number, b: number, a: number) => {
 /**
  * Constructs a 32bit integer value that represents an RGBA color value.
  * The A component is fixed to `255`
- * @param r The R component.
- * @param g The G component.
- * @param b The B component.
+ * @param r - The R component.
+ * @param g - The G component.
+ * @param b - The B component.
  * @returns The constructed color value.
  * @group Graphics
  */
@@ -381,7 +381,7 @@ export const fromRGB = (r: number, g: number, b: number) => {
 
 /**
  * Extracts the R component from a color value.
- * @param color The color value.
+ * @param color - The color value.
  * @returns The R component of the color value.
  * @group Graphics
  */
@@ -391,7 +391,7 @@ export const getR = (color: number) => {
 
 /**
  * Extracts the G component from a color value.
- * @param color The color value.
+ * @param color - The color value.
  * @returns The G component of the color value.
  * @group Graphics
  */
@@ -401,7 +401,7 @@ export const getG = (color: number) => {
 
 /**
  * Extracts the B component from a color value.
- * @param color The color value.
+ * @param color - The color value.
  * @returns The B component of the color value.
  * @group Graphics
  */
@@ -411,7 +411,7 @@ export const getB = (color: number) => {
 
 /**
  * Extracts the A component from a color value.
- * @param color The color value.
+ * @param color - The color value.
  * @returns The A component of the color value.
  * @group Graphics
  */
@@ -423,9 +423,9 @@ export const getA = (color: number) => {
  * Returns a new color that is a blend between a source and a destination
  * color linerally. The alpha component in these colors is ignored. Instead, the provided
  * `alpha` value is used to blend between the two colors.
- * @param src The source color.
- * @param dst The destination color.
- * @param alpha The alpha value to use for blending.
+ * @param src - The source color.
+ * @param dst - The destination color.
+ * @param alpha - The alpha value to use for blending.
  * @returns The blended color.
  * @group Graphics
  */
@@ -450,9 +450,9 @@ export const blend = (src: number, dst: number, alpha: number) => {
  * Returns a new color that is a blend between a source and a destination
  * color additively. The alpha component in these colors is ignored. Instead, the provided
  * `alpha` value is used to blend between the two colors.
- * @param src The source color.
- * @param dst The destination color.
- * @param alpha The alpha value to use for blending.
+ * @param src - The source color.
+ * @param dst - The destination color.
+ * @param alpha - The alpha value to use for blending.
  * @returns The blended color.
  * @group Graphics
  */
@@ -475,9 +475,9 @@ export const blendAdditive = (src: number, dst: number, alpha: number) => {
  * Returns a new color that is a blend between a source and a destination
  * color subtractively. The alpha component in these colors is ignored. Instead, the provided
  * `alpha` value is used to blend between the two colors.
- * @param src The source color.
- * @param dst The destination color.
- * @param alpha The alpha value to use for blending.
+ * @param src - The source color.
+ * @param dst - The destination color.
+ * @param alpha - The alpha value to use for blending.
  * @returns The blended color.
  * @group Graphics
  */
@@ -522,7 +522,7 @@ export const nextPalette = () => {
 
 /**
  * Converts a color value to grayscale.
- * @param color The color to convert.
+ * @param color - The color to convert.
  * @returns The grayscale value appropriate for the color.
  * @group Graphics
  */

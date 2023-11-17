@@ -15,9 +15,9 @@ export class AbstractError extends Error {
 
   /**
    * Constructs a new {@linkcode AbstractError}.
-   * @param code The main identification code for the error.
-   * @param message The main error message.
-   * @param status The HTTP status code to return.
+   * @param code - The main identification code for the error.
+   * @param message - The main error message.
+   * @param status - The HTTP status code to return.
    */
   constructor(code: string, message: string, status: number) {
     super(message);
@@ -35,8 +35,8 @@ export class AbstractError extends Error {
 
   /**
    * Checks if an object is an instance of {@linkcode AbstractError}, or one of its subclasses.
-   * @param error The object to check.
-   * @param allowForeignModule Only check for similar looking error codes.
+   * @param error - The object to check.
+   * @param allowForeignModule - Only check for similar looking error codes.
    * You're going to want to use this if you're dealing with a setup where
    * multiple versions of js-utils are loaded.
    * @returns `true` if the object is an {@linkcode AbstractError}, `false` otherwise.

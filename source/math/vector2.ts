@@ -15,8 +15,8 @@ export class Vector2 {
 
   /**
    * Constructs a new {@linkcode Vector2}.
-   * @param x The X component.
-   * @param y The Y component.
+   * @param x - The X component.
+   * @param y - The Y component.
    */
   constructor(x: number, y: number) {
     this.x = x;
@@ -25,7 +25,7 @@ export class Vector2 {
 
   /**
    * Creates a copy of another {@linkcode Vector2}.
-   * @param vector The vector to copy.
+   * @param vector - The vector to copy.
    * @returns A new vector.
    */
   static fromVector2(vector: Readonly<Vector2>): Vector2 {
@@ -34,7 +34,7 @@ export class Vector2 {
 
   /**
    * Sets the vector to new coordinates.
-   * @param vector The coordinates to set the vector to.
+   * @param vector - The coordinates to set the vector to.
    * @returns This instance.
    */
   set(vector: Readonly<Vector2>): this {
@@ -43,8 +43,8 @@ export class Vector2 {
 
   /**
    * Sets the vector to new coordinates.
-   * @param x The new X component for the vector.
-   * @param y The new Y component for the vector.
+   * @param x - The new X component for the vector.
+   * @param y - The new Y component for the vector.
    * @returns This instance.
    */
   setXY(x: number, y: number): this {
@@ -55,7 +55,7 @@ export class Vector2 {
 
   /**
    * Adds another vector to this vector.
-   * @param vector The vector to add to this vector.
+   * @param vector - The vector to add to this vector.
    * @returns This instance.
    */
   add(vector: Readonly<Vector2>): this {
@@ -64,8 +64,8 @@ export class Vector2 {
 
   /**
    * Adds another vector to this vector.
-   * @param x The value to add to the X component.
-   * @param y The value to add to the Y component.
+   * @param x - The value to add to the X component.
+   * @param y - The value to add to the Y component.
    * @returns This instance.
    */
   addXY(x: number, y: number): this {
@@ -76,8 +76,8 @@ export class Vector2 {
 
   /**
    * Scales another vector and adds it to this vector.
-   * @param vector The vector to add to this vector.
-   * @param scale The scaling to apply to the input vector.
+   * @param vector - The vector to add to this vector.
+   * @param scale - The scaling to apply to the input vector.
    * @returns This instance.
    */
   addMultiply(vector: Readonly<Vector2>, scale: number): this {
@@ -86,9 +86,9 @@ export class Vector2 {
 
   /**
    * Scales another vector and adds it to this vector.
-   * @param x The value to add to the X component.
-   * @param y The value to add to the Y component.
-   * @param scale The scaling to apply to the input vector.
+   * @param x - The value to add to the X component.
+   * @param y - The value to add to the Y component.
+   * @param scale - The scaling to apply to the input vector.
    * @returns This instance.
    */
   addMultiplyXY(x: number, y: number, scale: number): this {
@@ -99,7 +99,7 @@ export class Vector2 {
 
   /**
    * Subtracts another vector from this vector.
-   * @param vector The vector to subtract from this vector.
+   * @param vector - The vector to subtract from this vector.
    * @returns This instance.
    */
   subtract(vector: Readonly<Vector2>): this {
@@ -108,8 +108,8 @@ export class Vector2 {
 
   /**
    * Subtracts another vector from this vector.
-   * @param x The value to subtract from the X component.
-   * @param y The value to subtract from the Y component.
+   * @param x - The value to subtract from the X component.
+   * @param y - The value to subtract from the Y component.
    * @returns This instance.
    */
   subtractXY(x: number, y: number): this {
@@ -120,7 +120,7 @@ export class Vector2 {
 
   /**
    * Multiplies this vector by another vector.
-   * @param vector The vector to multiply with this vector.
+   * @param vector - The vector to multiply with this vector.
    * @returns This instance.
    */
   multiply(vector: Readonly<Vector2>): this {
@@ -129,8 +129,8 @@ export class Vector2 {
 
   /**
    * Multiplies this vector by another vector.
-   * @param x The value to multiply with the X component.
-   * @param y The value to multiply with the Y component.
+   * @param x - The value to multiply with the X component.
+   * @param y - The value to multiply with the Y component.
    * @returns This instance.
    */
   multiplyXY(x: number, y: number): this {
@@ -141,7 +141,7 @@ export class Vector2 {
 
   /**
    * Multiplies the vector by the given scale.
-   * @param scale The scaling to apply to the vector.
+   * @param scale - The scaling to apply to the vector.
    * @returns This instance.
    */
   multiplyScale(scale: number): this {
@@ -152,7 +152,7 @@ export class Vector2 {
 
   /**
    * Divides this vector by another vector.
-   * @param vector The vector to divide this vector with.
+   * @param vector - The vector to divide this vector with.
    * @returns This instance.
    */
   divide(vector: Readonly<Vector2>): this {
@@ -161,8 +161,8 @@ export class Vector2 {
 
   /**
    * Divides this vector by another vector.
-   * @param x The value to divide the X component with.
-   * @param y The value to divide the Y component with.
+   * @param x - The value to divide the X component with.
+   * @param y - The value to divide the Y component with.
    * @returns This instance.
    */
   divideXY(x: number, y: number): this {
@@ -173,7 +173,7 @@ export class Vector2 {
 
   /**
    * Divides the vector by the given scale.
-   * @param scale The scaling to apply to the vector.
+   * @param scale - The scaling to apply to the vector.
    * @returns This instance.
    */
   divideScale(scale: number): this {
@@ -204,8 +204,8 @@ export class Vector2 {
 
   /**
    * Clamps the components of the vector at the given boundary.
-   * @param floor The lowest value to allow.
-   * @param ceil The largest value to allow.
+   * @param floor - The lowest value to allow.
+   * @param ceil - The largest value to allow.
    * @returns This instance.
    */
   clamp(floor: number, ceil: number): this {
@@ -251,7 +251,7 @@ export class Vector2 {
 
   /**
    * Compares two vectors.
-   * @param vector The vector to compare this vector to.
+   * @param vector - The vector to compare this vector to.
    * @returns `true` if the vectors are idently, `false` otherwise.
    */
   compare(vector: Readonly<Vector2>): boolean {
@@ -260,8 +260,8 @@ export class Vector2 {
 
   /**
    * Linearly moves this vector towards a target vector.
-   * @param vector The target vector.
-   * @param t The location on the scale, from `0` to `1`.
+   * @param vector - The target vector.
+   * @param t - The location on the scale, from `0` to `1`.
    * @returns This instance.
    */
   lerp(vector: Readonly<Vector2>, t: number): this {
@@ -273,7 +273,7 @@ export class Vector2 {
 
   /**
    * Rotates the vector by the given angle.
-   * @param angle The angle in degrees.
+   * @param angle - The angle in degrees.
    * @returns This instance.
    */
   rotate(angle: number): this {
@@ -287,7 +287,7 @@ export class Vector2 {
 
   /**
    * Returns the dot product between two vectors.
-   * @param vector The other vector.
+   * @param vector - The other vector.
    * @returns The dot product between the two vectors.
    */
   dot(vector: Readonly<Vector2>): number {
@@ -296,8 +296,8 @@ export class Vector2 {
 
   /**
    * Returns the dot product between two vectors.
-   * @param x The X component of the other vector.
-   * @param y The Y component of the other vector.
+   * @param x - The X component of the other vector.
+   * @param y - The Y component of the other vector.
    * @returns The dot product between the two vectors.
    */
   dotXY(x: number, y: number): number {
@@ -315,8 +315,8 @@ export class Vector2 {
 
 /**
  * Adds two vectors and returns a new vector with the result.
- * @param a The first input vector.
- * @param b The second input vector.
+ * @param a - The first input vector.
+ * @param b - The second input vector.
  * @returns A new {@linkcode Vector2}.
  * @group Math
  */
@@ -326,8 +326,8 @@ export const addVector2 = (a: Readonly<Vector2>, b: Readonly<Vector2>): Vector2 
 
 /**
  * Multiplies two vectors and returns a new vector with the result.
- * @param a The first input vector.
- * @param b The second input vector.
+ * @param a - The first input vector.
+ * @param b - The second input vector.
  * @returns A new {@linkcode Vector2}.
  * @group Math
  */
@@ -337,8 +337,8 @@ export const multiplyVector2 = (a: Readonly<Vector2>, b: Readonly<Vector2>): Vec
 
 /**
  * Subtracts two vectors and returns a new vector with the result.
- * @param a The first input vector.
- * @param b The second input vector.
+ * @param a - The first input vector.
+ * @param b - The second input vector.
  * @returns A new {@linkcode Vector2}.
  * @group Math
  */

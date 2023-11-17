@@ -144,15 +144,15 @@ export class Matrix3 {
 
   /**
    * Constructs a new {@linkcode Matrix3}.
-   * @param m00 Position `0,0` of this matrix.
-   * @param m10 Position `1,0` of this matrix.
-   * @param m20 Position `2,0` of this matrix.
-   * @param m01 Position `0,1` of this matrix.
-   * @param m11 Position `1,1` of this matrix.
-   * @param m21 Position `2,1` of this matrix.
-   * @param m02 Position `0,2` of this matrix.
-   * @param m12 Position `1,2` of this matrix.
-   * @param m22 Position `2,2` of this matrix.
+   * @param m00 - Position `0,0` of this matrix.
+   * @param m10 - Position `1,0` of this matrix.
+   * @param m20 - Position `2,0` of this matrix.
+   * @param m01 - Position `0,1` of this matrix.
+   * @param m11 - Position `1,1` of this matrix.
+   * @param m21 - Position `2,1` of this matrix.
+   * @param m02 - Position `0,2` of this matrix.
+   * @param m12 - Position `1,2` of this matrix.
+   * @param m22 - Position `2,2` of this matrix.
    */
   constructor(m00 = 1, m10 = 0, m20 = 0, m01 = 0, m11 = 1, m21 = 0, m02 = 0, m12 = 0, m22 = 1) {
     this.m00 = m00;
@@ -168,7 +168,7 @@ export class Matrix3 {
 
   /**
    * Creates a new {@linkcode Matrix3} from another {@linkcode Matrix3}.
-   * @param matrix The matrix to copy.
+   * @param matrix - The matrix to copy.
    * @returns A new matrix.
    */
   static fromMatrix3(matrix: Readonly<Matrix3>): Matrix3 {
@@ -177,7 +177,7 @@ export class Matrix3 {
 
   /**
    * Creates a new {@linkcode Matrix3} from a rotation in Euler angles.
-   * @param degrees The rotation in Euler angles.
+   * @param degrees - The rotation in Euler angles.
    * @returns A new matrix.
    */
   static fromEuler(degrees: Readonly<Euler>): Matrix3 {
@@ -186,8 +186,8 @@ export class Matrix3 {
 
   /**
    * Creates a new {@linkcode Matrix3} from a rotation around an axis.
-   * @param axis The axis around which to rotate.
-   * @param degrees The rotation in degrees.
+   * @param axis - The axis around which to rotate.
+   * @param degrees - The rotation in degrees.
    * @returns A new matrix.
    */
   static fromVector3(axis: Readonly<Vector3>, degrees: number): Matrix3 {
@@ -196,7 +196,7 @@ export class Matrix3 {
 
   /**
    * Creates a new {@linkcode Matrix3} from a quaternion.
-   * @param quaternion The quaternion describes the rotation.
+   * @param quaternion - The quaternion describes the rotation.
    * @returns A new matrix.
    */
   static fromQuaternion(quaternion: Readonly<Quaternion>): Matrix3 {
@@ -205,7 +205,7 @@ export class Matrix3 {
 
   /**
    * Sets the matrix to new values from another matrix.
-   * @param matrix The matrix to copy.
+   * @param matrix - The matrix to copy.
    * @returns This instance.
    */
   set(matrix: Readonly<Matrix3>): this {
@@ -225,15 +225,15 @@ export class Matrix3 {
 
   /**
    * Update the matrix by individual components.
-   * @param m00 Position `0,0` of this matrix.
-   * @param m10 Position `1,0` of this matrix.
-   * @param m20 Position `2,0` of this matrix.
-   * @param m01 Position `0,1` of this matrix.
-   * @param m11 Position `1,1` of this matrix.
-   * @param m21 Position `2,1` of this matrix.
-   * @param m02 Position `0,2` of this matrix.
-   * @param m12 Position `1,2` of this matrix.
-   * @param m22 Position `2,2` of this matrix.
+   * @param m00 - Position `0,0` of this matrix.
+   * @param m10 - Position `1,0` of this matrix.
+   * @param m20 - Position `2,0` of this matrix.
+   * @param m01 - Position `0,1` of this matrix.
+   * @param m11 - Position `1,1` of this matrix.
+   * @param m21 - Position `2,1` of this matrix.
+   * @param m02 - Position `0,2` of this matrix.
+   * @param m12 - Position `1,2` of this matrix.
+   * @param m22 - Position `2,2` of this matrix.
    * @returns This instance.
    */
   setM(
@@ -261,7 +261,7 @@ export class Matrix3 {
 
   /**
    * Sets the matrix to a rotation in Euler angles.
-   * @param degrees The rotation in Euler angles.
+   * @param degrees - The rotation in Euler angles.
    * @returns This instance.
    */
   setEuler(degrees: Readonly<Euler>): this {
@@ -298,8 +298,8 @@ export class Matrix3 {
 
   /**
    * Sets the matrix to a rotation around an axis.
-   * @param axis The axis around which to rotate.
-   * @param degrees The rotation in degrees.
+   * @param axis - The axis around which to rotate.
+   * @param degrees - The rotation in degrees.
    * @returns This instance.
    */
   setVector3(axis: Readonly<Vector3>, degrees: number): this {
@@ -326,7 +326,7 @@ export class Matrix3 {
 
   /**
    * Sets the matrix to a rotation described by a quaternion.
-   * @param quaternion The quaternion describing the rotation.
+   * @param quaternion - The quaternion describing the rotation.
    * @returns This instance.
    */
   setQuaternion(quaternion: Readonly<Quaternion>): this {
@@ -409,7 +409,7 @@ export class Matrix3 {
 
   /**
    * Multiply with another matrix from the right.
-   * @param matrix The matrix to multiply with.
+   * @param matrix - The matrix to multiply with.
    * @returns This instance.
    */
   multiplyR(matrix: Readonly<Matrix3>): this {
@@ -436,7 +436,7 @@ export class Matrix3 {
 
   /**
    * Inversely multiply with another matrix from the right.
-   * @param matrix The matrix to multiply with.
+   * @param matrix - The matrix to multiply with.
    * @returns This instance.
    */
   multiplyInverseR(matrix: Readonly<Matrix3>): this {
@@ -463,7 +463,7 @@ export class Matrix3 {
 
   /**
    * Multiply with another matrix from the left.
-   * @param matrix The matrix to multiply with.
+   * @param matrix - The matrix to multiply with.
    * @returns This instance.
    */
   multiplyL(matrix: Readonly<Matrix3>): this {
@@ -490,7 +490,7 @@ export class Matrix3 {
 
   /**
    * Inversely multiply with another matrix from the right.
-   * @param matrix The matrix to multiply with.
+   * @param matrix - The matrix to multiply with.
    * @returns This instance.
    */
   multiplyInverseL(matrix: Readonly<Matrix3>): this {
@@ -517,8 +517,8 @@ export class Matrix3 {
 
   /**
    * Sets this matrix up as a transformation matrix to look in a given direction.
-   * @param direction The direction to look in.
-   * @param upVector The vector indicating the up direction. If not provided
+   * @param direction - The direction to look in.
+   * @param upVector - The vector indicating the up direction. If not provided
    * a best effort is made to find a good one.
    * @returns This instance.
    */

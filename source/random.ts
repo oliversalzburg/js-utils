@@ -43,7 +43,7 @@ export class Random {
    *
    * Uses an optimized version of the Park-Miller PRNG.
    * http://www.firstpr.com.au/dsp/rand31/
-   * @param seed The seed for the random number generator.
+   * @param seed - The seed for the random number generator.
    */
   constructor(seed = 0) {
     this._seed = Math.trunc(seed) % 2147483647;
@@ -111,8 +111,8 @@ export class Random {
 
   /**
    * Returns a random value in a given range.
-   * @param min The lower bound.
-   * @param max The upper bound.
+   * @param min - The lower bound.
+   * @param max - The upper bound.
    * @returns A random value between the lower and upper bound.
    */
   nextRange(min: number, max: number) {
@@ -138,11 +138,8 @@ export class Random {
 
   /**
    * Returns a 2D simplex noise value for a given input coordinate.
-   * @license ISC
-   * @author Joseph Gentle
-   * @see https://github.com/josephg/noisejs
-   * @param x The X input coordinate.
-   * @param y The Y input coordinate.
+   * @param x - The X input coordinate.
+   * @param y - The Y input coordinate.
    * @returns The noise value for the input coordinates.
    */
   simplex2(x: number, y: number) {
@@ -208,12 +205,9 @@ export class Random {
 
   /**
    * Returns a 3D simplex noise value for a given input coordinate.
-   * @license ISC
-   * @author Joseph Gentle
-   * @see https://github.com/josephg/noisejs
-   * @param x The X input coordinate.
-   * @param y The Y input coordinate.
-   * @param z The Z input coordinate.
+   * @param x - The X input coordinate.
+   * @param y - The Y input coordinate.
+   * @param z - The Z input coordinate.
    * @returns The noise value for the input coordinates.
    */
   simplex3(x: number, y: number, z: number) {
@@ -347,8 +341,8 @@ export class Random {
 /**
  * Returns a random value in a given range.
  * Uses the JS-internal `Math.random()`. Use {@linkcode Random} for a PRNG with more features.
- * @param min The lower bound.
- * @param max The upper bound.
+ * @param min - The lower bound.
+ * @param max - The upper bound.
  * @returns A random value between the lower and upper bound.
  * @group Random
  */
@@ -359,7 +353,7 @@ export const randomRange = (min: number, max: number) => {
 /**
  * Generates a numberic seed, to be used as an input for a PRNG,
  * from a string.
- * @param input The string to use as a seed.
+ * @param input - The string to use as a seed.
  * @returns A numeric seed value for a PRNG.
  * @group Random
  */

@@ -23,9 +23,9 @@ export class Transformation {
 
   /**
    * Construct a new {@linkcode Transformation}.
-   * @param rotation The rotation to apply through the transformation.
-   * @param position The position to apply through the transformation.
-   * @param scale The scale to apply through the transformation.
+   * @param rotation - The rotation to apply through the transformation.
+   * @param position - The position to apply through the transformation.
+   * @param scale - The scale to apply through the transformation.
    */
   constructor(rotation: Readonly<Matrix3>, position: Readonly<Vector3>, scale: Readonly<Vector3>) {
     this.rotation = Matrix3.fromMatrix3(rotation);
