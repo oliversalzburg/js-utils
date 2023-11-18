@@ -90,6 +90,7 @@ jobs:
     name: Deploy library
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-22.04
+    concurrency: lib-publish
     permissions:
       contents: read
       id-token: write
