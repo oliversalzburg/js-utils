@@ -3,10 +3,14 @@ name: Library Test/Deploy
 on:
   pull_request:
   push:
+    branches:
+      - "*"
 
 jobs:
   qa:
     name: Run QA
+    # We don't need to run this on Renovate PRs. We will already test the `renovate/foo` branch.
+    if: github.event_name != 'pull_request' || github.actor != 'renovate[bot]'
     strategy:
       matrix:
         node-version:
@@ -43,9 +47,10 @@ jobs:
       - name: Test
         run: yarn test
 
-  deploy-lib:
-    needs: qa
-    name: Deploy library
+  qa-docs:
+    name: QA Documentation
+    # We don't need to run this on Renovate PRs. We will already test the `renovate/foo` branch.
+    if: github.event_name != 'pull_request' || github.actor != 'renovate[bot]'
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -54,8 +59,7 @@ jobs:
       - name: Select NodeJS version
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
         with:
-          # renovate: datasource=docker depName=node versioning=node
-          node-version: "20.9.0"
+          node-version: ${{ matrix.node-version }}
 
       - name: Enable Corepack
         run: corepack enable
@@ -63,7 +67,67 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Build Documentation
+        run: yarn docs:typedoc
+
+  qa-successful:
+    runs-on: ubuntu-22.04
+    needs:
+      - qa
+      - qa-docs
+    if: always()
+    steps:
+      - name: Success
+        if: ${{ !(contains(needs.*.result, 'failure')) }}
+        run: exit 0
+      - name: Failure
+        if: ${{ contains(needs.*.result, 'failure') }}
+        run: exit 1
+
+  deploy-lib:
+    needs: qa-successful
+    name: Deploy library
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 0 # we need to pull everything to have correct dev version suffix
+
+      - name: Select NodeJS version
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          # renovate: datasource=docker depName=node versioning=node
+          node-version: "20.9.0"
+          registry-url: https://registry.npmjs.org
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      # Yarn dependencies cannot be cached until yarn is installed
+      # WORKAROUND: https://github.com/actions/setup-node/issues/531
+      - name: Extract cached dependencies
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install
+
       - name: Build
         run: yarn build
-      - name: Publish
-        run: yarn npm:publish
+
+      - name: Release dev version for testing
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          mv lib dist
+          node .scripts/create-release.js --canary=patch
+          mv node_modules/ dist/node_modules
+          mv yarn.lock dist/yarn.lock
+          cd dist
+          npm publish --access=public --provenance --tag=next

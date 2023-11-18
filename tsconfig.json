@@ -22,6 +22,6 @@
     "types": ["@types/node", "@types/web"],
     "useDefineForClassFields": true
   },
-  "include": ["./@types", "./source"],
+  "include": ["./.scripts", "./@types", "./source"],
   "exclude": ["./lib"]
 }

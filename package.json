@@ -4,16 +4,18 @@
   "version": "0.0.18",
   "license": "MIT",
   "author": "Oliver Salzburg <oliver.salzburg@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliversalzburg/js-utils.git"
+  },
   "type": "module",
   "exports": {
     ".": "./lib/index.js",
-    "./lib": "./lib/index.js",
     "./lib/*": "./lib/*.js",
     "./lib/*.js": "./lib/*.js"
   },
   "scripts": {
     "build": "yarn run build:tsc",
-    "build:esbuild": "node build.js",
     "build:tsc": "tsc",
     "build:tsc:watch": "tsc --watch",
     "clean": "rm -rf ./coverage ./lib",
@@ -23,13 +25,6 @@
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc --noEmit",
-    "npm:publish": "npm publish",
-    "npm:publish:major": "npm version major && npm publish",
-    "npm:publish:minor": "npm version minor && npm publish",
-    "npm:publish:patch": "npm version patch && npm publish",
-    "prepack": "yarn run build",
-    "prerelease": "npm version prerelease --preid=next",
-    "prepublish": "npm version from-git",
     "test": "node $(yarn bin mocha) --enable-source-maps",
     "test:coverage": "c8 --reporter html-spa --reporter text node $(yarn bin mocha) --enable-source-maps",
     "test:inspect": "node $(yarn bin mocha) --inspect"
@@ -47,7 +42,6 @@
     "c8": "8.0.1",
     "chai": "4.3.10",
     "chai-as-promised": "7.1.1",
-    "esbuild": "0.19.5",
     "eslint": "8.54.0",
     "eslint-plugin-jsdoc": "46.9.0",
     "eslint-plugin-tsdoc": "0.2.17",
