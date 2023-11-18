@@ -1,4 +1,4 @@
-name: Library Test/Deploy
+name: Library Test/Pre-Release
 
 on:
   pull_request:
@@ -59,7 +59,8 @@ jobs:
       - name: Select NodeJS version
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
         with:
-          node-version: ${{ matrix.node-version }}
+          # renovate: datasource=docker depName=node versioning=node
+          node-version: "20.9.0"
 
       - name: Enable Corepack
         run: corepack enable
@@ -84,7 +85,7 @@ jobs:
         if: ${{ contains(needs.*.result, 'failure') }}
         run: exit 1
 
-  deploy-lib:
+  lib-pre-relase:
     needs: qa-successful
     name: Deploy library
     if: github.ref == 'refs/heads/main'
@@ -95,8 +96,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        with:
-          fetch-depth: 0 # we need to pull everything to have correct dev version suffix
 
       - name: Select NodeJS version
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4

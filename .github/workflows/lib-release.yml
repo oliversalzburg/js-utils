@@ -1,0 +1,127 @@
+name: Library Test/Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  qa:
+    name: Run QA
+    strategy:
+      matrix:
+        node-version:
+          - 18
+          - 20
+          - 21
+        os-release:
+          - ubuntu-latest
+          - windows-latest
+    runs-on: ${{ matrix.os-release }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - name: Select NodeJS version
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Lint ESLint
+        run: yarn lint:eslint
+      - name: Lint Prettier
+        run: yarn lint:prettier
+      - name: Lint TSC
+        run: yarn lint:tsc
+      - name: Build
+        run: yarn build
+      - name: Test
+        run: yarn test
+
+  qa-docs:
+    name: QA Documentation
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - name: Select NodeJS version
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          # renovate: datasource=docker depName=node versioning=node
+          node-version: "20.9.0"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build Documentation
+        run: yarn docs:typedoc
+
+  qa-successful:
+    runs-on: ubuntu-22.04
+    needs:
+      - qa
+      - qa-docs
+    if: always()
+    steps:
+      - name: Success
+        if: ${{ !(contains(needs.*.result, 'failure')) }}
+        run: exit 0
+      - name: Failure
+        if: ${{ contains(needs.*.result, 'failure') }}
+        run: exit 1
+
+  lib-release:
+    needs: qa-successful
+    name: Deploy library
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - name: Select NodeJS version
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          # renovate: datasource=docker depName=node versioning=node
+          node-version: "20.9.0"
+          registry-url: https://registry.npmjs.org
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      # Yarn dependencies cannot be cached until yarn is installed
+      # WORKAROUND: https://github.com/actions/setup-node/issues/531
+      - name: Extract cached dependencies
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4
+        with:
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: Release new library version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          mv lib dist
+          node .scripts/create-release.js
+          mv node_modules/ dist/node_modules
+          mv yarn.lock dist/yarn.lock
+          cd dist
+          npm publish --access=public --provenance --tag=latest
