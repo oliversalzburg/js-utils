@@ -83,7 +83,6 @@ jobs:
   lib-release:
     needs: qa-successful
     name: Deploy library
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-22.04
     permissions:
       contents: read
