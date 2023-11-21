@@ -59,3 +59,40 @@ export const coalesceOnRejection = async <
     throw error;
   }
 };
+
+/**
+ * Wait a given period before continuing execution.
+ * @param duration - How many milliseconds to wait.
+ * @returns Nothing
+ * @group Async
+ */
+export const sleep = (duration: number): Promise<void> => {
+  return new Promise(resolve => setTimeout(resolve, duration));
+};
+
+/**
+ * Executes an asynchronous function and retries the execution if it rejects.
+ * @param executable - The asynchronous function to execute.
+ * @param retryDelay - The duration to wait after a failed execution.
+ * @param retryCount - How often should the execution be retried?
+ * @typeParam TExecutableReturn - The return type of the function.
+ * @returns Whatever the function resolved to.
+ * @group Async
+ */
+export const retry = async <TExecutableReturn>(
+  executable: AnyFunctionReturning<TExecutableReturn | Promise<TExecutableReturn>>,
+  retryDelay = 0,
+  retryCount = 0,
+): Promise<TExecutableReturn> => {
+  try {
+    return await executable();
+  } catch (error) {
+    if (0 < retryCount) {
+      if (0 < retryDelay) {
+        await sleep(retryDelay);
+      }
+      return retry(executable, retryDelay, --retryCount);
+    }
+    throw error;
+  }
+};
