@@ -81,10 +81,18 @@ jobs:
     steps:
       - name: Success
         if: ${{ !(contains(needs.*.result, 'failure')) }}
-        run: exit 0
+        run: |
+          echo "${{ toJSON(needs) }}"
+          echo "${{ toJSON(needs.*) }}"
+          echo "${{ toJSON(needs.*.result) }}"
+          exit 0
       - name: Failure
         if: ${{ contains(needs.*.result, 'failure') }}
-        run: exit 1
+        run: |
+          echo "${{ toJSON(needs) }}"
+          echo "${{ toJSON(needs.*) }}"
+          echo "${{ toJSON(needs.*.result) }}"
+          exit 1
 
   lib-pre-relase:
     needs: qa-successful
