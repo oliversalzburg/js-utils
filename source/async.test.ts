@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from "chai";
 import { it } from "mocha";
-import { prepareAsyncContext } from "./async.js";
-import { sleep } from "./sleep.js";
+import { prepareAsyncContext, sleep } from "./async.js";
 
 it("executes trivial callback", async () => {
   let executed = false;
