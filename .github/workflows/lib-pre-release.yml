@@ -81,7 +81,11 @@ jobs:
     steps:
       - name: Success
         if: ${{ !(contains(needs.*.result, 'failure')) }}
-        run: exit 0
+        run: |
+          echo ${{ needs }}
+          echo ${{ needs.* }}
+          echo ${{ needs.*.result }}
+          exit 0
       - name: Failure
         if: ${{ contains(needs.*.result, 'failure') }}
         run: exit 1
