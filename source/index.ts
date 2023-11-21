@@ -1,4 +1,3 @@
-export * from "./array.js";
 export * from "./async.js";
 export * from "./core.js";
 export * from "./data/index.js";
@@ -6,6 +5,7 @@ export * from "./dom/index.js";
 export * from "./error-serializer.js";
 export * from "./errors/index.js";
 export * from "./graphics/index.js";
+export * from "./log/index.js";
 export * from "./math/index.js";
 export * from "./nil.js";
 export * from "./random.js";
