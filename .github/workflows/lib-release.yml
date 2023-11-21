@@ -120,6 +120,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           mv lib dist
+          rm dist/tsconfig.tsbuildinfo
           node .scripts/create-release.js
           mv node_modules/ dist/node_modules
           mv yarn.lock dist/yarn.lock
