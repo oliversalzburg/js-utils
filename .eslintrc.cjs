@@ -3,6 +3,31 @@
 // @see https://en.wikipedia.org/wiki/Cyclomatic_complexity
 const MAX_CYCLOMATIC_COMPLEXITY = 10;
 
+const rulesJsDoc = {
+  "jsdoc/require-description": "warn",
+  "jsdoc/require-jsdoc": [
+    "error",
+    {
+      contexts: [
+        "PropertyDefinition",
+        "TSInterfaceDeclaration",
+        "TSMethodSignature",
+        "TSPropertySignature",
+        "TSTypeAliasDeclaration",
+      ],
+      require: {
+        ArrowFunctionExpression: true,
+        ClassDeclaration: true,
+        ClassExpression: true,
+        FunctionDeclaration: true,
+        FunctionExpression: true,
+        MethodDefinition: true,
+      },
+      publicOnly: true,
+    },
+  ],
+};
+
 module.exports = {
   root: true,
 
@@ -20,30 +45,7 @@ module.exports = {
         sourceType: "commonjs",
       },
       plugins: ["jsdoc"],
-      rules: {
-        "jsdoc/require-description": "warn",
-        "jsdoc/require-jsdoc": [
-          "error",
-          {
-            contexts: [
-              "PropertyDefinition",
-              "TSInterfaceDeclaration",
-              "TSMethodSignature",
-              "TSPropertySignature",
-              "TSTypeAliasDeclaration",
-            ],
-            require: {
-              ArrowFunctionExpression: true,
-              ClassDeclaration: true,
-              ClassExpression: true,
-              FunctionDeclaration: true,
-              FunctionExpression: true,
-              MethodDefinition: true,
-            },
-            publicOnly: true,
-          },
-        ],
-      },
+      rules: rulesJsDoc,
     },
     {
       files: ["*.js", "*.mjs"],
@@ -52,30 +54,7 @@ module.exports = {
         sourceType: "module",
       },
       plugins: ["jsdoc"],
-      rules: {
-        "jsdoc/require-description": "warn",
-        "jsdoc/require-jsdoc": [
-          "error",
-          {
-            contexts: [
-              "PropertyDefinition",
-              "TSInterfaceDeclaration",
-              "TSMethodSignature",
-              "TSPropertySignature",
-              "TSTypeAliasDeclaration",
-            ],
-            require: {
-              ArrowFunctionExpression: true,
-              ClassDeclaration: true,
-              ClassExpression: true,
-              FunctionDeclaration: true,
-              FunctionExpression: true,
-              MethodDefinition: true,
-            },
-            publicOnly: true,
-          },
-        ],
-      },
+      rules: rulesJsDoc,
     },
     {
       files: ["*.cts", "*.mts", "*.ts"],
@@ -83,12 +62,13 @@ module.exports = {
         "eslint:recommended",
         "plugin:@typescript-eslint/strict-type-checked",
         "plugin:@typescript-eslint/stylistic-type-checked",
+        "plugin:jsdoc/recommended",
       ],
       parserOptions: {
         project: ["./tsconfig.json"],
         tsconfigRootDir: __dirname,
       },
-      plugins: ["@typescript-eslint", "eslint-plugin-tsdoc"],
+      plugins: ["@typescript-eslint", "eslint-plugin-tsdoc", "jsdoc"],
       rules: {
         "@typescript-eslint/array-type": ["error", { default: "generic" }],
         "@typescript-eslint/no-explicit-any": [
@@ -101,6 +81,12 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": ["error", { args: "none" }],
         "@typescript-eslint/no-var-requires": "off",
         "tsdoc/syntax": "error",
+        ...rulesJsDoc,
+        "jsdoc/check-tag-names": "off",
+        "jsdoc/no-undefined-types": "off",
+        "jsdoc/require-param-type": "off",
+        "jsdoc/require-returns-type": "off",
+        "jsdoc/valid-types": "off",
       },
     },
   ],
