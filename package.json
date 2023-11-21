@@ -11,8 +11,7 @@
   "type": "module",
   "exports": {
     ".": "./lib/index.js",
-    "./lib/*": "./lib/*.js",
-    "./lib/*.js": "./lib/*.js"
+    "./*.js": "./lib/*.js"
   },
   "scripts": {
     "build": "yarn run build:tsc",
