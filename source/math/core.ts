@@ -10,7 +10,7 @@ export const TWO_PI = /* __PURE__ */ Math.PI * 2;
  * @returns The degrees in radians.
  * @group Math
  */
-export const deg2rad = (degrees: number) => {
+export const degreesToRadians = (degrees: number) => {
   return degrees * (Math.PI / 180);
 };
 
@@ -20,7 +20,7 @@ export const deg2rad = (degrees: number) => {
  * @returns The radians as degrees.
  * @group Math
  */
-export const rad2deg = (radians: number) => {
+export const radiansToDegrees = (radians: number) => {
   return radians * (180 / Math.PI);
 };
 
@@ -30,8 +30,8 @@ export const rad2deg = (radians: number) => {
  * @returns The sine for the given value.
  * @group Math
  */
-export const sinDeg = (value: number) => {
-  return Math.sin(deg2rad(value));
+export const sinDegrees = (value: number) => {
+  return Math.sin(degreesToRadians(value));
 };
 
 /**
@@ -40,8 +40,8 @@ export const sinDeg = (value: number) => {
  * @returns The cosine for the given value.
  * @group Math
  */
-export const cosDeg = (value: number) => {
-  return Math.cos(deg2rad(value));
+export const cosDegrees = (value: number) => {
+  return Math.cos(degreesToRadians(value));
 };
 
 /**
