@@ -3,12 +3,14 @@ import { ConstructorOf } from "./core.js";
 /**
  * When you want to normalize away `null` | `undefined`, or deal
  * with either type through a consistent interface.
+ * @group Types
  */
 export type Nil = null | undefined;
 
 /**
  * A type that could be either what you want, or `Nil`.
  * @typeParam T - The type that should be made nillable.
+ * @group Types
  */
 export type Maybe<T> = T | Nil;
 
