@@ -37,7 +37,9 @@ export type AnyFunctionReturning<TReturned = any> = (...args: Array<any>) => TRe
  * @typeParam TReturned - The type of the item returned by the function.
  * @group Types
  */
-export type AnyAsyncFunctionReturning<TReturned = any> = (...args: Array<any>) => TReturned;
+export type AnyAsyncFunctionReturning<TReturned = any> = (
+  ...args: Array<any>
+) => Promise<TReturned>;
 
 /**
  * Describes a class "mixin", which is a function that returns a dynamically
