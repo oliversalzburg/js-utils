@@ -8,6 +8,7 @@ export * from "./graphics/index.js";
 export * from "./log/index.js";
 export * from "./math/index.js";
 export * from "./nil.js";
+export * from "./performance.js";
 export * from "./random.js";
 export * from "./string-formatter.js";
 export * from "./string.js";
