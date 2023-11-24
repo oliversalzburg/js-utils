@@ -99,3 +99,51 @@ export const isInteger = (value: number) => {
 export const clamp = (input: number, floor: number, ceil: number): number => {
   return Math.max(floor, Math.min(input, ceil));
 };
+
+/**
+ * Rounds a given number to the next highest value.
+ * @param input - The number to round.
+ * @param fractionDigits - The amount of digits to retain in the fraction.
+ * @returns The rounded number.
+ * @group Math
+ */
+export const ceilTo = (input: number, fractionDigits = 0): number => {
+  const scale = Math.pow(10, fractionDigits);
+  return Math.floor(input * scale) / scale;
+};
+
+/**
+ * Rounds a given number to the next lowest value.
+ * @param input - The number to round.
+ * @param fractionDigits - The amount of digits to retain in the fraction.
+ * @returns The rounded number.
+ * @group Math
+ */
+export const floorTo = (input: number, fractionDigits = 0): number => {
+  const scale = Math.pow(10, fractionDigits);
+  return Math.floor(input * scale) / scale;
+};
+
+/**
+ * Rounds a given number to the next closest value.
+ * @param input - The number to round.
+ * @param fractionDigits - The amount of digits to retain in the fraction.
+ * @returns The rounded number.
+ * @group Math
+ */
+export const roundTo = (input: number, fractionDigits = 0): number => {
+  const scale = Math.pow(10, fractionDigits);
+  return Math.round(input * scale) / scale;
+};
+
+/**
+ * Cuts off digits of a number.
+ * @param input - The number to round.
+ * @param fractionDigits - The amount of digits to retain in the fraction.
+ * @returns The rounded number.
+ * @group Math
+ */
+export const truncTo = (input: number, fractionDigits = 0): number => {
+  const scale = Math.pow(10, fractionDigits);
+  return Math.trunc(input * scale) / scale;
+};
