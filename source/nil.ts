@@ -60,7 +60,7 @@ export class UnexpectedNilError extends Error {
 
 /**
  * Ensure that the passed subject is not nil; throw otherwise.
- * @param subject - A subject that is possible nil.
+ * @param subject - A subject that is possibly nil.
  * @param errorMessage - An optional error message to throw when the subject is nil.
  * @typeParam TSubject - The type of the subject.
  * @returns The subject, if it isn't nil.
@@ -75,25 +75,26 @@ export function mustExist<TSubject>(subject: Maybe<TSubject>, errorMessage?: str
 }
 
 /**
- * Ensure that the passed subject is not nil; throw otherwise.
- * @param subject - A subject that is possible nil.
- * @param errorMessage - An optional error message to throw when the subject is nil.
- * @typeParam TSubject - The type of the subject.
- * @returns The subject, if it isn't nil.
- * @throws {@linkcode UnexpectedNilError} When the subject is nil.
+ * Ensure that all passed subjects are not nil; throw otherwise.
+ * @param subjects - The subjects that are possibly nil.
+ * @param errorMessage - An optional error message to throw when a subject is nil.
+ * @typeParam TSubject - The type a the subject.
+ * @returns The subjects, if they aren't nil.
+ * @throws {@linkcode UnexpectedNilError} When a subject is nil.
  * @group Nullability
+ * @group Array
  */
 export function mustExistAll<TSubject>(
-  subject: Array<Maybe<TSubject>>,
+  subjects: Array<Maybe<TSubject>>,
   errorMessage?: string,
 ): Array<TSubject> {
-  for (const element of subject) {
-    if (isNil(element)) {
+  for (const subject of subjects) {
+    if (isNil(subject)) {
       throw new UnexpectedNilError(errorMessage);
     }
   }
 
-  return subject as Array<TSubject>;
+  return subjects as Array<TSubject>;
 }
 
 /**
@@ -106,6 +107,24 @@ export function mustExistAll<TSubject>(
 export function assertExists<TSubject>(subject: Maybe<TSubject>): asserts subject is TSubject {
   if (isNil(subject)) {
     throw new UnexpectedNilError();
+  }
+}
+
+/**
+ * Ensure that the passed subjects are not nil; throw otherwise.
+ * @param subjects - Subjects that are possibly nil.
+ * @typeParam TSubject - The type of a subject.
+ * @throws {@linkcode UnexpectedNilError} When a subject is nil.
+ * @group Nullability
+ * @group Array
+ */
+export function assertExistsAll<TSubject>(
+  subjects: Array<Maybe<TSubject>>,
+): asserts subjects is Array<TSubject> {
+  for (const subject of subjects) {
+    if (isNil(subject)) {
+      throw new UnexpectedNilError();
+    }
   }
 }
 
