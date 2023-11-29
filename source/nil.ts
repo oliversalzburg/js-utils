@@ -76,6 +76,28 @@ export function mustExist<TSubject>(subject: Maybe<TSubject>, errorMessage?: str
 
 /**
  * Ensure that the passed subject is not nil; throw otherwise.
+ * @param subject - A subject that is possible nil.
+ * @param errorMessage - An optional error message to throw when the subject is nil.
+ * @typeParam TSubject - The type of the subject.
+ * @returns The subject, if it isn't nil.
+ * @throws {@linkcode UnexpectedNilError} When the subject is nil.
+ * @group Nullability
+ */
+export function mustExistAll<TSubject>(
+  subject: Array<Maybe<TSubject>>,
+  errorMessage?: string,
+): Array<TSubject> {
+  for (const element of subject) {
+    if (isNil(element)) {
+      throw new UnexpectedNilError(errorMessage);
+    }
+  }
+
+  return subject as Array<TSubject>;
+}
+
+/**
+ * Ensure that the passed subject is not nil; throw otherwise.
  * @param subject - A subject that is possibly nil.
  * @typeParam TSubject - The type of the subject.
  * @throws {@linkcode UnexpectedNilError} When the subject is nil.
@@ -85,4 +107,51 @@ export function assertExists<TSubject>(subject: Maybe<TSubject>): asserts subjec
   if (isNil(subject)) {
     throw new UnexpectedNilError();
   }
+}
+
+/**
+ * Convert a nilable into a real value, if it is nil.
+ * @param nilable - The subject to convert to an optional.
+ * @param to - The value to coalese to.
+ * @returns The input value, if it wasn't nil, or the value to coalesce to.
+ * @group Nullability
+ */
+export function coalesce<T>(nilable: Maybe<T>, to: T): T {
+  if (isNil(nilable)) {
+    return to;
+  }
+  return nilable;
+}
+
+/**
+ * Drop all nil values from an array, or replaces them with another value.
+ * @param nilables - The subject to convert.
+ * @param to - The value to coalese to.
+ * @returns An array with where all values are not nil.
+ * @group Nullability
+ */
+export function coalesceArray<T>(nilables: Array<Maybe<T>>, to?: Maybe<T>): Array<T> {
+  const result = new Array<T>();
+  for (const nilable of nilables) {
+    if (!isNil(nilable)) {
+      result.push(nilable);
+    } else if (!isNil(to)) {
+      result.push(to);
+    }
+  }
+  return result;
+}
+
+/**
+ * Convert a nilable into an optional argument.
+ * This means `null` is normalized to `undefined`.
+ * @param nilable - The subject to convert to an optional.
+ * @returns The value, normalized to `undefined`, if it was nil.
+ * @group Nullability
+ */
+export function toOptional<T>(nilable: Maybe<T>): T | undefined {
+  if (isNil(nilable)) {
+    return undefined;
+  }
+  return nilable;
 }
