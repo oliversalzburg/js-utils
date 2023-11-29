@@ -129,6 +129,7 @@ export function coalesce<T>(nilable: Maybe<T>, to: T): T {
  * @param to - The value to coalese to.
  * @returns An array with where all values are not nil.
  * @group Nullability
+ * @group Array
  */
 export function coalesceArray<T>(nilables: Array<Maybe<T>>, to?: Maybe<T>): Array<T> {
   const result = new Array<T>();
