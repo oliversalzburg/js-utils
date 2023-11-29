@@ -10,7 +10,7 @@ export class NotImplementedError extends AbstractError {
    * @param message - The main error message.
    * @param status - The HTTP status code to return.
    */
-  constructor(message: string, status = 501) {
+  constructor(message = "Not implemented.", status = 501) {
     super("ERR_OS_NOT_IMPLEMENTED", message, status);
 
     this.name = "NotImplementedError";
