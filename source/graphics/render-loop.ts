@@ -1,5 +1,4 @@
 import { Canvas } from "./canvas.js";
-import { blend } from "./core.js";
 
 /**
  * The amount of milliseconds your can spend in a frame, if you want to
@@ -95,7 +94,7 @@ export class RenderLoop {
   /**
    * Constructs a new {@linkcode RenderLoop}.
    * @param renderLoop - The function to call when a new frame should be drawn.
-   * @param canvas - The {@linkcode Canvas} we're rendering to.
+   * @param canvas - The canvas we're rendering to.
    * @param options - The configuration for thie {@linkcode RenderLoop}.
    */
   constructor(
@@ -150,6 +149,10 @@ export class RenderLoop {
     const timestamp = new Date().getTime();
     const timeDelta = timestamp - this.previousTimestampDraw;
 
+    if (this.options.onRefresh === "clear") {
+      this.canvas.clearWith(0);
+    }
+
     this.renderLoop(timeDelta, timestamp);
 
     const frameTime = new Date().getTime() - timestamp;
@@ -162,59 +165,8 @@ export class RenderLoop {
 
     this.canvas.update();
 
-    if (this.options.onRefresh === "clear") {
-      this.canvas.clearWith(0);
-    }
-
     if (this.options.drawFps) {
-      const maxFrameTime = this.#frameTimes.reduce((max, frameTime) => {
-        if (max < frameTime) {
-          max = frameTime;
-        }
-        return max;
-      }, 0);
-      const sumFrameTimes = this.#frameTimes.reduce((sum, frameTime) => sum + frameTime, 0);
-      const fpsAll = Math.round(this.#frameTimes.length / (sumFrameTimes / 1000)).toString();
-      const fpsFrame = 1000 / frameTime;
-      const fpsDelta = 1000 / timeDelta;
-
-      this.#frameTimes.splice(0, this.#frameTimes.length - this.canvas.width);
-      const frameTimes = this.#frameTimes.toReversed();
-
-      let currentX = this.canvas.width;
-      for (const frameTime of frameTimes) {
-        let fillColor = 0x00ff00ff;
-        let width = 1;
-        if (MS_PER_FRAME_60FPS < frameTime) {
-          const quality = frameTime / maxFrameTime;
-          fillColor = blend(0x00ff00ff, 0xff0000ff, Math.trunc(quality * 255)) >>> 0;
-          width = Math.round(frameTime / MS_PER_FRAME_60FPS);
-        }
-        this.canvas.context.fillStyle = `#${fillColor.toString(16).padStart(8, "0")}`;
-        this.canvas.context.globalAlpha = 255;
-        this.canvas.context.fillRect(
-          currentX - width,
-          this.canvas.height,
-          width,
-          (frameTime / Math.max(100, maxFrameTime)) * -100,
-        );
-        currentX -= width;
-      }
-
-      this.canvas.context.beginPath();
-      this.canvas.context.strokeStyle = "#fff";
-      this.canvas.context.moveTo(0, this.canvas.height - MS_PER_FRAME_60FPS);
-      this.canvas.context.lineTo(this.canvas.width, this.canvas.height - MS_PER_FRAME_60FPS);
-      this.canvas.context.stroke();
-
-      const fpsString = `${Math.round(fpsFrame)}f ${fpsAll}∑ ${Math.round(fpsDelta)}δ`;
-      this.canvas.context.font = "13px monospace";
-      this.canvas.context.strokeStyle = "rgba( 255, 255, 255, 1)";
-      this.canvas.context.textAlign = "right";
-      this.canvas.context.textRendering = "geometricPrecision";
-      this.canvas.context.strokeText(fpsString, this.canvas.width - 3, this.canvas.height - 3);
-      this.canvas.context.fillStyle = "#000000";
-      this.canvas.context.fillText(fpsString, this.canvas.width - 3, this.canvas.height - 3);
+      this.canvas.renderFpsInfo(this.#frameTimes, frameTime, timeDelta);
     }
 
     this.canvas.render();

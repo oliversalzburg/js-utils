@@ -79,6 +79,7 @@ export interface CanvasSandboxExpectedOptions {
  * @group Graphics
  */
 export interface CanvasSandboxApplication<
+  TCanvas extends Canvas,
   TApplicationOptions extends CanvasSandboxExpectedOptions,
 > {
   /**
@@ -109,7 +110,7 @@ export interface CanvasSandboxApplication<
    * @param canvas - The canvas to use.
    * @param options - The new options to use.
    */
-  reconfigure(canvas: Canvas, options?: Partial<TApplicationOptions>): void;
+  reconfigure(canvas: TCanvas, options?: Partial<TApplicationOptions>): void;
 
   /**
    * Start the application.
@@ -206,7 +207,10 @@ export interface CanvasSandboxOptions {
  * the application in the sandbox will be constructed with.
  * @group Graphics
  */
-export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOptions> {
+export class CanvasSandbox<
+  TCanvas extends Canvas,
+  TApplicationOptions extends CanvasSandboxExpectedOptions,
+> {
   /**
    * The window the sandbox is running in.
    */
@@ -220,7 +224,7 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
   /**
    * The application running inside the sandbox.
    */
-  readonly application: CanvasSandboxApplication<TApplicationOptions>;
+  readonly application: CanvasSandboxApplication<TCanvas, TApplicationOptions>;
 
   /**
    * The canvas node that we're drawing into.
@@ -231,7 +235,7 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
    * Our convenience canvas wrapper, which we provide to the application
    * to render to.
    */
-  readonly canvas: Canvas;
+  readonly canvas: TCanvas;
 
   /**
    * The render loop we use to control frame rendering.
@@ -247,6 +251,8 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
    * Construct a new {@linkcode CanvasSandbox}.
    * @param window - The window we're running inside.
    * @param canvasNode - The canvas node we're drawing to.
+   * @param CanvasImpl - The canvas implementation you want to use in this sandbox.
+   * see {@linkcode Canvas2D} and {@linkcode Canvas3D}.
    * @param Application - The application that is going to run in the sandbox.
    * @param options - The options that the application should be constructed with.
    * @param sandboxOptions - The options for the sandbox itself.
@@ -254,23 +260,24 @@ export class CanvasSandbox<TApplicationOptions extends CanvasSandboxExpectedOpti
   constructor(
     window: Window,
     canvasNode: HTMLCanvasElement,
+    CanvasImpl: new (canvasNode: HTMLCanvasElement) => TCanvas,
     Application: new (
       /**
        * The canvas that the application will receive.
        */
-      canvas: Canvas,
+      canvas: TCanvas,
       /**
        * The options that will be passed to the application.
        */
       options: TApplicationOptions,
-    ) => CanvasSandboxApplication<TApplicationOptions>,
+    ) => CanvasSandboxApplication<TCanvas, TApplicationOptions>,
     options: TApplicationOptions,
     sandboxOptions?: Partial<CanvasSandboxOptions>,
   ) {
     this.window = window;
     this.document = window.document;
     this.canvasNode = canvasNode;
-    this.canvas = new Canvas(canvasNode);
+    this.canvas = new CanvasImpl(canvasNode);
 
     if (sandboxOptions?.injectDefaultCss ?? true) {
       this.injectDefaultCss();

@@ -1,5 +1,5 @@
-import { Matrix3 } from "./matrix3";
-import { Transformation } from "./transformation";
+import { Matrix3 } from "./matrix3.js";
+import { Transformation } from "./transformation.js";
 
 /**
  * A vector with 3 components, labeled: `X`, `Y`, `Z`.
