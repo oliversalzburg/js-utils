@@ -1,6 +1,6 @@
 import { TreeNode } from "../data/tree.js";
 import { InvalidOperationError } from "../errors/InvalidOperationError.js";
-import { indent } from "../string.js";
+import { hashCyrb53, indent } from "../string.js";
 import { BareLogger } from "./log.js";
 
 /**
@@ -19,6 +19,14 @@ export interface ReportEntry {
    */
   context: Record<string, unknown> | undefined;
 }
+
+/**
+ * Ensures an origin stays within reasonable display size.
+ * @param origin - The original log origin.
+ * @returns A shortened origin for display.
+ */
+export const makeLogOrigin = (origin: string): string =>
+  100 < origin.length ? hashCyrb53(origin) : origin;
 
 /**
  * A hierarchical background report/log.
@@ -76,7 +84,7 @@ export class Report extends TreeNode<Report> {
    * @param context - An arbitrary key-value object to store with the message.
    */
   log(message: string, context?: Record<string, unknown>) {
-    this.#getStoreEntry(this.origin)?.push({ message, context });
+    this.#getStoreEntry(makeLogOrigin(this.origin))?.push({ message, context });
   }
 
   /**

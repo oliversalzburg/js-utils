@@ -19,7 +19,7 @@ export const indent = (subject: string, depth = 0, prefix = "    "): string =>
  * @returns A hash of the string.
  * @group Strings
  */
-export const cyrb53 = (subject: string, seed = 0): string => {
+export const hashCyrb53 = (subject: string, seed = 0): string => {
   let h1 = 0xdeadbeef ^ seed,
     h2 = 0x41c6ce57 ^ seed;
   for (let i = 0, ch; i < subject.length; i++) {
