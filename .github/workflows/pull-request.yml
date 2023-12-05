@@ -80,18 +80,10 @@ jobs:
     steps:
       - name: Success
         if: ${{ !(contains(needs.*.result, 'failure')) }}
-        run: |
-          echo "${{ toJSON(needs) }}"
-          echo "${{ toJSON(needs.*) }}"
-          echo "${{ toJSON(needs.*.result) }}"
-          exit 0
+        run: exit 0
       - name: Failure
         if: ${{ contains(needs.*.result, 'failure') }}
-        run: |
-          echo "${{ toJSON(needs) }}"
-          echo "${{ toJSON(needs.*) }}"
-          echo "${{ toJSON(needs.*.result) }}"
-          exit 1
+        run: exit 1
   qa-successful-pr:
     runs-on: ubuntu-22.04
     needs:
@@ -101,15 +93,7 @@ jobs:
     steps:
       - name: Success
         if: ${{ !(contains(needs.*.result, 'failure')) }}
-        run: |
-          echo "${{ toJSON(needs) }}"
-          echo "${{ toJSON(needs.*) }}"
-          echo "${{ toJSON(needs.*.result) }}"
-          exit 0
+        run: exit 0
       - name: Failure
         if: ${{ contains(needs.*.result, 'failure') }}
-        run: |
-          echo "${{ toJSON(needs) }}"
-          echo "${{ toJSON(needs.*) }}"
-          echo "${{ toJSON(needs.*.result) }}"
-          exit 1
+        run: exit 1
