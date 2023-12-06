@@ -33,12 +33,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Lint ESLint
-        run: yarn lint:eslint
-      - name: Lint Prettier
-        run: yarn lint:prettier
-      - name: Lint TSC
-        run: yarn lint:tsc
+      - name: Lint
+        run: yarn lint
       - name: Build
         run: yarn build
       - name: Test
