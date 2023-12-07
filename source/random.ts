@@ -137,6 +137,15 @@ export class Random {
   }
 
   /**
+   * Creates a new Random instance, with a seed that is based of the seed
+   * of this Random instance.
+   * @returns A new random number generator.
+   */
+  nextRandom() {
+    return new Random(this.seed + 1);
+  }
+
+  /**
    * Returns a 2D simplex noise value for a given input coordinate.
    * @param x - The X input coordinate.
    * @param y - The Y input coordinate.
@@ -340,7 +349,11 @@ export class Random {
 
 /**
  * Returns a random value in a given range.
+ *
  * Uses the JS-internal `Math.random()`. Use {@linkcode Random} for a PRNG with more features.
+ *
+ * Note that this method returns floating point numbers, regardless of your inputs potentially
+ * being integers. If you require integers, ensure to truncate the resulting random value.
  * @param min - The lower bound.
  * @param max - The upper bound.
  * @returns A random value between the lower and upper bound.
