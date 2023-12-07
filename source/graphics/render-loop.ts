@@ -158,7 +158,10 @@ export class RenderLoop {
     const frameTime = new Date().getTime() - timestamp;
 
     if (this.options.drawFps) {
-      this.#frameTimes.push(frameTime);
+      const recordCount = this.#frameTimes.unshift(frameTime);
+      if (10000 < recordCount) {
+        this.#frameTimes.splice(5000, 5000);
+      }
     }
 
     this.previousTimestampDraw = timestamp;
