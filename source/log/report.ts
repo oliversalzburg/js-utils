@@ -24,6 +24,7 @@ export interface ReportEntry {
  * Ensures an origin stays within reasonable display size.
  * @param origin - The original log origin.
  * @returns A shortened origin for display.
+ * @group Logging
  */
 export const makeLogOrigin = (origin: string): string =>
   100 < origin.length ? hashCyrb53(origin) : origin;
