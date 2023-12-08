@@ -30,13 +30,22 @@ export const CANVAS_SANDBOX_DEFAULT_CSS = /* PURE */ css`
   }
 
   body {
+    display: block !important;
     transition: background-color 1s ease-in-out;
   }
   body.darkMode {
     background-color: #211f1f;
+
+    .credits a {
+      color: #a0a0a0;
+    }
   }
   body.lightMode {
     background-color: #ebdcdc;
+
+    .credits a {
+      color: #606060;
+    }
   }
 
   #main {
@@ -50,6 +59,17 @@ export const CANVAS_SANDBOX_DEFAULT_CSS = /* PURE */ css`
 
     filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
     transition: all 1s;
+  }
+
+  .credits {
+    display: block;
+    font-family: sans-serif;
+    font-size: 10pt;
+    color: #808080;
+    position: absolute;
+    top: 80%;
+    text-align: center;
+    width: 100%;
   }
 `;
 
