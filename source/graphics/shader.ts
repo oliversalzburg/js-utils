@@ -2,24 +2,34 @@ import { InvalidOperationError } from "../errors/InvalidOperationError.js";
 import { mustExist } from "../nil.js";
 
 /**
- * A template literal tag, that allows syntax highliters to treat the
- * wrapped code as GLSL.
+ * Provides the input as-is.
+ *
+ * This method exists only to make use of the template string tag in code,
+ * which allows us to use in-IDE support for GLSL, even if there is no build
+ * process to interpret the tag.
  * @param input - Should only be the source of a fragment shader.
  * @returns The fragment shader as-is.
  * @group Graphics
  * @group GLSL
  * @group WebGL
+ * @group Tags
+ * @group Strings
  */
 export const frag = (input: TemplateStringsArray): string => input.join();
 
 /**
- * A template literal tag, that allows syntax highliters to treat the
- * wrapped code as GLSL.
+ * Provides the input as-is.
+ *
+ * This method exists only to make use of the template string tag in code,
+ * which allows us to use in-IDE support for GLSL, even if there is no build
+ * process to interpret the tag.
  * @param input - Should only be the source of a vertex shader.
  * @returns The vertex shader as-is.
  * @group Graphics
  * @group GLSL
  * @group WebGL
+ * @group Tags
+ * @group Strings
  */
 export const vert = (input: TemplateStringsArray): string => input.join();
 

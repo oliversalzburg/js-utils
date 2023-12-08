@@ -7,13 +7,18 @@ import { RenderLoop } from "./render-loop.js";
 
 /**
  * Provides the input as-is.
- * This method exists only to make use of the `css` template string tag,
- * which allows us to use in-IDE support for CSS through the support for
+ *
+ * This method exists only to make use of the template string tag in code,
+ * which allows us to use in-IDE support for CSS, even if there is no build
+ * process to interpret the tag.
  * {@link https://lit.dev/docs/components/styles/ | Lit styles}.
  * @param input - The CSS code.
  * @returns The CSS code as-is.
+ * @group Strings
+ * @group Tags
+ * @group Graphics
  */
-const css = (input: TemplateStringsArray) => input.join("");
+export const css = (input: TemplateStringsArray): string => input.join("");
 
 /**
  * The CSS we inject into the document, if requested.
