@@ -268,6 +268,11 @@ export class CanvasSandbox<
   readonly renderLoop: RenderLoop;
 
   /**
+   * The options for this sandbox.
+   */
+  readonly sandboxOptions: Partial<CanvasSandboxOptions>;
+
+  /**
    * The handle that keeps track of debouncing of `resize` events.
    */
   #resizeDebounce: number | null = null;
@@ -303,6 +308,7 @@ export class CanvasSandbox<
     this.document = window.document;
     this.canvasNode = canvasNode;
     this.canvas = new CanvasImpl(canvasNode);
+    this.sandboxOptions = sandboxOptions ?? {};
 
     if (sandboxOptions?.injectDefaultCss ?? true) {
       this.injectDefaultCss();
@@ -348,7 +354,12 @@ export class CanvasSandbox<
    * Run the sandbox.
    */
   run() {
-    console.info("Sandbox: Starting application with these options.", this.application.options);
+    if (this.sandboxOptions.devMode) {
+      console.info(
+        "CanvasSandbox: Starting application with these options.",
+        this.application.options,
+      );
+    }
 
     this.application.start();
     // In case the application doesn't maintain this state itself.
@@ -370,7 +381,11 @@ export class CanvasSandbox<
         return;
       }
 
+      // Make canvas fullscreen.
       if (!this.document.fullscreenElement) {
+        if (this.sandboxOptions.devMode) {
+          console.info("CanvasSandbox: Canvas is entering fullscreen mode...");
+        }
         await this.canvasNode.requestFullscreen();
       }
     });
@@ -415,10 +430,14 @@ export class CanvasSandbox<
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     this.canvasNode.addEventListener("click", async (event: MouseEvent) => {
       if (this.document.fullscreenElement) {
+        if (this.sandboxOptions.devMode) {
+          console.info("CanvasSandbox: Exiting fullscreen mode...");
+        }
         await document.exitFullscreen();
         return;
       }
 
+      // Run the next variation of the application.
       nextPalette();
       this.#reconfigureApplication({
         seed: this.application.random.next().toString(),
@@ -443,16 +462,24 @@ export class CanvasSandbox<
 
     this.window.addEventListener("resize", event => {
       if (this.#resizeDebounce !== null) {
-        this.window.clearTimeout(this.#resizeDebounce);
+        return;
       }
 
       this.#resizeDebounce = this.window.setTimeout(() => {
-        this.application.reconfigure(this.canvas);
-        this.canvas.refreshCanvasNode();
-        this.application.start();
-        // In case the application doesn't maintain this state itself.
-        this.application.paused = false;
+        this.#resizeDebounce = null;
       }, 1000);
+
+      if (this.sandboxOptions.devMode) {
+        console.info(
+          `CanvasSandbox: Window resized (${this.window.innerWidth}x${this.window.innerHeight}x${this.window.devicePixelRatio}). Reconfiguring application...`,
+        );
+      }
+
+      this.application.reconfigure(this.canvas);
+      this.canvas.refreshCanvasNode();
+      this.application.start();
+      // In case the application doesn't maintain this state itself.
+      this.application.paused = false;
     });
   }
 
