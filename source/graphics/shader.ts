@@ -1,4 +1,4 @@
-import { InvalidOperationError } from "../errors/InvalidOperationError.js";
+import { InvalidOperationError } from "../error/InvalidOperationError.js";
 import { mustExist } from "../nil.js";
 
 /**

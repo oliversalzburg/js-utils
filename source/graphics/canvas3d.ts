@@ -1,4 +1,4 @@
-import { NotImplementedError } from "../errors/NotImplementedError.js";
+import { NotImplementedError } from "../error/NotImplementedError.js";
 import { mustExist } from "../nil.js";
 import { Canvas } from "./canvas.js";
 

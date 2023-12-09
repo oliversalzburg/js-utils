@@ -8,8 +8,8 @@ import {
   isError,
   unknownToError,
 } from "./error-serializer.js";
-import { InternalError } from "./errors/InternalError.js";
-import { InvalidArgumentError } from "./errors/InvalidArgumentError.js";
+import { InternalError } from "./error/InternalError.js";
+import { InvalidArgumentError } from "./error/InvalidArgumentError.js";
 
 function generateDefaultError() {
   try {

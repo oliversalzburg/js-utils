@@ -1,5 +1,5 @@
 import { ConstructorOf } from "../core.js";
-import { InvalidOperationError } from "../errors/InvalidOperationError.js";
+import { InvalidOperationError } from "../error/InvalidOperationError.js";
 import { UnexpectedNilError } from "../nil.js";
 
 /**

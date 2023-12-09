@@ -1,10 +1,11 @@
-import { AbstractError } from "./errors/AbstractError.js";
-import { InternalError } from "./errors/InternalError.js";
-import { UnknownError } from "./errors/UnknownError.js";
+import { AbstractError } from "./error/AbstractError.js";
+import { InternalError } from "./error/InternalError.js";
+import { UnknownError } from "./error/UnknownError.js";
 
 /**
  * The shape of an {@linkcode !Error} instance, after it has been serialized into a simple hash.
  * @group Errors
+ * @group Types
  */
 export type SerializedError = Record<string, Record<string, string> | string | undefined>;
 
