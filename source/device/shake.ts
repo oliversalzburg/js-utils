@@ -144,14 +144,21 @@ export class Shake extends EventTarget {
    */
   async approve(): Promise<boolean> {
     if (typeof this.#approved === "undefined") {
-      if (!("DeviceMotionEvent" in window)) return (this.#approved = false);
+      if (!("DeviceMotionEvent" in window)) {
+        this.#approved = false;
+        return false;
+      }
+
       try {
         type PermissionRequestFn = () => Promise<PermissionState>;
         type DME = typeof DeviceMotionEvent & { requestPermission: PermissionRequestFn };
+
         if (typeof (DeviceMotionEvent as DME).requestPermission === "function") {
           const permissionState = await (DeviceMotionEvent as DME).requestPermission();
           this.#approved = permissionState === "granted";
-        } else this.#approved = true;
+        } else {
+          this.#approved = true;
+        }
       } catch {
         this.#approved = false;
       }

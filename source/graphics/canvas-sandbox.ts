@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { Shake } from "../device/shake.js";
 import { getDocumentElementTypeById } from "../dom/core.js";
 import { Random } from "../random.js";
 import { Canvas } from "./canvas.js";
@@ -268,6 +269,11 @@ export class CanvasSandbox<
   readonly renderLoop: RenderLoop;
 
   /**
+   * Our handler for device shaking.
+   */
+  readonly shakeHandler: Shake;
+
+  /**
    * The options for this sandbox.
    */
   readonly sandboxOptions: Partial<CanvasSandboxOptions>;
@@ -319,6 +325,7 @@ export class CanvasSandbox<
     this.renderLoop = new RenderLoop(applicationOnDraw, this.canvas, {
       drawFps: sandboxOptions?.devMode,
     });
+    this.shakeHandler = new Shake();
 
     this.#hookWindow();
     this.#hookBody();
@@ -450,6 +457,17 @@ export class CanvasSandbox<
    * Create event listeners on the window we're running in.
    */
   #hookWindow() {
+    this.shakeHandler
+      .start()
+      .then(() => {
+        this.shakeHandler.addEventListener("shake", () => {
+          console.info("CanvasSandbox: Shake detected. Reconfiguring application...");
+          this.application.reconfigure(this.canvas);
+          this.application.start();
+        });
+      })
+      .catch(console.error);
+
     this.window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", ({ matches }) => {
