@@ -389,7 +389,7 @@ export class CanvasSandbox<
       }
 
       // Make canvas fullscreen.
-      if (!this.document.fullscreenElement) {
+      if (!this.document.fullscreenElement && event.target === this.document.body) {
         if (this.sandboxOptions.devMode) {
           console.info("CanvasSandbox: Canvas is entering fullscreen mode...");
         }
