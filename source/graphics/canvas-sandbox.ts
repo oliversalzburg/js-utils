@@ -47,7 +47,7 @@ export const CANVAS_SANDBOX_DEFAULT_CSS = /* PURE */ css`
     }
   }
   body.lightMode {
-    background-color: #ebdcdc;
+    background-color: #e6e6e6;
 
     .credits a {
       color: #606060;
