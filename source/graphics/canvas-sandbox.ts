@@ -75,6 +75,7 @@ export const CANVAS_SANDBOX_DEFAULT_CSS = /* PURE */ css`
     position: absolute;
     top: 80%;
     text-align: center;
+    user-select: none;
     width: 100%;
   }
 `;
