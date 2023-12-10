@@ -1,4 +1,5 @@
 export * from "./core.js";
+export * from "./easing.js";
 export * from "./euler.js";
 export * from "./matrix3.js";
 export * from "./quaternion.js";
