@@ -42,7 +42,7 @@
     "chai": "4.3.10",
     "chai-as-promised": "7.1.1",
     "eslint": "8.55.0",
-    "eslint-plugin-jsdoc": "46.9.0",
+    "eslint-plugin-jsdoc": "46.9.1",
     "eslint-plugin-tsdoc": "0.2.17",
     "lint-staged": "15.2.0",
     "mocha": "10.2.0",
