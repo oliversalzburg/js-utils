@@ -55,13 +55,15 @@ export const CANVAS_SANDBOX_DEFAULT_CSS = /* PURE */ css`
   }
 
   #main {
-    display: block;
+    display: flex;
     position: absolute;
     margin: auto;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    justify-content: center;
+    align-items: center;
 
     filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
     transition: all 1s;
@@ -96,7 +98,7 @@ export interface CanvasSandboxExpectedOptions {
   /**
    * The seed for the PRNG.
    */
-  seed: string;
+  seed: number;
 }
 
 /**
@@ -403,12 +405,8 @@ export class CanvasSandbox<
         case 13:
           // Enter
           nextPalette();
-          this.#reconfigureApplication({
-            seed: this.application.random.next().toString(),
-          } as Partial<TApplicationOptions>);
-          this.application.reconfigure(this.canvas, {
-            seed: this.application.random.next().toString(),
-          } as Partial<TApplicationOptions>);
+          this.#reconfigureApplication();
+          this.application.reconfigure(this.canvas);
           this.application.start();
           break;
 
@@ -447,9 +445,7 @@ export class CanvasSandbox<
 
       // Run the next variation of the application.
       nextPalette();
-      this.#reconfigureApplication({
-        seed: this.application.random.next().toString(),
-      } as Partial<TApplicationOptions>);
+      this.#reconfigureApplication();
       event.preventDefault();
     });
   }
