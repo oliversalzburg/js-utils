@@ -10,16 +10,16 @@
  */
 export abstract class Canvas {
   /**
-   * The {@linkcode !HTMLCanvasElement} we're interacting with in the DOM.
+   * The canvas element we're interacting with.
    */
-  readonly canvasDom: HTMLCanvasElement;
+  readonly canvasElement: HTMLCanvasElement | OffscreenCanvas;
 
   /**
    * Retrieves the width of the canvas.
    * @returns The width of the canvas.
    */
   get width(): number {
-    return this.canvasDom.width;
+    return this.canvasElement.width;
   }
 
   /**
@@ -27,15 +27,15 @@ export abstract class Canvas {
    * @returns The height of the canvas.
    */
   get height(): number {
-    return this.canvasDom.height;
+    return this.canvasElement.height;
   }
 
   /**
    * Constructs a new canvas helper.
-   * @param canvas - The canvas node in the DOM we want to wrap.
+   * @param canvas - The canvas node to wrap.
    */
-  constructor(canvas: HTMLCanvasElement) {
-    this.canvasDom = canvas;
+  constructor(canvas: HTMLCanvasElement | OffscreenCanvas) {
+    this.canvasElement = canvas;
   }
 
   /**

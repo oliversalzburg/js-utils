@@ -44,7 +44,7 @@ export class Canvas3D extends Canvas {
     this.options = options;
 
     this.#context = mustExist(
-      this.canvasDom.getContext("webgl2", {
+      this.canvasElement.getContext("webgl2", {
         alpha: false,
       }),
       "Unable to create rendering context for offscreen canvas.",
@@ -56,7 +56,7 @@ export class Canvas3D extends Canvas {
    */
   refreshCanvasNode() {
     this.#context = mustExist(
-      this.canvasDom.getContext("webgl2", {
+      this.canvasElement.getContext("webgl2", {
         alpha: false,
         desynchronized: true,
       }),

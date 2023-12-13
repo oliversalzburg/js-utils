@@ -1,6 +1,7 @@
 import { InvalidOperationError } from "../error/InvalidOperationError.js";
 import { mustExist } from "../nil.js";
 import { Canvas } from "./canvas.js";
+import { Canvas2DHeadless } from "./canvas2d-headless.js";
 import {
   blend,
   blendAdditive,
@@ -82,7 +83,7 @@ export class Canvas2D extends Canvas {
     this.options = options;
 
     this.#canvasDomContext = mustExist(
-      this.canvasDom.getContext("bitmaprenderer", {
+      (this.canvasElement as HTMLCanvasElement).getContext("bitmaprenderer", {
         alpha: false,
       }),
       "Unable to create rendering context for DOM canvas.",
@@ -281,7 +282,7 @@ export class Canvas2D extends Canvas {
 }
 
 /**
- * Linearly blends a new pixel with an existing color value in a {@linkcode Canvas2D}.
+ * Linearly blends a new pixel with an existing color value in a canvas.
  *
  * As this method is often called many times in render loops, only bounds
  * checking is applied to the given coordinates.
@@ -292,7 +293,7 @@ export class Canvas2D extends Canvas {
  *
  * The `alpha` value is expected to be an integer in the range from `0` to `255`.
  * `0` meaning fully transparent, `255` meaning fully opaque.
- * @param canvas - The {@linkcode Canvas2D} to interact with.
+ * @param canvas - The canvas to interact with.
  * @param x - The X coordinate at which to place the pixel.
  * @param y - The Y coordinate at which to place the pixel.
  * @param color - The color of the pixel.
@@ -300,13 +301,13 @@ export class Canvas2D extends Canvas {
  * @group Graphics
  */
 export const putPixel32 = (
-  canvas: Canvas2D,
+  canvas: Canvas2D | Canvas2DHeadless,
   x: number,
   y: number,
   color: number,
   alpha: number,
 ): void => {
-  if (canvas.width < x || x < 0 || canvas.height < y || y < 0) {
+  if (canvas.width <= x || x < 0 || canvas.height <= y || y < 0) {
     return;
   }
 
@@ -316,7 +317,7 @@ export const putPixel32 = (
 };
 
 /**
- * Additively blends a new pixel with an existing color value in a {@linkcode Canvas2D}.
+ * Additively blends a new pixel with an existing color value in a canvas.
  *
  * As this method is often called many times in render loops, only bounds
  * checking is applied to the given coordinates.
@@ -327,7 +328,7 @@ export const putPixel32 = (
  *
  * The `alpha` value is expected to be an integer in the range from `0` to `255`.
  * `0` meaning fully transparent, `255` meaning fully opaque.
- * @param canvas - The {@linkcode Canvas2D} to interact with.
+ * @param canvas - The canvas to interact with.
  * @param x - The X coordinate at which to place the pixel.
  * @param y - The Y coordinate at which to place the pixel.
  * @param color - The color of the pixel.
@@ -335,13 +336,13 @@ export const putPixel32 = (
  * @group Graphics
  */
 export const putPixel32Add = (
-  canvas: Canvas2D,
+  canvas: Canvas2D | Canvas2DHeadless,
   x: number,
   y: number,
   color: number,
   alpha: number,
 ): void => {
-  if (canvas.width < x || x < 0 || canvas.height < y || y < 0) {
+  if (canvas.width <= x || x < 0 || canvas.height < y || y < 0) {
     return;
   }
 
@@ -351,7 +352,7 @@ export const putPixel32Add = (
 };
 
 /**
- * Subtractively blends a new pixel with an existing color value in a {@linkcode Canvas2D}.
+ * Subtractively blends a new pixel with an existing color value in a canvas.
  *
  * As this method is often called many times in render loops, only bounds
  * checking is applied to the given coordinates.
@@ -362,7 +363,7 @@ export const putPixel32Add = (
  *
  * The `alpha` value is expected to be an integer in the range from `0` to `255`.
  * `0` meaning fully transparent, `255` meaning fully opaque.
- * @param canvas - The {@linkcode Canvas2D} to interact with.
+ * @param canvas - The canvas to interact with.
  * @param x - The X coordinate at which to place the pixel.
  * @param y - The Y coordinate at which to place the pixel.
  * @param color - The color of the pixel.
@@ -370,13 +371,13 @@ export const putPixel32Add = (
  * @group Graphics
  */
 export const putPixel32Sub = (
-  canvas: Canvas2D,
+  canvas: Canvas2D | Canvas2DHeadless,
   x: number,
   y: number,
   color: number,
   alpha: number,
 ): void => {
-  if (canvas.width < x || x < 0 || canvas.height < y || y < 0) {
+  if (canvas.width <= x || x < 0 || canvas.height <= y || y < 0) {
     return;
   }
 
@@ -386,9 +387,9 @@ export const putPixel32Sub = (
 };
 
 /**
- * Linearly blends a new pixel with an existing color value in a {@linkcode Canvas2D}.
+ * Linearly blends a new pixel with an existing color value in a canvas.
  * Compared to {@linkcode putPixel32}, this function supports sub-pixel placement, but is dramatically slower.
- * @param canvas - The {@linkcode Canvas2D} to interact with.
+ * @param canvas - The canvas to interact with.
  * @param x - The X coordinate at which to place the pixel.
  * @param y - The Y coordinate at which to place the pixel.
  * @param color - The color of the pixel.
@@ -396,13 +397,13 @@ export const putPixel32Sub = (
  * @group Graphics
  */
 export const putSubPixel32 = (
-  canvas: Canvas2D,
+  canvas: Canvas2D | Canvas2DHeadless,
   x: number,
   y: number,
   color: number,
   alpha: number,
 ): void => {
-  if (canvas.width < x || x < 0 || canvas.height < y || y < 0) {
+  if (canvas.width <= x || x < 0 || canvas.height <= y || y < 0) {
     return;
   }
 
