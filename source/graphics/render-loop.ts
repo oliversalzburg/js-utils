@@ -115,12 +115,12 @@ export class RenderLoop {
    */
   block() {
     if (this.frameRequestId !== null) {
-      window.cancelAnimationFrame(this.frameRequestId);
+      cancelAnimationFrame(this.frameRequestId);
       this.frameRequestId = null;
     }
 
     if (this.drawTimeout !== null) {
-      window.clearTimeout(this.drawTimeout);
+      clearTimeout(this.drawTimeout);
       this.drawTimeout = null;
     }
   }
@@ -129,7 +129,7 @@ export class RenderLoop {
    * Start the render loop.
    */
   unblock() {
-    this.frameRequestId = window.requestAnimationFrame(this.#boundDrawFrame);
+    this.frameRequestId = requestAnimationFrame(this.#boundDrawFrame);
   }
 
   /**
