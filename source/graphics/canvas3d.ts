@@ -43,25 +43,27 @@ export class Canvas3D extends Canvas {
 
     this.options = options;
 
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     this.#context = mustExist(
       this.canvasElement.getContext("webgl2", {
         alpha: false,
       }),
       "Unable to create rendering context for offscreen canvas.",
-    );
+    ) as WebGL2RenderingContext;
   }
 
   /**
    * Recreate internal buffers in reaction to a change in our target {@linkcode !HTMLCanvasElement}.
    */
   refreshCanvasNode() {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     this.#context = mustExist(
       this.canvasElement.getContext("webgl2", {
         alpha: false,
         desynchronized: true,
       }),
       "Unable to create rendering context for offscreen canvas.",
-    );
+    ) as WebGL2RenderingContext;
   }
 
   /**
