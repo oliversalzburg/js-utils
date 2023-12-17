@@ -75,7 +75,8 @@ export interface CanvasWorkerSceneFinishMessage {
 export type CanvasWorkerMessage<TApplicationOptions extends CanvasSandboxExpectedOptions> =
   | CanvasWorkerMessageReconfigure<TApplicationOptions>
   | CanvasWorkerMessageStart<TApplicationOptions>
-  | CanvasWorkerSceneFinishMessage;
+  | CanvasWorkerSceneFinishMessage
+  | { type: string };
 
 /**
  * The canvas worker handles a web worker instance in the canvas sandbox host.
@@ -135,11 +136,11 @@ export class CanvasWorker<
     this.workerInstance = new Worker(source, {
       type: "module",
     });
+
+    // Translate messages to events.
     this.workerInstance.onmessage = (
       message: MessageEvent<CanvasWorkerMessage<TApplicationOptions>>,
-    ) => {
-      this.dispatchEvent(new CustomEvent(message.data.type));
-    };
+    ) => this.dispatchEvent(new CustomEvent(message.data.type));
   }
 
   /**
@@ -233,18 +234,23 @@ export class CanvasWorkerInstance<
     this.#Kernel = Kernel;
 
     self.onmessage = (message: MessageEvent<CanvasWorkerMessage<TApplicationOptions>>) => {
+      const event = new CustomEvent(message.data.type);
+      this.dispatchEvent(event);
+      if (event.defaultPrevented) {
+        return;
+      }
+
       if (message.data.type === "start") {
-        const startMessage = message.data;
+        const startMessage = message.data as CanvasWorkerMessageStart<TApplicationOptions>;
         this.start(startMessage.options);
       } else if (message.data.type === "reconfigure") {
-        const reconfigureMessage = message.data;
+        const reconfigureMessage =
+          message.data as CanvasWorkerMessageReconfigure<TApplicationOptions>;
         this.reconfigure(
           reconfigureMessage.id,
           reconfigureMessage.canvas,
           reconfigureMessage.options,
         );
-      } else {
-        this.dispatchEvent(new CustomEvent(message.data.type));
       }
     };
   }
