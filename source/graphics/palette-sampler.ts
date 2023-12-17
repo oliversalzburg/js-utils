@@ -11,7 +11,10 @@ export const renderPaletteSample = (
   palette: Palette,
   canvas: HTMLCanvasElement | OffscreenCanvas,
 ) => {
-  const context = mustExist(canvas.getContext("2d"));
+  const context = mustExist(
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+    canvas.getContext("2d") as CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D | null,
+  );
   context.globalAlpha = 255;
 
   const step = canvas.width / palette.colors.length;
@@ -23,5 +26,5 @@ export const renderPaletteSample = (
 
   context.font = "13px monospace";
   context.fillStyle = "#ffffffff";
-  context.fillText(paletteName(palette.paletteIndex), 5, canvas.height * 0.7);
+  context.fillText(paletteName(palette.paletteIndex), 5, canvas.height * 0.8);
 };

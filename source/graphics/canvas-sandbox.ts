@@ -3,7 +3,6 @@ import { Shake } from "../device/shake.js";
 import { getDocumentElementTypeById } from "../dom/core.js";
 import { Random } from "../random.js";
 import { Canvas } from "./canvas.js";
-import { nextPalette } from "./core.js";
 import { RenderLoop } from "./render-loop.js";
 
 /**
@@ -64,6 +63,7 @@ export const CANVAS_SANDBOX_DEFAULT_CSS = /* PURE */ css`
     bottom: 0;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 
     filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
     transition: all 1s;
@@ -99,6 +99,32 @@ export interface CanvasSandboxExpectedOptions {
    * The seed for the PRNG.
    */
   seed: number;
+
+  /**
+   * The part of the canvas that the targetted render kernel will handle.
+   * This is ignored, unless you use multi-process rendering.
+   */
+  viewport: {
+    /**
+     * Start of the viewport in fractional world-space.
+     */
+    x: number;
+
+    /**
+     * Start of the viewport in fractional world-space.
+     */
+    y: number;
+
+    /**
+     * Width of the viewport in fractional world-space.
+     */
+    w: number;
+
+    /**
+     * Height of the viewport in fractional world-space.
+     */
+    h: number;
+  };
 }
 
 /**
@@ -144,7 +170,7 @@ export interface CanvasSandboxApplication<
   /**
    * Start the application.
    */
-  start(): void;
+  start(options?: Partial<TApplicationOptions>): void;
 }
 
 /**
@@ -404,7 +430,6 @@ export class CanvasSandbox<
       switch (event.keyCode) {
         case 13:
           // Enter
-          nextPalette();
           this.#reconfigureApplication();
           this.application.reconfigure(this.canvas);
           this.application.start();
@@ -443,8 +468,6 @@ export class CanvasSandbox<
         return;
       }
 
-      // Run the next variation of the application.
-      nextPalette();
       this.#reconfigureApplication();
       event.preventDefault();
     });

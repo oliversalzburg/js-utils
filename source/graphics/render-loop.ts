@@ -62,12 +62,6 @@ export class RenderLoop {
   private previousTimestampPresent: number;
 
   /**
-   * Our `#drawFrame` function bound to this classes
-   * for easier invokation through external callers.
-   */
-  readonly #boundDrawFrame: () => void;
-
-  /**
    * The ID of our {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame requestAnimationFrame} request.
    */
   private frameRequestId: number | null = null;
@@ -107,7 +101,6 @@ export class RenderLoop {
     this.renderLoop = renderLoop;
     this.previousTimestampDraw = new Date().getTime();
     this.previousTimestampPresent = this.previousTimestampDraw;
-    this.#boundDrawFrame = this.#drawFrame.bind(this);
   }
 
   /**
@@ -129,7 +122,11 @@ export class RenderLoop {
    * Start the render loop.
    */
   unblock() {
-    this.frameRequestId = requestAnimationFrame(this.#boundDrawFrame);
+    if (this.frameRequestId !== null) {
+      return;
+    }
+
+    this.frameRequestId = requestAnimationFrame(this.#drawFrame);
   }
 
   /**
@@ -141,10 +138,8 @@ export class RenderLoop {
   /**
    * Draws a new frame to the offscreen buffer.
    */
-  #drawFrame(): void {
-    if (this.frameRequestId === null) {
-      return;
-    }
+  #drawFrame = () => {
+    this.frameRequestId = null;
 
     const timestamp = new Date().getTime();
     const timeDelta = timestamp - this.previousTimestampDraw;
@@ -178,5 +173,5 @@ export class RenderLoop {
 
     this.previousTimestampPresent = timestamp;
     ++this.#frameCounter;
-  }
+  };
 }

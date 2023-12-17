@@ -10,7 +10,11 @@ export default {
     GitHub: "https://github.com/oliversalzburg/js-utils",
   },
   out: "./_site",
-  plugin: ["typedoc-plugin-extras", "typedoc-plugin-mdn-links"],
+  plugin: [
+    "@droppedcode/typedoc-plugin-copy-assets",
+    "typedoc-plugin-extras",
+    "typedoc-plugin-mdn-links",
+  ],
   readme: "./README.md",
   tsconfig: "./tsconfig.json",
   validation: {

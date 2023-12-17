@@ -47,6 +47,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@droppedcode/typedoc-plugin-copy-assets@npm:1.0.10":
+  version: 1.0.10
+  resolution: "@droppedcode/typedoc-plugin-copy-assets@npm:1.0.10"
+  peerDependencies:
+    typedoc: ^0.25.2
+  checksum: e6fb34c7d83deb0ac7e10339c6525d063b1fc35923c3488cbf2dc31c2bed847cf054be46d1efa93d982c814f3377e02ea12c162e4c7ecc5920ec140895f5f06a
+  languageName: node
+  linkType: hard
+
 "@es-joy/jsdoccomment@npm:~0.41.0":
   version: 0.41.0
   resolution: "@es-joy/jsdoccomment@npm:0.41.0"
@@ -242,6 +251,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@oliversalzburg/js-utils@workspace:."
   dependencies:
+    "@droppedcode/typedoc-plugin-copy-assets": "npm:1.0.10"
     "@types/chai": "npm:4.3.11"
     "@types/chai-as-promised": "npm:7.1.8"
     "@types/eslint": "npm:8.44.9"

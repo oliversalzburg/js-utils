@@ -329,18 +329,69 @@ export const PALETTES = [
  * @group Graphics
  */
 export const NamedPalettes = {
+  /**
+   * ![Seaside colors](../../public/palette-seaside.png)
+   */
   Seaside: 0,
+
+  /**
+   * ![Midnight colors](../../public/palette-midnight.png)
+   */
   Midnight: 1,
+
+  /**
+   * ![Frog pond colors](../../public/palette-frog-pond.png)
+   */
   FrogPond: 2,
+
+  /**
+   * ![Terminator colors](../../public/palette-terminator.png)
+   */
   Terminator: 3,
+
+  /**
+   * ![Autumn lake colors](../../public/palette-autumn-lake.png)
+   */
   AutumnLake: 4,
+
+  /**
+   * ![Camouflage colors](../../public/palette-camouflage.png)
+   */
   Camouflage: 5,
+
+  /**
+   * ![Spring colors](../../public/palette-spring.png)
+   */
   Spring: 6,
+
+  /**
+   * ![Plight colors](../../public/palette-plight.png)
+   */
   Plight: 7,
+
+  /**
+   * ![Sunflower field colors](../../public/palette-sunflower-field.png)
+   */
   SunflowerField: 8,
+
+  /**
+   * ![Lillypads colors](../../public/palette-lillypads.png)
+   */
   Lillypads: 9,
+
+  /**
+   * ![Terra colors](../../public/palette-terra.png)
+   */
   Terra: 10,
+
+  /**
+   * ![Tundra colors](../../public/palette-tundra.png)
+   */
   Tundra: 11,
+
+  /**
+   * ![Riverside colors](../../public/palette-riverside.png)
+   */
   Riverside: 12,
 };
 
