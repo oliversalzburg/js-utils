@@ -94,6 +94,7 @@ export class CanvasWorker<
 
   /**
    * The canvas element that this worker should handle.
+   * This is purely for informational purposes on the host side.
    */
   canvas: HTMLCanvasElement | undefined;
 
@@ -266,18 +267,18 @@ export class CanvasWorkerInstance<
   /**
    * Reconfigure the worker.
    * @param id - New ID for this worker.
-   * @param canvas - New canvas to render to.
+   * @param offscreenCanvas - New canvas to render to.
    * @param options - New application options.
    */
-  reconfigure(id: string, canvas: OffscreenCanvas, options: TApplicationOptions): void {
+  reconfigure(id: string, offscreenCanvas: OffscreenCanvas, options: TApplicationOptions): void {
     this.renderLoop?.block();
     this.id = id;
-    this.offscreenCanvas = canvas;
+    this.offscreenCanvas = offscreenCanvas;
     this.offscreenContext = mustExist(this.offscreenCanvas.getContext("2d"));
     this.canvas = new Canvas2DHeadless(this.offscreenCanvas, this.offscreenContext) as TCanvas;
     this.renderLoop = new RenderLoop(this.render, this.canvas);
     if (isNil(this.renderKernel)) {
-      this.renderKernel = new this.#Kernel(this, canvas, options);
+      this.renderKernel = new this.#Kernel(this, this.canvas, options);
     } else {
       this.renderKernel.reconfigure(this.canvas, options);
     }
