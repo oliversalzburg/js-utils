@@ -9,3 +9,5 @@ A collection of random utilities for JS/TS development.
 -   Tree-shaking in mind. Subpath-imports fully supported and recommended.
 
 -   No runtime dependencies.
+
+-   All runtime code is licensed under MIT, or fully compatible licenses.

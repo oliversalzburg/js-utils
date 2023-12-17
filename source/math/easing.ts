@@ -4,9 +4,7 @@
  * Calculates an easing multiplier for: Quad In
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInQuad = (position: number): number => {
   return Math.pow(position, 2);
@@ -16,9 +14,7 @@ export const easeInQuad = (position: number): number => {
  * Calculates an easing multiplier for: Quad Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeOutQuad = (position: number): number => {
   return -(Math.pow(position - 1, 2) - 1);
@@ -28,9 +24,7 @@ export const easeOutQuad = (position: number): number => {
  * Calculates an easing multiplier for: Quad In+Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInOutQuad = (position: number): number => {
   if ((position /= 0.5) < 1) {
@@ -43,9 +37,7 @@ export const easeInOutQuad = (position: number): number => {
  * Calculates an easing multiplier for: Cubic In
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInCubic = (position: number): number => {
   return Math.pow(position, 3);
@@ -55,9 +47,7 @@ export const easeInCubic = (position: number): number => {
  * Calculates an easing multiplier for: Cubic Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeOutCubic = (position: number): number => {
   return Math.pow(position - 1, 3) + 1;
@@ -67,9 +57,7 @@ export const easeOutCubic = (position: number): number => {
  * Calculates an easing multiplier for: Cubic In+Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInOutCubic = (position: number): number => {
   if ((position /= 0.5) < 1) return 0.5 * Math.pow(position, 3);
@@ -80,9 +68,7 @@ export const easeInOutCubic = (position: number): number => {
  * Calculates an easing multiplier for: Quart In
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInQuart = (position: number): number => {
   return Math.pow(position, 4);
@@ -92,9 +78,7 @@ export const easeInQuart = (position: number): number => {
  * Calculates an easing multiplier for: Quad Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeOutQuart = (position: number): number => {
   return -(Math.pow(position - 1, 4) - 1);
@@ -104,9 +88,7 @@ export const easeOutQuart = (position: number): number => {
  * Calculates an easing multiplier for: Quart In+Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInOutQuart = (position: number): number => {
   if ((position /= 0.5) < 1) return 0.5 * Math.pow(position, 4);
@@ -117,9 +99,7 @@ export const easeInOutQuart = (position: number): number => {
  * Calculates an easing multiplier for: Quint In
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInQuint = (position: number): number => {
   return Math.pow(position, 5);
@@ -129,9 +109,7 @@ export const easeInQuint = (position: number): number => {
  * Calculates an easing multiplier for: Quint Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeOutQuint = (position: number): number => {
   return Math.pow(position - 1, 5) + 1;
@@ -141,9 +119,7 @@ export const easeOutQuint = (position: number): number => {
  * Calculates an easing multiplier for: Quint In+Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInOutQuint = (position: number): number => {
   if ((position /= 0.5) < 1) return 0.5 * Math.pow(position, 5);
@@ -154,9 +130,7 @@ export const easeInOutQuint = (position: number): number => {
  * Calculates an easing multiplier for: Sine In
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInSine = (position: number): number => {
   return -Math.cos(position * (Math.PI / 2)) + 1;
@@ -166,9 +140,7 @@ export const easeInSine = (position: number): number => {
  * Calculates an easing multiplier for: Sine Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeOutSine = (position: number): number => {
   return Math.sin(position * (Math.PI / 2));
@@ -178,9 +150,7 @@ export const easeOutSine = (position: number): number => {
  * Calculates an easing multiplier for: Sine In+Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInOutSine = (position: number): number => {
   return -0.5 * (Math.cos(Math.PI * position) - 1);
@@ -190,9 +160,7 @@ export const easeInOutSine = (position: number): number => {
  * Calculates an easing multiplier for: Expo In
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInExpo = (position: number): number => {
   return position === 0 ? 0 : Math.pow(2, 10 * (position - 1));
@@ -202,9 +170,7 @@ export const easeInExpo = (position: number): number => {
  * Calculates an easing multiplier for: Expo Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeOutExpo = (position: number): number => {
   return position === 1 ? 1 : -Math.pow(2, -10 * position) + 1;
@@ -214,9 +180,7 @@ export const easeOutExpo = (position: number): number => {
  * Calculates an easing multiplier for: Expo In+Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInOutExpo = (position: number): number => {
   if (position === 0) return 0;
@@ -229,9 +193,7 @@ export const easeInOutExpo = (position: number): number => {
  * Calculates an easing multiplier for: Circ In
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInCirc = (position: number): number => {
   return -(Math.sqrt(1 - position * position) - 1);
@@ -241,9 +203,7 @@ export const easeInCirc = (position: number): number => {
  * Calculates an easing multiplier for: Circ Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeOutCirc = (position: number): number => {
   return Math.sqrt(1 - Math.pow(position - 1, 2));
@@ -253,9 +213,7 @@ export const easeOutCirc = (position: number): number => {
  * Calculates an easing multiplier for: Circ In+Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInOutCirc = (position: number): number => {
   if ((position /= 0.5) < 1) return -0.5 * (Math.sqrt(1 - position * position) - 1);
@@ -266,9 +224,7 @@ export const easeInOutCirc = (position: number): number => {
  * Calculates an easing multiplier for: Bounce Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeOutBounce = (position: number): number => {
   if (position < 1 / 2.75) {
@@ -285,9 +241,7 @@ export const easeOutBounce = (position: number): number => {
  * Calculates an easing multiplier for: Back In
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInBack = (position: number): number => {
   const s = 1.70158;
@@ -298,9 +252,7 @@ export const easeInBack = (position: number): number => {
  * Calculates an easing multiplier for: Back Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeOutBack = (position: number): number => {
   const s = 1.70158;
@@ -311,9 +263,7 @@ export const easeOutBack = (position: number): number => {
  * Calculates an easing multiplier for: Back In+Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeInOutBack = (position: number): number => {
   let s = 1.70158;
@@ -327,9 +277,7 @@ export const easeInOutBack = (position: number): number => {
  * Calculates an easing multiplier for: Elastic
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeElastic = (position: number): number => {
   return -1 * Math.pow(4, -8 * position) * Math.sin(((position * 6 - 1) * (2 * Math.PI)) / 2) + 1;
@@ -339,9 +287,7 @@ export const easeElastic = (position: number): number => {
  * Calculates an easing multiplier for: Swing In+Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const swingInOut = (position: number): number => {
   let s = 1.70158;
@@ -354,9 +300,7 @@ export const swingInOut = (position: number): number => {
  * Calculates an easing multiplier for: Swing In
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeSwingIn = (position: number): number => {
   const s = 1.70158;
@@ -367,9 +311,7 @@ export const easeSwingIn = (position: number): number => {
  * Calculates an easing multiplier for: Swing Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeSwingOut = (position: number): number => {
   const s = 1.70158;
@@ -380,9 +322,7 @@ export const easeSwingOut = (position: number): number => {
  * Calculates an easing multiplier for: Bounce
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeBounce = (position: number): number => {
   if (position < 1 / 2.75) {
@@ -399,9 +339,7 @@ export const easeBounce = (position: number): number => {
  * Calculates an easing multiplier for: Bounce Past
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeBouncePast = (position: number): number => {
   if (position < 1 / 2.75) {
@@ -418,9 +356,7 @@ export const easeBouncePast = (position: number): number => {
  * Calculates an easing multiplier for: Simple In+Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeFromTo = (position: number): number => {
   if ((position /= 0.5) < 1) {
@@ -433,9 +369,7 @@ export const easeFromTo = (position: number): number => {
  * Calculates an easing multiplier for: Simple In
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeFrom = (position: number): number => {
   return Math.pow(position, 4);
@@ -445,9 +379,7 @@ export const easeFrom = (position: number): number => {
  * Calculates an easing multiplier for: Simple Out
  * @param position - The current position between start and end (from `0` to `1`)
  * @returns The easing multiplier for the position.
- * @group Math
  * @group Easing
- * @group Animation
  */
 export const easeTo = (position: number): number => {
   return Math.pow(position, 0.25);

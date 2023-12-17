@@ -8,6 +8,7 @@ import { RenderLoop } from "./render-loop.js";
 
 /**
  * Sent from the host when a worker should reconfigure itself.
+ * @group Graphics
  */
 export interface CanvasWorkerMessageReconfigure<
   TApplicationOptions extends CanvasSandboxExpectedOptions,
@@ -35,6 +36,7 @@ export interface CanvasWorkerMessageReconfigure<
 
 /**
  * Sent from the host when a worker should start its rendering kernel.
+ * @group Graphics
  */
 export interface CanvasWorkerMessageStart<
   TApplicationOptions extends CanvasSandboxExpectedOptions,
@@ -52,6 +54,7 @@ export interface CanvasWorkerMessageStart<
 
 /**
  * Sent from a worker when it finished rendering the current scene.
+ * @group Graphics
  */
 export interface CanvasWorkerSceneFinishMessage {
   /**
@@ -67,6 +70,7 @@ export interface CanvasWorkerSceneFinishMessage {
 
 /**
  * The messages that are passed between the canvas sandbox host and its workers.
+ * @group Graphics
  */
 export type CanvasWorkerMessage<TApplicationOptions extends CanvasSandboxExpectedOptions> =
   | CanvasWorkerMessageReconfigure<TApplicationOptions>
@@ -77,6 +81,7 @@ export type CanvasWorkerMessage<TApplicationOptions extends CanvasSandboxExpecte
  * The canvas worker handles a web worker instance in the canvas sandbox host.
  *
  * It provides a thin abstraction over the web worker IPC messaging.
+ * @group Graphics
  */
 export class CanvasWorker<
   TApplicationOptions extends CanvasSandboxExpectedOptions,
@@ -164,6 +169,7 @@ export class CanvasWorker<
  * // Listen to custom events (messages) you send from the host.
  * worker.addEventListener("fade", () => worker.renderKernel?.fadeOut());
  * ```
+ * @group Graphics
  */
 export class CanvasWorkerInstance<
   TCanvas extends Canvas2DHeadless,
@@ -299,6 +305,7 @@ export class CanvasWorkerInstance<
  * Base class for multi-process canvas sandbox applications.
  *
  * Helps in orchestrating the workers.
+ * @group Graphics
  */
 export abstract class CanvasSandboxHostApplication<
   TCanvas extends Canvas,
