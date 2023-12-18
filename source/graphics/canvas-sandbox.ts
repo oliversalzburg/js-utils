@@ -171,6 +171,12 @@ export interface CanvasSandboxApplication<
    * Start the application.
    */
   start(options?: Partial<TApplicationOptions>): void;
+
+  /**
+   * Pause rendering.
+   * @param paused - Should rendering be paused (`true`) or unpaused (`false`)?
+   */
+  pause(paused: boolean): void;
 }
 
 /**
@@ -437,7 +443,7 @@ export class CanvasSandbox<
 
         case 32:
           // Space
-          this.application.paused = !this.application.paused;
+          this.application.pause(!this.application.paused);
           break;
       }
     });

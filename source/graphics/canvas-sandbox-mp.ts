@@ -53,6 +53,22 @@ export interface CanvasWorkerMessageStart<
 }
 
 /**
+ * Sent from the host when a worker should un/pause rendering.
+ * @group Graphics
+ */
+export interface CanvasWorkerMessagePause {
+  /**
+   * Type identifier of this message.
+   */
+  type: "pause";
+
+  /**
+   * Should the worker pause (`true`) or unpause (`false`)?
+   */
+  pause: boolean;
+}
+
+/**
  * Sent from a worker when it finished rendering the current scene.
  * @group Graphics
  */
@@ -76,6 +92,7 @@ export type CanvasWorkerMessage<TApplicationOptions extends CanvasSandboxExpecte
   | CanvasWorkerMessageReconfigure<TApplicationOptions>
   | CanvasWorkerMessageStart<TApplicationOptions>
   | CanvasWorkerSceneFinishMessage
+  | CanvasWorkerMessagePause
   | { type: string };
 
 /**
@@ -244,6 +261,9 @@ export class CanvasWorkerInstance<
       if (message.data.type === "start") {
         const startMessage = message.data as CanvasWorkerMessageStart<TApplicationOptions>;
         this.start(startMessage.options);
+      } else if (message.data.type === "pause") {
+        const pauseMessage = message.data as CanvasWorkerMessagePause;
+        this.renderKernel?.pause(pauseMessage.pause);
       } else if (message.data.type === "reconfigure") {
         const reconfigureMessage =
           message.data as CanvasWorkerMessageReconfigure<TApplicationOptions>;
@@ -371,6 +391,20 @@ export abstract class CanvasSandboxHostApplication<
    */
   onDraw(_delta: number, _timestamp: number) {
     // Draws happen in workers.
+  }
+
+  /**
+   * Pauses all workers.
+   */
+  pause() {
+    this.paused = !this.paused;
+
+    for (const worker of this.workers) {
+      worker.postMessage({
+        type: "pause",
+        pause: this.paused,
+      } as CanvasWorkerMessagePause);
+    }
   }
 
   /**
