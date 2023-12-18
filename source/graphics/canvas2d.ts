@@ -312,6 +312,9 @@ export const putPixel32 = (
   }
 
   const srcColor = canvas.getPixel32(x, y);
+  if (srcColor === color) {
+    return;
+  }
   const newColor = blend(srcColor, color, alpha);
   canvas.setPixel32(x, y, newColor);
 };
@@ -347,6 +350,9 @@ export const putPixel32Add = (
   }
 
   const srcColor = canvas.getPixel32(x, y);
+  if (srcColor === 0xffffff || srcColor === color) {
+    return;
+  }
   const newColor = blendAdditive(srcColor, color, alpha);
   canvas.setPixel32(x, y, newColor);
 };
@@ -382,6 +388,9 @@ export const putPixel32Sub = (
   }
 
   const srcColor = canvas.getPixel32(x, y);
+  if (srcColor === 0 || srcColor === color) {
+    return;
+  }
   const newColor = blendSubtractive(srcColor, color, alpha);
   canvas.setPixel32(x, y, newColor);
 };
