@@ -99,7 +99,7 @@ export class Report extends TreeNode<Report> {
         continue;
       }
 
-      logger.log(indent(`${origin}`, depth));
+      logger.log(indent(origin, depth));
       for (const entry of records) {
         logger.log(indent(` - ${entry.message}`, depth));
         if (entry.context) {
