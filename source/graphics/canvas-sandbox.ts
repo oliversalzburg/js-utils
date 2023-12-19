@@ -437,8 +437,6 @@ export class CanvasSandbox<
         case 13:
           // Enter
           this.#reconfigureApplication();
-          this.application.reconfigure(this.canvas);
-          this.application.start();
           break;
 
         case 32:
