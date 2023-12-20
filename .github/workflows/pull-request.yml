@@ -76,7 +76,7 @@ jobs:
     needs:
       - qa-pr
       - qa-docs
-    if: always() && github.event_name == 'push'
+    if: ( success() || failure() ) && github.event_name == 'push'
     steps:
       - name: Success
         if: ${{ !(contains(needs.*.result, 'failure')) }}
@@ -89,7 +89,7 @@ jobs:
     needs:
       - qa-pr
       - qa-docs
-    if: always() && github.event_name == 'pull_request'
+    if: ( success() || failure() ) && github.event_name == 'pull_request'
     steps:
       - name: Success
         if: ${{ !(contains(needs.*.result, 'failure')) }}

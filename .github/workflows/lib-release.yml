@@ -67,7 +67,7 @@ jobs:
     needs:
       - qa-tag
       - qa-docs
-    if: always()
+    if: ( success() || failure() )
     steps:
       - name: Success
         if: ${{ !(contains(needs.*.result, 'failure')) }}

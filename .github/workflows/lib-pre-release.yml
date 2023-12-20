@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-22.04
     needs:
       - qa-main
-    if: always()
+    if: ( success() || failure() )
     steps:
       - name: Success
         if: ${{ !(contains(needs.*.result, 'failure')) }}
