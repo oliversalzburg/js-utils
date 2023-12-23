@@ -462,17 +462,8 @@ export class CanvasSandbox<
    * Create event listeners on the canvas node in the document.
    */
   #hookCanvas() {
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    this.canvasNode.addEventListener("click", async (event: MouseEvent) => {
-      if (this.document.fullscreenElement) {
-        if (this.sandboxOptions.devMode) {
-          console.info("CanvasSandbox: Exiting fullscreen mode...");
-        }
-        await document.exitFullscreen();
-        return;
-      }
-
-      this.#reconfigureApplication();
+    this.canvasNode.addEventListener("click", (event: MouseEvent) => {
+      this.application.pause(!this.application.paused);
       event.preventDefault();
     });
   }
