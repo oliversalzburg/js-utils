@@ -477,8 +477,7 @@ export class CanvasSandbox<
       .then(() => {
         this.shakeHandler.addEventListener("shake", () => {
           console.info("CanvasSandbox: Shake detected. Reconfiguring application...");
-          this.application.reconfigure(this.canvas);
-          this.application.start();
+          this.#reconfigureApplication();
         });
       })
       .catch(console.error);
