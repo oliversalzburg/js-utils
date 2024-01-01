@@ -36,7 +36,7 @@
     "@types/eslint": "8.56.0",
     "@types/mocha": "10.0.6",
     "@types/node": "20.10.6",
-    "@types/web": "0.0.131",
+    "@types/web": "0.0.133",
     "@typescript-eslint/eslint-plugin": "6.16.0",
     "@typescript-eslint/parser": "6.16.0",
     "c8": "8.0.1",
