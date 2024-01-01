@@ -52,7 +52,7 @@
     "prettier-plugin-organize-imports": "3.2.4",
     "typedoc": "0.25.5",
     "typedoc-plugin-extras": "3.0.0",
-    "typedoc-plugin-mdn-links": "3.1.9",
+    "typedoc-plugin-mdn-links": "3.1.10",
     "typescript": "5.3.3"
   },
   "packageManager": "yarn@4.0.2"
