@@ -468,6 +468,7 @@ export class Palette {
 
 /**
  * A pre-constructed palette instance, for convenience.
+ * @group Graphics
  */
 export const palette = new Palette();
 
