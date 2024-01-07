@@ -1,3 +1,5 @@
+import { mustExist } from "./nil.js";
+
 /**
  * Indent every line of the passed text.
  * @param subject - The text to indent.
@@ -32,4 +34,28 @@ export const hashCyrb53 = (subject: string, seed = 0): string => {
   h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507);
   h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
   return (h2 >>> 0).toString(16).padStart(8, "0") + (h1 >>> 0).toString(16).padStart(8, "0");
+};
+
+/**
+ * Encodes the provided string in Base64.
+ * @param subject - The string to encode.
+ * @returns The subject string encoded in Base64.
+ * @group Strings
+ */
+export const base64Encode = (subject: string): string => {
+  const bytes = new TextEncoder().encode(subject);
+  const binString = String.fromCodePoint(...bytes);
+  return btoa(binString);
+};
+
+/**
+ * Decodes the provided Base64 encoded string.
+ * @param subject - The string to decode.
+ * @returns The decoded subject string.
+ * @group Strings
+ */
+export const base64Decode = (subject: string): string => {
+  const binString = atob(subject);
+  const bytes = Uint8Array.from(binString, m => mustExist(m.codePointAt(0)));
+  return new TextDecoder().decode(bytes);
 };
