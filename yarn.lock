@@ -254,7 +254,7 @@ __metadata:
     "@droppedcode/typedoc-plugin-copy-assets": "npm:1.0.11"
     "@types/chai": "npm:4.3.11"
     "@types/chai-as-promised": "npm:7.1.8"
-    "@types/eslint": "npm:8.56.1"
+    "@types/eslint": "npm:8.56.2"
     "@types/mocha": "npm:10.0.6"
     "@types/node": "npm:20.10.8"
     "@types/web": "npm:0.0.134"
@@ -301,13 +301,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:8.56.1":
-  version: 8.56.1
-  resolution: "@types/eslint@npm:8.56.1"
+"@types/eslint@npm:8.56.2":
+  version: 8.56.2
+  resolution: "@types/eslint@npm:8.56.2"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: a2aa5e2ec16f07944a60b825d6447d66f83369783e31c014ccf582fa92df963aa8d62c447a8fdc4fbfcd7299ad74ed1a753e06e560ce184eab4efceccfa66262
+  checksum: e33ca87a30a9454ba9943e1270ac759996f5fe598a1c1afbaec1d1e7346a339e20bf2a9d81f177067116bbaa6cfa4f748993cb338f57978ae862ad38ffae56fe
   languageName: node
   linkType: hard
 
