@@ -78,6 +78,7 @@ module.exports = {
           },
         ],
         "no-unused-vars": "off",
+        "@typescript-eslint/no-invalid-void-type": ["error", { allowAsThisParameter: true }],
         "@typescript-eslint/no-unused-vars": ["error", { args: "none" }],
         "@typescript-eslint/no-var-requires": "off",
         "tsdoc/syntax": "error",

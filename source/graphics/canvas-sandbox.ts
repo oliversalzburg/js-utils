@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
+import { prepareAsyncContext } from "source/async.js";
 import { Shake } from "../device/shake.js";
 import { getDocumentElementTypeById } from "../dom/core.js";
+import { subscribe } from "../event/event-iterator.js";
 import { Random } from "../random.js";
 import { Canvas } from "./canvas.js";
 import { RenderLoop } from "./render-loop.js";
@@ -495,9 +497,26 @@ export class CanvasSandbox<
         }
       });
 
-    this.window.addEventListener("resize", event => {
-      if (this.#resizeDebounce !== null) {
-        return;
+    prepareAsyncContext(async () => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      for await (const _event of subscribe.call(this.window, "resize")) {
+        const now = new Date().getTime();
+        if (this.#resizeDebounce ?? now - now < 1000) {
+          return;
+        }
+        this.#resizeDebounce = now;
+
+        if (this.sandboxOptions.devMode) {
+          console.info(
+            `CanvasSandbox: Window resized (${this.window.innerWidth}x${this.window.innerHeight}x${this.window.devicePixelRatio}). Reconfiguring application...`,
+          );
+        }
+
+        this.application.reconfigure(this.canvas);
+        this.canvas.refreshCanvasNode();
+        this.application.start();
+        // In case the application doesn't maintain this state itself.
+        this.application.paused = false;
       }
 
       this.#resizeDebounce = this.window.setTimeout(() => {
