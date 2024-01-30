@@ -34,7 +34,7 @@
     "@types/chai": "4.3.11",
     "@types/eslint": "8.56.2",
     "@types/mocha": "10.0.6",
-    "@types/node": "20.11.10",
+    "@types/node": "20.11.11",
     "@types/web": "0.0.136",
     "@typescript-eslint/eslint-plugin": "6.20.0",
     "@typescript-eslint/parser": "6.20.0",
