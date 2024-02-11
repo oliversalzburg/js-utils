@@ -27,7 +27,7 @@ interface Queue<TEvent> {
   on<TEventQueueEvent extends EventQueueEvent>(
     this: void,
     event: TEventQueueEvent,
-    fn: EventQueueEventHandlers[TEventQueueEvent],
+    handlers: EventQueueEventHandlers[TEventQueueEvent],
   ): void;
 }
 type ListenHandler<TEvent> = (queue: Queue<TEvent>) => (() => void) | undefined;
@@ -37,6 +37,14 @@ interface AsyncResolver<TEvent> {
   reject: (error: Error) => void;
 }
 
+/**
+ * The event queue provides a mechanism to store a list of events, and
+ * provide them for asynchronous consumption.
+ *
+ * It also provides a convenient mechanism is handle high- and low-watermark
+ * scenarios, when the queue fills up, or is running empty, respectively.
+ * @typeParam TEvent - The type of the queued event objects.
+ */
 class EventQueue<TEvent> {
   highWaterMark: number | undefined;
   lowWaterMark: number | undefined;
@@ -50,12 +58,16 @@ class EventQueue<TEvent> {
   removeCallback?: () => void;
 
   push(value: TEvent): void {
-    if (this.isStopped) return;
+    if (this.isStopped) {
+      return;
+    }
 
     const resolution = { value, done: false };
     if (this.pullQueue.length) {
       const placeholder = this.pullQueue.shift();
-      if (placeholder) placeholder.resolve(resolution);
+      if (placeholder) {
+        placeholder.resolve(resolution);
+      }
     } else {
       this.pushQueue.push(Promise.resolve(resolution));
       if (
@@ -64,9 +76,7 @@ class EventQueue<TEvent> {
         !this.isPaused
       ) {
         this.isPaused = true;
-        if (this.eventHandlers.highWater) {
-          this.eventHandlers.highWater();
-        }
+        this.eventHandlers.highWater?.();
       }
     }
   }
@@ -125,9 +135,7 @@ class EventQueue<TEvent> {
             this.isPaused
           ) {
             this.isPaused = false;
-            if (this.eventHandlers.lowWater) {
-              this.eventHandlers.lowWater();
-            }
+            this.eventHandlers.lowWater?.();
           }
 
           return result;
@@ -195,15 +203,15 @@ export class EventIterator<TEvent> implements AsyncIterable<TEvent> {
 }
 
 export function subscribe(
-  this: EventTarget,
+  target: EventTarget,
   event: string,
   listenerOptions?: AddEventListenerOptions,
   iteratorOptions?: EventIteratorOptions,
 ): EventIterator<Event> {
   return new EventIterator<Event>(({ push }) => {
-    this.addEventListener(event, push, listenerOptions);
+    target.addEventListener(event, push, listenerOptions);
     return () => {
-      this.removeEventListener(event, push, listenerOptions);
+      target.removeEventListener(event, push, listenerOptions);
     };
   }, iteratorOptions);
 }
