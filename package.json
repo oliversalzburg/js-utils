@@ -31,7 +31,7 @@
   "types": "./lib/index.d.ts",
   "devDependencies": {
     "@droppedcode/typedoc-plugin-copy-assets": "1.0.11",
-    "@types/chai": "4.3.11",
+    "@types/chai": "4.3.12",
     "@types/eslint": "8.56.3",
     "@types/mocha": "10.0.6",
     "@types/node": "20.11.20",
