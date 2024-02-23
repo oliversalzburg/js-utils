@@ -32,7 +32,7 @@
   "devDependencies": {
     "@droppedcode/typedoc-plugin-copy-assets": "1.0.11",
     "@types/chai": "4.3.11",
-    "@types/eslint": "8.56.2",
+    "@types/eslint": "8.56.3",
     "@types/mocha": "10.0.6",
     "@types/node": "20.11.20",
     "@types/web": "0.0.140",
