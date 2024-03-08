@@ -41,7 +41,7 @@
     "c8": "9.1.0",
     "chai": "5.1.0",
     "eslint": "8.57.0",
-    "eslint-plugin-jsdoc": "48.2.0",
+    "eslint-plugin-jsdoc": "48.2.1",
     "eslint-plugin-tsdoc": "0.2.17",
     "lint-staged": "15.2.2",
     "mocha": "10.3.0",
