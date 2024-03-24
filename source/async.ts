@@ -4,9 +4,9 @@ import { AnyAsyncFunction, AnyFunctionReturning, ConstructorOf } from "./core.js
  * Wraps the given asynchronous function in a new function that will ignore any outcome of
  * the context as it resolves.
  *
- * This can be useful when providing asynchonous event handler to `.addEventlistener()`,
+ * This can be useful when providing asynchronous event handler to `.addEventlistener()`,
  * which only expects synchronous functions.
- * @param context - The asynchronous function to exectute.
+ * @param context - The asynchronous function to execute.
  * @typeParam TArguments - The type of the arguments that your function expects.
  * @returns A function returning nothing.
  * @group Async

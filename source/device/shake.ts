@@ -1,4 +1,4 @@
-import { createEvent } from "../event.js";
+import { createEvent } from "../event/core.js";
 
 const getMaxAcceleration = (event: DeviceMotionEvent): number => {
   let max = 0;

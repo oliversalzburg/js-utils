@@ -5,7 +5,7 @@ export * from "./device/index.js";
 export * from "./dom/index.js";
 export * from "./error-serializer.js";
 export * from "./error/index.js";
-export * from "./event.js";
+export * from "./event/index.js";
 export * from "./graphics/index.js";
 export * from "./log/index.js";
 export * from "./math/index.js";
