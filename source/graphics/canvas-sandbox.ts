@@ -480,7 +480,10 @@ export class CanvasSandbox<
           this.#reconfigureApplication();
         });
       })
-      .catch(console.error);
+      .catch((...args: Array<unknown>) => {
+        // eslint-disable-next-line no-console
+        console.error(args);
+      });
 
     this.window
       .matchMedia("(prefers-color-scheme: dark)")
@@ -503,7 +506,7 @@ export class CanvasSandbox<
 
       if (this.sandboxOptions.devMode) {
         console.info(
-          `CanvasSandbox: Window resized (${this.window.innerWidth}x${this.window.innerHeight}x${this.window.devicePixelRatio}). Reconfiguring application...`,
+          `CanvasSandbox: Window resized (${this.window.innerWidth.toFixed(0)}x${this.window.innerHeight.toFixed(0)}x${this.window.devicePixelRatio.toFixed(3)}). Reconfiguring application...`,
         );
       }
 

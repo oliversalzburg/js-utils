@@ -121,7 +121,7 @@ export class Canvas2DHeadless extends Canvas {
     this.context.lineTo(this.width, this.height - MS_PER_FRAME_60FPS);
     this.context.stroke();
 
-    const fpsString = `${Math.round(fpsFrame)}f ${fpsAll}∑ ${Math.round(fpsDelta)}δ`;
+    const fpsString = `${Math.round(fpsFrame).toFixed(3)}f ${fpsAll}∑ ${Math.round(fpsDelta).toFixed(3)}δ`;
     this.context.font = "13px monospace";
     this.context.strokeStyle = "rgba( 255, 255, 255, 1)";
     this.context.textAlign = "right";

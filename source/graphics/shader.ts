@@ -68,7 +68,9 @@ export const createShader = (gl: WebGL2RenderingContext, options: ShaderOptions)
   const compileStatus: unknown = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
   if (!compileStatus) {
     const errorMessage = gl.getShaderInfoLog(shader);
-    throw new InvalidOperationError(`Could not compile shader\n${errorMessage}`);
+    throw new InvalidOperationError(
+      `Could not compile shader\n${errorMessage ?? "<no error message>"}`,
+    );
   }
   return shader;
 };
@@ -103,7 +105,9 @@ export const createGLProgram = (
   const link_status: unknown = gl.getProgramParameter(program, gl.LINK_STATUS);
   if (!link_status) {
     const error_message = gl.getProgramInfoLog(program);
-    throw new InvalidOperationError(`Could not link program.\n${error_message}`);
+    throw new InvalidOperationError(
+      `Could not link program.\n${error_message ?? "<no error message>"}`,
+    );
   }
   return program;
 };

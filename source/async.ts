@@ -22,8 +22,10 @@ export const prepareAsyncContext = <TArguments extends Array<unknown>>(
   ) => {
     void context(...args)
       .then(() => undefined)
-      // eslint-disable-next-line no-console
-      .catch(console.error);
+      .catch((...args: Array<unknown>) => {
+        // eslint-disable-next-line no-console
+        console.error(args);
+      });
   };
 };
 
