@@ -72,6 +72,7 @@ async function getRootVersion(bump = true) {
 /**
  * Checks next dev version number based on the `@mikro-orm/core` meta package via `npm show`.
  * We always use this package, so we ensure the version is the same for each package in the monorepo.
+ * @returns {string} Next version
  */
 async function getNextVersion() {
   const versions = [];

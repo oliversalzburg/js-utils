@@ -1,5 +1,6 @@
 import eslint from "@eslint/js";
 import jsdoc from "eslint-plugin-jsdoc";
+import tsdoc from "eslint-plugin-tsdoc";
 import tseslint from "typescript-eslint";
 
 // @see https://en.wikipedia.org/wiki/Cyclomatic_complexity
@@ -32,10 +33,19 @@ const rulesJsDoc = {
 
 export default tseslint.config(
   {
-    ignores: ["_site/", ".yarn/", ".git/", "coverage/", "lib/", "node_modules/", "*.config.*"],
+    ignores: [
+      "_site/",
+      ".scripts",
+      ".yarn/",
+      ".git/",
+      "coverage/",
+      "lib/",
+      "node_modules/",
+      "*.config.*",
+    ],
   },
   {
-    files: ["*.cjs"],
+    files: ["**/*.cjs"],
     extends: [eslint.configs.recommended, jsdoc.configs["flat/recommended"]],
     languageOptions: {
       parserOptions: {
@@ -46,7 +56,7 @@ export default tseslint.config(
     rules: rulesJsDoc,
   },
   {
-    files: ["*.js", "*.mjs"],
+    files: ["**/*.js", "**/*.mjs"],
     extends: [eslint.configs.recommended, jsdoc.configs["flat/recommended"]],
     languageOptions: {
       parserOptions: {
@@ -57,7 +67,7 @@ export default tseslint.config(
     rules: rulesJsDoc,
   },
   {
-    files: ["*.cts", "*.mts", "*.ts"],
+    files: ["**/*.cts", "**/*.mts", "**/*.ts"],
     extends: [
       eslint.configs.recommended,
       jsdoc.configs["flat/recommended"],
@@ -65,10 +75,10 @@ export default tseslint.config(
     ],
     languageOptions: {
       parserOptions: {
-        project: ["./tsconfig.json"],
+        project: true,
       },
     },
-    plugins: { jsdoc },
+    plugins: { jsdoc, tsdoc },
     rules: {
       "@typescript-eslint/array-type": ["error", { default: "generic" }],
       "@typescript-eslint/no-explicit-any": [
