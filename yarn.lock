@@ -110,6 +110,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/js@npm:9.1.1":
+  version: 9.1.1
+  resolution: "@eslint/js@npm:9.1.1"
+  checksum: 10c0/b25d11736b91d8df44dd217e88adb1f43d2bd5911ef4f4033e51faffe370f28d329731ffbf841d0b8303c8eedb60bda8c3a9efe803bb3b3737a06bb22c09ad0c
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -129,9 +136,9 @@ __metadata:
   linkType: hard
 
 "@humanwhocodes/object-schema@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "@humanwhocodes/object-schema@npm:2.0.2"
-  checksum: 10c0/6fd83dc320231d71c4541d0244051df61f301817e9f9da9fd4cb7e44ec8aacbde5958c1665b0c419401ab935114fdf532a6ad5d4e7294b1af2f347dd91a6983f
+  version: 2.0.3
+  resolution: "@humanwhocodes/object-schema@npm:2.0.3"
+  checksum: 10c0/80520eabbfc2d32fe195a93557cef50dfe8c8905de447f022675aaf66abc33ae54098f5ea78548d925aa671cd4ab7c7daa5ad704fe42358c9b5e7db60f80696c
   languageName: node
   linkType: hard
 
@@ -253,13 +260,12 @@ __metadata:
   resolution: "@oliversalzburg/js-utils@workspace:."
   dependencies:
     "@droppedcode/typedoc-plugin-copy-assets": "npm:1.0.11"
+    "@eslint/js": "npm:9.1.1"
     "@types/chai": "npm:4.3.14"
     "@types/eslint": "npm:8.56.10"
     "@types/mocha": "npm:10.0.6"
     "@types/node": "npm:20.12.7"
     "@types/web": "npm:0.0.143"
-    "@typescript-eslint/eslint-plugin": "npm:7.7.1"
-    "@typescript-eslint/parser": "npm:7.7.1"
     c8: "npm:9.1.0"
     chai: "npm:5.1.0"
     eslint: "npm:8.57.0"
@@ -274,6 +280,7 @@ __metadata:
     typedoc-plugin-extras: "npm:3.0.0"
     typedoc-plugin-mdn-links: "npm:3.1.22"
     typescript: "npm:5.4.5"
+    typescript-eslint: "npm:7.7.1"
   languageName: unknown
   linkType: soft
 
@@ -3182,6 +3189,22 @@ __metadata:
   bin:
     typedoc: bin/typedoc
   checksum: 10c0/13878e6a9fc2b65d65e3b514efa11b43bdfd57149861cefc4a969ec213f4bc4b36ee9239d0b654ae18bcbbd5174206d409383f9000b7bdea22da1945f7ac91de
+  languageName: node
+  linkType: hard
+
+"typescript-eslint@npm:7.7.1":
+  version: 7.7.1
+  resolution: "typescript-eslint@npm:7.7.1"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": "npm:7.7.1"
+    "@typescript-eslint/parser": "npm:7.7.1"
+    "@typescript-eslint/utils": "npm:7.7.1"
+  peerDependencies:
+    eslint: ^8.56.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/0bf5a538b0819445ed3c27beb45e60ec1fad6888698a11e41ac66fe7ed6f621841c2c9c26cb14ccfe1346b7831c7e2b20a3c1eff2352b75f92ccedc1c68fed41
   languageName: node
   linkType: hard
 
