@@ -6,3 +6,4 @@ export * from "./NotImplementedError.js";
 export * from "./PermissionViolationError.js";
 export * from "./ResourceConflictError.js";
 export * from "./UnknownError.js";
+export * from "./console.js";
