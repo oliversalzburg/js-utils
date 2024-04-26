@@ -15,7 +15,6 @@ export class Quaternion extends Vector4 {
    * @param z - The Z component.
    * @param w - The W component.
    */
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(x = 0, y = 0, z = 0, w = 0) {
     super(x, y, z, w);
   }

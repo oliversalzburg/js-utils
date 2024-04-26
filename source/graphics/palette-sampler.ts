@@ -12,7 +12,6 @@ export const renderPaletteSample = (
   canvas: HTMLCanvasElement | OffscreenCanvas,
 ) => {
   const context = mustExist(
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     canvas.getContext("2d") as CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D | null,
   );
   context.globalAlpha = 255;

@@ -7,7 +7,6 @@ import { Canvas } from "./canvas.js";
  * @group Graphics
  * @group WebGL
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Canvas3DOptions {}
 
 /**
@@ -43,7 +42,6 @@ export class Canvas3D extends Canvas {
 
     this.options = options;
 
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     this.#context = mustExist(
       this.canvasElement.getContext("webgl2", {
         alpha: false,
@@ -56,7 +54,6 @@ export class Canvas3D extends Canvas {
    * Recreate internal buffers in reaction to a change in our target {@linkcode !HTMLCanvasElement}.
    */
   refreshCanvasNode() {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     this.#context = mustExist(
       this.canvasElement.getContext("webgl2", {
         alpha: false,

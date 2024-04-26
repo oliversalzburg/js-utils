@@ -1,6 +1,7 @@
 import eslint from "@eslint/js";
 import jsdoc from "eslint-plugin-jsdoc";
 import tsdoc from "eslint-plugin-tsdoc";
+import globals from "globals";
 import tseslint from "typescript-eslint";
 
 // @see https://en.wikipedia.org/wiki/Cyclomatic_complexity
@@ -33,16 +34,18 @@ const rulesJsDoc = {
 
 export default tseslint.config(
   {
-    ignores: [
-      "_site/",
-      ".scripts",
-      ".yarn/",
-      ".git/",
-      "coverage/",
-      "lib/",
-      "node_modules/",
-      "*.config.*",
-    ],
+    ignores: ["_site/", ".yarn/", ".git/", "coverage/", "lib/", "node_modules/", "*.config.*"],
+  },
+  {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.web,
+      },
+    },
+    linterOptions: {
+      reportUnusedDisableDirectives: "error",
+    },
   },
   {
     files: ["**/*.cjs"],

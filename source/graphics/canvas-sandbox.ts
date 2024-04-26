@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { Shake } from "../device/shake.js";
 import { getDocumentElementTypeById } from "../dom/core.js";
+import { redirectErrorsToConsole } from "../error/console.js";
 import { Random } from "../random.js";
 import { Canvas } from "./canvas.js";
 import { RenderLoop } from "./render-loop.js";
@@ -480,10 +481,7 @@ export class CanvasSandbox<
           this.#reconfigureApplication();
         });
       })
-      .catch((...args: Array<unknown>) => {
-        // eslint-disable-next-line no-console
-        console.error(args);
-      });
+      .catch(redirectErrorsToConsole);
 
     this.window
       .matchMedia("(prefers-color-scheme: dark)")
