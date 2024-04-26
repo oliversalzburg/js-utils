@@ -74,11 +74,13 @@ export default tseslint.config(
     extends: [
       eslint.configs.recommended,
       jsdoc.configs["flat/recommended"],
-      ...tseslint.configs.recommendedTypeChecked,
+      ...tseslint.configs.strictTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
     ],
     languageOptions: {
       parserOptions: {
         project: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: { jsdoc, tsdoc },

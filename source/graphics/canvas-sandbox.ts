@@ -481,7 +481,7 @@ export class CanvasSandbox<
           this.#reconfigureApplication();
         });
       })
-      .catch(redirectErrorsToConsole);
+      .catch(redirectErrorsToConsole(console));
 
     this.window
       .matchMedia("(prefers-color-scheme: dark)")
