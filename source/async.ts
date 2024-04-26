@@ -1,4 +1,5 @@
 import { AnyAsyncFunction, AnyFunctionReturning, ConstructorOf } from "./core.js";
+import { redirectErrorsToConsole } from "./error/console.js";
 
 /**
  * Wraps the given asynchronous function in a new function that will ignore any outcome of
@@ -22,10 +23,7 @@ export const prepareAsyncContext = <TArguments extends Array<unknown>>(
   ) => {
     void context(...args)
       .then(() => undefined)
-      .catch((...args: Array<unknown>) => {
-        // eslint-disable-next-line no-console
-        console.error(args);
-      });
+      .catch(redirectErrorsToConsole(console));
   };
 };
 
