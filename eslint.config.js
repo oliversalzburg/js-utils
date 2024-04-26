@@ -1,4 +1,5 @@
 import eslint from "@eslint/js";
+import prettierConfig from "eslint-config-prettier";
 import jsdoc from "eslint-plugin-jsdoc";
 import tsdoc from "eslint-plugin-tsdoc";
 import globals from "globals";
@@ -33,6 +34,9 @@ const rulesJsDoc = {
 };
 
 export default tseslint.config(
+  eslint.configs.recommended,
+  jsdoc.configs["flat/recommended"],
+  prettierConfig,
   {
     ignores: ["_site/", ".yarn/", ".git/", "coverage/", "lib/", "node_modules/", "*.config.*"],
   },
@@ -49,7 +53,6 @@ export default tseslint.config(
   },
   {
     files: ["**/*.cjs"],
-    extends: [eslint.configs.recommended, jsdoc.configs["flat/recommended"]],
     languageOptions: {
       parserOptions: {
         sourceType: "commonjs",
@@ -60,7 +63,6 @@ export default tseslint.config(
   },
   {
     files: ["**/*.js", "**/*.mjs"],
-    extends: [eslint.configs.recommended, jsdoc.configs["flat/recommended"]],
     languageOptions: {
       parserOptions: {
         sourceType: "module",
@@ -71,12 +73,7 @@ export default tseslint.config(
   },
   {
     files: ["**/*.cts", "**/*.mts", "**/*.ts"],
-    extends: [
-      eslint.configs.recommended,
-      jsdoc.configs["flat/recommended"],
-      ...tseslint.configs.strictTypeChecked,
-      ...tseslint.configs.stylisticTypeChecked,
-    ],
+    extends: tseslint.configs.strictTypeChecked,
     languageOptions: {
       parserOptions: {
         project: true,
