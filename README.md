@@ -11,3 +11,10 @@ A collection of random utilities for JS/TS development.
 -   No runtime dependencies.
 
 -   All runtime code is licensed under MIT, or fully compatible licenses.
+
+## Release Process
+
+```
+npm version patch
+git push
+```
