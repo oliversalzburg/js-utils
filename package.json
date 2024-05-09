@@ -39,7 +39,7 @@
     "@types/web": "0.0.143",
     "c8": "9.1.0",
     "chai": "5.1.0",
-    "eslint": "8.57.0",
+    "eslint": "9.2.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-jsdoc": "48.2.3",
     "eslint-plugin-tsdoc": "0.2.17",
