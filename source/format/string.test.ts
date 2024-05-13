@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { it } from "mocha";
-import { formatString, formatStringTemplate } from "./string-formatter.js";
+import { formatString, formatStringTemplate } from "./string.js";
 
 it("formats index-based template strings", () => {
   expect(formatString("'{0}'", "foo")).to.equal("'foo'");
