@@ -52,7 +52,11 @@ it("supports negative number", () => {
   expect(formatBytes(-1001)).to.equal("-1 kB");
 });
 
-it("locale option", done => {
+it("locale option", function () {
+  // Fails on NodeJS20 on Windows
+  // https://github.com/oliversalzburg/js-utils/actions/runs/9069549841/job/24919347525
+  this.slow(5000);
+
   expect(formatBytes(-0.4, { locale: "de" })).to.equal("-0,4 B");
   expect(formatBytes(0.4, { locale: "de" })).to.equal("0,4 B");
   expect(formatBytes(1001, { locale: "de" })).to.equal("1 kB");
@@ -88,8 +92,6 @@ it("locale option", done => {
   expect(formatBytes(1001, { locale: undefined })).to.equal("1 kB");
   expect(formatBytes(10.1, { locale: undefined })).to.equal("10.1 B");
   expect(formatBytes(1e30, { locale: undefined })).to.equal("1000000 YB");
-
-  done();
 });
 
 it("signed option", () => {
