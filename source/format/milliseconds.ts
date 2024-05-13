@@ -130,7 +130,7 @@ const ONE_DAY_IN_MILLISECONDS = 24n * 60n * 60n * 1000n;
  * @group Formatting
  * @example
  * ```
- * import formatMilliseconds from 'pretty-ms';
+ * import formatMilliseconds from '@oliversalzburg/js-utils/format/milliseconds.js';
  *
  * formatMilliseconds(1337000000);
  * //=> '15d 11h 23m 20s'

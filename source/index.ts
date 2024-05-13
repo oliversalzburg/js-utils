@@ -6,6 +6,7 @@ export * from "./dom/index.js";
 export * from "./error-serializer.js";
 export * from "./error/index.js";
 export * from "./event.js";
+export * from "./format/index.js";
 export * from "./graphics/index.js";
 export * from "./log/index.js";
 export * from "./math/index.js";
