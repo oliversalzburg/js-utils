@@ -10,10 +10,12 @@ jobs:
     name: Run QA
     strategy:
       matrix:
+        # https://endoflife.date/nodejs
         node-version:
           - 18
           - 20
           - 21
+          - 22
         os-release:
           - ubuntu-latest
           - windows-latest
