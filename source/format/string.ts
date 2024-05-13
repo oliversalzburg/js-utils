@@ -9,6 +9,7 @@
  * @param formatArguments - An array of strings to place into the placeholders.
  * @returns The formatted string.
  * @group Strings
+ * @group Formatting
  */
 export const formatString = (string: string, ...formatArguments: Array<string>): string => {
   return string.replace(/{(\d+)}/g, (match, matchedDigits: number): string =>
@@ -27,6 +28,7 @@ export const formatString = (string: string, ...formatArguments: Array<string>):
  * @param parameters - A hash of parameters to place in the placeholders.
  * @returns The formatted string.
  * @group Strings
+ * @group Formatting
  */
 export const formatStringTemplate = (
   string: string,

@@ -5,9 +5,6 @@ import tsdoc from "eslint-plugin-tsdoc";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-// @see https://en.wikipedia.org/wiki/Cyclomatic_complexity
-const MAX_CYCLOMATIC_COMPLEXITY = 10;
-
 const rulesJsDoc = {
   "jsdoc/require-description": "warn",
   "jsdoc/require-jsdoc": [
@@ -103,7 +100,6 @@ export default tseslint.config(
   },
   {
     rules: {
-      complexity: ["warn", MAX_CYCLOMATIC_COMPLEXITY],
       "consistent-return": "error",
       eqeqeq: "error",
       "no-console": "error",
