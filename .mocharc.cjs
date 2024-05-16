@@ -5,5 +5,4 @@ module.exports = {
   parallel: true,
   recursive: true,
   spec: ["lib/**/*.test.js"],
-  timeout: "2000",
 };
