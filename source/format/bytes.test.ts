@@ -55,7 +55,7 @@ it("supports negative number", () => {
 it("locale option", function () {
   // Fails on NodeJS20 on Windows
   // https://github.com/oliversalzburg/js-utils/actions/runs/9069549841/job/24919347525
-  this.slow(5000);
+  this.timeout(5000);
 
   expect(formatBytes(-0.4, { locale: "de" })).to.equal("-0,4 B");
   expect(formatBytes(0.4, { locale: "de" })).to.equal("0,4 B");
