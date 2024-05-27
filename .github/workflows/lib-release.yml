@@ -132,8 +132,9 @@ jobs:
         with:
           automatic_release_tag: latest
           body_prefix: |
-            Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
+            Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ github.ref_name }}>.
           draft: false
           files: "*.tgz"
           prerelease: false
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+          title: ${{ github.ref_name }}
