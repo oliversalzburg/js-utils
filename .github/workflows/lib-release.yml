@@ -131,7 +131,7 @@ jobs:
           npm publish --access=public --provenance --tag=latest
           npm pack
 
-      - uses: oliversalzburg/action-automatic-semantic-releases@v0.0.7
+      - uses: oliversalzburg/action-automatic-semantic-releases@0b63ad22fee878d2b259d76cd88384d13a57f9a0 # v0.0.7
         with:
           body_prefix: |
             Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
