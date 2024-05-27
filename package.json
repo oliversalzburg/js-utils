@@ -13,6 +13,11 @@
     ".": "./lib/index.js",
     "./*.js": "./lib/*.js"
   },
+  "files": [
+    "./lib/**/*.d.ts",
+    "./lib/**/*.js",
+    "./lib/**/*.map"
+  ],
   "scripts": {
     "build": "yarn run build:tsc",
     "build:tsc": "tsc",

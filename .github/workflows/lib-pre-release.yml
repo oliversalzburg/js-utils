@@ -82,14 +82,21 @@ jobs:
       - name: Build
         run: yarn build
 
+      - run: echo "RELEASE_VERSION=$(node .scripts/manifest-version.cjs --canary=patch)" >> $GITHUB_ENV
+
       - name: Release dev version for testing
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          mv lib dist
-          rm dist/tsconfig.tsbuildinfo
-          node .scripts/create-release.js --canary=patch
-          mv node_modules/ dist/node_modules
-          mv yarn.lock dist/yarn.lock
-          cd dist
+          npm --no-git-tag-version --ignore-scripts version ${RELEASE_VERSION}
           npm publish --access=public --provenance --tag=next
+          npm pack
+
+      - uses: oliversalzburg/action-automatic-semantic-releases@v0.0.5
+        with:
+          automatic_release_tag: next
+          draft: false
+          files: "*.tgz"
+          prerelease: true
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          title: Snapshot Build v${{ env.RELEASE_VERSION }}
