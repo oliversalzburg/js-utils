@@ -34,7 +34,7 @@
     "test:inspect": "node $(yarn bin mocha) --inspect",
     "preversion": "yarn run lint && yarn run test",
     "version": "yarn run build",
-    "postversion": "git push"
+    "postversion": "git push && npm version patch"
   },
   "types": "./lib/index.d.ts",
   "devDependencies": {
