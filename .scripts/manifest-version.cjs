@@ -66,6 +66,10 @@ function getNextVersion() {
     process.exit(1);
   }
 
+  if (!options.canary) {
+    return version;
+  }
+
   const preid = options.preid ?? "dev";
   const prereleaseNumbers = versions
     .filter(v => v.startsWith(`${version}-${preid}.`))
