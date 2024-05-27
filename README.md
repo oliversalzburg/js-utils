@@ -15,5 +15,5 @@ A collection of random utilities for JS/TS development.
 ## Release Process
 
 ```
-npm version patch
+npm version patch --message "chore: Version bump %s"
 ```
