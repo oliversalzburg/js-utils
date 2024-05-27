@@ -67,11 +67,12 @@ jobs:
         run: yarn docs:typedoc
 
   qa-successful-tag:
-    runs-on: ubuntu-22.04
     needs:
       - qa-tag
       - qa-docs
+    name: Evaluate QA results
     if: ( success() || failure() )
+    runs-on: ubuntu-22.04
     steps:
       - name: Success
         if: ${{ !(contains(needs.*.result, 'failure')) }}
@@ -82,12 +83,15 @@ jobs:
 
   lib-release:
     needs: qa-successful-tag
-    name: Deploy library
+    name: Publish library
     runs-on: ubuntu-22.04
     concurrency: lib-publish
     permissions:
-      contents: read
+      contents: write
       id-token: write
+      packages: write
+      pull-requests: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
@@ -121,10 +125,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          mv lib dist
-          rm dist/tsconfig.tsbuildinfo
-          node .scripts/create-release.js
-          mv node_modules/ dist/node_modules
-          mv yarn.lock dist/yarn.lock
-          cd dist
           npm publish --access=public --provenance --tag=latest
+          npm pack
+
+      - uses: oliversalzburg/action-automatic-semantic-releases@v0.0.7
+        with:
+          automatic_release_tag: latest
+          body_prefix: |
+            Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
+          draft: false
+          files: "*.tgz"
+          prerelease: false
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
