@@ -133,7 +133,6 @@ jobs:
 
       - uses: oliversalzburg/action-automatic-semantic-releases@v0.0.7
         with:
-          automatic_release_tag: latest
           body_prefix: |
             Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
           draft: false
