@@ -56,7 +56,7 @@ function getNextVersion() {
     // the package might not have been published yet
   }
 
-  const version = getRootVersion();
+  const version = getRootVersion(options.canary ?? false);
 
   if (versions.some(v => v === version)) {
     // eslint-disable-next-line no-console
