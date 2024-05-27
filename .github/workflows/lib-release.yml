@@ -121,6 +121,9 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Determine release version
+        run: echo "RELEASE_VERSION=$(node .scripts/manifest-version.cjs)" >> $GITHUB_ENV
+
       - name: Release new library version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -132,9 +135,9 @@ jobs:
         with:
           automatic_release_tag: latest
           body_prefix: |
-            Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ github.ref_name }}>.
+            Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
           draft: false
           files: "*.tgz"
           prerelease: false
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          title: ${{ github.ref_name }}
+          title: v${{ env.RELEASE_VERSION }}
