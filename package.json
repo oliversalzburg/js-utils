@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@oliversalzburg/js-utils",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "license": "MIT",
   "author": "Oliver Salzburg <oliver.salzburg@gmail.com>",
   "repository": {
@@ -33,7 +33,7 @@
     "test:coverage": "c8 --reporter html-spa --reporter text node $(yarn bin mocha) --enable-source-maps",
     "test:inspect": "node $(yarn bin mocha) --inspect",
     "preversion": "yarn run lint && yarn run test",
-    "version": "yarn run build && git add --all lib",
+    "version": "yarn run build",
     "postversion": "git push"
   },
   "types": "./lib/index.d.ts",
