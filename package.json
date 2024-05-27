@@ -31,7 +31,10 @@
     "lint:tsc": "tsc --noEmit",
     "test": "node $(yarn bin mocha) --enable-source-maps",
     "test:coverage": "c8 --reporter html-spa --reporter text node $(yarn bin mocha) --enable-source-maps",
-    "test:inspect": "node $(yarn bin mocha) --inspect"
+    "test:inspect": "node $(yarn bin mocha) --inspect",
+    "preversion": "yarn run lint && yarn run test",
+    "version": "yarn run build && git add --all lib",
+    "postversion": "git push"
   },
   "types": "./lib/index.d.ts",
   "devDependencies": {

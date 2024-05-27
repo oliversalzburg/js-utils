@@ -16,5 +16,4 @@ A collection of random utilities for JS/TS development.
 
 ```
 npm version patch
-git push
 ```
