@@ -69,4 +69,8 @@ jobs:
     name: Call Deployment
     needs: qa-tag
     if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      id-token: write
+      pages: write
     uses: ./.github/workflows/docs-deploy.yml
