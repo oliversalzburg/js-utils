@@ -6,7 +6,7 @@
   "author": "Oliver Salzburg <oliver.salzburg@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oliversalzburg/js-utils.git"
+    "url": "https://github.com/oliversalzburg/js-utils.git"
   },
   "type": "module",
   "exports": {
