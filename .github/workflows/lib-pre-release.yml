@@ -12,7 +12,7 @@ jobs:
     name: Call QA
     uses: ./.github/workflows/test.yml
 
-  pre-relase:
+  pre-release:
     needs: qa-main
     name: Publish
     if: github.ref == 'refs/heads/main'
