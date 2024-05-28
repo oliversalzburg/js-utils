@@ -1,6 +1,6 @@
 # JS Utils
 
-[![npm version](https://badge.fury.io/js/@oliversalzburg%2Fjs-utils.svg)](https://badge.fury.io/js/@oliversalzburg%2Fjs-utils)
+[![npm version](https://img.shields.io/npm/v/@oliversalzburg%2Fjs-utils)](https://www.npmjs.com/package/@oliversalzburg%2Fjs-utils)
 
 A collection of random utilities for JS/TS development.
 
