@@ -1,5 +1,6 @@
 _site/
 .yarn/
 coverage/
+dist-area/
 lib/
 node_modules/

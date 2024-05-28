@@ -35,7 +35,16 @@ export default tseslint.config(
   jsdoc.configs["flat/recommended"],
   prettierConfig,
   {
-    ignores: ["_site/", ".yarn/", ".git/", "coverage/", "lib/", "node_modules/", "*.config.*"],
+    ignores: [
+      "_site/",
+      ".yarn/",
+      ".git/",
+      "coverage/",
+      "dist-area/",
+      "lib/",
+      "node_modules/",
+      "*.config.*",
+    ],
   },
   {
     languageOptions: {

@@ -85,6 +85,9 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Rebuild package structure
+        run: .scripts/rebuild-package-structure.sh
+
       - name: Determine release version
         run: echo "RELEASE_VERSION=$(node .scripts/manifest-version.cjs --canary=patch)" >> $GITHUB_ENV
 
@@ -92,6 +95,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd dist-area
           npm --no-git-tag-version --ignore-scripts version ${RELEASE_VERSION}
           npm publish --access=public --provenance --tag=next
           npm pack
@@ -102,7 +106,7 @@ jobs:
           body_prefix: |
             Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
           draft: false
-          files: "*.tgz"
+          files: dist-area/*.tgz
           prerelease: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           title: Snapshot Build v${{ env.RELEASE_VERSION }}
