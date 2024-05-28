@@ -7,56 +7,15 @@ on:
 
 jobs:
   qa-main:
-    name: Run QA
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+    name: Call QA
+    uses: ./.github/workflows/test.yml
 
-      - name: Select NodeJS version
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
-        env:
-          # renovate: datasource=docker depName=node versioning=node
-          NODE_VERSION: "20.13.1"
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Lint ESLint
-        run: yarn lint:eslint
-      - name: Lint Prettier
-        run: yarn lint:prettier
-      - name: Lint TSC
-        run: yarn lint:tsc
-      - name: Build
-        run: yarn build
-      - name: Test
-        run: yarn test
-
-  qa-successful-main:
+  pre-relase:
     needs: qa-main
-    name: Evaluate QA results
-    if: ( success() || failure() )
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Success
-        if: ${{ !(contains(needs.*.result, 'failure')) }}
-        run: exit 0
-      - name: Failure
-        if: ${{ contains(needs.*.result, 'failure') }}
-        run: exit 1
-
-  lib-pre-relase:
-    needs: qa-successful-main
-    name: Publish library
+    name: Publish
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-22.04
-    concurrency: lib-publish
+    concurrency: publish
     permissions:
       contents: write
       id-token: write
@@ -103,7 +62,7 @@ jobs:
         with:
           automatic_release_tag: next
           body_prefix: |
-            Published at <https://www.npmjs.com/package/@${{ github.repository }}/v/${{ env.RELEASE_VERSION }}>.
+            Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
           draft: false
           prerelease: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,28 +1,26 @@
-name: Pull Request
+name: QA
 
 on:
   pull_request:
   push:
-    branches:
-      - "renovate/*"
+  workflow_call:
 
 jobs:
-  qa-pr:
+  qa-branch:
     name: Run QA
     # We don't need to run this on Renovate PRs. We will already test the `renovate/foo` branch.
     if: github.event_name != 'pull_request' || github.actor != 'renovate[bot]'
     strategy:
       matrix:
-        # https://endoflife.date/nodejs
         node-version:
           - 18
           - 20
-          - 21
           - 22
         os-release:
           - ubuntu-latest
           - windows-latest
     runs-on: ${{ matrix.os-release }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
@@ -38,12 +36,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Lint ESLint
-        run: yarn lint:eslint
-      - name: Lint Prettier
-        run: yarn lint:prettier
-      - name: Lint TSC
-        run: yarn lint:tsc
+      - name: Lint
+        run: yarn lint
       - name: Build
         run: yarn build
       - name: Test
@@ -75,25 +69,13 @@ jobs:
       - name: Build Documentation
         run: yarn docs:typedoc
 
-  qa-successful-branch:
-    runs-on: ubuntu-22.04
+  qa-successful:
     needs:
-      - qa-pr
+      - qa-branch
       - qa-docs
-    if: ( success() || failure() ) && github.event_name == 'push'
-    steps:
-      - name: Success
-        if: ${{ !(contains(needs.*.result, 'failure')) }}
-        run: exit 0
-      - name: Failure
-        if: ${{ contains(needs.*.result, 'failure') }}
-        run: exit 1
-  qa-successful-pr:
+    name: Evaluate QA results
+    if: ( success() || failure() )
     runs-on: ubuntu-22.04
-    needs:
-      - qa-pr
-      - qa-docs
-    if: ( success() || failure() ) && github.event_name == 'pull_request'
     steps:
       - name: Success
         if: ${{ !(contains(needs.*.result, 'failure')) }}

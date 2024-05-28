@@ -7,85 +7,14 @@ on:
 
 jobs:
   qa-tag:
-    name: Run QA
-    strategy:
-      matrix:
-        # https://endoflife.date/nodejs
-        node-version:
-          - 18
-          - 20
-          - 21
-          - 22
-        os-release:
-          - ubuntu-latest
-          - windows-latest
-    runs-on: ${{ matrix.os-release }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+    name: Call QA
+    uses: ./.github/workflows/test.yml
 
-      - name: Select NodeJS version
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Lint
-        run: yarn lint
-      - name: Build
-        run: yarn build
-      - name: Test
-        run: yarn test
-
-  qa-docs:
-    name: QA Documentation
+  release:
+    needs: qa-tag
+    name: Publish
     runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
-
-      - name: Select NodeJS version
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
-        env:
-          # renovate: datasource=docker depName=node versioning=node
-          NODE_VERSION: "20.13.1"
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Build Documentation
-        run: yarn docs:typedoc
-
-  qa-successful-tag:
-    needs:
-      - qa-tag
-      - qa-docs
-    name: Evaluate QA results
-    if: ( success() || failure() )
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Success
-        if: ${{ !(contains(needs.*.result, 'failure')) }}
-        run: exit 0
-      - name: Failure
-        if: ${{ contains(needs.*.result, 'failure') }}
-        run: exit 1
-
-  lib-release:
-    needs: qa-successful-tag
-    name: Publish library
-    runs-on: ubuntu-22.04
-    concurrency: lib-publish
+    concurrency: publish
     permissions:
       contents: write
       id-token: write
@@ -107,13 +36,6 @@ jobs:
 
       - name: Enable Corepack
         run: corepack enable
-
-      # Yarn dependencies cannot be cached until yarn is installed
-      # WORKAROUND: https://github.com/actions/setup-node/issues/531
-      - name: Extract cached dependencies
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
-        with:
-          cache: yarn
 
       - name: Install dependencies
         run: yarn install
@@ -137,8 +59,14 @@ jobs:
       - uses: oliversalzburg/action-automatic-semantic-releases@bc429dc1af8c036b5f8c11fef7bcb0becfd5064d # v0.0.13
         with:
           body_prefix: |
-            Published at <https://www.npmjs.com/package/@${{ github.repository }}/v/${{ env.RELEASE_VERSION }}>.
+            Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
           draft: false
           prerelease: false
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           title: v${{ env.RELEASE_VERSION }}
+
+  docs-deploy:
+    name: Call Deployment
+    needs: qa-tag
+    if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/docs-deploy.yml

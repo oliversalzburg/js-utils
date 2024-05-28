@@ -1,12 +1,14 @@
 name: Deploy Documentation
 
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
+
+concurrency:
+  group: docs-deploy
+  cancel-in-progress: true
 
 jobs:
-  build:
+  docs-build:
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -38,18 +40,13 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
 
-  deploy:
-    needs: build
-
+  docs-deploy:
+    needs: docs-build
+    runs-on: ubuntu-22.04
     permissions:
-      pages: write
       id-token: write
+      pages: write
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
