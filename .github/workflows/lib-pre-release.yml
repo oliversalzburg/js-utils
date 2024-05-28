@@ -5,6 +5,8 @@ on:
     branches:
       - "main"
 
+concurrency: pre-release
+
 jobs:
   qa-main:
     name: Call QA

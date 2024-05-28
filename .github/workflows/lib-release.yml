@@ -5,6 +5,8 @@ on:
     tags:
       - "v*"
 
+concurrency: release
+
 jobs:
   qa-tag:
     name: Call QA
