@@ -60,6 +60,14 @@ jobs:
           npm --no-git-tag-version --ignore-scripts version ${RELEASE_VERSION}
           npm publish --access=public --provenance --tag=next
 
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          format: spdx-json
+          output-file: sbom.spdx.json
+          upload-artifact: false
+          upload-release-assets: false
+
       - name: Generate GitHub release
         uses: oliversalzburg/action-automatic-semantic-releases@bc429dc1af8c036b5f8c11fef7bcb0becfd5064d # v0.0.13
         with:
@@ -67,6 +75,7 @@ jobs:
           body_prefix: |
             Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
           draft: false
+          files: sbom.spdx.json
           prerelease: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           title: Snapshot Build v${{ env.RELEASE_VERSION }}
