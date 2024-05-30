@@ -86,7 +86,7 @@ jobs:
           title: v${{ env.RELEASE_VERSION }}
 
   docs-deploy:
-    name: Call Deployment
+    name: Call Documentation
     needs: qa-tag
     permissions:
       contents: read

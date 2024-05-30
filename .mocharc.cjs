@@ -2,7 +2,7 @@
 
 module.exports = {
   package: "./package.json",
-  parallel: true,
+  parallel: !process.env.CI,
   recursive: true,
   spec: ["lib/**/*.test.js"],
 };
