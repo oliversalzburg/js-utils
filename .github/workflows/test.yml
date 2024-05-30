@@ -37,7 +37,7 @@ jobs:
         run: corepack enable
 
       - name: Load cached dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3
         with:
           path: .yarn/cache
           key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -75,7 +75,7 @@ jobs:
         run: corepack enable
 
       - name: Load cached dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3
         with:
           path: .yarn/cache
           key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
