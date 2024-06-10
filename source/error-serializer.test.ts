@@ -91,7 +91,8 @@ it("serializes an error to a record: Node Error", async function () {
   let assert: Assert;
   try {
     assert = (await import("node:assert")).default;
-  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (_error) {
     this.skip();
   }
 

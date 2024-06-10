@@ -3,13 +3,6 @@ import { mustExist } from "../nil.js";
 import { Canvas } from "./canvas.js";
 
 /**
- * Construction options for a {@linkcode Canvas3D}.
- * @group Graphics
- * @group WebGL
- */
-export interface Canvas3DOptions {}
-
-/**
  * A canvas to interact with WebGL.
  * @group Graphics
  * @group WebGL
@@ -28,26 +21,18 @@ export class Canvas3D extends Canvas {
   }
 
   /**
-   * The configuration that was used for this canvas.
-   */
-  readonly options: Readonly<Partial<Canvas3DOptions>>;
-
-  /**
    * Constructs a new {@linkcode Canvas3D}.
    * @param canvas - The canvas to wrap.
-   * @param options - The configuration for this canvas.
    */
-  constructor(canvas: HTMLCanvasElement, options: Partial<Canvas3DOptions> = {}) {
+  constructor(canvas: HTMLCanvasElement) {
     super(canvas);
-
-    this.options = options;
 
     this.#context = mustExist(
       this.canvasElement.getContext("webgl2", {
         alpha: false,
       }),
       "Unable to create rendering context for offscreen canvas.",
-    ) as WebGL2RenderingContext;
+    );
   }
 
   /**
@@ -60,7 +45,7 @@ export class Canvas3D extends Canvas {
         desynchronized: true,
       }),
       "Unable to create rendering context for offscreen canvas.",
-    ) as WebGL2RenderingContext;
+    );
   }
 
   /**
