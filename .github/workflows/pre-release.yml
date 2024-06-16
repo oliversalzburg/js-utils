@@ -1,27 +1,29 @@
-name: Library Test/Release
+name: Pre-Release
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
+  workflow_dispatch:
 
-concurrency: release
+concurrency: pre-release
 
 jobs:
-  qa-tag:
+  qa-main:
     name: Call QA
     uses: ./.github/workflows/test.yml
 
-  release:
-    needs: qa-tag
+  pre-release:
+    needs: qa-main
     name: Publish
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-22.04
     concurrency: publish
     env:
       # renovate: datasource=docker depName=node versioning=node
       NODE_VERSION: "20.14.0"
     permissions:
-      contents: read
+      contents: write
       id-token: write
       packages: write
       pull-requests: read
@@ -39,6 +41,9 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
+      - name: Install dependencies
+        run: yarn install
+
       - name: Load cached dependencies
         uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
         with:
@@ -47,9 +52,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node${{ env.NODE_VERSION }}
 
-      - name: Install dependencies
-        run: yarn install
-
       - name: Build
         run: yarn build
 
@@ -57,14 +59,15 @@ jobs:
         run: .scripts/rebuild-package-structure.sh
 
       - name: Determine release version
-        run: echo "RELEASE_VERSION=$(node .scripts/manifest-version.cjs)" >> $GITHUB_ENV
+        run: echo "RELEASE_VERSION=$(node .scripts/manifest-version.cjs --canary=patch)" >> $GITHUB_ENV
 
-      - name: Release new library version
+      - name: Release dev version for testing
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           cd dist-area
-          npm publish --access=public --provenance --tag=latest
+          npm --no-git-tag-version --ignore-scripts version ${RELEASE_VERSION}
+          npm publish --access=public --provenance --tag=next
 
       - name: Generate SBOM
         uses: anchore/sbom-action@e8d2a6937ecead383dfe75190d104edd1f9c5751 # v0
@@ -77,19 +80,11 @@ jobs:
       - name: Generate GitHub release
         uses: oliversalzburg/action-automatic-semantic-releases@bc429dc1af8c036b5f8c11fef7bcb0becfd5064d # v0.0.13
         with:
+          automatic_release_tag: next
           body_prefix: |
             Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
           draft: false
           files: sbom.spdx.json
-          prerelease: false
+          prerelease: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          title: v${{ env.RELEASE_VERSION }}
-
-  docs-deploy:
-    name: Call Documentation
-    needs: qa-tag
-    permissions:
-      contents: read
-      id-token: write
-      pages: write
-    uses: ./.github/workflows/docs-deploy.yml
+          title: Snapshot Build v${{ env.RELEASE_VERSION }}
