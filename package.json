@@ -39,7 +39,7 @@
   "devDependencies": {
     "@droppedcode/typedoc-plugin-copy-assets": "1.0.11",
     "@eslint/js": "9.5.0",
-    "@oliversalzburg/eslint-config": "0.0.3",
+    "@oliversalzburg/eslint-config": "0.0.10",
     "@types/chai": "4.3.16",
     "@types/eslint": "8.56.10",
     "@types/mocha": "10.0.6",
