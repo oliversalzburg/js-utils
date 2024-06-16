@@ -251,12 +251,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@oliversalzburg/eslint-config@npm:0.0.3":
+  version: 0.0.3
+  resolution: "@oliversalzburg/eslint-config@npm:0.0.3"
+  peerDependencies:
+    "@eslint/js": 9.5.0
+    eslint-config-prettier: 9.1.0
+    eslint-plugin-jsdoc: 48.2.12
+    eslint-plugin-tsdoc: 0.3.0
+    globals: 15.5.0
+    typescript-eslint: 8.0.0-alpha.30
+  checksum: 10c0/6c46b549468aae939a1cc9e3f286aa929cebd405f1f94f011b7ee804d0d4f761c4720c545fc066dc62646b057ab3ceebf94060b1589c488bfd827ab726d0cbc3
+  languageName: node
+  linkType: hard
+
 "@oliversalzburg/js-utils@workspace:.":
   version: 0.0.0-use.local
   resolution: "@oliversalzburg/js-utils@workspace:."
   dependencies:
     "@droppedcode/typedoc-plugin-copy-assets": "npm:1.0.11"
     "@eslint/js": "npm:9.5.0"
+    "@oliversalzburg/eslint-config": "npm:0.0.3"
     "@types/chai": "npm:4.3.16"
     "@types/eslint": "npm:8.56.10"
     "@types/mocha": "npm:10.0.6"
