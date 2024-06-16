@@ -251,9 +251,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oliversalzburg/eslint-config@npm:0.0.3":
-  version: 0.0.3
-  resolution: "@oliversalzburg/eslint-config@npm:0.0.3"
+"@oliversalzburg/eslint-config@npm:0.0.10":
+  version: 0.0.10
+  resolution: "@oliversalzburg/eslint-config@npm:0.0.10"
   peerDependencies:
     "@eslint/js": 9.5.0
     eslint-config-prettier: 9.1.0
@@ -261,7 +261,7 @@ __metadata:
     eslint-plugin-tsdoc: 0.3.0
     globals: 15.5.0
     typescript-eslint: 8.0.0-alpha.30
-  checksum: 10c0/6c46b549468aae939a1cc9e3f286aa929cebd405f1f94f011b7ee804d0d4f761c4720c545fc066dc62646b057ab3ceebf94060b1589c488bfd827ab726d0cbc3
+  checksum: 10c0/b84f2e675a078355eee52abf8a8aebe6c11ec9e2b6149ca7b2ff4b96178b9a88b8264c9dd05a34f31251a067310993db6836d85fda27a338ec5307ef321073ed
   languageName: node
   linkType: hard
 
@@ -271,7 +271,7 @@ __metadata:
   dependencies:
     "@droppedcode/typedoc-plugin-copy-assets": "npm:1.0.11"
     "@eslint/js": "npm:9.5.0"
-    "@oliversalzburg/eslint-config": "npm:0.0.3"
+    "@oliversalzburg/eslint-config": "npm:0.0.10"
     "@types/chai": "npm:4.3.16"
     "@types/eslint": "npm:8.56.10"
     "@types/mocha": "npm:10.0.6"
