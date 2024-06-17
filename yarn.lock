@@ -251,17 +251,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oliversalzburg/eslint-config@npm:0.0.10":
-  version: 0.0.10
-  resolution: "@oliversalzburg/eslint-config@npm:0.0.10"
+"@oliversalzburg/eslint-config@npm:0.0.11":
+  version: 0.0.11
+  resolution: "@oliversalzburg/eslint-config@npm:0.0.11"
   peerDependencies:
-    "@eslint/js": 9.5.0
-    eslint-config-prettier: 9.1.0
-    eslint-plugin-jsdoc: 48.2.12
-    eslint-plugin-tsdoc: 0.3.0
-    globals: 15.5.0
+    "@eslint/js": ^9.5.0
+    eslint-config-prettier: ^9.1.0
+    eslint-plugin-jsdoc: ^48.2.0
+    eslint-plugin-tsdoc: ^0.3.0
+    globals: ^15.6.0
     typescript-eslint: 8.0.0-alpha.30
-  checksum: 10c0/b84f2e675a078355eee52abf8a8aebe6c11ec9e2b6149ca7b2ff4b96178b9a88b8264c9dd05a34f31251a067310993db6836d85fda27a338ec5307ef321073ed
+  checksum: 10c0/dbc47b3ed48b83aa74e6242548d3c76b362905654bc30bdab5a738989169b7081facd5f4baed2d226cb985d27fd8ffd2fc39b42b6603f0377825f0b0120e6238
   languageName: node
   linkType: hard
 
@@ -271,7 +271,7 @@ __metadata:
   dependencies:
     "@droppedcode/typedoc-plugin-copy-assets": "npm:1.0.11"
     "@eslint/js": "npm:9.5.0"
-    "@oliversalzburg/eslint-config": "npm:0.0.10"
+    "@oliversalzburg/eslint-config": "npm:0.0.11"
     "@types/chai": "npm:4.3.16"
     "@types/eslint": "npm:8.56.10"
     "@types/mocha": "npm:10.0.6"
@@ -283,7 +283,7 @@ __metadata:
     eslint-config-prettier: "npm:9.1.0"
     eslint-plugin-jsdoc: "npm:48.2.12"
     eslint-plugin-tsdoc: "npm:0.3.0"
-    globals: "npm:15.5.0"
+    globals: "npm:15.6.0"
     lint-staged: "npm:15.2.7"
     mocha: "npm:10.4.0"
     prettier: "npm:3.3.2"
@@ -1584,10 +1584,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:15.5.0":
-  version: 15.5.0
-  resolution: "globals@npm:15.5.0"
-  checksum: 10c0/f13c3cb0c6d49b9d23e447b86e33ca6139753087060c3063863c0dd2b5d79f4a114c48d20e321916e6c3701adb3f6b67d6ac8d8ed2bae6da45482c968532d4e2
+"globals@npm:15.6.0":
+  version: 15.6.0
+  resolution: "globals@npm:15.6.0"
+  checksum: 10c0/ba488ec5bd770336a3e1ffec3f718077768aec99e16f30c33c0eeaed09e0b93fa06a24fc0d3844d1d81a678c86d22f04547703e87e2e4353601eddcb800479ec
   languageName: node
   linkType: hard
 
