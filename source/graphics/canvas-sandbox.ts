@@ -493,7 +493,7 @@ export class CanvasSandbox<
         }
       });
 
-    this.window.addEventListener("resize", event => {
+    this.window.addEventListener("resize", _event => {
       if (this.#resizeDebounce !== null) {
         return;
       }
