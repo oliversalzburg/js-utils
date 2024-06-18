@@ -8,17 +8,36 @@ on:
       - "!main" # excludes main
   workflow_call:
 
+env:
+  # renovate: datasource=node-version depName=node versioning=node
+  NODE_LTS_VERSION: "20.14.0"
+  # renovate: datasource=node-version depName=node versioning=node
+  NODE_VERSION: "22.0.0"
+
 jobs:
-  qa-branch:
+  versions:
+    name: Versions
+    outputs:
+      NODE_LTS_VERSION: ${{ env.NODE_LTS_VERSION }}
+      NODE_VERSION: ${{ env.NODE_VERSION }}
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Generate outputs
+        run: |
+          echo "NODE_LTS_VERSION=${{ env.NODE_LTS_VERSION }}" >> $GITHUB_OUTPUT
+          echo "NODE_VERSION=${{ env.NODE_VERSION }}" >> $GITHUB_OUTPUT
+
+  qa:
     name: Run QA
+    needs: versions
     # We don't need to run this on Renovate PRs. We will already test the `renovate/foo` branch.
     if: github.event_name != 'pull_request' || github.actor != 'renovate[bot]'
     strategy:
       matrix:
         node-version:
           - 18
-          - 20
-          - 22
+          - ${{ needs.versions.outputs.NODE_LTS_VERSION }}
+          - ${{ needs.versions.outputs.NODE_VERSION }}
         os-release:
           - ubuntu-latest
           - windows-latest
@@ -90,7 +109,7 @@ jobs:
 
   qa-successful:
     needs:
-      - qa-branch
+      - qa
       - qa-docs
     name: Evaluate QA results
     if: ( success() || failure() )
