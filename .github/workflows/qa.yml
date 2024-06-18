@@ -9,7 +9,7 @@ on:
   workflow_call:
 
 env:
-  # renovate: datasource=docker depName=node versioning=node
+  # renovate: datasource=github-releases depName=nodejs/node versioning=semver-coerced
   NODE_VERSION: "20.14.0"
 
 jobs:
