@@ -13,8 +13,19 @@ env:
   NODE_VERSION: "20.14.0"
 
 jobs:
+  versions:
+    name: Versions
+    outputs:
+      NODE_VERSION: ${{ env.NODE_VERSION }}
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Generate outputs
+        run: |
+          echo "NODE_VERSION=${{ env.NODE_VERSION }}" >> $GITHUB_OUTPUT
+
   qa:
     name: Run QA
+    needs: versions
     # We don't need to run this on Renovate PRs. We will already test the `renovate/foo` branch.
     if: github.event_name != 'pull_request' || github.actor != 'renovate[bot]'
     strategy:
@@ -22,7 +33,8 @@ jobs:
         node-version:
           - 18
           - 20
-          - 22
+          - ${{ needs.versions.outputs.NODE_VERSION }}
+          - 23
         os-release:
           - ubuntu-latest
           - windows-latest
