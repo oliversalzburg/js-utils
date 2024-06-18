@@ -9,7 +9,7 @@ on:
   workflow_call:
 
 env:
-  # renovate: datasource=github-releases depName=nodejs/node versioning=semver-coerced
+  # renovate: datasource=node-version depName=node versioning=node
   NODE_VERSION: "20.14.0"
 
 jobs:
@@ -34,7 +34,6 @@ jobs:
           - 18
           - 20
           - ${{ needs.versions.outputs.NODE_VERSION }}
-          - 23
         os-release:
           - ubuntu-latest
           - windows-latest
