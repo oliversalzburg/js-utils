@@ -8,8 +8,12 @@ on:
       - "!main" # excludes main
   workflow_call:
 
+env:
+  # renovate: datasource=docker depName=node versioning=node
+  NODE_VERSION: "20.14.0"
+
 jobs:
-  qa-branch:
+  qa:
     name: Run QA
     # We don't need to run this on Renovate PRs. We will already test the `renovate/foo` branch.
     if: github.event_name != 'pull_request' || github.actor != 'renovate[bot]'
@@ -90,7 +94,7 @@ jobs:
 
   qa-successful:
     needs:
-      - qa-branch
+      - qa
       - qa-docs
     name: Evaluate QA results
     if: ( success() || failure() )

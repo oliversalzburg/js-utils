@@ -10,7 +10,7 @@ concurrency: release
 jobs:
   qa-tag:
     name: Call QA
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/qa.yml
 
   release:
     needs: qa-tag

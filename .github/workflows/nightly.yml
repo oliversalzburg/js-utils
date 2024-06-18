@@ -26,7 +26,7 @@ jobs:
 
   qa-main:
     name: Call QA
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/qa.yml
 
   pre-relase:
     needs:
