@@ -10,7 +10,7 @@ on:
 
 env:
   # renovate: datasource=node-version depName=node versioning=node
-  NODE_LTS_VERSION: "20.0.0"
+  NODE_LTS_VERSION: "20.14.0"
   # renovate: datasource=node-version depName=node versioning=node
   NODE_VERSION: "22.0.0"
 
