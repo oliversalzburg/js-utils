@@ -10,7 +10,7 @@ on:
 
 env:
   # renovate: datasource=github-releases depName=nodejs/node versioning=semver-coerced
-  NODE_VERSION: "20.14.0"
+  NODE_VERSION: "22.3.0"
 
 jobs:
   versions:
