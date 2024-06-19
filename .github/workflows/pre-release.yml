@@ -14,77 +14,20 @@ jobs:
     uses: oliversalzburg/workflows/.github/workflows/qa-npm-package.yml@main
 
   pre-release:
+    if: github.ref_name == github.event.repository.default_branch
+    name: 🔹 Publish
     needs: qa-main
-    name: Publish
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-22.04
-    concurrency: publish
-    env:
-      # renovate: datasource=docker depName=node versioning=node
-      NODE_VERSION: "20.14.0"
     permissions:
       contents: write
       id-token: write
       packages: write
       pull-requests: read
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-
-      - name: Select NodeJS version
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          registry-url: https://registry.npmjs.org
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Load cached dependencies
-        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
-        with:
-          path: .yarn/cache
-          key: ${{ runner.os }}-node${{ env.NODE_VERSION }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node${{ env.NODE_VERSION }}
-
-      - name: Build
-        run: yarn build
-
-      - name: Rebuild package structure
-        run: .scripts/rebuild-package-structure.sh
-
-      - name: Determine release version
-        run: echo "RELEASE_VERSION=$(node .scripts/manifest-version.cjs --canary=patch)" >> $GITHUB_ENV
-
-      - name: Release dev version for testing
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          cd dist-area
-          npm --no-git-tag-version --ignore-scripts version ${RELEASE_VERSION}
-          npm publish --access=public --provenance --tag=next
-
-      - name: Generate SBOM
-        uses: anchore/sbom-action@e8d2a6937ecead383dfe75190d104edd1f9c5751 # v0
-        with:
-          format: spdx-json
-          output-file: sbom.spdx.json
-          upload-artifact: false
-          upload-release-assets: false
-
-      - name: Generate GitHub release
-        uses: oliversalzburg/action-automatic-semantic-releases@bc429dc1af8c036b5f8c11fef7bcb0becfd5064d # v0.0.13
-        with:
-          automatic_release_tag: next
-          body_prefix: |
-            Published at <https://www.npmjs.com/package/@oliversalzburg/js-utils/v/${{ env.RELEASE_VERSION }}>.
-          draft: false
-          files: sbom.spdx.json
-          prerelease: true
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          title: Snapshot Build v${{ env.RELEASE_VERSION }}
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    uses: oliversalzburg/workflows/.github/workflows/publish-npm-package.yml@main
+    with:
+      is-canary: true
+      publish-script: |
+        yarn run build
+        ./.scripts/rebuild-package-structure.sh
+        cd ./dist-area/

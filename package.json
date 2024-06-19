@@ -29,6 +29,7 @@
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc --noEmit",
+    "nextversion": "./.scripts/manifest-version.cjs",
     "test": "node $(yarn bin mocha) --enable-source-maps",
     "test:coverage": "c8 --reporter html-spa --reporter text node $(yarn bin mocha) --enable-source-maps",
     "test:inspect": "node $(yarn bin mocha) --inspect",

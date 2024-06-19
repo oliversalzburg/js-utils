@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 "use strict";
 
 const { execSync } = require("node:child_process");
@@ -59,9 +61,8 @@ function getNextVersion() {
   const version = getRootVersion(options.canary ?? false);
 
   if (versions.some(v => v === version)) {
-    // eslint-disable-next-line no-console
-    console.error(
-      `before-deploy: A release with version ${version} already exists. Please increment version accordingly.`,
+    process.stderr.write(
+      `before-deploy: A release with version ${version} already exists. Please increment version accordingly.\n`,
     );
     process.exit(1);
   }
