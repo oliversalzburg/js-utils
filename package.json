@@ -19,7 +19,7 @@
     "./lib/**/*.map"
   ],
   "scripts": {
-    "build": "yarn run build:tsc",
+    "build": "yarn run build:tsc && yarn run docs:typedoc",
     "build:tsc": "tsc",
     "build:tsc:watch": "tsc --watch",
     "clean": "rm -rf ./coverage ./lib",

@@ -9,8 +9,8 @@ concurrency: release
 
 jobs:
   qa-tag:
-    name: Call QA
-    uses: ./.github/workflows/qa.yml
+    name: 🔹 QA
+    uses: oliversalzburg/workflows/.github/workflows/qa-npm-package.yml@main
 
   release:
     needs: qa-tag
