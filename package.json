@@ -22,7 +22,7 @@
     "build": "yarn run build:tsc && yarn run docs:typedoc",
     "build:tsc": "tsc",
     "build:tsc:watch": "tsc --watch",
-    "clean": "rm -rf ./coverage ./lib",
+    "clean": "rm -rf ./_site ./coverage ./dist-area ./lib",
     "docs:typedoc": "typedoc",
     "lint": "yarn run lint:all",
     "lint:all": "yarn run lint:eslint && yarn run lint:prettier && yarn run lint:tsc",
