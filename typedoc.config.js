@@ -2,6 +2,7 @@
 export default {
   entryPoints: ["./source"],
   githubPages: true,
+  hostedBaseUrl: "https://oliversalzburg.github.io/js-utils",
   includeVersion: true,
   navigationLinks: {
     GitHub: "https://github.com/oliversalzburg/js-utils",
