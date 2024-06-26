@@ -8,7 +8,6 @@ export default {
   },
   out: "./_site",
   plugin: ["typedoc-plugin-mdn-links"],
-  projectDocuments: ["./docs/assets/*"],
   readme: "./README.md",
   tsconfig: "./tsconfig.json",
   validation: {
