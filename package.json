@@ -19,11 +19,11 @@
     "./lib/**/*.map"
   ],
   "scripts": {
-    "build": "yarn run build:tsc && yarn run docs:typedoc",
+    "build": "yarn run build:tsc && yarn run build:docs",
+    "build:docs": "./docs/build.sh",
     "build:tsc": "tsc",
     "build:tsc:watch": "tsc --watch",
     "clean": "rm -rf ./_site ./coverage ./dist-area ./lib",
-    "docs:typedoc": "typedoc",
     "lint": "yarn run lint:all",
     "lint:all": "yarn run lint:eslint && yarn run lint:prettier && yarn run lint:tsc",
     "lint:eslint": "eslint .",
@@ -38,7 +38,6 @@
   },
   "types": "./lib/index.d.ts",
   "devDependencies": {
-    "@droppedcode/typedoc-plugin-copy-assets": "1.0.11",
     "@eslint/js": "9.5.0",
     "@oliversalzburg/eslint-config": "0.0.12",
     "@types/chai": "4.3.16",
@@ -58,8 +57,7 @@
     "prettier": "3.3.2",
     "prettier-package-json": "2.8.0",
     "prettier-plugin-organize-imports": "3.2.4",
-    "typedoc": "0.25.13",
-    "typedoc-plugin-extras": "3.0.0",
+    "typedoc": "0.26.2",
     "typedoc-plugin-mdn-links": "3.2.1",
     "typescript": "5.4.5",
     "typescript-eslint": "8.0.0-alpha.33"
