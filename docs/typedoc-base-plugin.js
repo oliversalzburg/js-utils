@@ -6,11 +6,7 @@ import { Application, Renderer } from "typedoc";
  */
 export function load(app) {
   app.renderer.on(Renderer.EVENT_BEGIN, () => {
-    app.renderer.hooks.on("head.begin", context => {
-      if (context.page.url !== "index.html") {
-        return undefined;
-      }
-
+    app.renderer.hooks.on("head.begin", () => {
       return {
         tag: "base",
         props: { href: app.options.getValue("hostedBaseUrl") },
