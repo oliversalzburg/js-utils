@@ -8,7 +8,7 @@ export default {
     GitHub: "https://github.com/oliversalzburg/js-utils/",
   },
   out: "./_site",
-  plugin: ["typedoc-plugin-mdn-links", "./docs/typedoc-base-plugin.js"],
+  plugin: ["typedoc-plugin-mdn-links", "./docs/typedoc-favicon-plugin.js"],
   readme: "./README.md",
   tsconfig: "./tsconfig.json",
   validation: {
