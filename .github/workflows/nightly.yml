@@ -28,8 +28,6 @@ jobs:
     needs:
       - check-date
     uses: oliversalzburg/workflows/.github/workflows/qa-npm-package.yml@main
-    with:
-      has-mkdocs: true
 
   pre-release:
     if: needs.check_date.outputs.should_run != 'false'
