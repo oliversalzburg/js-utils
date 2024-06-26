@@ -45,7 +45,7 @@
     "@types/eslint": "8.56.10",
     "@types/mocha": "10.0.7",
     "@types/node": "20.14.9",
-    "@types/web": "0.0.149",
+    "@types/web": "0.0.150",
     "c8": "10.1.2",
     "chai": "5.1.1",
     "eslint": "9.5.0",
