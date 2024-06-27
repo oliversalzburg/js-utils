@@ -3,6 +3,7 @@ import { is } from "../nil.js";
 
 /**
  * Places the items in the array in random order.
+ * The array is shuffled in-place, no copy is created. The returned array is exactly the passed array.
  * @param array - The array to shuffle.
  * @typeParam TElements - The type of the elements in the array.
  * @returns The passed array in random order.
