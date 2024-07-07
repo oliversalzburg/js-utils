@@ -6,7 +6,7 @@ A collection of random utilities for JS/TS development.
 
 -   ESM only.
 
--   Tree-shaking in mind. Subpath-imports fully supported and recommended.
+-   Tree-shaking in mind. Only subpath-imports are supported.
 
 -   Consumable with `node` and `nodenext` [module resolution](https://www.typescriptlang.org/tsconfig/#moduleResolution).
 
