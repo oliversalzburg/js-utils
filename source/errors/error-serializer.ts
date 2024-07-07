@@ -1,3 +1,4 @@
+import { isNil } from "../data/nil.js";
 import { AbstractError } from "./AbstractError.js";
 import { InternalError } from "./InternalError.js";
 import { UnknownError } from "./UnknownError.js";
@@ -37,6 +38,16 @@ export const unknownToError = (subject: unknown): AbstractError => {
   }
 
   return new UnknownError(String(subject));
+};
+
+/**
+ * Serializes an error into a string.
+ * @param error - The error to stringify.
+ * @returns A string representing the error.
+ * @group Errors
+ */
+export const errorToString = (error: Error & { toString?: () => string }): string => {
+  return isNil(error.toString) ? Object.prototype.toString.call(error) : error.toString();
 };
 
 /**
