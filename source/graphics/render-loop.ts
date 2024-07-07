@@ -3,19 +3,16 @@ import { Canvas } from "./canvas.js";
 /**
  * The amount of milliseconds your can spend in a frame, if you want to
  * reach a frame rate of 60 FPS.
- * @group Graphics
  */
 export const MS_PER_FRAME_60FPS = /* __PURE __ */ 1000 / 60;
 
 /**
  * The signature of a function that is called to draw a frame.
- * @group Graphics
  */
 export type RenderLoopCallback = (delta: number, timestamp: number) => unknown;
 
 /**
  * Configuration for a {@linkcode RenderLoop},
- * @group Graphics
  */
 export interface RenderLoopOptions {
   /**
@@ -33,7 +30,6 @@ export interface RenderLoopOptions {
 /**
  * Conveniently provides a way to have a render loop called at
  * a constant frame rate.
- * @group Graphics
  */
 export class RenderLoop {
   /**

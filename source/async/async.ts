@@ -10,7 +10,6 @@ import { redirectErrorsToConsole } from "../errors/console.js";
  * @param context - The asynchronous function to exectute.
  * @typeParam TArguments - The type of the arguments that your function expects.
  * @returns A function returning nothing.
- * @group Async
  */
 export const prepareAsyncContext = <TArguments extends Array<unknown>>(
   context: AnyAsyncFunction,
@@ -39,7 +38,6 @@ export const prepareAsyncContext = <TArguments extends Array<unknown>>(
  * @typeParam TFilter - The type of the error filter.
  * @returns Whatever the function resolved to, or the provided replacement,
  * in case the function failed.
- * @group Async
  */
 export const coalesceOnRejection = async <
   TExecutableReturn,
@@ -64,7 +62,6 @@ export const coalesceOnRejection = async <
  * Wait a given period before continuing execution.
  * @param duration - How many milliseconds to wait.
  * @returns Nothing
- * @group Async
  */
 export const sleep = (duration: number): Promise<void> => {
   return new Promise(resolve => setTimeout(resolve, duration));
@@ -77,7 +74,6 @@ export const sleep = (duration: number): Promise<void> => {
  * @param retryCount - How often should the execution be retried?
  * @typeParam TExecutableReturn - The return type of the function.
  * @returns Whatever the function resolved to.
- * @group Async
  */
 export const retry = async <TExecutableReturn>(
   executable: AnyFunctionReturning<TExecutableReturn | Promise<TExecutableReturn>>,

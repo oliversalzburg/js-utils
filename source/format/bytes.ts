@@ -5,7 +5,6 @@
 
 /**
  * Options for the `formatBytes` function.
- * @group Formatting
  */
 export interface FormatBytesOptions {
   /**
@@ -138,7 +137,6 @@ const toLocaleString = (
  * @param number - The number to format.
  * @param options - The options for formatting the number.
  * @returns The formatted string.
- * @group Formatting
  * @example
  * ```
  * import formatBytes from '@oliversalzburg/js-utils/format/bytes.js';

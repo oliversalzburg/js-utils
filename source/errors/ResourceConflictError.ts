@@ -2,7 +2,6 @@ import { AbstractError } from "./AbstractError.js";
 
 /**
  * Used when a resource conflict was detected.
- * @group Errors
  */
 export class ResourceConflictError extends AbstractError {
   /**

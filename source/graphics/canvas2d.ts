@@ -16,7 +16,6 @@ import { MS_PER_FRAME_60FPS } from "./render-loop.js";
 
 /**
  * Construction options for a {@linkcode Canvas2D}.
- * @group Graphics
  */
 export interface Canvas2DOptions {
   /**
@@ -31,7 +30,6 @@ export interface Canvas2DOptions {
  * {@linkcode !HTMLCanvasElement} with best possible performance.
  * We utilize an {@linkcode !OffscreenCanvas} with a {@linkcode !OffscreenCanvasRenderingContext2D}
  * to draw frames and expect to render them back to the DOM in regular intervals.
- * @group Graphics
  */
 export class Canvas2D extends Canvas {
   /**
@@ -298,7 +296,6 @@ export class Canvas2D extends Canvas {
  * @param y - The Y coordinate at which to place the pixel.
  * @param color - The color of the pixel.
  * @param alpha - The alpha value to use to blend the pixel with existing color at the location.
- * @group Graphics
  */
 export const putPixel32 = (
   canvas: Canvas2D | Canvas2DHeadless,
@@ -336,7 +333,6 @@ export const putPixel32 = (
  * @param y - The Y coordinate at which to place the pixel.
  * @param color - The color of the pixel.
  * @param alpha - The alpha value to use to blend the pixel with existing color at the location.
- * @group Graphics
  */
 export const putPixel32Add = (
   canvas: Canvas2D | Canvas2DHeadless,
@@ -374,7 +370,6 @@ export const putPixel32Add = (
  * @param y - The Y coordinate at which to place the pixel.
  * @param color - The color of the pixel.
  * @param alpha - The alpha value to use to blend the pixel with existing color at the location.
- * @group Graphics
  */
 export const putPixel32Sub = (
   canvas: Canvas2D | Canvas2DHeadless,
@@ -403,7 +398,6 @@ export const putPixel32Sub = (
  * @param y - The Y coordinate at which to place the pixel.
  * @param color - The color of the pixel.
  * @param alpha - The alpha value to use to blend the pixel with existing color at the location.
- * @group Graphics
  */
 export const putSubPixel32 = (
   canvas: Canvas2D | Canvas2DHeadless,

@@ -2,7 +2,6 @@ import { Random, random } from "../data/random.js";
 
 /**
  * Color palettes that can be used to quickly colorize a drawing.
- * @group Graphics
  */
 export const PALETTES = [
   [
@@ -326,7 +325,6 @@ export const PALETTES = [
 /**
  * The indices of pre-defined palettes, with friendly names.
  * @see {@linkcode PALETTES}
- * @group Graphics
  */
 export const NamedPalettes = {
   /**
@@ -399,7 +397,6 @@ export const NamedPalettes = {
  * Retrieves a friendly name for a pallete index.
  * @param paletteIndex - The index of the pre-defined palette.
  * @returns The friendly name of the palette, or `"<unknown>"`.
- * @group Graphics
  */
 export const paletteName = (paletteIndex: number): string => {
   return (
@@ -409,7 +406,6 @@ export const paletteName = (paletteIndex: number): string => {
 
 /**
  * Provides pre-defined color values for drawing operations.
- * @group Graphics
  */
 export class Palette {
   /**
@@ -468,7 +464,6 @@ export class Palette {
 
 /**
  * A pre-constructed palette instance, for convenience.
- * @group Graphics
  */
 export const palette = new Palette();
 
@@ -478,9 +473,6 @@ let PALETTE_INDEX = 0;
  * Retrieves a random color from the current global palette.
  * Uses the global {@linkcode random} object.
  * @returns A random color.
- * @group Graphics
- * @group Random
- * @deprecated Use {@linkcode Palette} instead.
  */
 export const someColor = () => {
   const color =
@@ -491,7 +483,6 @@ export const someColor = () => {
 /**
  * Switches the global palette to the next available preset.
  * @returns The new new global palette.
- * @group Graphics
  * @deprecated Use {@linkcode Palette} instead.
  */
 export const nextPalette = () => {

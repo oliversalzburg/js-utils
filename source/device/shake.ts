@@ -13,31 +13,21 @@ const getMaxAcceleration = (event: DeviceMotionEvent): number => {
 
 /**
  * The type of the details of a shake event.
- * @group Types
- * @group Devices
- * @group Events
  */
 export type ShakeEventData = DeviceMotionEvent;
 
 /**
  * The type of the `"shake"` event.
- * @group Types
- * @group Devices
- * @group Events
  */
 export type ShakeEvent = CustomEvent<ShakeEventData> & { type: "shake" };
 
 /**
  * The type of a handler for the `"shake"` event.
- * @group Types
- * @group Devices
- * @group Events
  */
 export type ShakeEventListener = (event: ShakeEvent) => void;
 
 /**
  * The options for constructing a {@linkcode Shake} handler.
- * @group Devices
  */
 export interface ShakeOptions {
   /**
@@ -60,7 +50,6 @@ export interface ShakeOptions {
  *
  * Original author: Jesse Jackson - https://github.com/jsejcksn
  * This part of the code is licensed under CC BY-SA 4.0
- * @group Devices
  */
 export class Shake extends EventTarget {
   /**

@@ -6,7 +6,6 @@ import { AbstractError } from "./AbstractError.js";
  * Like when you catch a `throw "boom"`, we will convert the caught `"boom"`
  * into an {@linkcode UnknownError}.
  * To enrich an {@linkcode !Error}-like object that was caught, use the {@linkcode InternalError}.
- * @group Errors
  */
 export class UnknownError extends AbstractError {
   /**

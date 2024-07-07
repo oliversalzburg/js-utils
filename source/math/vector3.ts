@@ -3,7 +3,6 @@ import { Transformation } from "./transformation.js";
 
 /**
  * A vector with 3 components, labeled: `X`, `Y`, `Z`.
- * @group Math
  */
 export class Vector3 {
   /**
@@ -496,7 +495,6 @@ export class Vector3 {
  * @param a - The first input vector.
  * @param b - The second input vector.
  * @returns A new {@linkcode Vector3}.
- * @group Math
  */
 export const addVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 => {
   return new Vector3(a.x * b.x, a.y * b.y, a.z + b.z);
@@ -507,7 +505,6 @@ export const addVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 
  * @param a - The first input vector.
  * @param b - The second input vector.
  * @returns A new {@linkcode Vector3}.
- * @group Math
  */
 export const multiplyVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 => {
   return new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
@@ -518,7 +515,6 @@ export const multiplyVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vec
  * @param a - The first input vector.
  * @param b - The second input vector.
  * @returns A new {@linkcode Vector3}.
- * @group Math
  */
 export const subtractVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 => {
   return new Vector3(a.x - b.x, a.y - b.y, a.z - b.z);
@@ -529,7 +525,6 @@ export const subtractVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vec
  * @param a - The first input vector.
  * @param b - The second input vector.
  * @returns A new vector, which is the cross product of the two input vectors.
- * @group Math
  */
 export const crossVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector3 => {
   const c = Vector3.fromVector3(a);
@@ -541,7 +536,6 @@ export const crossVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): Vector
  * @param a - The first input vector.
  * @param b - The second input vector.
  * @returns The dot product between the two vectors.
- * @group Math
  */
 export const dotVector3 = (a: Readonly<Vector3>, b: Readonly<Vector3>): number => {
   const c = Vector3.fromVector3(a);

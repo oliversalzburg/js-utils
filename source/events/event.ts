@@ -3,7 +3,6 @@
  * @param type - The name of the type of the event.
  * @param detail - The event details.
  * @returns The requested event object.
- * @group Events
  */
 export const createEvent = <TEventType extends string, TDetail>(
   type: TEventType,

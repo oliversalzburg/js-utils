@@ -9,7 +9,6 @@ import { MS_PER_FRAME_60FPS } from "./render-loop.js";
  * An offscreen canvas.
  *
  * This isn't created from a DOM node, but from an existing {@linkcode !OffscreenCanvas}.
- * @group Graphics
  */
 export class Canvas2DHeadless extends Canvas {
   /**

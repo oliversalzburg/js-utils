@@ -5,7 +5,6 @@ import { BareLogger } from "./log.js";
 
 /**
  * An entry of a {@linkcode Report}.
- * @group Logging
  */
 export interface ReportEntry {
   /**
@@ -24,14 +23,12 @@ export interface ReportEntry {
  * Ensures an origin stays within reasonable display size.
  * @param origin - The original log origin.
  * @returns A shortened origin for display.
- * @group Logging
  */
 export const makeLogOrigin = (origin: string): string =>
   origin.includes("\n") ? hashCyrb53(origin) : origin;
 
 /**
  * A hierarchical background report/log.
- * @group Logging
  */
 // eslint-disable-next-line no-use-before-define
 export class Report extends TreeNode<Report> {

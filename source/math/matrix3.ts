@@ -4,7 +4,6 @@ import { Vector3 } from "./vector3.js";
 
 /**
  * A matrix with 3 x 3 components.
- * @group Math
  */
 export class Matrix3 {
   /**

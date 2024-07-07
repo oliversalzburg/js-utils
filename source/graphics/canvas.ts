@@ -6,7 +6,6 @@
  * context and applications using that canvas will only interact with its interface.
  * Another canvas implementation might expose the context and all give the application
  * full control over the rendering cycle.
- * @group Graphics
  */
 export abstract class Canvas {
   /**

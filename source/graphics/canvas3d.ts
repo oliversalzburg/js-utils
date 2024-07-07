@@ -4,8 +4,6 @@ import { Canvas } from "./canvas.js";
 
 /**
  * A canvas to interact with WebGL.
- * @group Graphics
- * @group WebGL
  */
 export class Canvas3D extends Canvas {
   /**

@@ -5,7 +5,6 @@ import { Palette, paletteName } from "./palette.js";
  * Renders the colors of a palette into a canvas.
  * @param palette - The palette to render.
  * @param canvas - The canvas element to render to.
- * @group Graphics
  */
 export const renderPaletteSample = (
   palette: Palette,

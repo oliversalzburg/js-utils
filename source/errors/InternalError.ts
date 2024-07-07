@@ -3,7 +3,6 @@ import { AbstractError } from "./AbstractError.js";
 /**
  * Used when an {@linkcode !Error}-like object was caught and converted into an
  * implementation of {@linkcode AbstractError} for further processing.
- * @group Errors
  */
 export class InternalError extends AbstractError {
   /**

@@ -9,11 +9,6 @@ import { InvalidOperationError } from "../errors/InvalidOperationError.js";
  * process to interpret the tag.
  * @param input - Should only be the source of a fragment shader.
  * @returns The fragment shader as-is.
- * @group Graphics
- * @group GLSL
- * @group WebGL
- * @group Tags
- * @group Strings
  */
 export const frag = (input: TemplateStringsArray): string => input.join();
 
@@ -25,19 +20,11 @@ export const frag = (input: TemplateStringsArray): string => input.join();
  * process to interpret the tag.
  * @param input - Should only be the source of a vertex shader.
  * @returns The vertex shader as-is.
- * @group Graphics
- * @group GLSL
- * @group WebGL
- * @group Tags
- * @group Strings
  */
 export const vert = (input: TemplateStringsArray): string => input.join();
 
 /**
  * Construction options for a {@linkcode !WebGLShader}.
- * @group Graphics
- * @group GLSL
- * @group WebGL
  */
 export interface ShaderOptions {
   /**
@@ -56,9 +43,6 @@ export interface ShaderOptions {
  * @param gl - The rendering context in which to create the shader.
  * @param options - The construction options for the shader.
  * @returns The shader.
- * @group Graphics
- * @group GLSL
- * @group WebGL
  */
 export const createShader = (gl: WebGL2RenderingContext, options: ShaderOptions): WebGLShader => {
   const shader: WebGLShader = mustExist(gl.createShader(options.type));
@@ -82,9 +66,6 @@ export const createShader = (gl: WebGL2RenderingContext, options: ShaderOptions)
  * @param transformFeedbackVaryings - Which values to record in transform
  * feedback buffer? See {@linkcode !WebGLTransformFeedback}.
  * @returns The program.
- * @group Graphics
- * @group GLSL
- * @group WebGL
  */
 export const createGLProgram = (
   gl: WebGL2RenderingContext,
@@ -117,10 +98,6 @@ export const createGLProgram = (
  * @param width - Width of the buffer.
  * @param height - Height of the buffer.
  * @returns The buffer.
- * @group Graphics
- * @group GLSL
- * @group WebGL
- * @group Random
  */
 export const randomRGData = (width: number, height: number) => {
   const data = new Array<number>();

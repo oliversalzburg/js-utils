@@ -15,15 +15,11 @@ import { RenderLoop } from "./render-loop.js";
  * {@link https://lit.dev/docs/components/styles/ | Lit styles}.
  * @param input - The CSS code.
  * @returns The CSS code as-is.
- * @group Strings
- * @group Tags
- * @group Graphics
  */
 export const css = (input: TemplateStringsArray): string => input.join("");
 
 /**
  * The CSS we inject into the document, if requested.
- * @group Graphics
  */
 export const CANVAS_SANDBOX_DEFAULT_CSS = /* PURE */ css`
   html,
@@ -85,7 +81,6 @@ export const CANVAS_SANDBOX_DEFAULT_CSS = /* PURE */ css`
 
 /**
  * The options your application has to accept so it can interact with the {@linkcode CanvasSandbox}.
- * @group Graphics
  */
 export interface CanvasSandboxExpectedOptions {
   /**
@@ -132,7 +127,6 @@ export interface CanvasSandboxExpectedOptions {
  * Describes an application running inside the {@linkcode CanvasSandbox}.
  * @typeParam TApplicationOptions - The type of the options object
  * with which the application is constructed.
- * @group Graphics
  */
 export interface CanvasSandboxApplication<
   TCanvas extends Canvas,
@@ -182,7 +176,6 @@ export interface CanvasSandboxApplication<
 
 /**
  * Options for a {@linkcode CanvasSandbox}.
- * @group Graphics
  */
 export interface CanvasSandboxOptions {
   /**
@@ -267,7 +260,6 @@ export interface CanvasSandboxOptions {
  * ```
  * @typeParam TApplicationOptions - The type of the options
  * the application in the sandbox will be constructed with.
- * @group Graphics
  */
 export class CanvasSandbox<
   TCanvas extends Canvas,

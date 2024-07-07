@@ -3,7 +3,6 @@ import { AbstractError } from "./AbstractError.js";
 /**
  * Used when the user supplied an argument that is not valid in the current
  * context.
- * @group Errors
  */
 export class InvalidArgumentError extends AbstractError {
   /**

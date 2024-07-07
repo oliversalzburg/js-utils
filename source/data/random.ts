@@ -2,7 +2,6 @@ import { Vector3 } from "../math/vector3.js";
 
 /**
  * Helps with generating random numbers.
- * @group Random
  */
 export class Random {
   /**
@@ -357,7 +356,6 @@ export class Random {
  * @param min - The lower bound.
  * @param max - The upper bound.
  * @returns A random value between the lower and upper bound.
- * @group Random
  */
 export const randomRange = (min: number, max: number) => {
   return Math.random() * (max - min) + min;
@@ -368,7 +366,6 @@ export const randomRange = (min: number, max: number) => {
  * from a string.
  * @param input - The string to use as a seed.
  * @returns A numeric seed value for a PRNG.
- * @group Random
  */
 export const seedFromString = (input: string) => {
   return input
@@ -378,6 +375,5 @@ export const seedFromString = (input: string) => {
 
 /**
  * A global PRNG instance that is ready-to-use.
- * @group Random
  */
 export const random = new Random();

@@ -5,7 +5,6 @@ import { errorToString, unknownToError } from "./error-serializer.js";
  * and prints it to a {@linkcode NodeJS.WriteStream}.
  * @param stream - The stream to print errors to.
  * @returns A function that will print errors to the stream.
- * @group Errors
  */
 export const redirectErrorsToStream = (stream: NodeJS.WriteStream): ((error: unknown) => void) => {
   const printErrorsToStream = (unknownError: unknown): void => {

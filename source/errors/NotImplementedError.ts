@@ -2,7 +2,6 @@ import { AbstractError } from "./AbstractError.js";
 
 /**
  * Used when a called method actually hasn't been implemented yet (whoops).
- * @group Errors
  */
 export class NotImplementedError extends AbstractError {
   /**

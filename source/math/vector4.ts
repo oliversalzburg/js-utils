@@ -1,6 +1,5 @@
 /**
  * A vector with 4 components, labeled: `X`, `Y`, `Z`, `W`.
- * @group Math
  */
 export class Vector4 {
   /**

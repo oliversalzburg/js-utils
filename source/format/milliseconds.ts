@@ -6,7 +6,6 @@
 
 /**
  * Options for the `formatMilliseconds` function.
- * @group Formatting
  */
 export interface FormatMillisecondsOptions {
   /**
@@ -127,7 +126,6 @@ const ONE_DAY_IN_MILLISECONDS = 24n * 60n * 60n * 1000n;
  * @param milliseconds - Milliseconds to humanize.
  * @param options - Options for humanizing the milliseconds.
  * @returns The humanized string.
- * @group Formatting
  * @example
  * ```
  * import formatMilliseconds from '@oliversalzburg/js-utils/format/milliseconds.js';

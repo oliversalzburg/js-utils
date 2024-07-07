@@ -1,6 +1,5 @@
 /**
  * Base class for all errors.
- * @group Errors
  */
 export class AbstractError extends Error {
   /**

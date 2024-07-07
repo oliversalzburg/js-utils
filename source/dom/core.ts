@@ -11,7 +11,6 @@ import { InvalidOperationError } from "../errors/InvalidOperationError.js";
  * @returns The requested element, if it has the expected type.
  * @throws {@linkcode InvalidOperationError} When the document element has an unexpected type.
  * @throws {@linkcode  UnexpectedNilError} When the the document element is `null`.
- * @group DOM
  */
 export const getDocumentElementTypeByIdStrict = <T extends HTMLElement>(
   document: Document,
@@ -38,7 +37,6 @@ export const getDocumentElementTypeByIdStrict = <T extends HTMLElement>(
  * @param id - The ID of the element.
  * @param Type - The type you expect the element to have.
  * @returns The requested element, if it has the expected type; `null` otherwise.
- * @group DOM
  */
 export const getDocumentElementTypeById = <T extends HTMLElement>(
   document: Document,

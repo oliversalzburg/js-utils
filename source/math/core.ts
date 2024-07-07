@@ -1,6 +1,5 @@
 /**
  * `PI` times 2.
- * @group Math
  */
 export const TWO_PI = /* __PURE__ */ Math.PI * 2;
 
@@ -8,7 +7,6 @@ export const TWO_PI = /* __PURE__ */ Math.PI * 2;
  * Converts the degrees to radians.
  * @param degrees - The degrees to convert to radians.
  * @returns The degrees in radians.
- * @group Math
  */
 export const degreesToRadians = (degrees: number) => {
   return degrees * (Math.PI / 180);
@@ -18,7 +16,6 @@ export const degreesToRadians = (degrees: number) => {
  * Convertrs the radians to degrees.
  * @param radians - The radians to convert to degrees.
  * @returns The radians as degrees.
- * @group Math
  */
 export const radiansToDegrees = (radians: number) => {
   return radians * (180 / Math.PI);
@@ -28,7 +25,6 @@ export const radiansToDegrees = (radians: number) => {
  * Calculates the sine for a given degree value.
  * @param value - The value in degrees to calculate the sine for.
  * @returns The sine for the given value.
- * @group Math
  */
 export const sinDegrees = (value: number) => {
   return Math.sin(degreesToRadians(value));
@@ -38,7 +34,6 @@ export const sinDegrees = (value: number) => {
  * Calculates the cosine for a given degree value.
  * @param value - The value in degrees to calculate the cosine for.
  * @returns The cosine for the given value.
- * @group Math
  */
 export const cosDegrees = (value: number) => {
   return Math.cos(degreesToRadians(value));
@@ -51,7 +46,6 @@ export const cosDegrees = (value: number) => {
  * @param x2 - The X component of the second vector.
  * @param y2 - The Y component of the second vector.
  * @returns The distance between the two vectors.
- * @group Math
  */
 export const distance = (x1: number, y1: number, x2: number, y2: number) => {
   const distx = x2 - x1;
@@ -63,7 +57,6 @@ export const distance = (x1: number, y1: number, x2: number, y2: number) => {
  * Finds the integer square root of a positive number.
  * @param value - The value to calcuate the square root for.
  * @returns The square root for the given value.
- * @group Math
  */
 export const isqrt = (value: number) => {
   if (0 === value) {
@@ -82,7 +75,6 @@ export const isqrt = (value: number) => {
  * Checks whether a number is an integer.
  * @param value - The value to check.
  * @returns `true` when the value is an integer, `false` otherwise.
- * @group Math
  */
 export const isInteger = (value: number) => {
   return Math.trunc(value) === value;
@@ -94,7 +86,6 @@ export const isInteger = (value: number) => {
  * @param floor - The lower bound.
  * @param ceil - The upper bound.
  * @returns The number clamped to the desired range.
- * @group Math
  */
 export const clamp = (input: number, floor: number, ceil: number): number => {
   return Math.max(floor, Math.min(input, ceil));
@@ -105,7 +96,6 @@ export const clamp = (input: number, floor: number, ceil: number): number => {
  * @param input - The number to round.
  * @param fractionDigits - The amount of digits to retain in the fraction.
  * @returns The rounded number.
- * @group Math
  */
 export const ceilTo = (input: number, fractionDigits = 0): number => {
   const scale = Math.pow(10, fractionDigits);
@@ -117,7 +107,6 @@ export const ceilTo = (input: number, fractionDigits = 0): number => {
  * @param input - The number to round.
  * @param fractionDigits - The amount of digits to retain in the fraction.
  * @returns The rounded number.
- * @group Math
  */
 export const floorTo = (input: number, fractionDigits = 0): number => {
   const scale = Math.pow(10, fractionDigits);
@@ -129,7 +118,6 @@ export const floorTo = (input: number, fractionDigits = 0): number => {
  * @param input - The number to round.
  * @param fractionDigits - The amount of digits to retain in the fraction.
  * @returns The rounded number.
- * @group Math
  */
 export const roundTo = (input: number, fractionDigits = 0): number => {
   const scale = Math.pow(10, fractionDigits);
@@ -141,7 +129,6 @@ export const roundTo = (input: number, fractionDigits = 0): number => {
  * @param input - The number to round.
  * @param fractionDigits - The amount of digits to retain in the fraction.
  * @returns The rounded number.
- * @group Math
  */
 export const truncTo = (input: number, fractionDigits = 0): number => {
   const scale = Math.pow(10, fractionDigits);

@@ -5,7 +5,6 @@ import { Vector4 } from "./vector4.js";
 
 /**
  * A quaternion.
- * @group Math
  */
 export class Quaternion extends Vector4 {
   /**

@@ -3,7 +3,6 @@ import { AbstractError } from "./AbstractError.js";
 /**
  * Used when an operation was attempted that can not be completed in the current
  * context.
- * @group Errors
  */
 export class InvalidOperationError extends AbstractError {
   /**

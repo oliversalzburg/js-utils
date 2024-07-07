@@ -1,7 +1,6 @@
 /**
  * Base class to quickly provide parent-child relationships.
  * @typeParam TNode - Your sub-class.
- * @group Data
  */
 export abstract class TreeNode<TNode> {
   /**

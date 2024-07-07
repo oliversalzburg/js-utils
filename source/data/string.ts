@@ -6,7 +6,6 @@ import { mustExist } from "./nil.js";
  * @param depth - How often to apply the indenting.
  * @param prefix - The string to use as the indent.
  * @returns The indented text.
- * @group Strings
  */
 export const indent = (subject: string, depth = 0, prefix = "    "): string =>
   subject.replaceAll(/^/gm, prefix.repeat(depth));
@@ -19,7 +18,6 @@ export const indent = (subject: string, depth = 0, prefix = "    "): string =>
  * @param subject - The string to hash.
  * @param seed - An optional seed value.
  * @returns A hash of the string.
- * @group Strings
  */
 export const hashCyrb53 = (subject: string, seed = 0): string => {
   let h1 = 0xdeadbeef ^ seed,
@@ -40,7 +38,6 @@ export const hashCyrb53 = (subject: string, seed = 0): string => {
  * Encodes the provided string in Base64.
  * @param subject - The string to encode.
  * @returns The subject string encoded in Base64.
- * @group Strings
  */
 export const base64Encode = (subject: string): string => {
   const bytes = new TextEncoder().encode(subject);
@@ -52,7 +49,6 @@ export const base64Encode = (subject: string): string => {
  * Decodes the provided Base64 encoded string.
  * @param subject - The string to decode.
  * @returns The decoded subject string.
- * @group Strings
  */
 export const base64Decode = (subject: string): string => {
   const binString = atob(subject);

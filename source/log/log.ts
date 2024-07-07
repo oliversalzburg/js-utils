@@ -1,6 +1,5 @@
 /**
  * Describes the most simple logger.
- * @group Logging
  */
 export interface BareLogger {
   /**

@@ -7,7 +7,6 @@ import { is } from "./nil.js";
  * @param array - The array to shuffle.
  * @typeParam TElements - The type of the elements in the array.
  * @returns The passed array in random order.
- * @group Array
  */
 export const shuffleArray = <TElements>(array: Array<TElements>) => {
   for (let index = array.length - 1; index > 0; index--) {
@@ -27,7 +26,6 @@ export const shuffleArray = <TElements>(array: Array<TElements>) => {
  * @typeParam TElements - The type of the elements in the array.
  * @returns A new array which holds the items that appear in
  * both passed arrays.
- * @group Array
  */
 export const intersect = <TElements>(a: Array<TElements>, b: Array<TElements>) => {
   return a.filter(x => b.includes(x));
@@ -39,7 +37,6 @@ export const intersect = <TElements>(a: Array<TElements>, b: Array<TElements>) =
  * @param b - The second array.
  * @typeParam TElements - The type of the elements in the array.
  * @returns A new array which holds the items that ony appear in `a`.
- * @group Array
  */
 export const difference = <TElements>(a: Array<TElements>, b: Array<TElements>) => {
   return a.filter(x => !b.includes(x));
@@ -52,7 +49,6 @@ export const difference = <TElements>(a: Array<TElements>, b: Array<TElements>) 
  * @param InstanceType - The type to search for.
  * @typeParam TElements - The type of the elements in the array.
  * @returns A new array with the filtered items.
- * @group Array
  */
 export const filterType = <TElements>(
   array: Array<unknown>,
@@ -66,7 +62,6 @@ export const filterType = <TElements>(
  * @param limit - The amount of items in each chunk.
  * @typeParam TElements - The type of the elements in the iterable.
  * @yields Chunks from the provided iterable.
- * @group Array
  */
 export const chunkify = function* <TElements>(iterable: Iterable<TElements>, limit: number) {
   let chunk = [];

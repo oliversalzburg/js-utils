@@ -3,7 +3,6 @@ import { AbstractError } from "./AbstractError.js";
 /**
  * An error used when access to a resource was requested, but the required
  * permissions were not available.
- * @group Errors
  */
 export class PermissionViolationError extends AbstractError {
   /**
