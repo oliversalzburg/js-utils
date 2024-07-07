@@ -19,7 +19,7 @@ main() {
   cp LICENSE dist-area/
   cp README.md dist-area/
   rm dist-area/tsconfig.tsbuildinfo
-  rm dist-area/**/*.test.js
+  rm dist-area/**/*.test.js dist-area/**/*.test.d.ts dist-area/**/*.test.js.map
   sed 's%/lib/%/%g' package.json > dist-area/package.json
 }
 
