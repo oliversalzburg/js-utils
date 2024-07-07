@@ -9,6 +9,12 @@
     "url": "https://github.com/oliversalzburg/js-utils.git"
   },
   "type": "module",
+  "exports": {
+    "./*.js": {
+      "types": "./lib/*.d.ts",
+      "default": "./lib/*.js"
+    }
+  },
   "files": [
     "./lib/**/*.d.ts",
     "./lib/**/*.js",
