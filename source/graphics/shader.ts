@@ -1,5 +1,5 @@
-import { InvalidOperationError } from "../error/InvalidOperationError.js";
-import { mustExist } from "../nil.js";
+import { mustExist } from "../data/nil.js";
+import { InvalidOperationError } from "../errors/InvalidOperationError.js";
 
 /**
  * Provides the input as-is.

@@ -1,5 +1,5 @@
 import { ConstructorOf } from "../core.js";
-import { is } from "../nil.js";
+import { is } from "./nil.js";
 
 /**
  * Places the items in the array in random order.

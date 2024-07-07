@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
+import { Random } from "../data/random.js";
 import { Shake } from "../device/shake.js";
 import { getDocumentElementTypeById } from "../dom/core.js";
-import { redirectErrorsToConsole } from "../error/console.js";
-import { Random } from "../random.js";
+import { redirectErrorsToConsole } from "../errors/console.js";
 import { Canvas } from "./canvas.js";
 import { RenderLoop } from "./render-loop.js";
 

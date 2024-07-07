@@ -1,4 +1,4 @@
-import { mustExist } from "../nil.js";
+import { mustExist } from "../data/nil.js";
 import { Palette, paletteName } from "./palette.js";
 
 /**

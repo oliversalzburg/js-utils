@@ -1,6 +1,6 @@
 import { ConstructorOf } from "../core.js";
-import { isNil, mustExist } from "../nil.js";
-import { Random } from "../random.js";
+import { isNil, mustExist } from "../data/nil.js";
+import { Random } from "../data/random.js";
 import { CanvasSandboxApplication, CanvasSandboxExpectedOptions } from "./canvas-sandbox.js";
 import { Canvas } from "./canvas.js";
 import { Canvas2DHeadless } from "./canvas2d-headless.js";

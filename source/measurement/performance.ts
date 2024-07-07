@@ -1,4 +1,4 @@
-import { AnyAsyncFunctionReturning, AnyFunctionReturning } from "./core.js";
+import { AnyAsyncFunctionReturning, AnyFunctionReturning } from "../core.js";
 
 /**
  * Executes the given function and measures how long the execution takes.

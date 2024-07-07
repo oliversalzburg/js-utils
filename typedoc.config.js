@@ -1,6 +1,6 @@
 /** @type {import('typedoc').TypeDocOptions} */
 export default {
-  entryPoints: ["./source"],
+  entryPoints: ["./source/**/*.ts"],
   githubPages: true,
   hostedBaseUrl: "https://oliversalzburg.github.io/js-utils/",
   includeVersion: true,

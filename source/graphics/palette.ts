@@ -1,4 +1,4 @@
-import { Random, random } from "../random.js";
+import { Random, random } from "../data/random.js";
 
 /**
  * Color palettes that can be used to quickly colorize a drawing.

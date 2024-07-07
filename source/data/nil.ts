@@ -1,4 +1,4 @@
-import { ConstructorOf } from "./core.js";
+import { ConstructorOf } from "../core.js";
 
 /**
  * When you want to normalize away `null` | `undefined`, or deal

@@ -1,5 +1,5 @@
-import { InvalidOperationError } from "../error/InvalidOperationError.js";
-import { mustExist } from "../nil.js";
+import { mustExist } from "../data/nil.js";
+import { InvalidOperationError } from "../errors/InvalidOperationError.js";
 import { Canvas } from "./canvas.js";
 import { Canvas2DHeadless } from "./canvas2d-headless.js";
 import {

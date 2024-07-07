@@ -1,5 +1,5 @@
-import { AnyAsyncFunction, AnyFunctionReturning, ConstructorOf } from "./core.js";
-import { redirectErrorsToConsole } from "./error/console.js";
+import { AnyAsyncFunction, AnyFunctionReturning, ConstructorOf } from "../core.js";
+import { redirectErrorsToConsole } from "../errors/console.js";
 
 /**
  * Wraps the given asynchronous function in a new function that will ignore any outcome of

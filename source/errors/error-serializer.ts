@@ -1,6 +1,6 @@
-import { AbstractError } from "./error/AbstractError.js";
-import { InternalError } from "./error/InternalError.js";
-import { UnknownError } from "./error/UnknownError.js";
+import { AbstractError } from "./AbstractError.js";
+import { InternalError } from "./InternalError.js";
+import { UnknownError } from "./UnknownError.js";
 
 /**
  * The shape of an {@linkcode !Error} instance, after it has been serialized into a simple hash.

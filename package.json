@@ -9,10 +9,6 @@
     "url": "https://github.com/oliversalzburg/js-utils.git"
   },
   "type": "module",
-  "exports": {
-    ".": "./lib/index.js",
-    "./*.js": "./lib/*.js"
-  },
   "files": [
     "./lib/**/*.d.ts",
     "./lib/**/*.js",
@@ -36,7 +32,6 @@
     "preversion": "yarn run lint && yarn run build && yarn run test",
     "postversion": "git push"
   },
-  "types": "./lib/index.d.ts",
   "devDependencies": {
     "@eslint/js": "9.6.0",
     "@oliversalzburg/eslint-config": "0.0.17",

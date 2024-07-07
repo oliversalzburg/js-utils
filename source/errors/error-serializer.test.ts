@@ -9,8 +9,8 @@ import {
   isError,
   unknownToError,
 } from "./error-serializer.js";
-import { InternalError } from "./error/InternalError.js";
-import { InvalidArgumentError } from "./error/InvalidArgumentError.js";
+import { InternalError } from "./InternalError.js";
+import { InvalidArgumentError } from "./InvalidArgumentError.js";
 
 function generateDefaultError() {
   try {

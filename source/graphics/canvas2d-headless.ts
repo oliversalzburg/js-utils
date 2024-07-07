@@ -1,5 +1,5 @@
-import { InvalidOperationError } from "../error/InvalidOperationError.js";
-import { mustExist } from "../nil.js";
+import { mustExist } from "../data/nil.js";
+import { InvalidOperationError } from "../errors/InvalidOperationError.js";
 import { Canvas } from "./canvas.js";
 import { Canvas2DOptions } from "./canvas2d.js";
 import { blend, fromRGBA, getA, getB, getG, getR } from "./core.js";

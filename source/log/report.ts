@@ -1,6 +1,6 @@
+import { hashCyrb53, indent } from "../data/string.js";
 import { TreeNode } from "../data/tree.js";
-import { InvalidOperationError } from "../error/InvalidOperationError.js";
-import { hashCyrb53, indent } from "../string.js";
+import { InvalidOperationError } from "../errors/InvalidOperationError.js";
 import { BareLogger } from "./log.js";
 
 /**

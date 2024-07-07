@@ -1,6 +1,6 @@
 import { ConstructorOf } from "../core.js";
-import { InvalidOperationError } from "../error/InvalidOperationError.js";
-import { UnexpectedNilError } from "../nil.js";
+import { UnexpectedNilError } from "../data/nil.js";
+import { InvalidOperationError } from "../errors/InvalidOperationError.js";
 
 /**
  * Retrieves an element from the document and returns it if it is
