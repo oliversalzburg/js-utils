@@ -12,6 +12,10 @@
     {
       "tagName": "@module",
       "syntaxKind": "block"
+    },
+    {
+      "tagName": "@yields",
+      "syntaxKind": "block"
     }
   ]
 }

@@ -58,3 +58,26 @@ export const filterType = <TElements>(
   array: Array<unknown>,
   InstanceType: ConstructorOf<TElements>,
 ) => array.filter(element => is(element, InstanceType)) as Array<TElements>;
+
+/**
+ * From an iterable with unknown contents, yield arrays that contain items from
+ * the iterable up to a given limit.
+ * @param iterable - The iterable to retrieve items from.
+ * @param limit - The amount of items in each chunk.
+ * @typeParam TElements - The type of the elements in the iterable.
+ * @yields Chunks from the provided iterable.
+ * @group Array
+ */
+export const chunkify = function* <TElements>(iterable: Iterable<TElements>, limit: number) {
+  let chunk = [];
+  for (const element of iterable) {
+    chunk.push(element);
+    if (chunk.length === limit) {
+      yield chunk;
+      chunk = [];
+    }
+  }
+  if (chunk.length) {
+    yield chunk;
+  }
+};
