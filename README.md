@@ -1,6 +1,6 @@
 # JS Utils
 
-[![npm version](https://img.shields.io/npm/v/@oliversalzburg%2Fjs-utils)](https://www.npmjs.com/package/@oliversalzburg%2Fjs-utils) [![QA](https://github.com/oliversalzburg/js-utils/actions/workflows/qa.yml/badge.svg)](https://github.com/oliversalzburg/js-utils/actions/workflows/qa.yml)
+[![npm version](https://img.shields.io/npm/v/@oliversalzburg%2Fjs-utils)](https://www.npmjs.com/package/@oliversalzburg%2Fjs-utils) [![Pre-Release](https://github.com/oliversalzburg/js-utils/actions/workflows/pre-release.yml/badge.svg)](https://github.com/oliversalzburg/js-utils/actions/workflows/pre-release.yml)
 
 A collection of random utilities for JS/TS development.
 
