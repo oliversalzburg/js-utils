@@ -72,9 +72,7 @@ export const errorToRecord = (error: Error): Record<string, unknown> => {
  * @param error - The error to serialize.
  * @returns A simple representation of the error.
  */
-export const errorToSimpleSerializable = <TError extends AbstractError = AbstractError>(
-  error: TError,
-): SerializedError => {
+export const errorToSimpleSerializable = (error: AbstractError): SerializedError => {
   const serialized: SerializedError = {
     code: error.code,
     message: error.message,

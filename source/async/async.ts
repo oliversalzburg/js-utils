@@ -7,18 +7,15 @@ import { redirectErrorsToConsole } from "../errors/console.js";
  *
  * This can be useful when providing asynchonous event handler to `.addEventlistener()`,
  * which only expects synchronous functions.
- * @param context - The asynchronous function to exectute.
- * @typeParam TArguments - The type of the arguments that your function expects.
+ * @param context - The asynchronous function to execute.
  * @returns A function returning nothing.
  */
-export const prepareAsyncContext = <TArguments extends Array<unknown>>(
-  context: AnyAsyncFunction,
-) => {
+export const prepareAsyncContext = (context: AnyAsyncFunction) => {
   return (
     /**
      * The arguments that our new function was called with.
      */
-    ...args: TArguments
+    ...args: Array<unknown>
   ) => {
     void context(...args)
       .then(() => undefined)
@@ -42,6 +39,7 @@ export const prepareAsyncContext = <TArguments extends Array<unknown>>(
 export const coalesceOnRejection = async <
   TExecutableReturn,
   TCoalesce,
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-parameters
   TFilter extends ConstructorOf<Error>,
 >(
   executable: AnyFunctionReturning<TExecutableReturn | Promise<TExecutableReturn>>,
