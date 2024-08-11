@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.9.0",
-    "@oliversalzburg/eslint-config": "0.0.29",
+    "@oliversalzburg/eslint-config": "1.0.0",
     "@types/chai": "4.3.17",
     "@types/eslint": "9.6.0",
     "@types/mocha": "10.0.7",
