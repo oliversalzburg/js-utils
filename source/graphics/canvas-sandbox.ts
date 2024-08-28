@@ -426,14 +426,12 @@ export class CanvasSandbox<
     });
 
     this.document.body.addEventListener("keyup", event => {
-      switch (event.keyCode) {
-        case 13:
-          // Enter
+      switch (event.key) {
+        case "Enter":
           this.#reconfigureApplication();
           break;
 
-        case 32:
-          // Space
+        case " ":
           this.application.pause(!this.application.paused);
           break;
       }
