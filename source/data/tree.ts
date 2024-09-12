@@ -32,7 +32,7 @@ export abstract class TreeNode<TNode> {
    * Construct tree node.
    * @param parent - The parent.
    */
-  constructor(parent?: TNode | undefined) {
+  constructor(parent?: TNode) {
     this.#parent = parent;
   }
 

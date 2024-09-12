@@ -56,7 +56,7 @@ export class Report extends TreeNode<Report> {
    * @throws {@linkcode InvalidOperationError} When the origin was already
    * used by another report in this hierarchy.
    */
-  constructor(origin: string, parent?: Report | undefined) {
+  constructor(origin: string, parent?: Report) {
     super(parent);
     if (this.store.has(origin)) {
       throw new InvalidOperationError(`The origin '${origin}' was already used in this report.`);
