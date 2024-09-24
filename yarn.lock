@@ -275,7 +275,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:9.11.1"
     "@oliversalzburg/eslint-config": "npm:1.1.0"
-    "@types/chai": "npm:4.3.19"
+    "@types/chai": "npm:4.3.20"
     "@types/eslint": "npm:9.6.1"
     "@types/mocha": "npm:10.0.8"
     "@types/node": "npm:20.16.6"
@@ -365,10 +365,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:4.3.19":
-  version: 4.3.19
-  resolution: "@types/chai@npm:4.3.19"
-  checksum: 10c0/8fd573192e486803c4d04185f2b0fab554660d9a1300dbed5bde9747ab8bef15f462a226f560ed5ca48827eecaf8d71eed64aa653ff9aec72fb2eae272e43a84
+"@types/chai@npm:4.3.20":
+  version: 4.3.20
+  resolution: "@types/chai@npm:4.3.20"
+  checksum: 10c0/4601189d611752e65018f1ecadac82e94eed29f348e1d5430e5681a60b01e1ecf855d9bcc74ae43b07394751f184f6970fac2b5561fc57a1f36e93a0f5ffb6e8
   languageName: node
   linkType: hard
 
