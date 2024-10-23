@@ -47,7 +47,7 @@
     "@types/node": "20.16.15",
     "@types/web": "0.0.174",
     "c8": "10.1.2",
-    "chai": "5.1.1",
+    "chai": "5.1.2",
     "eslint": "9.13.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-jsdoc": "50.4.3",
