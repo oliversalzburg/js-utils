@@ -41,7 +41,7 @@
   "devDependencies": {
     "@eslint/js": "9.13.0",
     "@oliversalzburg/eslint-config": "1.1.0",
-    "@types/chai": "5.0.0",
+    "@types/chai": "5.0.1",
     "@types/eslint": "9.6.1",
     "@types/mocha": "10.0.9",
     "@types/node": "20.17.1",
