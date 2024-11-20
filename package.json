@@ -43,7 +43,7 @@
     "@oliversalzburg/eslint-config": "1.1.0",
     "@types/chai": "5.0.1",
     "@types/eslint": "9.6.1",
-    "@types/mocha": "10.0.9",
+    "@types/mocha": "10.0.10",
     "@types/node": "22.9.1",
     "@types/web": "0.0.180",
     "c8": "10.1.2",
