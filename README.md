@@ -4,15 +4,15 @@
 
 A collection of random utilities for JS/TS development.
 
--   ESM only.
+- ESM only.
 
--   Tree-shaking in mind. Only subpath-imports are supported.
+- Tree-shaking in mind. Only subpath-imports are supported.
 
--   Consumable with `node` and `nodenext` [module resolution](https://www.typescriptlang.org/tsconfig/#moduleResolution).
+- Consumable with `node` and `nodenext` [module resolution](https://www.typescriptlang.org/tsconfig/#moduleResolution).
 
--   No runtime dependencies.
+- No runtime dependencies.
 
--   All runtime code is licensed under MIT, or fully compatible licenses.
+- All runtime code is licensed under MIT, or fully compatible licenses.
 
 ## Release Process
 
