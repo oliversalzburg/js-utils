@@ -317,7 +317,7 @@ __metadata:
     prettier-package-json: "npm:2.8.0"
     prettier-plugin-organize-imports: "npm:4.1.0"
     typedoc: "npm:0.27.2"
-    typedoc-plugin-mdn-links: "npm:4.0.2"
+    typedoc-plugin-mdn-links: "npm:4.0.3"
     typescript: "npm:5.6.3"
     typescript-eslint: "npm:8.16.0"
   languageName: unknown
@@ -3180,12 +3180,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-mdn-links@npm:4.0.2":
-  version: 4.0.2
-  resolution: "typedoc-plugin-mdn-links@npm:4.0.2"
+"typedoc-plugin-mdn-links@npm:4.0.3":
+  version: 4.0.3
+  resolution: "typedoc-plugin-mdn-links@npm:4.0.3"
   peerDependencies:
     typedoc: 0.26.x || 0.27.x
-  checksum: 10c0/7a384e4c9125fbea09fb99053b21ab35f10f28b7a0cf4777cfdd87a311949a64c5a53c194cd3a3cd9634608480aa7d9b1ec2ad435917b8c454e4dc6f640fd1dd
+  checksum: 10c0/d74c035e1edcba288779732952cdb100f3f63262898cb5f668adcda0e57333f2f4c34f8ce12d0f7ebf8006c74ca2a43564d6e1c55a9ec6a7c54235d16bfaedb8
   languageName: node
   linkType: hard
 
