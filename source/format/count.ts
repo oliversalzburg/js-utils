@@ -1,4 +1,4 @@
-import { coalesceArray, mustExist } from "../data/nil.js";
+import { mustExist } from "../data/nil.js";
 
 /**
  * Convert counts to a human readable string: `1234` → `1.234K`.
@@ -27,10 +27,8 @@ export const parseCount = (count: string, locale?: string): number => {
     notation: "compact",
   });
   const parts = format.formatToParts(-12345.6);
-  const orders = coalesceArray(
-    Array.from({ length: 20 }).map(
-      (_, i) => format.formatToParts(Math.pow(10, i)).find(d => d.type === "compact")?.value ?? "",
-    ),
+  const orders = Array.from({ length: 20 }).map(
+    (_, i) => format.formatToParts(Math.pow(10, i)).find(d => d.type === "compact")?.value ?? "",
   );
   const numerals = Array.from({ length: 10 }).map((_, i) => format.format(i));
   const index = new Map(numerals.map((d, i) => [d, i]));
