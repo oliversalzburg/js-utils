@@ -150,9 +150,12 @@ export class CanvasWorker<
     });
 
     // Translate messages to events.
-    this.workerInstance.onmessage = (
-      message: MessageEvent<CanvasWorkerMessage<TApplicationOptions>>,
-    ) => this.dispatchEvent(new CustomEvent(message.data.type));
+    this.workerInstance.onmessage = (message: Event) =>
+      this.dispatchEvent(
+        new CustomEvent(
+          (message as MessageEvent<CanvasWorkerMessage<TApplicationOptions>>).data.type,
+        ),
+      );
   }
 
   /**
