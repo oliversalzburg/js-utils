@@ -10,12 +10,17 @@ on:
 jobs:
   qa:
     name: 🔹 QA
+    permissions:
+      contents: read
+      packages: read
     uses: oliversalzburg/workflows/.github/workflows/qa-npm-package.yml@main
 
   qa-passed:
     needs:
       - qa
     name: QA Passed
+    permissions:
+      contents: read
     if: always()
     runs-on: ubuntu-24.04
     steps:
