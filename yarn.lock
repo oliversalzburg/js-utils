@@ -315,7 +315,7 @@ __metadata:
     "@types/eslint": "npm:9.6.1"
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:22.10.7"
-    "@types/web": "npm:0.0.195"
+    "@types/web": "npm:0.0.196"
     c8: "npm:10.1.3"
     chai: "npm:5.1.2"
     eslint: "npm:9.18.0"
@@ -469,10 +469,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/web@npm:0.0.195":
-  version: 0.0.195
-  resolution: "@types/web@npm:0.0.195"
-  checksum: 10c0/f3af41c3b19430c1ecb5a5c75d5e04580ed1263e7f8158665c63fd77a0234402cf1e7848623c782aa8dd1885eb0f0696421859f9df0419a0120adb6b1a43a45a
+"@types/web@npm:0.0.196":
+  version: 0.0.196
+  resolution: "@types/web@npm:0.0.196"
+  checksum: 10c0/c18295901482c3d54de82aec937aa7eb5b9f5f120d2c806dd2357bca1fd406fac7b682568acd4e9a60f33a293c4a57e649016a650ede79724346c4f4f5ee308b
   languageName: node
   linkType: hard
 
