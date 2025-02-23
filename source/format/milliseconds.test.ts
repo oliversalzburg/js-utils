@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { it } from "mocha";
-import { formatMilliseconds, FormatMillisecondsOptions } from "./milliseconds.js";
+import { FormatMillisecondsOptions, formatMilliseconds } from "./milliseconds.js";
 
 const toBigInt = (milliseconds: number): bigint | undefined => {
   if (typeof milliseconds !== "number") {

@@ -117,7 +117,7 @@ const BIBIT_UNITS = ["b", "kibit", "Mibit", "Gibit", "Tibit", "Pibit", "Eibit", 
  * @param options - Formatting options.
  * @returns The formatted number.
  */
-const toLocaleString = (
+const toLocaleStringInternal = (
   number: number | string,
   locale: boolean | string | ReadonlyArray<string> | undefined,
   options: Intl.NumberFormatOptions | undefined,
@@ -203,7 +203,7 @@ export const formatBytes = (
   }
 
   if (number < 1) {
-    const numberString = toLocaleString(number, options.locale, localeOptions);
+    const numberString = toLocaleStringInternal(number, options.locale, localeOptions);
     return prefix + numberString + separator + UNITS[0];
   }
 
@@ -217,7 +217,7 @@ export const formatBytes = (
     number = Number(number.toPrecision(3));
   }
 
-  const numberString = toLocaleString(number, options.locale, localeOptions);
+  const numberString = toLocaleStringInternal(number, options.locale, localeOptions);
 
   const unit = UNITS[exponent];
 

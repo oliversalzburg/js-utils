@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Random } from "../data/random.js";
 import { Shake } from "../device/shake.js";
 import { getDocumentElementTypeById } from "../dom/core.js";
@@ -390,6 +389,7 @@ export class CanvasSandbox<
    */
   run() {
     if (this.sandboxOptions.devMode) {
+      // biome-ignore lint/suspicious/noConsole: This is a development mode option.
       console.info(
         "CanvasSandbox: Starting application with these options.",
         this.application.options,
@@ -406,7 +406,6 @@ export class CanvasSandbox<
    * Create event listeners on the document `body`.
    */
   #hookBody() {
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     this.document.body.addEventListener("click", async (event: MouseEvent) => {
       if (event.defaultPrevented) {
         return;
@@ -419,6 +418,7 @@ export class CanvasSandbox<
       // Make canvas fullscreen.
       if (!this.document.fullscreenElement && event.target === this.document.body) {
         if (this.sandboxOptions.devMode) {
+          // biome-ignore lint/suspicious/noConsole: This is a development mode option.
           console.info("CanvasSandbox: Canvas is entering fullscreen mode...");
         }
         await this.canvasNode.requestFullscreen();
@@ -467,7 +467,10 @@ export class CanvasSandbox<
       .start()
       .then(() => {
         this.shakeHandler.addEventListener("shake", () => {
-          console.info("CanvasSandbox: Shake detected. Reconfiguring application...");
+          if (this.sandboxOptions.devMode) {
+            // biome-ignore lint/suspicious/noConsole: This is a development mode option.
+            console.info("CanvasSandbox: Shake detected. Reconfiguring application...");
+          }
           this.#reconfigureApplication();
         });
       })
@@ -493,6 +496,7 @@ export class CanvasSandbox<
       }, 1000);
 
       if (this.sandboxOptions.devMode) {
+        // biome-ignore lint/suspicious/noConsole: This is a development mode option.
         console.info(
           `CanvasSandbox: Window resized (${this.window.innerWidth.toFixed(0)}x${this.window.innerHeight.toFixed(0)}x${this.window.devicePixelRatio.toFixed(3)}). Reconfiguring application...`,
         );

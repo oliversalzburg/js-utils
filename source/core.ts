@@ -1,37 +1,42 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 /**
  * Describes a function that is a constructor for something.
  * @typeParam TConstructed - The type this is a constructor for.
  */
+// biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
 export type ConstructorOf<TConstructed> = new (...args: Array<any>) => TConstructed;
 
 /**
  * Describes any function.
  */
+// biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
 export type AnyFunction = (...args: Array<any>) => any;
 
 /**
  * Describes any asynchronous function.
  */
+// biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
 export type AnyAsyncFunction = (...args: Array<any>) => Promise<any>;
 
 /**
  * Any constructor
  */
+// biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
 export type AnyConstructor = new (...args: Array<any>) => any;
 
 /**
  * Describes a function returning an instance of a given type.
  * @typeParam TReturned - The type of the item returned by the function.
  */
+// biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
 export type AnyFunctionReturning<TReturned = any> = (...args: Array<any>) => TReturned;
 
 /**
  * Describes an async function returning an instance of a given type.
  * @typeParam TReturned - The type of the item returned by the function.
  */
+// biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
 export type AnyAsyncFunctionReturning<TReturned = any> = (
+  // biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
   ...args: Array<any>
 ) => Promise<TReturned>;
 

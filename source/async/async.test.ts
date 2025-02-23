@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
-/* eslint-disable no-unused-expressions */
 import { expect } from "chai";
 import { it } from "mocha";
 import { prepareAsyncContext, sleep } from "./async.js";

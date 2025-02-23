@@ -39,7 +39,6 @@ export const prepareAsyncContext = (context: AnyAsyncFunction) => {
 export const coalesceOnRejection = async <
   TExecutableReturn,
   TCoalesce,
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-parameters
   TFilter extends ConstructorOf<Error>,
 >(
   executable: AnyFunctionReturning<TExecutableReturn | Promise<TExecutableReturn>>,

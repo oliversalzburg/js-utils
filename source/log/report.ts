@@ -30,7 +30,6 @@ export const makeLogOrigin = (origin: string): string =>
 /**
  * A hierarchical background report/log.
  */
-// eslint-disable-next-line no-use-before-define
 export class Report extends TreeNode<Report> {
   /**
    * The ID of this report.

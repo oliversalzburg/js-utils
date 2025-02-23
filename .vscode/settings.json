@@ -1,0 +1,6 @@
+{
+  "search.exclude": {
+    "**/.yarn": true
+  },
+  "biome.lspBin": "node_modules/@biomejs/biome/bin/biome"
+}
