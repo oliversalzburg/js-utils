@@ -24,7 +24,10 @@ run: clean build
 	node ./output/main.js
 
 
-output:
+node_modules:
+	yarn install
+
+output: node_modules
 	yarn tsc
 	rm -rf dist-area || true
 	cp -r lib dist-area
