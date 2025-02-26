@@ -21,20 +21,8 @@
     "./lib/**/*.map"
   ],
   "scripts": {
-    "build": "yarn run build:tsc && yarn run build:docs",
-    "build:docs": "./docs/build.sh",
-    "build:tsc": "tsc",
-    "build:tsc:watch": "tsc --watch",
-    "clean": "rm -rf ./_site ./coverage ./dist-area ./lib",
-    "lint": "yarn run lint:all",
-    "lint:all": "yarn run lint:biome && yarn run lint:tsc",
-    "lint:biome": "biome check .",
-    "lint:tsc": "tsc --noEmit",
-    "nextversion": "./.scripts/manifest-version.cjs",
-    "test": "node $(yarn bin mocha) --enable-source-maps",
-    "test:coverage": "c8 --reporter html-spa --reporter text node $(yarn bin mocha) --enable-source-maps",
-    "test:inspect": "node $(yarn bin mocha) --inspect",
-    "preversion": "yarn run lint && yarn run build && yarn run test",
+    "prepack": "make",
+    "preversion": "make lint test",
     "postversion": "git push"
   },
   "devDependencies": {

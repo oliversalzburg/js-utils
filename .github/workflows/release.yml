@@ -33,7 +33,6 @@ jobs:
       has-github-pages: true
       is-canary: false
       publish-script: |
-        yarn run build
-        ./.scripts/rebuild-package-structure.sh
+        make
         cd ./dist-area/
       wants-github-release: true
