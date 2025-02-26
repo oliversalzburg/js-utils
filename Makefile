@@ -18,7 +18,7 @@ lint:
 	yarn tsc --noEmit
 
 test:
-	c8 --reporter html-spa --reporter text node $(shell yarn bin mocha) --enable-source-maps
+	yarn c8 --reporter html-spa --reporter text node $(shell yarn bin mocha) --enable-source-maps
 
 run: clean build
 	node ./output/main.js
