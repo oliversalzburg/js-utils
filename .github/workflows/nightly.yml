@@ -54,6 +54,6 @@ jobs:
       has-github-pages: true
       is-canary: true
       publish-script: |
-        make
+        make build docs
         cd ./dist-area/
       wants-github-release: true
