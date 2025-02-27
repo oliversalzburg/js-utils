@@ -29,7 +29,7 @@
     "@types/chai": "5.0.1",
     "@types/mocha": "10.0.10",
     "@types/node": "22.13.5",
-    "@types/web": "0.0.206",
+    "@types/web": "0.0.207",
     "c8": "10.1.3",
     "chai": "5.2.0",
     "lint-staged": "15.4.3",
