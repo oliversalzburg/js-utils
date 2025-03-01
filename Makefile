@@ -22,6 +22,7 @@ lint:
 	yarn tsc --noEmit
 
 test:
+	yarn tsc
 	yarn c8 --reporter html-spa --reporter text mocha
 
 run: build
