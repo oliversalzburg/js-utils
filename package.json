@@ -35,7 +35,7 @@
     "mocha": "11.1.0",
     "typedoc": "0.27.9",
     "typedoc-plugin-mdn-links": "4.0.14",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   },
   "engines": {
     "node": ">=18"
