@@ -203,7 +203,7 @@ __metadata:
     chai: "npm:5.2.0"
     mocha: "npm:11.1.0"
     typedoc: "npm:0.27.9"
-    typedoc-plugin-mdn-links: "npm:4.0.14"
+    typedoc-plugin-mdn-links: "npm:4.0.15"
     typescript: "npm:5.8.2"
   languageName: unknown
   linkType: soft
@@ -1606,12 +1606,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-mdn-links@npm:4.0.14":
-  version: 4.0.14
-  resolution: "typedoc-plugin-mdn-links@npm:4.0.14"
+"typedoc-plugin-mdn-links@npm:4.0.15":
+  version: 4.0.15
+  resolution: "typedoc-plugin-mdn-links@npm:4.0.15"
   peerDependencies:
     typedoc: 0.26.x || 0.27.x
-  checksum: 10c0/ebf79fce14876d7d975034a80ab852ca0a619401d9da702c4aa1068f0029a5af2c26edc69b8f356668b6e963aa642a8cf3fefec51b98d2eb0ee382a487a67747
+  checksum: 10c0/93782a274f07023889c290d8eab3084e2b66be8e402fbb46e615aba60bbd08fe68bf9b46761fe90d1b0985ccfb83bd0200f276912f1c009ef0b8c2e144512c21
   languageName: node
   linkType: hard
 
