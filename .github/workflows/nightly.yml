@@ -54,8 +54,8 @@ jobs:
       has-github-pages: true
       is-canary: true
       is-nightly: true
+      publish-github-release: true
       publish-script: |
         make build docs
         cd ./dist-area/
       release-tag: nightly
-      wants-github-release: true

@@ -40,8 +40,8 @@ jobs:
       has-github-pages: true
       is-canary: true
       is-nightly: false
+      publish-github-release: ${{ inputs.publish-github-release || false }}
       publish-script: |
         make build docs
         cd ./dist-area/
       release-tag: dev
-      wants-github-release: ${{ inputs.wants-github-release || false }}
