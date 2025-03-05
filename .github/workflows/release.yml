@@ -32,7 +32,9 @@ jobs:
       has-mkdocs: false
       has-github-pages: true
       is-canary: false
+      is-nightly: false
       publish-script: |
         make build docs
         cd ./dist-area/
+      release-tag: latest
       wants-github-release: true
