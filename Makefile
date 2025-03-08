@@ -25,9 +25,6 @@ test: node_modules
 	yarn tsc
 	yarn c8 --reporter html-spa --reporter text mocha
 
-run: build
-	node ./output/main.js
-
 
 node_modules:
 	yarn install
