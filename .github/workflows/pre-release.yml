@@ -12,7 +12,6 @@ jobs:
   qa:
     name: 🔹 QA
     permissions:
-      actions: read
       contents: read
       packages: read
     uses: oliversalzburg/workflows/.github/workflows/qa-npm-package.yml@main
@@ -24,7 +23,6 @@ jobs:
     name: 🔹 Publish
     needs: qa
     permissions:
-      actions: read
       contents: write
       id-token: write
       packages: write

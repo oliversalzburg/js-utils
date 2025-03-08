@@ -32,6 +32,8 @@ jobs:
       contents: read
       packages: read
     uses: oliversalzburg/workflows/.github/workflows/qa-npm-package.yml@main
+    with:
+      has-mkdocs: false
 
   pre-release:
     if: needs.check_date.outputs.should_run != 'false'
@@ -54,6 +56,7 @@ jobs:
       has-github-pages: true
       is-canary: true
       is-nightly: true
+      output-path: lib/*
       publish-documentation: true
       publish-github-release: true
       publish-script: |
