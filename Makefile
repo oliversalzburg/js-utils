@@ -1,11 +1,11 @@
 .PHONY: default build clean docs git-hook pretty lint test run
 
-default: clean build
+default: build
 
 build: output
 
 clean:
-	rm -rf _site coverage dist-area lib
+	rm -rf _site coverage dist-area lib node_modules
 
 docs:
 	./docs/build.sh
