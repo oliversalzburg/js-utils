@@ -21,7 +21,6 @@
     "./lib/**/*.map"
   ],
   "scripts": {
-    "prepack": "make",
     "preversion": "make lint test",
     "postversion": "git push"
   },
