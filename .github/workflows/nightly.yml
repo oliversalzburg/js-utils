@@ -56,7 +56,6 @@ jobs:
       has-github-pages: true
       is-canary: true
       is-nightly: true
-      output-path: lib/*
       publish-documentation: true
       publish-github-release: true
       publish-script: |

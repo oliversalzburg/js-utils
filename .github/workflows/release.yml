@@ -33,7 +33,6 @@ jobs:
       has-github-pages: true
       is-canary: false
       is-nightly: false
-      output-path: lib/*
       publish-documentation: true
       publish-github-release: true
       publish-script: |
