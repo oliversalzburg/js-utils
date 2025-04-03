@@ -33,7 +33,7 @@ export function isNil<TSubject>(subject: Maybe<TSubject>): subject is Nil {
  * `false` otherwise.
  */
 export function is<TSubject>(
-  subject: Maybe<TSubject>,
+  subject: Maybe<TSubject> | unknown,
   Prototype: ConstructorOf<TSubject>,
 ): subject is TSubject {
   return !isNil(subject) && subject instanceof Prototype;
