@@ -200,7 +200,7 @@ __metadata:
     "@types/chai": "npm:5.2.1"
     "@types/mocha": "npm:10.0.10"
     "@types/node": "npm:22.14.1"
-    "@types/web": "npm:0.0.219"
+    "@types/web": "npm:0.0.220"
     c8: "npm:10.1.3"
     chai: "npm:5.2.0"
     mocha: "npm:11.1.0"
@@ -317,10 +317,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/web@npm:0.0.219":
-  version: 0.0.219
-  resolution: "@types/web@npm:0.0.219"
-  checksum: 10c0/563f046a78332b0386f2dacddb448ac894af1f6acd3ca08be3bad8a928b8e48c3f4dc4f70174fc849e16d9fbb8243062c1122194f8973bab87d94b99609b89cb
+"@types/web@npm:0.0.220":
+  version: 0.0.220
+  resolution: "@types/web@npm:0.0.220"
+  checksum: 10c0/75b85f1ea88ab63b19937e1c19a4dfff1efd22c63aa498d2319fe9e0a42e8ae7847689ed468148f819473fdce45270b4658e0ada3b1437c87daf44055985cc06
   languageName: node
   linkType: hard
 
