@@ -28,7 +28,7 @@
     "@biomejs/biome": "1.9.4",
     "@types/chai": "5.2.1",
     "@types/mocha": "10.0.10",
-    "@types/node": "22.15.2",
+    "@types/node": "22.15.3",
     "@types/web": "0.0.226",
     "c8": "10.1.3",
     "chai": "5.2.0",
