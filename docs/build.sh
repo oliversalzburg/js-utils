@@ -11,7 +11,7 @@ cd "$(dirname "$0")"
 
 main() {
   cd ..
-  yarn exec typedoc --customFooterHtml "Updated <code>$(date)</code>"
+  npm exec -- typedoc --customFooterHtml "Updated <code>$(date)</code>"
   cp docs/media/favicon.ico _site/favicon.ico
 }
 

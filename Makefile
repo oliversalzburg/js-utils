@@ -14,27 +14,27 @@ git-hook:
 	echo "make pretty" > .git/hooks/pre-commit
 
 pretty: node_modules
-	yarn biome check --write --no-errors-on-unmatched
+	npm exec -- biome check --write --no-errors-on-unmatched
 	npm pkg fix
 
 lint: node_modules
-	yarn biome check .
-	yarn tsc --noEmit
+	npm exec -- biome check .
+	npm exec -- tsc --noEmit
 
 test: node_modules
-	yarn tsc
-	yarn c8 --reporter html-spa --reporter text mocha
+	npm exec -- tsc
+	npm exec -- c8 --reporter html-spa --reporter text mocha
 
 
 node_modules:
-	yarn install
+	npm install
 
 output: node_modules
-	yarn tsc
+	npm exec -- tsc
 	rm -rf dist-area || true
 	cp -r lib dist-area
 	cp -r node_modules dist-area/
-	cp yarn.lock dist-area/
+	cp package-lock.json dist-area/
 	cp LICENSE dist-area/
 	cp README.md dist-area/
 	rm dist-area/tsconfig.tsbuildinfo

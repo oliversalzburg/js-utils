@@ -15,7 +15,7 @@ main() {
   rm -rf dist-area || true
   cp -r lib dist-area
   cp -r node_modules dist-area/
-  cp yarn.lock dist-area/
+  cp package-lock.json dist-area/
   cp LICENSE dist-area/
   cp README.md dist-area/
   rm dist-area/tsconfig.tsbuildinfo
