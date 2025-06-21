@@ -1,7 +1,5 @@
 import { expect } from "chai";
 import { it } from "mocha";
-import { InternalError } from "./InternalError.js";
-import { InvalidArgumentError } from "./InvalidArgumentError.js";
 import {
   errorToJSON,
   errorToRecord,
@@ -9,6 +7,8 @@ import {
   isError,
   unknownToError,
 } from "./error-serializer.js";
+import { InternalError } from "./InternalError.js";
+import { InvalidArgumentError } from "./InvalidArgumentError.js";
 
 function generateDefaultError() {
   try {

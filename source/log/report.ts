@@ -81,7 +81,7 @@ export class Report extends TreeNode<Report> {
    * @param context - An arbitrary key-value object to store with the message.
    */
   log(message: string, context?: Record<string, unknown>) {
-    this.#getStoreEntry(makeLogOrigin(this.origin))?.push({ message, context });
+    this.#getStoreEntry(makeLogOrigin(this.origin))?.push({ context, message });
   }
 
   /**

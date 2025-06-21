@@ -2,20 +2,20 @@
   "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
   "tagDefinitions": [
     {
-      "tagName": "@group",
-      "syntaxKind": "block"
+      "syntaxKind": "block",
+      "tagName": "@group"
     },
     {
-      "tagName": "@linkcode",
-      "syntaxKind": "inline"
+      "syntaxKind": "inline",
+      "tagName": "@linkcode"
     },
     {
-      "tagName": "@module",
-      "syntaxKind": "block"
+      "syntaxKind": "block",
+      "tagName": "@module"
     },
     {
-      "tagName": "@yields",
-      "syntaxKind": "block"
+      "syntaxKind": "block",
+      "tagName": "@yields"
     }
   ]
 }

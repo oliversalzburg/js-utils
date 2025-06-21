@@ -10,7 +10,7 @@ it("formats index-based template strings", () => {
 
 it("formats literal-based template strings", () => {
   expect(formatStringTemplate("'#{foo}'", { foo: "foo" })).to.equal("'foo'");
-  expect(formatStringTemplate("'#{foo}': #{bar}", { foo: "foo", bar: "bar" })).to.equal(
+  expect(formatStringTemplate("'#{foo}': #{bar}", { bar: "bar", foo: "foo" })).to.equal(
     "'foo': bar",
   );
   expect(formatStringTemplate("'#{foo}': #{bar}", { foo: "foo" })).to.equal(

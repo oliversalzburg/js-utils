@@ -165,8 +165,8 @@ export const formatBytes = (
   }
 
   options = {
-    bits: false,
     binary: false,
+    bits: false,
     space: true,
     ...options,
   };

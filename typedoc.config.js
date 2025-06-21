@@ -13,8 +13,8 @@ export default {
   readme: "./README.md",
   tsconfig: "./tsconfig.json",
   validation: {
-    notExported: true,
     invalidLink: true,
     notDocumented: true,
+    notExported: true,
   },
 };
