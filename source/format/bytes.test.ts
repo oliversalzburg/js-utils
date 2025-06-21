@@ -126,12 +126,12 @@ it("binary option", () => {
 });
 
 it("bits and binary option", () => {
-  expect(formatBytes(0, { bits: true, binary: true })).to.equal("0 b");
-  expect(formatBytes(4, { bits: true, binary: true })).to.equal("4 b");
-  expect(formatBytes(10, { bits: true, binary: true })).to.equal("10 b");
-  expect(formatBytes(999, { bits: true, binary: true })).to.equal("999 b");
-  expect(formatBytes(1025, { bits: true, binary: true })).to.equal("1 kibit");
-  expect(formatBytes(1e6, { bits: true, binary: true })).to.equal("977 kibit");
+  expect(formatBytes(0, { binary: true, bits: true })).to.equal("0 b");
+  expect(formatBytes(4, { binary: true, bits: true })).to.equal("4 b");
+  expect(formatBytes(10, { binary: true, bits: true })).to.equal("10 b");
+  expect(formatBytes(999, { binary: true, bits: true })).to.equal("999 b");
+  expect(formatBytes(1025, { binary: true, bits: true })).to.equal("1 kibit");
+  expect(formatBytes(1e6, { binary: true, bits: true })).to.equal("977 kibit");
 });
 
 it("fractional digits options", () => {
@@ -141,20 +141,20 @@ it("fractional digits options", () => {
   expect(formatBytes(1111, { maximumFractionDigits: 2 })).to.equal("1.11 kB");
   expect(formatBytes(1019, { maximumFractionDigits: 3 })).to.equal("1.019 kB");
   expect(formatBytes(1001, { maximumFractionDigits: 3 })).to.equal("1.001 kB");
-  expect(formatBytes(1000, { minimumFractionDigits: 1, maximumFractionDigits: 3 })).to.equal(
+  expect(formatBytes(1000, { maximumFractionDigits: 3, minimumFractionDigits: 1 })).to.equal(
     "1.0 kB",
   );
-  expect(formatBytes(3942, { minimumFractionDigits: 1, maximumFractionDigits: 2 })).to.equal(
+  expect(formatBytes(3942, { maximumFractionDigits: 2, minimumFractionDigits: 1 })).to.equal(
     "3.94 kB",
   );
-  expect(formatBytes(4001, { maximumFractionDigits: 3, binary: true })).to.equal("3.907 KiB");
-  expect(formatBytes(18_717, { maximumFractionDigits: 2, binary: true })).to.equal("18.28 KiB");
-  expect(formatBytes(18_717, { maximumFractionDigits: 4, binary: true })).to.equal("18.2783 KiB");
+  expect(formatBytes(4001, { binary: true, maximumFractionDigits: 3 })).to.equal("3.907 KiB");
+  expect(formatBytes(18_717, { binary: true, maximumFractionDigits: 2 })).to.equal("18.28 KiB");
+  expect(formatBytes(18_717, { binary: true, maximumFractionDigits: 4 })).to.equal("18.2783 KiB");
   expect(
-    formatBytes(32_768, { minimumFractionDigits: 2, maximumFractionDigits: 3, binary: true }),
+    formatBytes(32_768, { binary: true, maximumFractionDigits: 3, minimumFractionDigits: 2 }),
   ).to.equal("32.00 KiB");
   expect(
-    formatBytes(65_536, { minimumFractionDigits: 1, maximumFractionDigits: 3, binary: true }),
+    formatBytes(65_536, { binary: true, maximumFractionDigits: 3, minimumFractionDigits: 1 }),
   ).to.equal("64.0 KiB");
 });
 

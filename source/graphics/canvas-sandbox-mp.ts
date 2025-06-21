@@ -1,8 +1,8 @@
 import { ConstructorOf } from "../core.js";
 import { isNil, mustExist } from "../data/nil.js";
 import { Random } from "../data/random.js";
-import { CanvasSandboxApplication, CanvasSandboxExpectedOptions } from "./canvas-sandbox.js";
 import { Canvas } from "./canvas.js";
+import { CanvasSandboxApplication, CanvasSandboxExpectedOptions } from "./canvas-sandbox.js";
 import { Canvas2DHeadless } from "./canvas2d-headless.js";
 import { RenderLoop } from "./render-loop.js";
 
@@ -396,8 +396,8 @@ export abstract class CanvasSandboxHostApplication<
 
     for (const worker of this.workers) {
       worker.postMessage({
-        type: "pause",
         pause: this.paused,
+        type: "pause",
       } as CanvasWorkerMessagePause);
     }
   }
@@ -410,12 +410,12 @@ export abstract class CanvasSandboxHostApplication<
 
     for (const worker of this.workers) {
       worker.postMessage({
-        type: "start",
         options: {
           ...this.options,
           seed: this.random.seed,
           viewport: worker.options.viewport,
         },
+        type: "start",
       } as CanvasWorkerMessageStart<TApplicationOptions>);
     }
   }

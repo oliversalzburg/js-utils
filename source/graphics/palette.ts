@@ -328,26 +328,6 @@ export const PALETTES = [
  */
 export const NamedPalettes = {
   /**
-   * ![Seaside colors](../../docs/media/palette-seaside.png)
-   */
-  Seaside: 0,
-
-  /**
-   * ![Midnight colors](../../docs/media/palette-midnight.png)
-   */
-  Midnight: 1,
-
-  /**
-   * ![Frog pond colors](../../docs/media/palette-frog-pond.png)
-   */
-  FrogPond: 2,
-
-  /**
-   * ![Terminator colors](../../docs/media/palette-terminator.png)
-   */
-  Terminator: 3,
-
-  /**
    * ![Autumn lake colors](../../docs/media/palette-autumn-lake.png)
    */
   AutumnLake: 4,
@@ -358,9 +338,19 @@ export const NamedPalettes = {
   Camouflage: 5,
 
   /**
-   * ![Spring colors](../../docs/media/palette-spring.png)
+   * ![Frog pond colors](../../docs/media/palette-frog-pond.png)
    */
-  Spring: 6,
+  FrogPond: 2,
+
+  /**
+   * ![Lillypads colors](../../docs/media/palette-lillypads.png)
+   */
+  Lillypads: 9,
+
+  /**
+   * ![Midnight colors](../../docs/media/palette-midnight.png)
+   */
+  Midnight: 1,
 
   /**
    * ![Plight colors](../../docs/media/palette-plight.png)
@@ -368,14 +358,28 @@ export const NamedPalettes = {
   Plight: 7,
 
   /**
+   * ![Riverside colors](../../docs/media/palette-riverside.png)
+   */
+  Riverside: 12,
+  /**
+   * ![Seaside colors](../../docs/media/palette-seaside.png)
+   */
+  Seaside: 0,
+
+  /**
+   * ![Spring colors](../../docs/media/palette-spring.png)
+   */
+  Spring: 6,
+
+  /**
    * ![Sunflower field colors](../../docs/media/palette-sunflower-field.png)
    */
   SunflowerField: 8,
 
   /**
-   * ![Lillypads colors](../../docs/media/palette-lillypads.png)
+   * ![Terminator colors](../../docs/media/palette-terminator.png)
    */
-  Lillypads: 9,
+  Terminator: 3,
 
   /**
    * ![Terra colors](../../docs/media/palette-terra.png)
@@ -386,11 +390,6 @@ export const NamedPalettes = {
    * ![Tundra colors](../../docs/media/palette-tundra.png)
    */
   Tundra: 11,
-
-  /**
-   * ![Riverside colors](../../docs/media/palette-riverside.png)
-   */
-  Riverside: 12,
 };
 
 /**

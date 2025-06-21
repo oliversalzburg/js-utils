@@ -45,7 +45,6 @@ function runTests({
 }
 
 runTests({
-  title: "prettify milliseconds",
   cases: [
     [0, "0ms"],
     [0.1, "1ms"],
@@ -67,21 +66,21 @@ runTests({
     [120_000, "2m"],
     [Number.MAX_SAFE_INTEGER, "285616y 151d 8h 59m 0.9s"],
   ],
+  title: "prettify milliseconds",
 });
 
 runTests({
-  title: "have a compact option",
-  defaultOptions: { compact: true },
   cases: [
     [1000 + 4, "1s"],
     [1000 * 60 * 60 * 999, "41d"],
     [1000 * 60 * 60 * 24 * 465, "1y"],
     [1000 * 60 * 67 * 24 * 465, "1y"],
   ],
+  defaultOptions: { compact: true },
+  title: "have a compact option",
 });
 
 runTests({
-  title: "have a unitCount option",
   cases: [
     [1000 * 60, { unitCount: 0 }, "1m"],
     [1000 * 60, { unitCount: 1 }, "1m"],
@@ -91,10 +90,10 @@ runTests({
     [1000 * 60 * 67 * 24 * 465, { unitCount: 2 }, "1y 154d"],
     [1000 * 60 * 67 * 24 * 465, { unitCount: 3 }, "1y 154d 6h"],
   ],
+  title: "have a unitCount option",
 });
 
 runTests({
-  title: "have a secondsDecimalDigits option",
   cases: [
     [10_000, "10s"],
     [33_333, "33.3s"],
@@ -105,29 +104,28 @@ runTests({
     [33_333, { secondsDecimalDigits: 0 }, "33s"],
     [33_333, { secondsDecimalDigits: 4 }, "33.3330s"],
   ],
+  title: "have a secondsDecimalDigits option",
 });
 
 runTests({
-  title: "have a millisecondsDecimalDigits option",
   cases: [
     [33.333, "33ms"],
     [33.333, { millisecondsDecimalDigits: 0 }, "33ms"],
     [33.333, { millisecondsDecimalDigits: 4 }, "33.3330ms"],
   ],
+  title: "have a millisecondsDecimalDigits option",
 });
 
 runTests({
-  title: "have a keepDecimalsOnWholeSeconds option",
-  defaultOptions: { keepDecimalsOnWholeSeconds: true },
   cases: [
     [1000 * 33, { secondsDecimalDigits: 2 }, "33.00s"],
     [1000 * 33.000_04, { secondsDecimalDigits: 2 }, "33.00s"],
   ],
+  defaultOptions: { keepDecimalsOnWholeSeconds: true },
+  title: "have a keepDecimalsOnWholeSeconds option",
 });
 
 runTests({
-  title: "have a verbose option",
-  defaultOptions: { verbose: true },
   cases: [
     [0, "0 milliseconds"],
     [0.1, "1 millisecond"],
@@ -146,30 +144,30 @@ runTests({
     [1000 * 60 * 60 * 24 * 465, "1 year 100 days"],
     [1000 * 60 * 67 * 24 * 465, "1 year 154 days 6 hours"],
   ],
+  defaultOptions: { verbose: true },
+  title: "have a verbose option",
 });
 
 runTests({
-  title: "have a separateMilliseconds option",
   cases: [
     [1100, { separateMilliseconds: false }, "1.1s"],
     [1100, { separateMilliseconds: true }, "1s 100ms"],
   ],
+  title: "have a separateMilliseconds option",
 });
 
 runTests({
-  title: "have a formatSubMilliseconds option",
-  defaultOptions: { formatSubMilliseconds: true },
   cases: [
     [0.4, "400µs"],
     [0.123_571, "123µs 571ns"],
     [0.123_456_789, "123µs 456ns"],
     [60 * 60 * 1000 + 23 * 1000 + 433 + 0.123_456, "1h 23s 433ms 123µs 456ns"],
   ],
+  defaultOptions: { formatSubMilliseconds: true },
+  title: "have a formatSubMilliseconds option",
 });
 
 runTests({
-  title: "work with verbose and compact options",
-  defaultOptions: { verbose: true, compact: true },
   cases: [
     [1000, "1 second"],
     [1000 + 400, "1 second"],
@@ -185,11 +183,11 @@ runTests({
     [1000 * 60 * 60 * 24 * 465, "1 year"],
     [1000 * 60 * 67 * 24 * 750, "2 years"],
   ],
+  defaultOptions: { compact: true, verbose: true },
+  title: "work with verbose and compact options",
 });
 
 runTests({
-  title: "work with verbose and unitCount options",
-  defaultOptions: { verbose: true },
   cases: [
     [1000 * 60, { unitCount: 1 }, "1 minute"],
     [1000 * 60 * 67, { unitCount: 1 }, "1 hour"],
@@ -198,11 +196,11 @@ runTests({
     [1000 * 60 * 67 * 24 * 465, { unitCount: 2 }, "1 year 154 days"],
     [1000 * 60 * 67 * 24 * 465, { unitCount: 3 }, "1 year 154 days 6 hours"],
   ],
+  defaultOptions: { verbose: true },
+  title: "work with verbose and unitCount options",
 });
 
 runTests({
-  title: "work with verbose and secondsDecimalDigits options",
-  defaultOptions: { verbose: true, secondsDecimalDigits: 4 },
   cases: [
     [1000, "1 second"],
     [1000 + 400, "1.4000 seconds"],
@@ -210,11 +208,11 @@ runTests({
     [1000 * 5 + 254, "5.2540 seconds"],
     [33_333, "33.3330 seconds"],
   ],
+  defaultOptions: { secondsDecimalDigits: 4, verbose: true },
+  title: "work with verbose and secondsDecimalDigits options",
 });
 
 runTests({
-  title: "work with verbose and millisecondsDecimalDigits options",
-  defaultOptions: { verbose: true, millisecondsDecimalDigits: 4 },
   cases: [
     [1, "1.0000 millisecond"],
     [1 + 0.4, "1.4000 milliseconds"],
@@ -222,36 +220,38 @@ runTests({
     [1 * 5 + 0.254, "5.2540 milliseconds"],
     [33.333, "33.3330 milliseconds"],
   ],
+  defaultOptions: { millisecondsDecimalDigits: 4, verbose: true },
+  title: "work with verbose and millisecondsDecimalDigits options",
 });
 
 runTests({
-  title: "work with verbose and formatSubMilliseconds options",
-  defaultOptions: { formatSubMilliseconds: true, verbose: true },
   cases: [
     [0.4, "400 microseconds"],
     [0.123_571, "123 microseconds 571 nanoseconds"],
     [0.123_456_789, "123 microseconds 456 nanoseconds"],
     [0.001, "1 microsecond"],
   ],
+  defaultOptions: { formatSubMilliseconds: true, verbose: true },
+  title: "work with verbose and formatSubMilliseconds options",
 });
 
 runTests({
-  title: "compact option overrides unitCount option",
-  defaultOptions: { verbose: true, compact: true },
   cases: [
     [1000 * 60 * 67 * 24 * 465, { unitCount: 1 }, "1 year"],
     [1000 * 60 * 67 * 24 * 465, { unitCount: 2 }, "1 year"],
     [1000 * 60 * 67 * 24 * 465, { unitCount: 3 }, "1 year"],
   ],
+  defaultOptions: { compact: true, verbose: true },
+  title: "compact option overrides unitCount option",
 });
 
 runTests({
-  title: "work with separateMilliseconds and formatSubMilliseconds options",
-  defaultOptions: { separateMilliseconds: true, formatSubMilliseconds: true },
   cases: [
     [1010.340_067, "1s 10ms 340µs 67ns"],
     [60 * 1000 + 34 + 0.000_005, "1m 34ms 5ns"],
   ],
+  defaultOptions: { formatSubMilliseconds: true, separateMilliseconds: true },
+  title: "work with separateMilliseconds and formatSubMilliseconds options",
 });
 
 it("throw on invalid", () => {
@@ -269,8 +269,6 @@ it("throw on invalid", () => {
 });
 
 runTests({
-  title: "properly rounds milliseconds with secondsDecimalDigits",
-  defaultOptions: { verbose: true, secondsDecimalDigits: 0 },
   cases: [
     [3 * 60 * 1000, "3 minutes"],
     [3 * 60 * 1000 - 1, "2 minutes 59 seconds"],
@@ -283,11 +281,11 @@ runTests({
     [2 * 3600 * 1e3, "2 hours"],
     [2 * 3600 * 1e3 - 1, "1 hour 59 minutes 59 seconds"],
   ],
+  defaultOptions: { secondsDecimalDigits: 0, verbose: true },
+  title: "properly rounds milliseconds with secondsDecimalDigits",
 });
 
 runTests({
-  title: "`colonNotation` option",
-  defaultOptions: { colonNotation: true },
   cases: [
     // Default formats
     [1000, "0:01"],
@@ -328,17 +326,17 @@ runTests({
     ],
 
     // Together with `keepDecimalsOnWholeSeconds`
-    [999, { secondsDecimalDigits: 0, keepDecimalsOnWholeSeconds: true }, "0:00"],
-    [999, { secondsDecimalDigits: 1, keepDecimalsOnWholeSeconds: true }, "0:00.9"],
-    [999, { secondsDecimalDigits: 2, keepDecimalsOnWholeSeconds: true }, "0:00.99"],
-    [999, { secondsDecimalDigits: 3, keepDecimalsOnWholeSeconds: true }, "0:00.999"],
+    [999, { keepDecimalsOnWholeSeconds: true, secondsDecimalDigits: 0 }, "0:00"],
+    [999, { keepDecimalsOnWholeSeconds: true, secondsDecimalDigits: 1 }, "0:00.9"],
+    [999, { keepDecimalsOnWholeSeconds: true, secondsDecimalDigits: 2 }, "0:00.99"],
+    [999, { keepDecimalsOnWholeSeconds: true, secondsDecimalDigits: 3 }, "0:00.999"],
     [1000, { keepDecimalsOnWholeSeconds: true }, "0:01.0"],
-    [1000, { secondsDecimalDigits: 0, keepDecimalsOnWholeSeconds: true }, "0:01"],
-    [1000, { secondsDecimalDigits: 1, keepDecimalsOnWholeSeconds: true }, "0:01.0"],
-    [1000, { secondsDecimalDigits: 3, keepDecimalsOnWholeSeconds: true }, "0:01.000"],
+    [1000, { keepDecimalsOnWholeSeconds: true, secondsDecimalDigits: 0 }, "0:01"],
+    [1000, { keepDecimalsOnWholeSeconds: true, secondsDecimalDigits: 1 }, "0:01.0"],
+    [1000, { keepDecimalsOnWholeSeconds: true, secondsDecimalDigits: 3 }, "0:01.000"],
     [1000 * 90, { keepDecimalsOnWholeSeconds: true }, "1:30.0"],
-    [1000 * 90, { secondsDecimalDigits: 3, keepDecimalsOnWholeSeconds: true }, "1:30.000"],
-    [1000 * 60 * 10, { secondsDecimalDigits: 3, keepDecimalsOnWholeSeconds: true }, "10:00.000"],
+    [1000 * 90, { keepDecimalsOnWholeSeconds: true, secondsDecimalDigits: 3 }, "1:30.000"],
+    [1000 * 60 * 10, { keepDecimalsOnWholeSeconds: true, secondsDecimalDigits: 3 }, "10:00.000"],
 
     // Together with `unitCount`
     [1000 * 90, { secondsDecimalDigits: 0, unitCount: 1 }, "1"],
@@ -357,6 +355,8 @@ runTests({
     // Big numbers
     [Number.MAX_SAFE_INTEGER, "285616:151:08:59:00.9"],
   ],
+  defaultOptions: { colonNotation: true },
+  title: "`colonNotation` option",
 });
 
 it("Big numbers", () => {
