@@ -1,4 +1,6 @@
 import { Random, random } from "../data/random.js";
+import { hsl2rgb } from "./color.js";
+import { fromRGB } from "./core.js";
 
 /**
  * Color palettes that can be used to quickly colorize a drawing.
@@ -490,4 +492,14 @@ export const nextPalette = () => {
     PALETTE_INDEX = 0;
   }
   return PALETTES[PALETTE_INDEX];
+};
+
+export const hsvPalette = (entries: number, shift = 0): Array<number> => {
+  const palette = new Array<number>(entries);
+  const step = 360 / entries;
+  for (let index = 0; index < entries; ++index) {
+    const color = hsl2rgb(index * step + shift, 1, 0.5);
+    palette[index] = fromRGB(color[0], color[1], color[2]);
+  }
+  return palette;
 };
