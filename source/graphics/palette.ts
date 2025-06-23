@@ -493,11 +493,16 @@ export const nextPalette = () => {
   return PALETTES[PALETTE_INDEX];
 };
 
-export const hslPalette = (entries: number, shift = 0): Array<[number, number, number]> => {
+export const hslPalette = (
+  entries: number,
+  shift = 0,
+  saturation = 1,
+  luminance = 0.5,
+): Array<[number, number, number]> => {
   const palette = new Array<[number, number, number]>(entries);
   const step = 360 / entries;
   for (let index = 0; index < entries; ++index) {
-    const color = hsl2rgb(index * step + shift, 1, 0.5);
+    const color = hsl2rgb(index * step + shift, saturation, luminance);
     palette[index] = [
       Math.trunc(color[0] * 255),
       Math.trunc(color[1] * 255),
@@ -507,11 +512,16 @@ export const hslPalette = (entries: number, shift = 0): Array<[number, number, n
   return palette;
 };
 
-export const hsvPalette = (entries: number, shift = 0): Array<[number, number, number]> => {
+export const hsvPalette = (
+  entries: number,
+  shift = 0,
+  saturation = 1,
+  value = 1,
+): Array<[number, number, number]> => {
   const palette = new Array<[number, number, number]>(entries);
   const step = 360 / entries;
   for (let index = 0; index < entries; ++index) {
-    const color = hsv2rgb(index * step + shift, 1, 1);
+    const color = hsv2rgb(index * step + shift, saturation, value);
     palette[index] = [
       Math.trunc(color[0] * 255),
       Math.trunc(color[1] * 255),
