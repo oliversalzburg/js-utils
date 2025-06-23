@@ -494,12 +494,16 @@ export const nextPalette = () => {
   return PALETTES[PALETTE_INDEX];
 };
 
-export const hsvPalette = (entries: number, shift = 0): Array<number> => {
+export const hslPalette = (entries: number, shift = 0): Array<number> => {
   const palette = new Array<number>(entries);
   const step = 360 / entries;
   for (let index = 0; index < entries; ++index) {
     const color = hsl2rgb(index * step + shift, 1, 0.5);
-    palette[index] = fromRGB(color[0], color[1], color[2]);
+    palette[index] = fromRGB(
+      Math.trunc(color[0] * 255),
+      Math.trunc(color[1] * 255),
+      Math.trunc(color[2] * 255),
+    );
   }
   return palette;
 };
