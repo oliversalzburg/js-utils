@@ -144,6 +144,22 @@ export class Random {
     return new Random(this.seed + 1);
   }
 
+  static ALLOWED_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+  /**
+   * Returns a random ASCII string.
+   * @param length - The length of the string.
+   * @returns A random ASCII string.
+   */
+  nextString(length: number, characters = Random.ALLOWED_CHARACTERS) {
+    let result = "";
+    while (result.length < length) {
+      const characterIndex = Math.floor(this.nextFloat() * characters.length);
+      result += characters.substring(characterIndex, characterIndex + 1);
+    }
+    return result;
+  }
+
   /**
    * Returns a 2D simplex noise value for a given input coordinate.
    * @param x - The X input coordinate.
