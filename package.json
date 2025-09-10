@@ -25,7 +25,7 @@
     "postversion": "git push"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.3",
+    "@biomejs/biome": "2.2.4",
     "@types/chai": "5.2.2",
     "@types/mocha": "10.0.10",
     "@types/node": "22.18.1",
