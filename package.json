@@ -34,7 +34,7 @@
     "chai": "6.2.2",
     "mocha": "11.7.5",
     "typedoc": "0.28.16",
-    "typedoc-plugin-mdn-links": "5.0.10",
+    "typedoc-plugin-mdn-links": "5.1.0",
     "typescript": "5.9.3"
   },
   "engines": {
