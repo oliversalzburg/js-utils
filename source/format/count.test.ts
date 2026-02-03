@@ -51,5 +51,5 @@ it("parses counts as expected", function () {
   testCount(100, "en-US", "100");
   testCount(1000, "en-US", "1K");
   testCount(1234, "en-US", "1.234K");
-  testCount(-1234);
+  testCount(-1234, "en-US", "-1.234K");
 });
