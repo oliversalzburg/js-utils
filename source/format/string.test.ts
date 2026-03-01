@@ -1,23 +1,25 @@
-import { expect } from "chai";
-import { it } from "mocha";
+import assert from "node:assert";
+import { it } from "node:test";
 import { formatString, formatStringTemplate } from "./string.js";
 
 it("formats index-based template strings", () => {
-  expect(formatString("'{0}'", "foo")).to.equal("'foo'");
-  expect(formatString("'{0}': {1}", "foo", "bar")).to.equal("'foo': bar");
-  expect(formatString("'{0}': {1}", "foo")).to.equal("'foo': {1}");
+  assert.strictEqual(formatString("'{0}'", "foo"), "'foo'");
+  assert.strictEqual(formatString("'{0}': {1}", "foo", "bar"), "'foo': bar");
+  assert.strictEqual(formatString("'{0}': {1}", "foo"), "'foo': {1}");
 });
 
 it("formats literal-based template strings", () => {
-  expect(formatStringTemplate("'#{foo}'", { foo: "foo" })).to.equal("'foo'");
-  expect(formatStringTemplate("'#{foo}': #{bar}", { bar: "bar", foo: "foo" })).to.equal(
+  assert.strictEqual(formatStringTemplate("'#{foo}'", { foo: "foo" }), "'foo'");
+  assert.strictEqual(
+    formatStringTemplate("'#{foo}': #{bar}", { bar: "bar", foo: "foo" }),
     "'foo': bar",
   );
-  expect(formatStringTemplate("'#{foo}': #{bar}", { foo: "foo" })).to.equal(
+  assert.strictEqual(
+    formatStringTemplate("'#{foo}': #{bar}", { foo: "foo" }),
     "'foo': <missing parameter>",
   );
 });
 
 it("treats empty string appropriately", () => {
-  expect(formatString("'{0}'", "")).to.equal("''");
+  assert.strictEqual(formatString("'{0}'", ""), "''");
 });

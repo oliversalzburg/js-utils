@@ -1,170 +1,173 @@
-import { expect } from "chai";
-import { it } from "mocha";
+import assert from "node:assert";
+import { it } from "node:test";
 import { formatBytes } from "./bytes.js";
 
 it("throws on invalid input", () => {
-  expect(() => {
+  assert.throws(() => {
     formatBytes("" as unknown as number);
-  }).to.throw();
+  });
 
-  expect(() => {
+  assert.throws(() => {
     formatBytes("1" as unknown as number);
-  }).to.throw();
+  });
 
-  expect(() => {
+  assert.throws(() => {
     formatBytes(Number.NaN);
-  }).to.throw();
+  });
 
-  expect(() => {
+  assert.throws(() => {
     formatBytes(true as unknown as number);
-  }).to.throw();
+  });
 
-  expect(() => {
+  assert.throws(() => {
     formatBytes(Number.POSITIVE_INFINITY);
-  }).to.throw();
+  });
 
-  expect(() => {
+  assert.throws(() => {
     formatBytes(Number.NEGATIVE_INFINITY);
-  }).to.throw();
+  });
 
-  expect(() => {
+  assert.throws(() => {
     formatBytes(null as unknown as number);
-  }).to.throw();
+  });
 });
 
 it("converts bytes to human readable strings", () => {
-  expect(formatBytes(0)).to.equal("0 B");
-  expect(formatBytes(0.4)).to.equal("0.4 B");
-  expect(formatBytes(0.7)).to.equal("0.7 B");
-  expect(formatBytes(10)).to.equal("10 B");
-  expect(formatBytes(10.1)).to.equal("10.1 B");
-  expect(formatBytes(999)).to.equal("999 B");
-  expect(formatBytes(1001)).to.equal("1 kB");
-  expect(formatBytes(1e16)).to.equal("10 PB");
-  expect(formatBytes(1e30)).to.equal("1000000 YB");
+  assert.strictEqual(formatBytes(0), "0 B");
+  assert.strictEqual(formatBytes(0.4), "0.4 B");
+  assert.strictEqual(formatBytes(0.7), "0.7 B");
+  assert.strictEqual(formatBytes(10), "10 B");
+  assert.strictEqual(formatBytes(10.1), "10.1 B");
+  assert.strictEqual(formatBytes(999), "999 B");
+  assert.strictEqual(formatBytes(1001), "1 kB");
+  assert.strictEqual(formatBytes(1e16), "10 PB");
+  assert.strictEqual(formatBytes(1e30), "1000000 YB");
 });
 
 it("supports negative number", () => {
-  expect(formatBytes(-0.4)).to.equal("-0.4 B");
-  expect(formatBytes(-0.7)).to.equal("-0.7 B");
-  expect(formatBytes(-10.1)).to.equal("-10.1 B");
-  expect(formatBytes(-999)).to.equal("-999 B");
-  expect(formatBytes(-1001)).to.equal("-1 kB");
+  assert.strictEqual(formatBytes(-0.4), "-0.4 B");
+  assert.strictEqual(formatBytes(-0.7), "-0.7 B");
+  assert.strictEqual(formatBytes(-10.1), "-10.1 B");
+  assert.strictEqual(formatBytes(-999), "-999 B");
+  assert.strictEqual(formatBytes(-1001), "-1 kB");
 });
 
 it("locale option", function () {
-  // Fails on NodeJS20 on Windows
-  // https://github.com/oliversalzburg/js-utils/actions/runs/9069549841/job/24919347525
-  this.timeout(30000);
+  assert.strictEqual(formatBytes(-0.4, { locale: "de" }), "-0,4 B");
+  assert.strictEqual(formatBytes(0.4, { locale: "de" }), "0,4 B");
+  assert.strictEqual(formatBytes(1001, { locale: "de" }), "1 kB");
+  assert.strictEqual(formatBytes(10.1, { locale: "de" }), "10,1 B");
+  assert.strictEqual(formatBytes(1e30, { locale: "de" }), "1.000.000 YB");
 
-  expect(formatBytes(-0.4, { locale: "de" })).to.equal("-0,4 B");
-  expect(formatBytes(0.4, { locale: "de" })).to.equal("0,4 B");
-  expect(formatBytes(1001, { locale: "de" })).to.equal("1 kB");
-  expect(formatBytes(10.1, { locale: "de" })).to.equal("10,1 B");
-  expect(formatBytes(1e30, { locale: "de" })).to.equal("1.000.000 YB");
+  assert.strictEqual(formatBytes(-0.4, { locale: "en" }), "-0.4 B");
+  assert.strictEqual(formatBytes(0.4, { locale: "en" }), "0.4 B");
+  assert.strictEqual(formatBytes(1001, { locale: "en" }), "1 kB");
+  assert.strictEqual(formatBytes(10.1, { locale: "en" }), "10.1 B");
+  assert.strictEqual(formatBytes(1e30, { locale: "en" }), "1,000,000 YB");
 
-  expect(formatBytes(-0.4, { locale: "en" })).to.equal("-0.4 B");
-  expect(formatBytes(0.4, { locale: "en" })).to.equal("0.4 B");
-  expect(formatBytes(1001, { locale: "en" })).to.equal("1 kB");
-  expect(formatBytes(10.1, { locale: "en" })).to.equal("10.1 B");
-  expect(formatBytes(1e30, { locale: "en" })).to.equal("1,000,000 YB");
+  assert.strictEqual(formatBytes(-0.4, { locale: ["unknown", "de", "en"] }), "-0,4 B");
+  assert.strictEqual(formatBytes(0.4, { locale: ["unknown", "de", "en"] }), "0,4 B");
+  assert.strictEqual(formatBytes(1001, { locale: ["unknown", "de", "en"] }), "1 kB");
+  assert.strictEqual(formatBytes(10.1, { locale: ["unknown", "de", "en"] }), "10,1 B");
+  assert.strictEqual(formatBytes(1e30, { locale: ["unknown", "de", "en"] }), "1.000.000 YB");
 
-  expect(formatBytes(-0.4, { locale: ["unknown", "de", "en"] })).to.equal("-0,4 B");
-  expect(formatBytes(0.4, { locale: ["unknown", "de", "en"] })).to.equal("0,4 B");
-  expect(formatBytes(1001, { locale: ["unknown", "de", "en"] })).to.equal("1 kB");
-  expect(formatBytes(10.1, { locale: ["unknown", "de", "en"] })).to.equal("10,1 B");
-  expect(formatBytes(1e30, { locale: ["unknown", "de", "en"] })).to.equal("1.000.000 YB");
+  assert.strictEqual(formatBytes(-0.4, { locale: true }), "-0.4 B");
+  assert.strictEqual(formatBytes(0.4, { locale: true }), "0.4 B");
+  assert.strictEqual(formatBytes(1001, { locale: true }), "1 kB");
+  assert.strictEqual(formatBytes(10.1, { locale: true }), "10.1 B");
+  assert.strictEqual(formatBytes(1e30, { locale: true }), "1,000,000 YB");
 
-  expect(formatBytes(-0.4, { locale: true })).to.equal("-0.4 B");
-  expect(formatBytes(0.4, { locale: true })).to.equal("0.4 B");
-  expect(formatBytes(1001, { locale: true })).to.equal("1 kB");
-  expect(formatBytes(10.1, { locale: true })).to.equal("10.1 B");
-  expect(formatBytes(1e30, { locale: true })).to.equal("1,000,000 YB");
+  assert.strictEqual(formatBytes(-0.4, { locale: false }), "-0.4 B");
+  assert.strictEqual(formatBytes(0.4, { locale: false }), "0.4 B");
+  assert.strictEqual(formatBytes(1001, { locale: false }), "1 kB");
+  assert.strictEqual(formatBytes(10.1, { locale: false }), "10.1 B");
+  assert.strictEqual(formatBytes(1e30, { locale: false }), "1000000 YB");
 
-  expect(formatBytes(-0.4, { locale: false })).to.equal("-0.4 B");
-  expect(formatBytes(0.4, { locale: false })).to.equal("0.4 B");
-  expect(formatBytes(1001, { locale: false })).to.equal("1 kB");
-  expect(formatBytes(10.1, { locale: false })).to.equal("10.1 B");
-  expect(formatBytes(1e30, { locale: false })).to.equal("1000000 YB");
-
-  expect(formatBytes(-0.4, { locale: undefined })).to.equal("-0.4 B");
-  expect(formatBytes(0.4, { locale: undefined })).to.equal("0.4 B");
-  expect(formatBytes(1001, { locale: undefined })).to.equal("1 kB");
-  expect(formatBytes(10.1, { locale: undefined })).to.equal("10.1 B");
-  expect(formatBytes(1e30, { locale: undefined })).to.equal("1000000 YB");
+  assert.strictEqual(formatBytes(-0.4, { locale: undefined }), "-0.4 B");
+  assert.strictEqual(formatBytes(0.4, { locale: undefined }), "0.4 B");
+  assert.strictEqual(formatBytes(1001, { locale: undefined }), "1 kB");
+  assert.strictEqual(formatBytes(10.1, { locale: undefined }), "10.1 B");
+  assert.strictEqual(formatBytes(1e30, { locale: undefined }), "1000000 YB");
 });
 
 it("signed option", () => {
-  expect(formatBytes(42, { signed: true })).to.equal("+42 B");
-  expect(formatBytes(-13, { signed: true })).to.equal("-13 B");
-  expect(formatBytes(0, { signed: true })).to.equal(" 0 B");
+  assert.strictEqual(formatBytes(42, { signed: true }), "+42 B");
+  assert.strictEqual(formatBytes(-13, { signed: true }), "-13 B");
+  assert.strictEqual(formatBytes(0, { signed: true }), " 0 B");
 });
 
 it("bits option", () => {
-  expect(formatBytes(0, { bits: true })).to.equal("0 b");
-  expect(formatBytes(0.4, { bits: true })).to.equal("0.4 b");
-  expect(formatBytes(0.7, { bits: true })).to.equal("0.7 b");
-  expect(formatBytes(10, { bits: true })).to.equal("10 b");
-  expect(formatBytes(10.1, { bits: true })).to.equal("10.1 b");
-  expect(formatBytes(999, { bits: true })).to.equal("999 b");
-  expect(formatBytes(1001, { bits: true })).to.equal("1 kbit");
-  expect(formatBytes(1001, { bits: true })).to.equal("1 kbit");
-  expect(formatBytes(1e16, { bits: true })).to.equal("10 Pbit");
-  expect(formatBytes(1e30, { bits: true })).to.equal("1000000 Ybit");
+  assert.strictEqual(formatBytes(0, { bits: true }), "0 b");
+  assert.strictEqual(formatBytes(0.4, { bits: true }), "0.4 b");
+  assert.strictEqual(formatBytes(0.7, { bits: true }), "0.7 b");
+  assert.strictEqual(formatBytes(10, { bits: true }), "10 b");
+  assert.strictEqual(formatBytes(10.1, { bits: true }), "10.1 b");
+  assert.strictEqual(formatBytes(999, { bits: true }), "999 b");
+  assert.strictEqual(formatBytes(1001, { bits: true }), "1 kbit");
+  assert.strictEqual(formatBytes(1001, { bits: true }), "1 kbit");
+  assert.strictEqual(formatBytes(1e16, { bits: true }), "10 Pbit");
+  assert.strictEqual(formatBytes(1e30, { bits: true }), "1000000 Ybit");
 });
 
 it("binary option", () => {
-  expect(formatBytes(0, { binary: true })).to.equal("0 B");
-  expect(formatBytes(4, { binary: true })).to.equal("4 B");
-  expect(formatBytes(10, { binary: true })).to.equal("10 B");
-  expect(formatBytes(10.1, { binary: true })).to.equal("10.1 B");
-  expect(formatBytes(999, { binary: true })).to.equal("999 B");
-  expect(formatBytes(1025, { binary: true })).to.equal("1 KiB");
-  expect(formatBytes(1001, { binary: true })).to.equal("1000 B");
-  expect(formatBytes(1e16, { binary: true })).to.equal("8.88 PiB");
-  expect(formatBytes(1e30, { binary: true })).to.equal("827000 YiB");
+  assert.strictEqual(formatBytes(0, { binary: true }), "0 B");
+  assert.strictEqual(formatBytes(4, { binary: true }), "4 B");
+  assert.strictEqual(formatBytes(10, { binary: true }), "10 B");
+  assert.strictEqual(formatBytes(10.1, { binary: true }), "10.1 B");
+  assert.strictEqual(formatBytes(999, { binary: true }), "999 B");
+  assert.strictEqual(formatBytes(1025, { binary: true }), "1 KiB");
+  assert.strictEqual(formatBytes(1001, { binary: true }), "1000 B");
+  assert.strictEqual(formatBytes(1e16, { binary: true }), "8.88 PiB");
+  assert.strictEqual(formatBytes(1e30, { binary: true }), "827000 YiB");
 });
 
 it("bits and binary option", () => {
-  expect(formatBytes(0, { binary: true, bits: true })).to.equal("0 b");
-  expect(formatBytes(4, { binary: true, bits: true })).to.equal("4 b");
-  expect(formatBytes(10, { binary: true, bits: true })).to.equal("10 b");
-  expect(formatBytes(999, { binary: true, bits: true })).to.equal("999 b");
-  expect(formatBytes(1025, { binary: true, bits: true })).to.equal("1 kibit");
-  expect(formatBytes(1e6, { binary: true, bits: true })).to.equal("977 kibit");
+  assert.strictEqual(formatBytes(0, { binary: true, bits: true }), "0 b");
+  assert.strictEqual(formatBytes(4, { binary: true, bits: true }), "4 b");
+  assert.strictEqual(formatBytes(10, { binary: true, bits: true }), "10 b");
+  assert.strictEqual(formatBytes(999, { binary: true, bits: true }), "999 b");
+  assert.strictEqual(formatBytes(1025, { binary: true, bits: true }), "1 kibit");
+  assert.strictEqual(formatBytes(1e6, { binary: true, bits: true }), "977 kibit");
 });
 
 it("fractional digits options", () => {
-  expect(formatBytes(1900, { maximumFractionDigits: 1 })).to.equal("1.9 kB");
-  expect(formatBytes(1900, { minimumFractionDigits: 3 })).to.equal("1.900 kB");
-  expect(formatBytes(1911, { maximumFractionDigits: 1 })).to.equal("1.9 kB");
-  expect(formatBytes(1111, { maximumFractionDigits: 2 })).to.equal("1.11 kB");
-  expect(formatBytes(1019, { maximumFractionDigits: 3 })).to.equal("1.019 kB");
-  expect(formatBytes(1001, { maximumFractionDigits: 3 })).to.equal("1.001 kB");
-  expect(formatBytes(1000, { maximumFractionDigits: 3, minimumFractionDigits: 1 })).to.equal(
+  assert.strictEqual(formatBytes(1900, { maximumFractionDigits: 1 }), "1.9 kB");
+  assert.strictEqual(formatBytes(1900, { minimumFractionDigits: 3 }), "1.900 kB");
+  assert.strictEqual(formatBytes(1911, { maximumFractionDigits: 1 }), "1.9 kB");
+  assert.strictEqual(formatBytes(1111, { maximumFractionDigits: 2 }), "1.11 kB");
+  assert.strictEqual(formatBytes(1019, { maximumFractionDigits: 3 }), "1.019 kB");
+  assert.strictEqual(formatBytes(1001, { maximumFractionDigits: 3 }), "1.001 kB");
+  assert.strictEqual(
+    formatBytes(1000, { maximumFractionDigits: 3, minimumFractionDigits: 1 }),
     "1.0 kB",
   );
-  expect(formatBytes(3942, { maximumFractionDigits: 2, minimumFractionDigits: 1 })).to.equal(
+  assert.strictEqual(
+    formatBytes(3942, { maximumFractionDigits: 2, minimumFractionDigits: 1 }),
     "3.94 kB",
   );
-  expect(formatBytes(4001, { binary: true, maximumFractionDigits: 3 })).to.equal("3.907 KiB");
-  expect(formatBytes(18_717, { binary: true, maximumFractionDigits: 2 })).to.equal("18.28 KiB");
-  expect(formatBytes(18_717, { binary: true, maximumFractionDigits: 4 })).to.equal("18.2783 KiB");
-  expect(
+  assert.strictEqual(formatBytes(4001, { binary: true, maximumFractionDigits: 3 }), "3.907 KiB");
+  assert.strictEqual(formatBytes(18_717, { binary: true, maximumFractionDigits: 2 }), "18.28 KiB");
+  assert.strictEqual(
+    formatBytes(18_717, { binary: true, maximumFractionDigits: 4 }),
+    "18.2783 KiB",
+  );
+  assert.strictEqual(
     formatBytes(32_768, { binary: true, maximumFractionDigits: 3, minimumFractionDigits: 2 }),
-  ).to.equal("32.00 KiB");
-  expect(
+    "32.00 KiB",
+  );
+  assert.strictEqual(
     formatBytes(65_536, { binary: true, maximumFractionDigits: 3, minimumFractionDigits: 1 }),
-  ).to.equal("64.0 KiB");
+    "64.0 KiB",
+  );
 });
 
 it("space option", () => {
-  expect(formatBytes(0)).to.equal("0 B");
-  expect(formatBytes(0, { space: false })).to.equal("0B");
-  expect(formatBytes(999)).to.equal("999 B");
-  expect(formatBytes(999, { space: false })).to.equal("999B");
-  expect(formatBytes(-13, { signed: true })).to.equal("-13 B");
-  expect(formatBytes(-13, { signed: true, space: false })).to.equal("-13B");
-  expect(formatBytes(42, { signed: true })).to.equal("+42 B");
-  expect(formatBytes(42, { signed: true, space: false })).to.equal("+42B");
+  assert.strictEqual(formatBytes(0), "0 B");
+  assert.strictEqual(formatBytes(0, { space: false }), "0B");
+  assert.strictEqual(formatBytes(999), "999 B");
+  assert.strictEqual(formatBytes(999, { space: false }), "999B");
+  assert.strictEqual(formatBytes(-13, { signed: true }), "-13 B");
+  assert.strictEqual(formatBytes(-13, { signed: true, space: false }), "-13B");
+  assert.strictEqual(formatBytes(42, { signed: true }), "+42 B");
+  assert.strictEqual(formatBytes(42, { signed: true, space: false }), "+42B");
 });

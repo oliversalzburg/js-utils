@@ -26,15 +26,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.4",
-    "@types/chai": "5.2.3",
-    "@types/mocha": "10.0.10",
     "@types/node": "24.10.13",
     "@types/web": "0.0.338",
-    "c8": "11.0.0",
-    "chai": "6.2.2",
-    "mocha": "11.7.5",
-    "typedoc": "0.28.17",
-    "typedoc-plugin-mdn-links": "5.1.1",
     "typescript": "5.9.3"
   },
   "engines": {

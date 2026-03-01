@@ -1,5 +1,5 @@
-import { expect } from "chai";
-import { it } from "mocha";
+import assert from "node:assert";
+import { it } from "node:test";
 import { FormatMillisecondsOptions, formatMilliseconds } from "./milliseconds.js";
 
 const toBigInt = (milliseconds: number): bigint | undefined => {
@@ -31,14 +31,15 @@ function runTests({
       const [milliseconds, options, expected] =
         testCase.length === 3 ? testCase : [testCase[0], undefined, testCase[1]];
 
-      expect(format(milliseconds, options)).to.equal(
+      assert.strictEqual(
+        format(milliseconds, options),
         expected,
         `Number(${milliseconds.toString()})`,
       );
 
       const bigint = toBigInt(milliseconds);
       if (typeof bigint === "bigint") {
-        expect(format(bigint, options)).to.equal(expected, `BigInt(${bigint.toString()}n)`);
+        assert.strictEqual(format(bigint, options), expected, `BigInt(${bigint.toString()}n)`);
       }
     }
   });
@@ -255,17 +256,17 @@ runTests({
 });
 
 it("throw on invalid", () => {
-  expect(() => {
+  assert.throws(() => {
     formatMilliseconds("foo" as unknown as number);
-  }).to.throw();
+  });
 
-  expect(() => {
+  assert.throws(() => {
     formatMilliseconds(Number.NaN);
-  }).to.throw();
+  });
 
-  expect(() => {
+  assert.throws(() => {
     formatMilliseconds(Number.POSITIVE_INFINITY);
-  }).to.throw();
+  });
 });
 
 runTests({
@@ -360,10 +361,12 @@ runTests({
 });
 
 it("Big numbers", () => {
-  expect(formatMilliseconds(Number.MAX_VALUE)).to.equal(
+  assert.strictEqual(
+    formatMilliseconds(Number.MAX_VALUE),
     "5700447535712568547083700427941645003808085225292279557374304680873482979681895890593452082909683139015032646149857723394516742095667500822861020052921074432454921864096959420926519725467567456931340929884912090099277441972878147362726992943838905852030073647982034630974035871792165820638724934142y 218d 8h 8m 48s",
   );
-  expect(formatMilliseconds(BigInt(Number.MAX_VALUE))).to.equal(
+  assert.strictEqual(
+    formatMilliseconds(BigInt(Number.MAX_VALUE)),
     "5700447535712568836077099940756733789893155997141203595856084373514626483384973958669126034778249561502424497511237394223564222694364034207523704550467323597984839883832803211448677387442583997465622415920063861691545637902816557209722493636863373550063350653353143175061459195234630260059944318435y 207d 22h 14m 18.3s",
   );
 
@@ -379,10 +382,12 @@ it("Big numbers", () => {
     4n * 1000n * 60n * 60n +
     // Days
     BigInt(Number.MAX_VALUE) * 1000n * 60n * 60n * 24n;
-  expect(formatMilliseconds(duration)).to.equal(
+  assert.strictEqual(
+    formatMilliseconds(duration),
     "492518667085565947437061434881381799446768678152999990681965689871663728164461750029012489404840762113809476584970910860915948840793052555530048073160376758865890165963154197469165726275039257381029776735493517650149543114803350542920023450224995474725473496449711570325310074468272054469179189112833218790y 18d 4h 3m 2s",
   );
-  expect(formatMilliseconds(duration, { colonNotation: true })).to.equal(
+  assert.strictEqual(
+    formatMilliseconds(duration, { colonNotation: true }),
     "492518667085565947437061434881381799446768678152999990681965689871663728164461750029012489404840762113809476584970910860915948840793052555530048073160376758865890165963154197469165726275039257381029776735493517650149543114803350542920023450224995474725473496449711570325310074468272054469179189112833218790:18:04:03:02",
   );
 });
@@ -391,7 +396,7 @@ it("pure", () => {
   const runTest = (options: FormatMillisecondsOptions) => {
     const copy = { ...options };
     formatMilliseconds(1, options);
-    expect(options).to.deep.equal(copy);
+    assert.deepStrictEqual(options, copy);
   };
 
   runTest({ colonNotation: true });

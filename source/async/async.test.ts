@@ -1,5 +1,5 @@
-import { expect } from "chai";
-import { it } from "mocha";
+import assert from "node:assert";
+import { it } from "node:test";
 import { prepareAsyncContext, sleep } from "./async.js";
 
 it("executes trivial callback", async () => {
@@ -14,15 +14,15 @@ it("executes trivial callback", async () => {
 
   await sleep(100);
 
-  expect(executed).to.be.true;
+  assert.strictEqual(executed, true);
 });
 
 it("passes parameters to callback", async () => {
   let executed = false;
 
   const callback = prepareAsyncContext(async (event: Record<string, string>, eventId: number) => {
-    expect(event.name).to.equal("call");
-    expect(eventId).to.equal(42);
+    assert.strictEqual(event.name, "call");
+    assert.strictEqual(eventId, 42);
 
     await sleep(1);
     executed = true;
@@ -32,5 +32,5 @@ it("passes parameters to callback", async () => {
 
   await sleep(100);
 
-  expect(executed).to.be.true;
+  assert.strictEqual(executed, true);
 });

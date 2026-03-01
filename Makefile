@@ -2,13 +2,13 @@
 
 default: build
 
-build: output
+build: dist-area
 
 clean:
 	rm -rf _site coverage dist-area lib node_modules
 
 docs:
-	./docs/build.sh
+	@echo No documentation. Read JSDoc.
 
 git-hook:
 	echo "make pretty" > .git/hooks/pre-commit
@@ -23,13 +23,13 @@ lint: node_modules
 
 test: node_modules
 	npm exec -- tsc
-	npm exec -- c8 --reporter html-spa --reporter text mocha
+	node --enable-source-maps --test lib/**/*.test.js
 
 
 node_modules:
 	npm install
 
-output: node_modules
+dist-area: node_modules
 	npm exec -- tsc
 	rm -rf dist-area || true
 	cp -r lib dist-area

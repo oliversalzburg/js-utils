@@ -1,19 +1,15 @@
-import { expect } from "chai";
-import { it } from "mocha";
+import assert from "node:assert";
+import { it } from "node:test";
 import { formatCount, parseCount } from "./count.js";
 
 it("formats counts as expected", function () {
-  // Fails on NodeJS20 on Windows
-  // https://github.com/oliversalzburg/js-utils/actions/runs/9069549841/job/24919347525
-  this.timeout(5000);
-
-  expect(formatCount(-1)).to.equal("-1");
-  expect(formatCount(0)).to.equal("0");
-  expect(formatCount(1)).to.equal("1");
-  expect(formatCount(10)).to.equal("10");
-  expect(formatCount(100)).to.equal("100");
-  expect(formatCount(1000)).to.equal("1K");
-  expect(formatCount(1234)).to.equal("1.234K");
+  assert.strictEqual(formatCount(-1), "-1");
+  assert.strictEqual(formatCount(0), "0");
+  assert.strictEqual(formatCount(1), "1");
+  assert.strictEqual(formatCount(10), "10");
+  assert.strictEqual(formatCount(100), "100");
+  assert.strictEqual(formatCount(1000), "1K");
+  assert.strictEqual(formatCount(1234), "1.234K");
 });
 
 it("parses counts as expected", function () {
@@ -39,7 +35,7 @@ it("parses counts as expected", function () {
                 .map(char => `U+${char.charCodeAt(0).toString(16).padStart(4, "0")}`)
                 .join(", ")}`,
           );
-        expect(parsed).to.equal(count, `Failed for locale '${locale}': '${literal.join(", ")}'`);
+        assert.strictEqual(parsed, count, `Failed for locale '${locale}': '${literal.join(", ")}'`);
       }
     });
   };
