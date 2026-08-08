@@ -92,6 +92,7 @@ export class Shake extends EventTarget {
 	 * @param listener - The event handler to call.
 	 * @param options - The options for this handler.
 	 */
+	// @ts-expect-error
 	addEventListener(
 		type: "shake",
 		listener: ShakeEventListener | null,
@@ -116,6 +117,7 @@ export class Shake extends EventTarget {
 	 * @param callback - The event handler to remove.
 	 * @param options - The options the event handler was added with.
 	 */
+	// @ts-expect-error
 	removeEventListener(
 		type: "shake",
 		callback: ShakeEventListener | null,
