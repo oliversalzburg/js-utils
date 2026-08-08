@@ -228,10 +228,12 @@ export const formatBytes = (
 		number = -number;
 	}
 
-	let localeOptions: Partial<{
-		minimumFractionDigits: number;
-		maximumFractionDigits: number;
-	}> = {};
+	let localeOptions:
+		| Partial<{
+				minimumFractionDigits: number;
+				maximumFractionDigits: number;
+		  }>
+		| undefined;
 
 	if (options.minimumFractionDigits !== undefined) {
 		localeOptions = { minimumFractionDigits: options.minimumFractionDigits };
