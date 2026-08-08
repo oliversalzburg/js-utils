@@ -28,7 +28,7 @@
     "@biomejs/biome": "2.5.6",
     "@types/node": "26.1.2",
     "@types/web": "0.0.354",
-    "typescript": "5.9.3"
+    "typescript": "7.0.2"
   },
   "engines": {
     "node": ">=20"
