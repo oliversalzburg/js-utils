@@ -2,26 +2,22 @@
   "$schema": "https://json.schemastore.org/tsconfig.json",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "checkJs": true,
     "declaration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "importHelpers": true,
     "incremental": true,
-    "isolatedModules": true,
-    "lib": ["ESNext"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "esnext",
     "outDir": "lib",
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true,
-    "target": "ESNext",
-    "types": ["@types/node", "@types/web"],
-    "useDefineForClassFields": true
+    "target": "esnext",
+    "types": [
+      "node",
+      "web"
+    ]
   },
-  "exclude": ["./lib"],
-  "include": ["./.scripts", "./@types", "./source"]
+  "include": [
+    "./.scripts",
+    "./@types",
+    "./source"
+  ]
 }
