@@ -6,10 +6,12 @@ import { errorToString, unknownToError } from "./error-serializer.js";
  * @param stream - The stream to print errors to.
  * @returns A function that will print errors to the stream.
  */
-export const redirectErrorsToStream = (stream: NodeJS.WriteStream): ((error: unknown) => void) => {
-  const printErrorsToStream = (unknownError: unknown): void => {
-    const error = unknownToError(unknownError);
-    stream.write(errorToString(error) + "\n");
-  };
-  return printErrorsToStream;
+export const redirectErrorsToStream = (
+	stream: NodeJS.WriteStream,
+): ((error: unknown) => void) => {
+	const printErrorsToStream = (unknownError: unknown): void => {
+		const error = unknownToError(unknownError);
+		stream.write(`${errorToString(error)}\n`);
+	};
+	return printErrorsToStream;
 };

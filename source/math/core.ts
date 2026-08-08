@@ -9,7 +9,7 @@ export const TWO_PI = /* __PURE__ */ Math.PI * 2;
  * @returns The degrees in radians.
  */
 export const degreesToRadians = (degrees: number) => {
-  return degrees * (Math.PI / 180);
+	return degrees * (Math.PI / 180);
 };
 
 /**
@@ -18,7 +18,7 @@ export const degreesToRadians = (degrees: number) => {
  * @returns The radians as degrees.
  */
 export const radiansToDegrees = (radians: number) => {
-  return radians * (180 / Math.PI);
+	return radians * (180 / Math.PI);
 };
 
 /**
@@ -27,7 +27,7 @@ export const radiansToDegrees = (radians: number) => {
  * @returns The sine for the given value.
  */
 export const sinDegrees = (value: number) => {
-  return Math.sin(degreesToRadians(value));
+	return Math.sin(degreesToRadians(value));
 };
 
 /**
@@ -36,7 +36,7 @@ export const sinDegrees = (value: number) => {
  * @returns The cosine for the given value.
  */
 export const cosDegrees = (value: number) => {
-  return Math.cos(degreesToRadians(value));
+	return Math.cos(degreesToRadians(value));
 };
 
 /**
@@ -48,9 +48,9 @@ export const cosDegrees = (value: number) => {
  * @returns The distance between the two vectors.
  */
 export const distance = (x1: number, y1: number, x2: number, y2: number) => {
-  const distx = x2 - x1;
-  const disty = y2 - y1;
-  return Math.sqrt(distx * distx + disty * disty);
+	const distx = x2 - x1;
+	const disty = y2 - y1;
+	return Math.sqrt(distx * distx + disty * disty);
 };
 
 /**
@@ -59,16 +59,16 @@ export const distance = (x1: number, y1: number, x2: number, y2: number) => {
  * @returns The square root for the given value.
  */
 export const isqrt = (value: number) => {
-  if (0 === value) {
-    return 0;
-  } // Avoid zero divide
-  let n = value / 2 + 1; // Initial estimate, never low
-  let n1 = (n + value / n) / 2;
-  while (n1 < n) {
-    n = n1;
-    n1 = (n + value / n) / 2;
-  }
-  return n;
+	if (0 === value) {
+		return 0;
+	} // Avoid zero divide
+	let n = value / 2 + 1; // Initial estimate, never low
+	let n1 = (n + value / n) / 2;
+	while (n1 < n) {
+		n = n1;
+		n1 = (n + value / n) / 2;
+	}
+	return n;
 };
 
 /**
@@ -77,7 +77,7 @@ export const isqrt = (value: number) => {
  * @returns `true` when the value is an integer, `false` otherwise.
  */
 export const isInteger = (value: number) => {
-  return Math.trunc(value) === value;
+	return Math.trunc(value) === value;
 };
 
 /**
@@ -88,7 +88,7 @@ export const isInteger = (value: number) => {
  * @returns The number clamped to the desired range.
  */
 export const clamp = (input: number, floor: number, ceil: number): number => {
-  return Math.max(floor, Math.min(input, ceil));
+	return Math.max(floor, Math.min(input, ceil));
 };
 
 /**
@@ -98,8 +98,8 @@ export const clamp = (input: number, floor: number, ceil: number): number => {
  * @returns The rounded number.
  */
 export const ceilTo = (input: number, fractionDigits = 0): number => {
-  const scale = Math.pow(10, fractionDigits);
-  return Math.floor(input * scale) / scale;
+	const scale = 10 ** fractionDigits;
+	return Math.floor(input * scale) / scale;
 };
 
 /**
@@ -109,8 +109,8 @@ export const ceilTo = (input: number, fractionDigits = 0): number => {
  * @returns The rounded number.
  */
 export const floorTo = (input: number, fractionDigits = 0): number => {
-  const scale = Math.pow(10, fractionDigits);
-  return Math.floor(input * scale) / scale;
+	const scale = 10 ** fractionDigits;
+	return Math.floor(input * scale) / scale;
 };
 
 /**
@@ -120,8 +120,8 @@ export const floorTo = (input: number, fractionDigits = 0): number => {
  * @returns The rounded number.
  */
 export const roundTo = (input: number, fractionDigits = 0): number => {
-  const scale = Math.pow(10, fractionDigits);
-  return Math.round(input * scale) / scale;
+	const scale = 10 ** fractionDigits;
+	return Math.round(input * scale) / scale;
 };
 
 /**
@@ -131,6 +131,6 @@ export const roundTo = (input: number, fractionDigits = 0): number => {
  * @returns The rounded number.
  */
 export const truncTo = (input: number, fractionDigits = 0): number => {
-  const scale = Math.pow(10, fractionDigits);
-  return Math.trunc(input * scale) / scale;
+	const scale = 10 ** fractionDigits;
+	return Math.trunc(input * scale) / scale;
 };

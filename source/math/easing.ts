@@ -6,7 +6,7 @@
  * @returns The easing multiplier for the position.
  */
 export const easeInQuad = (position: number): number => {
-  return Math.pow(position, 2);
+	return position ** 2;
 };
 
 /**
@@ -15,7 +15,7 @@ export const easeInQuad = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeOutQuad = (position: number): number => {
-  return -(Math.pow(position - 1, 2) - 1);
+	return -((position - 1) ** 2 - 1);
 };
 
 /**
@@ -24,10 +24,12 @@ export const easeOutQuad = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInOutQuad = (position: number): number => {
-  if ((position /= 0.5) < 1) {
-    return 0.5 * Math.pow(position, 2);
-  }
-  return -0.5 * ((position -= 2) * position - 2);
+	position /= 0.5;
+	if (position < 1) {
+		return 0.5 * position ** 2;
+	}
+	position -= 2;
+	return -0.5 * (position * position - 2);
 };
 
 /**
@@ -36,7 +38,7 @@ export const easeInOutQuad = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInCubic = (position: number): number => {
-  return Math.pow(position, 3);
+	return position ** 3;
 };
 
 /**
@@ -45,7 +47,7 @@ export const easeInCubic = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeOutCubic = (position: number): number => {
-  return Math.pow(position - 1, 3) + 1;
+	return (position - 1) ** 3 + 1;
 };
 
 /**
@@ -54,8 +56,9 @@ export const easeOutCubic = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInOutCubic = (position: number): number => {
-  if ((position /= 0.5) < 1) return 0.5 * Math.pow(position, 3);
-  return 0.5 * (Math.pow(position - 2, 3) + 2);
+	position /= 0.5;
+	if (position < 1) return 0.5 * position ** 3;
+	return 0.5 * ((position - 2) ** 3 + 2);
 };
 
 /**
@@ -64,7 +67,7 @@ export const easeInOutCubic = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInQuart = (position: number): number => {
-  return Math.pow(position, 4);
+	return position ** 4;
 };
 
 /**
@@ -73,7 +76,7 @@ export const easeInQuart = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeOutQuart = (position: number): number => {
-  return -(Math.pow(position - 1, 4) - 1);
+	return -((position - 1) ** 4 - 1);
 };
 
 /**
@@ -82,8 +85,10 @@ export const easeOutQuart = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInOutQuart = (position: number): number => {
-  if ((position /= 0.5) < 1) return 0.5 * Math.pow(position, 4);
-  return -0.5 * ((position -= 2) * Math.pow(position, 3) - 2);
+	position /= 0.5;
+	if (position < 1) return 0.5 * position ** 4;
+	position -= 2;
+	return -0.5 * (position * position ** 3 - 2);
 };
 
 /**
@@ -92,7 +97,7 @@ export const easeInOutQuart = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInQuint = (position: number): number => {
-  return Math.pow(position, 5);
+	return position ** 5;
 };
 
 /**
@@ -101,7 +106,7 @@ export const easeInQuint = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeOutQuint = (position: number): number => {
-  return Math.pow(position - 1, 5) + 1;
+	return (position - 1) ** 5 + 1;
 };
 
 /**
@@ -110,8 +115,9 @@ export const easeOutQuint = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInOutQuint = (position: number): number => {
-  if ((position /= 0.5) < 1) return 0.5 * Math.pow(position, 5);
-  return 0.5 * (Math.pow(position - 2, 5) + 2);
+	position /= 0.5;
+	if (position < 1) return 0.5 * position ** 5;
+	return 0.5 * ((position - 2) ** 5 + 2);
 };
 
 /**
@@ -120,7 +126,7 @@ export const easeInOutQuint = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInSine = (position: number): number => {
-  return -Math.cos(position * (Math.PI / 2)) + 1;
+	return -Math.cos(position * (Math.PI / 2)) + 1;
 };
 
 /**
@@ -129,7 +135,7 @@ export const easeInSine = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeOutSine = (position: number): number => {
-  return Math.sin(position * (Math.PI / 2));
+	return Math.sin(position * (Math.PI / 2));
 };
 
 /**
@@ -138,7 +144,7 @@ export const easeOutSine = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInOutSine = (position: number): number => {
-  return -0.5 * (Math.cos(Math.PI * position) - 1);
+	return -0.5 * (Math.cos(Math.PI * position) - 1);
 };
 
 /**
@@ -147,7 +153,7 @@ export const easeInOutSine = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInExpo = (position: number): number => {
-  return position === 0 ? 0 : Math.pow(2, 10 * (position - 1));
+	return position === 0 ? 0 : 2 ** (10 * (position - 1));
 };
 
 /**
@@ -156,7 +162,7 @@ export const easeInExpo = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeOutExpo = (position: number): number => {
-  return position === 1 ? 1 : -Math.pow(2, -10 * position) + 1;
+	return position === 1 ? 1 : -(2 ** (-10 * position)) + 1;
 };
 
 /**
@@ -165,10 +171,11 @@ export const easeOutExpo = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInOutExpo = (position: number): number => {
-  if (position === 0) return 0;
-  if (position === 1) return 1;
-  if ((position /= 0.5) < 1) return 0.5 * Math.pow(2, 10 * (position - 1));
-  return 0.5 * (-Math.pow(2, -10 * --position) + 2);
+	if (position === 0) return 0;
+	if (position === 1) return 1;
+	position /= 0.5;
+	if (position < 1) return 0.5 * 2 ** (10 * (position - 1));
+	return 0.5 * (-(2 ** (-10 * --position)) + 2);
 };
 
 /**
@@ -177,7 +184,7 @@ export const easeInOutExpo = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInCirc = (position: number): number => {
-  return -(Math.sqrt(1 - position * position) - 1);
+	return -(Math.sqrt(1 - position * position) - 1);
 };
 
 /**
@@ -186,7 +193,7 @@ export const easeInCirc = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeOutCirc = (position: number): number => {
-  return Math.sqrt(1 - Math.pow(position - 1, 2));
+	return Math.sqrt(1 - (position - 1) ** 2);
 };
 
 /**
@@ -195,8 +202,10 @@ export const easeOutCirc = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInOutCirc = (position: number): number => {
-  if ((position /= 0.5) < 1) return -0.5 * (Math.sqrt(1 - position * position) - 1);
-  return 0.5 * (Math.sqrt(1 - (position -= 2) * position) + 1);
+	position /= 0.5;
+	if (position < 1) return -0.5 * (Math.sqrt(1 - position * position) - 1);
+	position -= 2;
+	return 0.5 * (Math.sqrt(1 - position * position) + 1);
 };
 
 /**
@@ -205,14 +214,17 @@ export const easeInOutCirc = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeOutBounce = (position: number): number => {
-  if (position < 1 / 2.75) {
-    return 7.5625 * position * position;
-  } else if (position < 2 / 2.75) {
-    return 7.5625 * (position -= 1.5 / 2.75) * position + 0.75;
-  } else if (position < 2.5 / 2.75) {
-    return 7.5625 * (position -= 2.25 / 2.75) * position + 0.9375;
-  }
-  return 7.5625 * (position -= 2.625 / 2.75) * position + 0.984375;
+	if (position < 1 / 2.75) {
+		return 7.5625 * position * position;
+	} else if (position < 2 / 2.75) {
+		position -= 1.5 / 2.75;
+		return 7.5625 * position * position + 0.75;
+	} else if (position < 2.5 / 2.75) {
+		position -= 2.25 / 2.75;
+		return 7.5625 * position * position + 0.9375;
+	}
+	position -= 2.625 / 2.75;
+	return 7.5625 * position * position + 0.984375;
 };
 
 /**
@@ -221,8 +233,8 @@ export const easeOutBounce = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInBack = (position: number): number => {
-  const s = 1.70158;
-  return position * position * ((s + 1) * position - s);
+	const s = 1.70158;
+	return position * position * ((s + 1) * position - s);
 };
 
 /**
@@ -231,8 +243,9 @@ export const easeInBack = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeOutBack = (position: number): number => {
-  const s = 1.70158;
-  return (position = position - 1) * position * ((s + 1) * position + s) + 1;
+	const s = 1.70158;
+	position = position - 1;
+	return position * position * ((s + 1) * position + s) + 1;
 };
 
 /**
@@ -241,11 +254,15 @@ export const easeOutBack = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeInOutBack = (position: number): number => {
-  let s = 1.70158;
-  if ((position /= 0.5) < 1) {
-    return 0.5 * (position * position * (((s *= 1.525) + 1) * position - s));
-  }
-  return 0.5 * ((position -= 2) * position * (((s *= 1.525) + 1) * position + s) + 2);
+	let s = 1.70158;
+	position /= 0.5;
+	if (position < 1) {
+		s *= 1.525;
+		return 0.5 * (position * position * ((s + 1) * position - s));
+	}
+	position -= 2;
+	s *= 1.525;
+	return 0.5 * (position * position * ((s + 1) * position + s) + 2);
 };
 
 /**
@@ -254,7 +271,12 @@ export const easeInOutBack = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeElastic = (position: number): number => {
-  return -1 * Math.pow(4, -8 * position) * Math.sin(((position * 6 - 1) * (2 * Math.PI)) / 2) + 1;
+	return (
+		-1 *
+			4 ** (-8 * position) *
+			Math.sin(((position * 6 - 1) * (2 * Math.PI)) / 2) +
+		1
+	);
 };
 
 /**
@@ -263,10 +285,15 @@ export const easeElastic = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const swingInOut = (position: number): number => {
-  let s = 1.70158;
-  return (position /= 0.5) < 1
-    ? 0.5 * (position * position * (((s *= 1.525) + 1) * position - s))
-    : 0.5 * ((position -= 2) * position * (((s *= 1.525) + 1) * position + s) + 2);
+	let s = 1.70158;
+	position /= 0.5;
+	if (position < 1) {
+		s *= 1.525;
+		return 0.5 * (position * position * ((s + 1) * position - s));
+	}
+	position -= 2;
+	s *= 1.525;
+	return 0.5 * (position * position * ((s + 1) * position + s) + 2);
 };
 
 /**
@@ -275,8 +302,8 @@ export const swingInOut = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeSwingIn = (position: number): number => {
-  const s = 1.70158;
-  return position * position * ((s + 1) * position - s);
+	const s = 1.70158;
+	return position * position * ((s + 1) * position - s);
 };
 
 /**
@@ -285,8 +312,9 @@ export const easeSwingIn = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeSwingOut = (position: number): number => {
-  const s = 1.70158;
-  return (position -= 1) * position * ((s + 1) * position + s) + 1;
+	const s = 1.70158;
+	position -= 1;
+	return position * position * ((s + 1) * position + s) + 1;
 };
 
 /**
@@ -295,14 +323,17 @@ export const easeSwingOut = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeBounce = (position: number): number => {
-  if (position < 1 / 2.75) {
-    return 7.5625 * position * position;
-  } else if (position < 2 / 2.75) {
-    return 7.5625 * (position -= 1.5 / 2.75) * position + 0.75;
-  } else if (position < 2.5 / 2.75) {
-    return 7.5625 * (position -= 2.25 / 2.75) * position + 0.9375;
-  }
-  return 7.5625 * (position -= 2.625 / 2.75) * position + 0.984375;
+	if (position < 1 / 2.75) {
+		return 7.5625 * position * position;
+	} else if (position < 2 / 2.75) {
+		position -= 1.5 / 2.75;
+		return 7.5625 * position * position + 0.75;
+	} else if (position < 2.5 / 2.75) {
+		position -= 2.25 / 2.75;
+		return 7.5625 * position * position + 0.9375;
+	}
+	position -= 2.625 / 2.75;
+	return 7.5625 * position * position + 0.984375;
 };
 
 /**
@@ -311,14 +342,17 @@ export const easeBounce = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeBouncePast = (position: number): number => {
-  if (position < 1 / 2.75) {
-    return 7.5625 * position * position;
-  } else if (position < 2 / 2.75) {
-    return 2 - (7.5625 * (position -= 1.5 / 2.75) * position + 0.75);
-  } else if (position < 2.5 / 2.75) {
-    return 2 - (7.5625 * (position -= 2.25 / 2.75) * position + 0.9375);
-  }
-  return 2 - (7.5625 * (position -= 2.625 / 2.75) * position + 0.984375);
+	if (position < 1 / 2.75) {
+		return 7.5625 * position * position;
+	} else if (position < 2 / 2.75) {
+		position -= 1.5 / 2.75;
+		return 2 - (7.5625 * position * position + 0.75);
+	} else if (position < 2.5 / 2.75) {
+		position -= 2.25 / 2.75;
+		return 2 - (7.5625 * position * position + 0.9375);
+	}
+	position -= 2.625 / 2.75;
+	return 2 - (7.5625 * position * position + 0.984375);
 };
 
 /**
@@ -327,10 +361,12 @@ export const easeBouncePast = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeFromTo = (position: number): number => {
-  if ((position /= 0.5) < 1) {
-    return 0.5 * Math.pow(position, 4);
-  }
-  return -0.5 * ((position -= 2) * Math.pow(position, 3) - 2);
+	position /= 0.5;
+	if (position < 1) {
+		return 0.5 * position ** 4;
+	}
+	position -= 2;
+	return -0.5 * (position * position ** 3 - 2);
 };
 
 /**
@@ -339,7 +375,7 @@ export const easeFromTo = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeFrom = (position: number): number => {
-  return Math.pow(position, 4);
+	return position ** 4;
 };
 
 /**
@@ -348,5 +384,5 @@ export const easeFrom = (position: number): number => {
  * @returns The easing multiplier for the position.
  */
 export const easeTo = (position: number): number => {
-  return Math.pow(position, 0.25);
+	return position ** 0.25;
 };

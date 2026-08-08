@@ -27,15 +27,17 @@ export const vert = (input: TemplateStringsArray): string => input.join();
  * Construction options for a {@linkcode !WebGLShader}.
  */
 export interface ShaderOptions {
-  /**
-   * The GLSL source code of the shader.
-   */
-  source: string;
+	/**
+	 * The GLSL source code of the shader.
+	 */
+	source: string;
 
-  /**
-   * The type of the shader.
-   */
-  type: WebGL2RenderingContext["FRAGMENT_SHADER"] | WebGL2RenderingContext["VERTEX_SHADER"];
+	/**
+	 * The type of the shader.
+	 */
+	type:
+		| WebGL2RenderingContext["FRAGMENT_SHADER"]
+		| WebGL2RenderingContext["VERTEX_SHADER"];
 }
 
 /**
@@ -44,19 +46,25 @@ export interface ShaderOptions {
  * @param options - The construction options for the shader.
  * @returns The shader.
  */
-export const createShader = (gl: WebGL2RenderingContext, options: ShaderOptions): WebGLShader => {
-  const shader: WebGLShader = mustExist(gl.createShader(options.type));
-  const shader_source = options.source.replace(/^\s*/, "");
-  gl.shaderSource(shader, shader_source);
-  gl.compileShader(shader);
-  const compileStatus: unknown = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
-  if (!compileStatus) {
-    const errorMessage = gl.getShaderInfoLog(shader);
-    throw new InvalidOperationError(
-      `Could not compile shader\n${errorMessage ?? "<no error message>"}`,
-    );
-  }
-  return shader;
+export const createShader = (
+	gl: WebGL2RenderingContext,
+	options: ShaderOptions,
+): WebGLShader => {
+	const shader: WebGLShader = mustExist(gl.createShader(options.type));
+	const shader_source = options.source.replace(/^\s*/, "");
+	gl.shaderSource(shader, shader_source);
+	gl.compileShader(shader);
+	const compileStatus: unknown = gl.getShaderParameter(
+		shader,
+		gl.COMPILE_STATUS,
+	);
+	if (!compileStatus) {
+		const errorMessage = gl.getShaderInfoLog(shader);
+		throw new InvalidOperationError(
+			`Could not compile shader\n${errorMessage ?? "<no error message>"}`,
+		);
+	}
+	return shader;
 };
 
 /**
@@ -68,29 +76,33 @@ export const createShader = (gl: WebGL2RenderingContext, options: ShaderOptions)
  * @returns The program.
  */
 export const createGLProgram = (
-  gl: WebGL2RenderingContext,
-  shaders: Array<ShaderOptions>,
-  transformFeedbackVaryings: Array<string> | null,
+	gl: WebGL2RenderingContext,
+	shaders: Array<ShaderOptions>,
+	transformFeedbackVaryings: Array<string> | null,
 ): WebGLProgram => {
-  const program = mustExist(gl.createProgram());
-  for (const shader_info of shaders) {
-    const shader = createShader(gl, shader_info);
-    gl.attachShader(program, shader);
-  }
+	const program = mustExist(gl.createProgram());
+	for (const shader_info of shaders) {
+		const shader = createShader(gl, shader_info);
+		gl.attachShader(program, shader);
+	}
 
-  if (transformFeedbackVaryings !== null) {
-    gl.transformFeedbackVaryings(program, transformFeedbackVaryings, gl.INTERLEAVED_ATTRIBS);
-  }
+	if (transformFeedbackVaryings !== null) {
+		gl.transformFeedbackVaryings(
+			program,
+			transformFeedbackVaryings,
+			gl.INTERLEAVED_ATTRIBS,
+		);
+	}
 
-  gl.linkProgram(program);
-  const link_status: unknown = gl.getProgramParameter(program, gl.LINK_STATUS);
-  if (!link_status) {
-    const error_message = gl.getProgramInfoLog(program);
-    throw new InvalidOperationError(
-      `Could not link program.\n${error_message ?? "<no error message>"}`,
-    );
-  }
-  return program;
+	gl.linkProgram(program);
+	const link_status: unknown = gl.getProgramParameter(program, gl.LINK_STATUS);
+	if (!link_status) {
+		const error_message = gl.getProgramInfoLog(program);
+		throw new InvalidOperationError(
+			`Could not link program.\n${error_message ?? "<no error message>"}`,
+		);
+	}
+	return program;
 };
 
 /**
@@ -100,10 +112,10 @@ export const createGLProgram = (
  * @returns The buffer.
  */
 export const randomRGData = (width: number, height: number) => {
-  const data = new Array<number>();
-  for (let i = 0; i < width * height; ++i) {
-    data.push(Math.random() * 255.0);
-    data.push(Math.random() * 255.0);
-  }
-  return new Uint8Array(data);
+	const data = new Array<number>();
+	for (let i = 0; i < width * height; ++i) {
+		data.push(Math.random() * 255.0);
+		data.push(Math.random() * 255.0);
+	}
+	return new Uint8Array(data);
 };

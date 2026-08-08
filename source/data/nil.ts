@@ -1,4 +1,4 @@
-import { ConstructorOf } from "../core.js";
+import type { ConstructorOf } from "../core.js";
 
 /**
  * When you want to normalize away `null` | `undefined`, or deal
@@ -20,7 +20,7 @@ export type Maybe<T> = T | Nil;
  * @returns `true` if the subject is nil, `false` otherwise.
  */
 export function isNil<TSubject>(subject: Maybe<TSubject>): subject is Nil {
-  return subject === null || subject === undefined;
+	return subject === null || subject === undefined;
 }
 
 /**
@@ -33,23 +33,23 @@ export function isNil<TSubject>(subject: Maybe<TSubject>): subject is Nil {
  * `false` otherwise.
  */
 export function is<TSubject>(
-  subject: Maybe<TSubject> | unknown,
-  Prototype: ConstructorOf<TSubject>,
+	subject: Maybe<TSubject> | unknown,
+	Prototype: ConstructorOf<TSubject>,
 ): subject is TSubject {
-  return !isNil(subject) && subject instanceof Prototype;
+	return !isNil(subject) && subject instanceof Prototype;
 }
 
 /**
  * Thrown when an unexpected nil value was encountered.
  */
 export class UnexpectedNilError extends Error {
-  /**
-   * Constructs a new {@linkcode UnexpectedNilError}.
-   * @param message - The error message.
-   */
-  constructor(message = "unexpected nil value") {
-    super(message);
-  }
+	/**
+	 * Constructs a new {@linkcode UnexpectedNilError}.
+	 * @param message - The error message.
+	 */
+	constructor(message = "unexpected nil value") {
+		super(message);
+	}
 }
 
 /**
@@ -60,11 +60,14 @@ export class UnexpectedNilError extends Error {
  * @returns The subject, if it isn't nil.
  * @throws {@linkcode UnexpectedNilError} When the subject is nil.
  */
-export function mustExist<TSubject>(subject: Maybe<TSubject>, errorMessage?: string): TSubject {
-  if (isNil(subject)) {
-    throw new UnexpectedNilError(errorMessage);
-  }
-  return subject;
+export function mustExist<TSubject>(
+	subject: Maybe<TSubject>,
+	errorMessage?: string,
+): TSubject {
+	if (isNil(subject)) {
+		throw new UnexpectedNilError(errorMessage);
+	}
+	return subject;
 }
 
 /**
@@ -76,16 +79,16 @@ export function mustExist<TSubject>(subject: Maybe<TSubject>, errorMessage?: str
  * @throws {@linkcode UnexpectedNilError} When a subject is nil.
  */
 export function mustExistAll<TSubject>(
-  subjects: Array<Maybe<TSubject>>,
-  errorMessage?: string,
+	subjects: Array<Maybe<TSubject>>,
+	errorMessage?: string,
 ): Array<TSubject> {
-  for (const subject of subjects) {
-    if (isNil(subject)) {
-      throw new UnexpectedNilError(errorMessage);
-    }
-  }
+	for (const subject of subjects) {
+		if (isNil(subject)) {
+			throw new UnexpectedNilError(errorMessage);
+		}
+	}
 
-  return subjects as Array<TSubject>;
+	return subjects as Array<TSubject>;
 }
 
 /**
@@ -94,10 +97,12 @@ export function mustExistAll<TSubject>(
  * @typeParam TSubject - The type of the subject.
  * @throws {@linkcode UnexpectedNilError} When the subject is nil.
  */
-export function assertExists<TSubject>(subject: Maybe<TSubject>): asserts subject is TSubject {
-  if (isNil(subject)) {
-    throw new UnexpectedNilError();
-  }
+export function assertExists<TSubject>(
+	subject: Maybe<TSubject>,
+): asserts subject is TSubject {
+	if (isNil(subject)) {
+		throw new UnexpectedNilError();
+	}
 }
 
 /**
@@ -107,13 +112,13 @@ export function assertExists<TSubject>(subject: Maybe<TSubject>): asserts subjec
  * @throws {@linkcode UnexpectedNilError} When a subject is nil.
  */
 export function assertExistsAll<TSubject>(
-  subjects: Array<Maybe<TSubject>>,
+	subjects: Array<Maybe<TSubject>>,
 ): asserts subjects is Array<TSubject> {
-  for (const subject of subjects) {
-    if (isNil(subject)) {
-      throw new UnexpectedNilError();
-    }
-  }
+	for (const subject of subjects) {
+		if (isNil(subject)) {
+			throw new UnexpectedNilError();
+		}
+	}
 }
 
 /**
@@ -123,10 +128,10 @@ export function assertExistsAll<TSubject>(
  * @returns The input value, if it wasn't nil, or the value to coalesce to.
  */
 export function coalesce<T>(nilable: Maybe<T>, to: T): T {
-  if (isNil(nilable)) {
-    return to;
-  }
-  return nilable;
+	if (isNil(nilable)) {
+		return to;
+	}
+	return nilable;
 }
 
 /**
@@ -135,16 +140,19 @@ export function coalesce<T>(nilable: Maybe<T>, to: T): T {
  * @param to - The value to coalese to.
  * @returns An array with where all values are not nil.
  */
-export function coalesceArray<T>(nilables: Array<Maybe<T>>, to?: Maybe<T>): Array<T> {
-  const result = new Array<T>();
-  for (const nilable of nilables) {
-    if (!isNil(nilable)) {
-      result.push(nilable);
-    } else if (!isNil(to)) {
-      result.push(to);
-    }
-  }
-  return result;
+export function coalesceArray<T>(
+	nilables: Array<Maybe<T>>,
+	to?: Maybe<T>,
+): Array<T> {
+	const result = new Array<T>();
+	for (const nilable of nilables) {
+		if (!isNil(nilable)) {
+			result.push(nilable);
+		} else if (!isNil(to)) {
+			result.push(to);
+		}
+	}
+	return result;
 }
 
 /**
@@ -154,8 +162,8 @@ export function coalesceArray<T>(nilables: Array<Maybe<T>>, to?: Maybe<T>): Arra
  * @returns The value, normalized to `undefined`, if it was nil.
  */
 export function toOptional<T>(nilable: Maybe<T>): T | undefined {
-  if (isNil(nilable)) {
-    return undefined;
-  }
-  return nilable;
+	if (isNil(nilable)) {
+		return undefined;
+	}
+	return nilable;
 }

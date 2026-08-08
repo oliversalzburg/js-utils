@@ -6,7 +6,10 @@ import { UnknownError } from "./UnknownError.js";
 /**
  * The shape of an {@linkcode !Error} instance, after it has been serialized into a simple hash.
  */
-export type SerializedError = Record<string, Record<string, string> | string | undefined>;
+export type SerializedError = Record<
+	string,
+	Record<string, string> | string | undefined
+>;
 
 /**
  * Determine if the given unknown subject is an {@linkcode !Error} instance.
@@ -14,7 +17,10 @@ export type SerializedError = Record<string, Record<string, string> | string | u
  * @returns `true` if the subject is an {@linkcode !Error}, `false` otherwise.
  */
 export const isError = (subject: unknown): subject is Error => {
-  return subject instanceof Error || Object.prototype.toString.call(subject) === "[object Error]";
+	return (
+		subject instanceof Error ||
+		Object.prototype.toString.call(subject) === "[object Error]"
+	);
 };
 
 /**
@@ -25,15 +31,15 @@ export const isError = (subject: unknown): subject is Error => {
  * @returns An {@linkcode AbstractError} instance.
  */
 export const unknownToError = (subject: unknown): AbstractError => {
-  if (AbstractError.isAbstractError(subject)) {
-    return subject;
-  }
+	if (AbstractError.isAbstractError(subject)) {
+		return subject;
+	}
 
-  if (isError(subject)) {
-    return InternalError.fromError(subject);
-  }
+	if (isError(subject)) {
+		return InternalError.fromError(subject);
+	}
 
-  return new UnknownError(String(subject));
+	return new UnknownError(String(subject));
 };
 
 /**
@@ -41,8 +47,12 @@ export const unknownToError = (subject: unknown): AbstractError => {
  * @param error - The error to stringify.
  * @returns A string representing the error.
  */
-export const errorToString = (error: Error & { toString?: () => string }): string => {
-  return isNil(error.toString) ? Object.prototype.toString.call(error) : error.toString();
+export const errorToString = (
+	error: Error & { toString?: () => string },
+): string => {
+	return isNil(error.toString)
+		? Object.prototype.toString.call(error)
+		: error.toString();
 };
 
 /**
@@ -51,7 +61,7 @@ export const errorToString = (error: Error & { toString?: () => string }): strin
  * @returns A JSON string representing the error.
  */
 export const errorToJSON = (error: Error): string => {
-  return JSON.stringify(error, Object.getOwnPropertyNames(error));
+	return JSON.stringify(error, Object.getOwnPropertyNames(error));
 };
 
 /**
@@ -60,11 +70,11 @@ export const errorToJSON = (error: Error): string => {
  * @returns A new object that contains all the properties of the error.
  */
 export const errorToRecord = (error: Error): Record<string, unknown> => {
-  const record: Record<string, unknown> = {};
-  for (const propertyName of Object.getOwnPropertyNames(error)) {
-    record[propertyName] = error[propertyName as keyof typeof error];
-  }
-  return record;
+	const record: Record<string, unknown> = {};
+	for (const propertyName of Object.getOwnPropertyNames(error)) {
+		record[propertyName] = error[propertyName as keyof typeof error];
+	}
+	return record;
 };
 
 /**
@@ -72,13 +82,15 @@ export const errorToRecord = (error: Error): Record<string, unknown> => {
  * @param error - The error to serialize.
  * @returns A simple representation of the error.
  */
-export const errorToSimpleSerializable = (error: AbstractError): SerializedError => {
-  const serialized: SerializedError = {
-    code: error.code,
-    message: error.message,
-    name: error.name,
-    stack: error.stack,
-  };
+export const errorToSimpleSerializable = (
+	error: AbstractError,
+): SerializedError => {
+	const serialized: SerializedError = {
+		code: error.code,
+		message: error.message,
+		name: error.name,
+		stack: error.stack,
+	};
 
-  return serialized;
+	return serialized;
 };

@@ -10,13 +10,13 @@ export const GOLDEN_RATIO = 1.618033988749;
  * @returns The input value constrained into single-byte range.
  */
 export const safeRGBComponent = (c: number) => {
-  if (c < 0) {
-    c = 0;
-  }
-  if (255 < c) {
-    c = 255;
-  }
-  return Math.trunc(c);
+	if (c < 0) {
+		c = 0;
+	}
+	if (255 < c) {
+		c = 255;
+	}
+	return Math.trunc(c);
 };
 
 /**
@@ -28,12 +28,12 @@ export const safeRGBComponent = (c: number) => {
  * @returns The constructed color value.
  */
 export const fromRGBA = (r: number, g: number, b: number, a: number) => {
-  r = safeRGBComponent(r);
-  g = safeRGBComponent(g);
-  b = safeRGBComponent(b);
-  a = safeRGBComponent(a);
+	r = safeRGBComponent(r);
+	g = safeRGBComponent(g);
+	b = safeRGBComponent(b);
+	a = safeRGBComponent(a);
 
-  return (r << 24) | (g << 16) | (b << 8) | a;
+	return (r << 24) | (g << 16) | (b << 8) | a;
 };
 
 /**
@@ -45,7 +45,7 @@ export const fromRGBA = (r: number, g: number, b: number, a: number) => {
  * @returns The constructed color value.
  */
 export const fromRGB = (r: number, g: number, b: number) => {
-  return fromRGBA(r, g, b, 255);
+	return fromRGBA(r, g, b, 255);
 };
 
 /**
@@ -54,7 +54,7 @@ export const fromRGB = (r: number, g: number, b: number) => {
  * @returns The R component of the color value.
  */
 export const getR = (color: number) => {
-  return (color >> 24) & 0xff;
+	return (color >> 24) & 0xff;
 };
 
 /**
@@ -63,7 +63,7 @@ export const getR = (color: number) => {
  * @returns The G component of the color value.
  */
 export const getG = (color: number) => {
-  return (color >> 16) & 0xff;
+	return (color >> 16) & 0xff;
 };
 
 /**
@@ -72,7 +72,7 @@ export const getG = (color: number) => {
  * @returns The B component of the color value.
  */
 export const getB = (color: number) => {
-  return (color >> 8) & 0xff;
+	return (color >> 8) & 0xff;
 };
 
 /**
@@ -81,7 +81,7 @@ export const getB = (color: number) => {
  * @returns The A component of the color value.
  */
 export const getA = (color: number) => {
-  return color & 0xff;
+	return color & 0xff;
 };
 
 /**
@@ -94,20 +94,20 @@ export const getA = (color: number) => {
  * @returns The blended color.
  */
 export const blend = (src: number, dst: number, alpha: number) => {
-  if (alpha >= 255) {
-    return dst;
-  }
-  if (alpha <= 0) {
-    return src;
-  }
-  src |= 0;
-  dst |= 0;
+	if (alpha >= 255) {
+		return dst;
+	}
+	if (alpha <= 0) {
+		return src;
+	}
+	src |= 0;
+	dst |= 0;
 
-  return fromRGB(
-    (alpha * getR(dst) + (255 - alpha) * getR(src)) >> 8,
-    (alpha * getG(dst) + (255 - alpha) * getG(src)) >> 8,
-    (alpha * getB(dst) + (255 - alpha) * getB(src)) >> 8,
-  );
+	return fromRGB(
+		(alpha * getR(dst) + (255 - alpha) * getR(src)) >> 8,
+		(alpha * getG(dst) + (255 - alpha) * getG(src)) >> 8,
+		(alpha * getB(dst) + (255 - alpha) * getB(src)) >> 8,
+	);
 };
 
 /**
@@ -120,18 +120,18 @@ export const blend = (src: number, dst: number, alpha: number) => {
  * @returns The blended color.
  */
 export const blendAdditive = (src: number, dst: number, alpha: number) => {
-  if (alpha >= 255) {
-    return dst;
-  }
-  if (alpha <= 0) {
-    return src;
-  }
+	if (alpha >= 255) {
+		return dst;
+	}
+	if (alpha <= 0) {
+		return src;
+	}
 
-  return fromRGB(
-    ((alpha * getR(dst)) >> 8) + getR(src),
-    ((alpha * getG(dst)) >> 8) + getG(src),
-    ((alpha * getB(dst)) >> 8) + getB(src),
-  );
+	return fromRGB(
+		((alpha * getR(dst)) >> 8) + getR(src),
+		((alpha * getG(dst)) >> 8) + getG(src),
+		((alpha * getB(dst)) >> 8) + getB(src),
+	);
 };
 
 /**
@@ -144,17 +144,17 @@ export const blendAdditive = (src: number, dst: number, alpha: number) => {
  * @returns The blended color.
  */
 export const blendSubtractive = (src: number, dst: number, alpha: number) => {
-  if (alpha >= 255) {
-    return dst;
-  }
-  if (alpha <= 0) {
-    return src;
-  }
+	if (alpha >= 255) {
+		return dst;
+	}
+	if (alpha <= 0) {
+		return src;
+	}
 
-  const r = getR(src) - ((alpha * getR(dst)) >> 8);
-  const g = getG(src) - ((alpha * getG(dst)) >> 8);
-  const b = getB(src) - ((alpha * getB(dst)) >> 8);
-  return fromRGB(r < 0 ? 0 : r, g < 0 ? 0 : g, b < 0 ? 0 : b);
+	const r = getR(src) - ((alpha * getR(dst)) >> 8);
+	const g = getG(src) - ((alpha * getG(dst)) >> 8);
+	const b = getB(src) - ((alpha * getB(dst)) >> 8);
+	return fromRGB(r < 0 ? 0 : r, g < 0 ? 0 : g, b < 0 ? 0 : b);
 };
 
 /**
@@ -163,6 +163,6 @@ export const blendSubtractive = (src: number, dst: number, alpha: number) => {
  * @returns The grayscale value appropriate for the color.
  */
 export const toGrayScale = (color: number) => {
-  const gs = getR(color) * 0.3 + getG(color) * 0.59 + getB(color) * 0.11;
-  return fromRGBA(gs, gs, gs, getA(color));
+	const gs = getR(color) * 0.3 + getG(color) * 0.59 + getB(color) * 0.11;
+	return fromRGBA(gs, gs, gs, getA(color));
 };

@@ -9,10 +9,15 @@
  * @param formatArguments - An array of strings to place into the placeholders.
  * @returns The formatted string.
  */
-export const formatString = (string: string, ...formatArguments: Array<string>): string => {
-  return string.replace(/{(\d+)}/g, (match, matchedDigits: number): string =>
-    typeof formatArguments[matchedDigits] !== "undefined" ? formatArguments[matchedDigits] : match,
-  );
+export const formatString = (
+	string: string,
+	...formatArguments: Array<string>
+): string => {
+	return string.replace(/{(\d+)}/g, (match, matchedDigits: number): string =>
+		typeof formatArguments[matchedDigits] !== "undefined"
+			? formatArguments[matchedDigits]
+			: match,
+	);
 };
 
 /**
@@ -27,12 +32,13 @@ export const formatString = (string: string, ...formatArguments: Array<string>):
  * @returns The formatted string.
  */
 export const formatStringTemplate = (
-  string: string,
-  parameters: Record<string, string | undefined>,
+	string: string,
+	parameters: Record<string, string | undefined>,
 ): string => {
-  string = string.replace(
-    /#{[\w.]+}/g,
-    query => parameters[query.slice(2, query.length - 1)] ?? "<missing parameter>",
-  );
-  return string;
+	string = string.replace(
+		/#{[\w.]+}/g,
+		(query) =>
+			parameters[query.slice(2, query.length - 1)] ?? "<missing parameter>",
+	);
+	return string;
 };

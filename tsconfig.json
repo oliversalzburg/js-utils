@@ -1,23 +1,17 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig.json",
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "checkJs": true,
-    "declaration": true,
-    "incremental": true,
-    "module": "esnext",
-    "outDir": "lib",
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "target": "esnext",
-    "types": [
-      "node",
-      "web"
-    ]
-  },
-  "include": [
-    "./.scripts",
-    "./@types",
-    "./source"
-  ]
+	"$schema": "https://json.schemastore.org/tsconfig.json",
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"checkJs": true,
+		"declaration": true,
+		"incremental": true,
+		"module": "esnext",
+		"outDir": "lib",
+		"rootDir": ".",
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"target": "esnext",
+		"types": ["node", "web"]
+	},
+	"include": ["./.scripts", "./@types", "./source"]
 }

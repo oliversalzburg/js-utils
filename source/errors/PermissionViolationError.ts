@@ -5,20 +5,20 @@ import { AbstractError } from "./AbstractError.js";
  * permissions were not available.
  */
 export class PermissionViolationError extends AbstractError {
-  /**
-   * Constructs a new {@linkcode PermissionViolationError}.
-   * @param message - The main error message.
-   * @param status - The HTTP status code to return.
-   */
-  constructor(message: string, status = 403) {
-    super("ERR_OS_PERMISSION_VIOLATION", message, status);
+	/**
+	 * Constructs a new {@linkcode PermissionViolationError}.
+	 * @param message - The main error message.
+	 * @param status - The HTTP status code to return.
+	 */
+	constructor(message: string, status = 403) {
+		super("ERR_OS_PERMISSION_VIOLATION", message, status);
 
-    this.name = "PermissionViolationError";
+		this.name = "PermissionViolationError";
 
-    if (typeof Error.captureStackTrace !== "undefined") {
-      // Capture a new stacktrace, otherwise it will include our base-class
-      // constructor instead of the code location we're actually interested in.
-      Error.captureStackTrace(this, PermissionViolationError);
-    }
-  }
+		if (typeof Error.captureStackTrace !== "undefined") {
+			// Capture a new stacktrace, otherwise it will include our base-class
+			// constructor instead of the code location we're actually interested in.
+			Error.captureStackTrace(this, PermissionViolationError);
+		}
+	}
 }

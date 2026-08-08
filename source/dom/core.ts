@@ -1,4 +1,4 @@
-import { ConstructorOf } from "../core.js";
+import type { ConstructorOf } from "../core.js";
 import { UnexpectedNilError } from "../data/nil.js";
 import { InvalidOperationError } from "../errors/InvalidOperationError.js";
 
@@ -13,21 +13,25 @@ import { InvalidOperationError } from "../errors/InvalidOperationError.js";
  * @throws {@linkcode  UnexpectedNilError} When the the document element is `null`.
  */
 export const getDocumentElementTypeByIdStrict = <T extends HTMLElement>(
-  document: Document,
-  id: string,
-  Type: ConstructorOf<T>,
+	document: Document,
+	id: string,
+	Type: ConstructorOf<T>,
 ): T => {
-  const element = document.getElementById(id);
+	const element = document.getElementById(id);
 
-  if (element === null) {
-    throw new UnexpectedNilError(`The document element '${id}' does not exist.`);
-  }
+	if (element === null) {
+		throw new UnexpectedNilError(
+			`The document element '${id}' does not exist.`,
+		);
+	}
 
-  if (!(element instanceof Type)) {
-    throw new InvalidOperationError(`The document element '${id}' has an unexpected type.`);
-  }
+	if (!(element instanceof Type)) {
+		throw new InvalidOperationError(
+			`The document element '${id}' has an unexpected type.`,
+		);
+	}
 
-  return element;
+	return element;
 };
 
 /**
@@ -39,19 +43,19 @@ export const getDocumentElementTypeByIdStrict = <T extends HTMLElement>(
  * @returns The requested element, if it has the expected type; `null` otherwise.
  */
 export const getDocumentElementTypeById = <T extends HTMLElement>(
-  document: Document,
-  id: string,
-  Type: ConstructorOf<T>,
+	document: Document,
+	id: string,
+	Type: ConstructorOf<T>,
 ): T | null => {
-  const element = document.getElementById(id);
+	const element = document.getElementById(id);
 
-  if (element === null) {
-    return null;
-  }
+	if (element === null) {
+		return null;
+	}
 
-  if (!(element instanceof Type)) {
-    return null;
-  }
+	if (!(element instanceof Type)) {
+		return null;
+	}
 
-  return element;
+	return element;
 };

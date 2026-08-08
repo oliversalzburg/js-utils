@@ -9,5 +9,5 @@
  * @throws The provided error.
  */
 export const rethrow = (error: unknown) => {
-  throw error;
+	throw error;
 };

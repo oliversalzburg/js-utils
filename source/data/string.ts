@@ -8,7 +8,7 @@ import { mustExist } from "./nil.js";
  * @returns The indented text.
  */
 export const indent = (subject: string, depth = 0, prefix = "    "): string =>
-  subject.replaceAll(/^/gm, prefix.repeat(depth));
+	subject.replaceAll(/^/gm, prefix.repeat(depth));
 
 /**
  * A fast and simple 53-bit string hash function with decent collision resistance.
@@ -20,18 +20,21 @@ export const indent = (subject: string, depth = 0, prefix = "    "): string =>
  * @returns A hash of the string.
  */
 export const hashCyrb53 = (subject: string, seed = 0): string => {
-  let h1 = 0xdeadbeef ^ seed,
-    h2 = 0x41c6ce57 ^ seed;
-  for (let i = 0, ch; i < subject.length; i++) {
-    ch = subject.charCodeAt(i);
-    h1 = Math.imul(h1 ^ ch, 2654435761);
-    h2 = Math.imul(h2 ^ ch, 1597334677);
-  }
-  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507);
-  h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909);
-  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507);
-  h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
-  return (h2 >>> 0).toString(16).padStart(8, "0") + (h1 >>> 0).toString(16).padStart(8, "0");
+	let h1 = 0xdeadbeef ^ seed,
+		h2 = 0x41c6ce57 ^ seed;
+	for (let i = 0, ch = 0; i < subject.length; i++) {
+		ch = subject.charCodeAt(i);
+		h1 = Math.imul(h1 ^ ch, 2654435761);
+		h2 = Math.imul(h2 ^ ch, 1597334677);
+	}
+	h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507);
+	h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+	h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507);
+	h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+	return (
+		(h2 >>> 0).toString(16).padStart(8, "0") +
+		(h1 >>> 0).toString(16).padStart(8, "0")
+	);
 };
 
 /**
@@ -40,9 +43,9 @@ export const hashCyrb53 = (subject: string, seed = 0): string => {
  * @returns The subject string encoded in Base64.
  */
 export const base64Encode = (subject: string): string => {
-  const bytes = new TextEncoder().encode(subject);
-  const binString = String.fromCodePoint(...bytes);
-  return btoa(binString);
+	const bytes = new TextEncoder().encode(subject);
+	const binString = String.fromCodePoint(...bytes);
+	return btoa(binString);
 };
 
 /**
@@ -51,7 +54,7 @@ export const base64Encode = (subject: string): string => {
  * @returns The decoded subject string.
  */
 export const base64Decode = (subject: string): string => {
-  const binString = atob(subject);
-  const bytes = Uint8Array.from(binString, m => mustExist(m.codePointAt(0)));
-  return new TextDecoder().decode(bytes);
+	const binString = atob(subject);
+	const bytes = Uint8Array.from(binString, (m) => mustExist(m.codePointAt(0)));
+	return new TextDecoder().decode(bytes);
 };

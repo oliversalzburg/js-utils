@@ -2,8 +2,10 @@
  * Describes a function that is a constructor for something.
  * @typeParam TConstructed - The type this is a constructor for.
  */
-// biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
-export type ConstructorOf<TConstructed> = new (...args: Array<any>) => TConstructed;
+export type ConstructorOf<TConstructed> = new (
+	// biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
+	...args: Array<any>
+) => TConstructed;
 
 /**
  * Describes any function.
@@ -28,7 +30,10 @@ export type AnyConstructor = new (...args: Array<any>) => any;
  * @typeParam TReturned - The type of the item returned by the function.
  */
 // biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
-export type AnyFunctionReturning<TReturned = any> = (...args: Array<any>) => TReturned;
+export type AnyFunctionReturning<TReturned = any> = (
+	// biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
+	...args: Array<any>
+) => TReturned;
 
 /**
  * Describes an async function returning an instance of a given type.
@@ -36,8 +41,8 @@ export type AnyFunctionReturning<TReturned = any> = (...args: Array<any>) => TRe
  */
 // biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
 export type AnyAsyncFunctionReturning<TReturned = any> = (
-  // biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
-  ...args: Array<any>
+	// biome-ignore lint/suspicious/noExplicitAny: No idea how to work around these ones.
+	...args: Array<any>
 ) => Promise<TReturned>;
 
 /**
@@ -48,16 +53,18 @@ export type AnyAsyncFunctionReturning<TReturned = any> = (
  * @typeParam TTarget - The type of the classed this mixin is being
  * mixed in with.
  */
-export type Mixin<TTarget extends AnyFunctionReturning> = InstanceType<ReturnType<TTarget>>;
+export type Mixin<TTarget extends AnyFunctionReturning> = InstanceType<
+	ReturnType<TTarget>
+>;
 
 /**
  * Recursive definition of a regular JS object, which is a key-value hash
  * of strings to primitives, or another object of the same type.
  */
 export type JsonObject =
-  | string
-  | number
-  | boolean
-  | null
-  | Array<JsonObject>
-  | { [key: string]: JsonObject };
+	| string
+	| number
+	| boolean
+	| null
+	| Array<JsonObject>
+	| { [key: string]: JsonObject };

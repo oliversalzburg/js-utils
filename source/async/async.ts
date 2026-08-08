@@ -1,4 +1,8 @@
-import { AnyAsyncFunction, AnyFunctionReturning, ConstructorOf } from "../core.js";
+import type {
+	AnyAsyncFunction,
+	AnyFunctionReturning,
+	ConstructorOf,
+} from "../core.js";
 import { redirectErrorsToConsole } from "../errors/console.js";
 
 /**
@@ -11,16 +15,16 @@ import { redirectErrorsToConsole } from "../errors/console.js";
  * @returns A function returning nothing.
  */
 export const prepareAsyncContext = (context: AnyAsyncFunction) => {
-  return (
-    /**
-     * The arguments that our new function was called with.
-     */
-    ...args: Array<unknown>
-  ) => {
-    void context(...args)
-      .then(() => undefined)
-      .catch(redirectErrorsToConsole(console));
-  };
+	return (
+		/**
+		 * The arguments that our new function was called with.
+		 */
+		...args: Array<unknown>
+	) => {
+		void context(...args)
+			.then(() => undefined)
+			.catch(redirectErrorsToConsole(console));
+	};
 };
 
 /**
@@ -37,22 +41,24 @@ export const prepareAsyncContext = (context: AnyAsyncFunction) => {
  * in case the function failed.
  */
 export const coalesceOnRejection = async <
-  TExecutableReturn,
-  TCoalesce,
-  TFilter extends ConstructorOf<Error>,
+	TExecutableReturn,
+	TCoalesce,
+	TFilter extends ConstructorOf<Error>,
 >(
-  executable: AnyFunctionReturning<TExecutableReturn | Promise<TExecutableReturn>>,
-  to: TCoalesce,
-  filter?: TFilter,
+	executable: AnyFunctionReturning<
+		TExecutableReturn | Promise<TExecutableReturn>
+	>,
+	to: TCoalesce,
+	filter?: TFilter,
 ) => {
-  try {
-    return await executable();
-  } catch (error) {
-    if ((filter !== undefined && error instanceof filter) || !filter) {
-      return to;
-    }
-    throw error;
-  }
+	try {
+		return await executable();
+	} catch (error) {
+		if ((filter !== undefined && error instanceof filter) || !filter) {
+			return to;
+		}
+		throw error;
+	}
 };
 
 /**
@@ -61,7 +67,7 @@ export const coalesceOnRejection = async <
  * @returns Nothing
  */
 export const sleep = (duration: number): Promise<void> => {
-  return new Promise(resolve => setTimeout(resolve, duration));
+	return new Promise((resolve) => setTimeout(resolve, duration));
 };
 
 /**
@@ -73,19 +79,21 @@ export const sleep = (duration: number): Promise<void> => {
  * @returns Whatever the function resolved to.
  */
 export const retry = async <TExecutableReturn>(
-  executable: AnyFunctionReturning<TExecutableReturn | Promise<TExecutableReturn>>,
-  retryDelay = 0,
-  retryCount = 0,
+	executable: AnyFunctionReturning<
+		TExecutableReturn | Promise<TExecutableReturn>
+	>,
+	retryDelay = 0,
+	retryCount = 0,
 ): Promise<TExecutableReturn> => {
-  try {
-    return await executable();
-  } catch (error) {
-    if (0 < retryCount) {
-      if (0 < retryDelay) {
-        await sleep(retryDelay);
-      }
-      return retry(executable, retryDelay, --retryCount);
-    }
-    throw error;
-  }
+	try {
+		return await executable();
+	} catch (error) {
+		if (0 < retryCount) {
+			if (0 < retryDelay) {
+				await sleep(retryDelay);
+			}
+			return retry(executable, retryDelay, --retryCount);
+		}
+		throw error;
+	}
 };

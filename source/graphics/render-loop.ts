@@ -1,4 +1,4 @@
-import { Canvas } from "./canvas.js";
+import type { Canvas } from "./canvas.js";
 
 /**
  * The amount of milliseconds your can spend in a frame, if you want to
@@ -15,16 +15,16 @@ export type RenderLoopCallback = (delta: number, timestamp: number) => unknown;
  * Configuration for a {@linkcode RenderLoop},
  */
 export interface RenderLoopOptions {
-  /**
-   * Should the current frames per second be rendered onto the canvas
-   * each frame?
-   */
-  drawFps: boolean;
+	/**
+	 * Should the current frames per second be rendered onto the canvas
+	 * each frame?
+	 */
+	drawFps: boolean;
 
-  /**
-   * Should the buffer be cleared or faded to black before each frame?
-   */
-  onRefresh: "clear";
+	/**
+	 * Should the buffer be cleared or faded to black before each frame?
+	 */
+	onRefresh: "clear";
 }
 
 /**
@@ -32,142 +32,135 @@ export interface RenderLoopOptions {
  * a constant frame rate.
  */
 export class RenderLoop {
-  /**
-   * The {@linkcode Canvas} we're rendering to.
-   */
-  readonly canvas: Canvas;
+	/**
+	 * The {@linkcode Canvas} we're rendering to.
+	 */
+	readonly canvas: Canvas;
 
-  /**
-   * A function that we call when a new frame should be drawn.
-   */
-  readonly renderLoop: RenderLoopCallback;
+	/**
+	 * A function that we call when a new frame should be drawn.
+	 */
+	readonly renderLoop: RenderLoopCallback;
 
-  /**
-   * The configuration that was used for this render loop.
-   */
-  readonly options: Readonly<Partial<RenderLoopOptions>>;
+	/**
+	 * The configuration that was used for this render loop.
+	 */
+	readonly options: Readonly<Partial<RenderLoopOptions>>;
 
-  /**
-   * The time at which we drew the last frame to the offscreen buffer.
-   */
-  private previousTimestampDraw: number;
+	/**
+	 * The time at which we drew the last frame to the offscreen buffer.
+	 */
+	private previousTimestampDraw: number;
 
-  /**
-   * The time at which we rendered the last frame to the DOM.
-   */
-  private previousTimestampPresent: number;
+	/**
+	 * The ID of our {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame requestAnimationFrame} request.
+	 */
+	private frameRequestId: number | null = null;
 
-  /**
-   * The ID of our {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame requestAnimationFrame} request.
-   */
-  private frameRequestId: number | null = null;
+	/**
+	 * The ID of our {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/setTimeout setTimeout}-based
+	 * offscreen rendering loop.
+	 */
+	private drawTimeout: ReturnType<typeof setTimeout> | null = null;
 
-  /**
-   * The ID of our {@linkcode https://developer.mozilla.org/en-US/docs/Web/API/setTimeout setTimeout}-based
-   * offscreen rendering loop.
-   */
-  private drawTimeout: ReturnType<typeof setTimeout> | null = null;
+	/**
+	 * How many frames we've drawn to the DOM throughout the loops lifetime.
+	 */
+	#frameCounter = 0;
 
-  /**
-   * How many frames we've drawn to the DOM throughout the loops lifetime.
-   */
-  #frameCounter = 0;
+	/**
+	 * Retrieves the amount of frames drawn to the DOM throughout the loops lifetime.
+	 * @returns The frame count.
+	 */
+	get frameCounter() {
+		return this.#frameCounter;
+	}
 
-  /**
-   * Retrieves the amount of frames drawn to the DOM throughout the loops lifetime.
-   * @returns The frame count.
-   */
-  get frameCounter() {
-    return this.#frameCounter;
-  }
+	/**
+	 * Constructs a new {@linkcode RenderLoop}.
+	 * @param renderLoop - The function to call when a new frame should be drawn.
+	 * @param canvas - The canvas we're rendering to.
+	 * @param options - The configuration for thie {@linkcode RenderLoop}.
+	 */
+	constructor(
+		renderLoop: RenderLoopCallback,
+		canvas: Canvas,
+		options: Partial<RenderLoopOptions> = {},
+	) {
+		this.canvas = canvas;
+		this.options = options;
+		this.renderLoop = renderLoop;
+		this.previousTimestampDraw = Date.now();
+	}
 
-  /**
-   * Constructs a new {@linkcode RenderLoop}.
-   * @param renderLoop - The function to call when a new frame should be drawn.
-   * @param canvas - The canvas we're rendering to.
-   * @param options - The configuration for thie {@linkcode RenderLoop}.
-   */
-  constructor(
-    renderLoop: RenderLoopCallback,
-    canvas: Canvas,
-    options: Partial<RenderLoopOptions> = {},
-  ) {
-    this.canvas = canvas;
-    this.options = options;
-    this.renderLoop = renderLoop;
-    this.previousTimestampDraw = new Date().getTime();
-    this.previousTimestampPresent = this.previousTimestampDraw;
-  }
+	/**
+	 * Stop the render loop.
+	 */
+	block() {
+		if (this.frameRequestId !== null) {
+			cancelAnimationFrame(this.frameRequestId);
+			this.frameRequestId = null;
+		}
 
-  /**
-   * Stop the render loop.
-   */
-  block() {
-    if (this.frameRequestId !== null) {
-      cancelAnimationFrame(this.frameRequestId);
-      this.frameRequestId = null;
-    }
+		if (this.drawTimeout !== null) {
+			clearTimeout(this.drawTimeout);
+			this.drawTimeout = null;
+		}
+	}
 
-    if (this.drawTimeout !== null) {
-      clearTimeout(this.drawTimeout);
-      this.drawTimeout = null;
-    }
-  }
+	/**
+	 * Start the render loop.
+	 */
+	unblock() {
+		if (this.frameRequestId !== null) {
+			return;
+		}
 
-  /**
-   * Start the render loop.
-   */
-  unblock() {
-    if (this.frameRequestId !== null) {
-      return;
-    }
+		this.frameRequestId = requestAnimationFrame(this.#drawFrame);
+	}
 
-    this.frameRequestId = requestAnimationFrame(this.#drawFrame);
-  }
+	/**
+	 * The duration it took to produce previous frames.
+	 * This is used for the frame graph.
+	 */
+	#frameTimes: Array<number> = [];
 
-  /**
-   * The duration it took to produce previous frames.
-   * This is used for the frame graph.
-   */
-  #frameTimes: Array<number> = [];
+	/**
+	 * Draws a new frame to the offscreen buffer.
+	 */
+	#drawFrame = () => {
+		this.frameRequestId = null;
 
-  /**
-   * Draws a new frame to the offscreen buffer.
-   */
-  #drawFrame = () => {
-    this.frameRequestId = null;
+		const timestamp = Date.now();
+		const timeDelta = timestamp - this.previousTimestampDraw;
 
-    const timestamp = new Date().getTime();
-    const timeDelta = timestamp - this.previousTimestampDraw;
+		if (this.options.onRefresh === "clear") {
+			this.canvas.clearWith(0);
+		}
 
-    if (this.options.onRefresh === "clear") {
-      this.canvas.clearWith(0);
-    }
+		this.renderLoop(timeDelta, timestamp);
 
-    this.renderLoop(timeDelta, timestamp);
+		const frameTime = Date.now() - timestamp;
 
-    const frameTime = new Date().getTime() - timestamp;
+		if (this.options.drawFps) {
+			const recordCount = this.#frameTimes.unshift(frameTime);
+			if (10000 < recordCount) {
+				this.#frameTimes.splice(5000, 5000);
+			}
+		}
 
-    if (this.options.drawFps) {
-      const recordCount = this.#frameTimes.unshift(frameTime);
-      if (10000 < recordCount) {
-        this.#frameTimes.splice(5000, 5000);
-      }
-    }
+		this.previousTimestampDraw = timestamp;
 
-    this.previousTimestampDraw = timestamp;
+		this.canvas.update();
 
-    this.canvas.update();
+		if (this.options.drawFps) {
+			this.canvas.renderFpsInfo(this.#frameTimes, frameTime, timeDelta);
+		}
 
-    if (this.options.drawFps) {
-      this.canvas.renderFpsInfo(this.#frameTimes, frameTime, timeDelta);
-    }
+		this.canvas.render();
 
-    this.canvas.render();
+		this.unblock();
 
-    this.unblock();
-
-    this.previousTimestampPresent = timestamp;
-    ++this.#frameCounter;
-  };
+		++this.#frameCounter;
+	};
 }

@@ -5,8 +5,10 @@
  * @returns The requested event object.
  */
 export const createEvent = <TEventType extends string, TDetail>(
-  type: TEventType,
-  detail: TDetail,
+	type: TEventType,
+	detail: TDetail,
 ): CustomEvent<TDetail> & { type: TEventType } => {
-  return new CustomEvent(type, { detail }) as CustomEvent<TDetail> & { type: TEventType };
+	return new CustomEvent(type, { detail }) as CustomEvent<TDetail> & {
+		type: TEventType;
+	};
 };
