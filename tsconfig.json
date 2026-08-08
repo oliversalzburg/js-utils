@@ -7,10 +7,11 @@
 		"incremental": true,
 		"module": "esnext",
 		"outDir": "lib",
-		"rootDir": ".",
+		"rootDir": "./source",
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"target": "esnext",
+		"tsBuildInfoFile": "lib/tsconfig.tsbuildinfo",
 		"types": ["node", "web"]
 	},
 	"include": ["./.scripts", "./@types", "./source"]
