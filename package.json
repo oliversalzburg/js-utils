@@ -16,11 +16,10 @@
     }
   },
   "files": [
-    "./lib/**/*.d.ts",
-    "./lib/**/*.js",
-    "./lib/**/*.map"
+    "./lib"
   ],
   "scripts": {
+    "prepack": "rm lib/tsconfig.tsbuildinfo",
     "preversion": "make lint test",
     "postversion": "git push"
   },
