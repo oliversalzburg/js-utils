@@ -19,8 +19,7 @@
     "./lib"
   ],
   "scripts": {
-    "prepack": "rm lib/tsconfig.tsbuildinfo",
-    "preversion": "make lint test",
+    "preversion": "make lint test && rm lib/tsconfig.tsbuildinfo",
     "postversion": "git push"
   },
   "devDependencies": {
