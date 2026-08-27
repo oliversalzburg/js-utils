@@ -85,3 +85,27 @@ export const chunkify = function* <TElements>(
 		yield chunk;
 	}
 };
+
+/**
+ * Group all elements of the input array, that produce the same identity,
+ * into a new array.
+ * @param array - The array with the items to group.
+ * @param ident - Callback that identifies the group of the element.
+ * @typeParam TElements - The type of the elements in the array.
+ * @typeParam TGroupKey - The type of the group identifier.
+ * @returns A map that correlates the group key to an array of all elements with that group key.
+ */
+export const groupBy = <TElements, TGroupKey>(
+	array: Array<TElements>,
+	ident: (element: TElements) => TGroupKey,
+): Map<TGroupKey, Array<TElements>> => {
+	const result = new Map<TGroupKey, Array<TElements>>();
+	for (const element of array) {
+		const id = ident(element);
+		if (!result.has(id)) {
+			result.set(id, new Array<TElements>());
+		}
+		result.get(id)?.push(element);
+	}
+	return result;
+};
