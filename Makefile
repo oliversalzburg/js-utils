@@ -23,7 +23,7 @@ lint: node_modules/.package-lock.json
 
 test: node_modules/.package-lock.json
 	npm exec -- tsc
-	node --enable-source-maps --test lib/**/*.test.js
+	node --test lib/**/*.test.js
 
 
 package-lock.json: package.json
