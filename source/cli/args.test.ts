@@ -40,3 +40,36 @@ it("parses parameters using ' '", () => {
 		},
 	);
 });
+
+it("aggregates multiple occurrences of the same parameter", () => {
+	assert.deepStrictEqual(
+		parseArgv(["node", "script.js", "--lang", "de", "--lang", "en"]),
+		{
+			lang: ["de", "en"],
+		},
+	);
+	assert.deepStrictEqual(
+		parseArgv([
+			"node",
+			"script.js",
+			"--lang",
+			"de",
+			"--lang",
+			"en",
+			"filename.ext",
+		]),
+		{
+			"": ["filename.ext"],
+			lang: ["de", "en"],
+		},
+	);
+});
+
+it("aggregates multiple unlabeled parameters", () => {
+	assert.deepStrictEqual(
+		parseArgv(["node", "script.js", "filename.ext", "otherfile.ext"]),
+		{
+			"": ["filename.ext", "otherfile.ext"],
+		},
+	);
+});

@@ -45,16 +45,23 @@ export const parseArgv = (
 			}
 
 			const argSlot = acc.args[slot];
+			if (
+				(Array.isArray(argSlot) || typeof argSlot === "string") &&
+				value === true
+			) {
+				return acc;
+			}
+
 			acc.args[slot] =
 				Array.isArray(argSlot) && typeof value === "string"
 					? [...argSlot, value]
 					: slot === "" && typeof value === "string"
 						? [value]
-						: typeof argSlot === "undefined" ||
-								typeof argSlot === "boolean" ||
-								typeof value === "boolean"
+						: typeof argSlot === "undefined" || typeof value === "boolean"
 							? value
-							: [...(Array.isArray(argSlot) ? argSlot : [argSlot]), value];
+							: typeof argSlot === "boolean"
+								? value
+								: [...(Array.isArray(argSlot) ? argSlot : [argSlot]), value];
 
 			return acc;
 		},
