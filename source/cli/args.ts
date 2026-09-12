@@ -12,15 +12,17 @@ export const parseArgv = (
 	boolean | string | Array<string>
 > =>
 	argv.slice(2).reduce(
-		(acc, _, index, array) => {
+		(acc, _) => {
 			let slot: string;
 			let value: string | true;
 
+			if (_ === "--") {
+				expectUnlabeled = true;
+				return acc;
+			}
+
 			if (!_.startsWith("--")) {
-				if (
-					acc.prev === undefined ||
-					(expectUnlabeled && index === array.length - 1)
-				) {
+				if (acc.prev === undefined || expectUnlabeled) {
 					slot = "";
 				} else {
 					slot = acc.prev;

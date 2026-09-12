@@ -73,3 +73,49 @@ it("aggregates multiple unlabeled parameters", () => {
 		},
 	);
 });
+
+/**
+ * Passing multiple unlabeled arguments requires a -- for separation in some cases.
+ * It's usually best to use it consistently to distinguish these types of arguments.
+ */
+it("parses multiple unlabeled trailing arguments", () => {
+	assert.deepStrictEqual(parseArgv(["node", "script.js", "--yes"]), {
+		yes: true,
+	});
+	assert.deepStrictEqual(
+		parseArgv(["node", "script.js", "--yes", "--", "filename.ext"], true),
+		{
+			"": ["filename.ext"],
+			yes: true,
+		},
+	);
+	assert.deepStrictEqual(
+		parseArgv([
+			"node",
+			"script.js",
+			"--yes",
+			"--",
+			"filename.ext",
+			"otherfile.ext",
+		]),
+		{
+			"": ["filename.ext", "otherfile.ext"],
+			yes: true,
+		},
+	);
+	assert.deepStrictEqual(
+		parseArgv([
+			"node",
+			"script.js",
+			"--yes",
+			"--",
+			"filename.ext",
+			"otherfile.ext",
+			"directory",
+		]),
+		{
+			"": ["filename.ext", "otherfile.ext", "directory"],
+			yes: true,
+		},
+	);
+});
