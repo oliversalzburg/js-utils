@@ -109,3 +109,16 @@ export const groupBy = <TElements, TGroupKey>(
 	}
 	return result;
 };
+
+/**
+ * Generate an array with all numbers from start to end inclusive.
+ * @param start - The first number in the array.
+ * @param end - The last number in the array.
+ * @returns An array with all numbers in the requested range.
+ */
+export const range = (start: number, end: number): Array<number> => {
+	const length = Math.abs(start - end) + 1;
+	return Array.from({ length }).map(
+		(_, index: number) => start + index * (end < start ? -1 : 1),
+	);
+};
