@@ -23,7 +23,7 @@
     "postversion": "git push"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.15",
+    "@biomejs/biome": "2.6.2",
     "@types/node": "26.6.5",
     "@types/web": "0.0.359",
     "typescript": "7.0.2"
