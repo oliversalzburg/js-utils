@@ -14,7 +14,7 @@ git-hook:
 	echo "make pretty" > .git/hooks/pre-commit
 
 pretty: node_modules/.package-lock.json
-	npm exec -- biome check --write --no-errors-on-unmatched
+	npm exec -- biome check --write --no-errors-on-unmatched --unsafe
 	npm pkg fix
 
 lint: node_modules/.package-lock.json

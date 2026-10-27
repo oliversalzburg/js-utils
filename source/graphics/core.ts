@@ -154,7 +154,7 @@ export const blendSubtractive = (src: number, dst: number, alpha: number) => {
 	const r = getR(src) - ((alpha * getR(dst)) >> 8);
 	const g = getG(src) - ((alpha * getG(dst)) >> 8);
 	const b = getB(src) - ((alpha * getB(dst)) >> 8);
-	return fromRGB(r < 0 ? 0 : r, g < 0 ? 0 : g, b < 0 ? 0 : b);
+	return fromRGB(Math.max(r, 0), Math.max(g, 0), Math.max(b, 0));
 };
 
 /**
