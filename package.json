@@ -25,7 +25,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.6.4",
     "@types/node": "26.6.6",
-    "@types/web": "0.0.359",
+    "@types/web": "0.0.360",
     "typescript": "7.0.2"
   },
   "engines": {
